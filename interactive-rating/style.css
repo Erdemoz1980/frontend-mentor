@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap');
+
+
+:root {
+  /*Colors*/
+  --orange:hsl(25, 97%, 53%);
+  --lightGrey: hsl(217, 12%, 63%);
+  --mediumGrey:hsl(216, 12%, 54%);
+  --darkBlue:hsl(213, 19%, 18%);
+  --veryDarkBlue:hsl(216, 12%, 8%);
+
+  /*Font Family*/
+  --ffMain:'Overpass', sans-serif;
+
+  /*Font Size*/
+  --fsParagraph:15px;
+
+  /*Font Weight*/
+  --fwBold:700;
+  --fwRegular:400;
+  
+}
+
+
+*, *::after, *::before {
+  padding: 0;
+  margin:0;
+  box-sizing: border-box;
+}
+
+html, body{
+  font-family: var(--ffMain);
+}
+
+.main-section{
+  height: 100vh;
+  background-color: var(--veryDarkBlue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rating-card{
+  display: flex;
+  flex-direction: column;
+  padding:2rem;
+  max-width: 400px;
+  background-color: var(--darkBlue);
+  color:var(--lightGrey);
+  border-radius: 1.75rem;
+}
+
+.star-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--mediumGrey);
+  border-radius: 50%;
+  height:2.75rem;
+  width: 2.75rem;
+  margin-bottom: 2.25rem;
+}
+
+.rating-star{
+  width: 40%;
+  height: 40%;
+}
+
+.rating-title{
+  color:#fff;
+  margin-bottom: .75rem;
+  font-size: 1.2rem;
+}
+
+.rating-text{
+  font-size: var(--fsParagraph);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.rating-numbers{
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.number{
+  height:3rem;
+  width: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:#fff;
+  background-color: var(--mediumGrey);
+  padding:.85rem;
+  border-radius: 50%;
+  margin-bottom: 2rem;
+  
+}
+
+ .rating-btn{
+  color:#fff;
+  background-color: var(--orange);
+  border:none;
+  padding:.9rem 2rem;
+  border-radius: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: .2rem;
+  font-size: var(--fsParagraph);
+  font-weight: 500;
+ }
