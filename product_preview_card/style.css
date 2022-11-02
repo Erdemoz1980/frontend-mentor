@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Montserrat:wght@500;700&display=swap');
+
+:root {
+  /* Font Families*/
+  --ffMainFont:'Montserrat', sans-serif;
+  --ffsSecondaryFont:'Fraunces', serif;
+
+  /*Font Weight*/
+  --fwMainWeight:500;
+  --fwHeavyWeight:700;
+
+  /* Colors */
+  --primaryBg:hsl(30, 38%, 92%);
+  --darkCyan:hsl(158, 36%, 37%);
+  --darkBlue:hsl(212, 21%, 14%);
+  --darkGreyBlue:hsl(228, 12%, 48%);
+
+ /* Font Sizes */
+ --fsParagraph:14px;
+ --fsCardPrice:32px;
+
+ /*Spacing*/
+ --spacingCardCategory:1.2rem;
+ --spacingCardHeader:1.5rem;
+ --spacingCardText:1.5rem;
+
+}
+
+*, *::after, *::before{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html, body{
+  background-color: var(--primaryBg);
+  font-family: var(--ffMainFont);
+}
+
+
+.main-section{
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.card{
+  display: flex;
+  max-width: 650px;
+  height: 50%;
+
+}
+
+.card-img{
+  object-fit: cover;
+  border-radius: 1rem 0 0 1rem;
+
+}
+
+.card-body{
+  width: 50%;
+  padding:2rem;
+  background-color: #fff;
+  border-radius: 0 1rem 1rem 0;
+}
+
+.card-category{
+  font-size: var(--fsParagraph);
+  text-transform: uppercase;
+  color:var(--darkGreyBlue);
+  letter-spacing: 0.3rem;
+  margin-bottom: var(--spacingCardCategory);
+}
+
+.card-title {
+  font-family: var(--ffsSecondaryFont);
+  font-weight: var(--fwHeavyWeight);
+  font-size: 1.5rem;
+  line-height: 1;
+  color:var(--darkBlue);
+  margin-bottom: var(--spacingCardHeader);
+}
+
+.card-text{
+  color:var(--darkGreyBlue);
+  line-height:1.5;
+  margin-bottom: var(--spacingCardText);
+}
+
+.card-price{
+  display: flex;
+  margin-bottom: var(--spacingCardText);
+  align-items: center;
+  justify-content: space-between;
+ 
+}
+
+.price-main{
+  font-family: var(--ffsSecondaryFont);
+  font-weight: var(--fwHeavyWeight);
+  font-size: var(--fsCardPrice);
+  color:var(--darkCyan);
+}
+
+.price-old{
+  text-decoration: line-through;
+  color:var(--darkGreyBlue);
+  padding-right: 2.75rem;
+}
+
+.card-btn{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  background-color: var(--darkCyan);
+  color:#fff;
+  border:none;
+  padding:1rem 2.5rem;
+  border-radius: .5rem;
+  font-size: var(--fsParagraph);
+  font-weight: var(--fwHeavyWeight);
+ 
+}
+
+.card-btn img{
+  margin-right: 1rem;
+}
+
+@media only screen and (max-width:650px){
+
+  .main-section{
+    display: block;   
+    padding:2rem 1rem;
+  }
+  .card{
+    flex-direction: column;
+  }
+
+  .card-body{
+    width: 100%;
+    border-radius: 0 0 1rem 1rem;
+  }
+
+  .card-img{
+  height: 370px;
+  border-radius:1rem 1rem 0 0;
+
+  }
+}
