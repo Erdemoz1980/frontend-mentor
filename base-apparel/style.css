@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500&display=swap');
+
+:root {
+  /* Font Family*/
+  --ffMain: 'Josefin Sans', sans-serif;
+
+  /*Font Weights*/
+  --fwLight:300;
+  --fwMedium:400;
+  --fwHeavy:600;
+
+  /*Font Sizes*/
+  --fsParagraph:16px;
+
+  /*Colors*/
+  --desatRed: hsl(0, 36%, 70%);
+  --softRed: hsl(0, 93%, 68%);
+  ---darkGrayishRed: hsl(0, 6%, 24%);
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+html, body{
+height:100vh;
+font-family: var(--ffMain);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: var(--fsParagraph);
+background-color: #000;
+
+}
+
+.container{
+  max-width: 1440px;
+  background-color: #fefcfd;
+  display: flex;
+
+}
+
+.left-side{
+  display: flex;
+  flex-direction: column;
+  padding-top:4.1rem;
+  padding-left: 10.4rem;
+  padding-right: 14rem;
+}
+
+.brand{
+margin-bottom: 8.3rem;
+}
+
+.title{
+  display: flex;
+  flex-direction: column;
+  font-size: 2rem;
+  letter-spacing: 1.1rem;
+}
+
+.title-rose{
+  color:var(--desatRed);
+  text-transform: uppercase;
+  font-weight: var(--fwLight);
+  margin-bottom: .25rem;
+ 
+}
+
+.title-black{
+  text-transform: uppercase;
+  font-weight: var(--fwHeavy);
+  line-height: 1.08;
+  margin-bottom: 1rem;
+}
+
+.body{
+  color:var(--desatRed);
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+
+.form{
+  display: flex;
+}
+
+.form input {
+  border-right: none;
+  font-size: var(--fsParagraph);
+  padding: 1.1rem 2rem;
+  border-radius: 2rem;
+  border: 1px solid var(--desatRed);
+  width: 25rem;
+
+}
+
+::placeholder{
+  color:var(--desatRed);
+  letter-spacing: 1px;
+  font-size: 15px
+}
