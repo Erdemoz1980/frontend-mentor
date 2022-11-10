@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+
+:root {
+  /*Font Family*/
+  --ffMain:'Rubik', sans-serif;
+
+  /*Font Sizes*/
+  --fsTitle:18px;
+
+  /*Colors*/
+    /*Primary*/
+  --clrBlue: hsl(246, 80%, 60%);
+  --clrWork:hsl(15, 100%, 70%);
+  --clrPlay:hsl(195, 74%, 62%);
+  --clrStudy:hsl(195, 74%, 62%);
+  --clrExercise:hsl(145, 58%, 55%);
+  --clrSocial: hsl(264, 64%, 52%);
+  --clrSelfCare:hsl(43, 84%, 65%);
+
+    /*Neutral*/
+  --clrVeryDarkBlue:hsl(226, 43%, 10%);
+  --clrDarkBlue: hsl(235, 46%, 20%);
+  --clrDesaturatedBlue: hsl(235, 45%, 61%);
+  --clrPaleBlue: hsl(236, 100%, 87%);
+}
+
+*,
+*::after,
+*::before {
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+}
+
+/*Make images easier to work with*/
+img,
+picture {
+  max-width: 100%;
+  object-fit: cover;
+  aspect-ratio: 1 /1 ;
+}
+
+h2{
+  font-weight: 300;
+  font-size: 40px;
+}
+
+p{
+  color:var(--clrPaleBlue);
+  font-size: 14px;
+}
+
+html, body{
+  background-color: var(--clrVeryDarkBlue);
+  font-family: var(--ffMain);
+  color:#fff;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container{
+  padding:2rem;
+}
+
+.dashboard{
+  max-width: 1440px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap:1.75rem;
+}
+
+.card__featured {
+ display: grid;
+ grid-column:1 / 2;
+ grid-row: 1 / 3;
+ grid-template-columns: 1fr;
+}
+
+.card__bio{
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  padding-right: 3rem;
+  background-color: var(--clrBlue);
+  border-radius: 17px;
+  z-index: 1;
+}
+
+.card__id__frequency {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+  background-color: var(--clrDarkBlue);
+  border-radius: 17px;
+  margin-top: 16rem;
+  padding-top:2rem;  
+}
+
+.card__id__bio__content {
+  margin:2rem 0 4rem;
+}
+
+.card__id__frequency p {
+  margin-bottom:0;
+  font-size: 18px;
+  padding-bottom: 1rem;
+}
+
+.card__id__frequency p:last-of-type{
+  padding-bottom: 0;
+}
+
+
+.card__img {
+  max-width: 70px;
+  border:3px solid #fff;
+  border-radius: 50%;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 1fr;
+ 
+}
+
+.card__category {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+  background: var(--clrWork);
+  border-radius: 17px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card__content {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+  background: var(--clrDarkBlue);
+  margin-top: 2rem;
+  padding:2rem;
+  border-radius: 17px;
+  z-index: 1;
+}
+
+.card__category svg {
+  position: absolute;
+  top:-10px;
+  right:10px;
+}
