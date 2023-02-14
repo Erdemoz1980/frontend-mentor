@@ -1,5 +1,127 @@
-*, *::after, *::before{
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
+
+:root{
+ /*Colors*/
+ --clrRed: hsl(0, 78%, 62%);
+ --clrCyan: hsl(180, 62%, 55%);
+ --clrOrange: hsl(34, 97%, 64%);
+ --clrBlue: hsl(212, 86%, 64%);
+ --clrVeryDarkBlue: hsl(234, 12%, 34%);
+ --clrGrayishBlue: hsl(229, 6%, 66%);
+ --clrVeryLightGray: hsl(0, 0%, 98%);
+}
+
+*, 
+*::after, 
+*::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body{
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.4;
+  display: flex;
+  margin-top: 60px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color:var(--clrVeryDarkBlue);
+}
+
+.container{
+  max-width: 1440px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:20px;
+}
+
+.item{
+  align-self: center;
+}
+
+.card{
+  position: relative;
+  height: 250px;
+  width: 350px;
+  border-radius:5px;
+  box-shadow: 0 15px 20px  #dde5f0;
+  padding:30px 50px 30px 30px;
+  line-height: 1.8;
+}
+
+.card-icon{
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+
+}
+
+.card-title{
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.card-text{
+  color:var(--clrGrayishBlue);
+  font-size: 13px;
+}
+
+.card-1{
+  border-top: 5px solid var(--clrCyan);
+}
+
+.card-2{
+  border-top: 5px solid var(--clrRed);
+}
+
+.card-3{
+  border-top: 5px solid var(--clrOrange);
+}
+
+.card-4{
+  border-top: 5px solid var(--clrBlue);
+}
+
+.item-2{
+  display: flex;
+  flex-direction: column;
+  gap:30px;
+}
+
+/* Header*/
+.sub-title{
+  font-weight: 200;
+  color:var(--clrVeryDarkBlue)
+}
+
+.header{
+  max-width: 540px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+
+.header-text{
+  text-align: center;
+  margin-top: 20px;
+  color:var(--clrGrayishBlue);
+}
+
+@media screen and (max-width:1100px){
+   .header{
+    text-align: center;
+    max-width: 390px;
+   }
+   .header-text{
+    max-width: 340px;
+   }
+  .container{
+    display:flex;
+    flex-direction: column;
+    margin-bottom: 60px;
+  }
 }
