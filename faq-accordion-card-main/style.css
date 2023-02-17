@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+:root{
+  /*Colors*/
+  --veryDarkDesaturatedBlue: hsl(238, 29%, 16%);
+  --softRed: hsl(14, 88%, 65%);
+
+  /*Text Colors*/
+  --veryDarkGrayishBlue: hsl(237, 12%, 33%);
+  --darkGrayishBlue: hsl(240, 6%, 50%);
+
+  /*Dividers*/
+  --lightGrayishBlue: hsl(240, 5%, 91%);
+
+  /*Gradient Colors */
+  --softViolet: hsl(273, 75%, 66%);
+  --softBlue: hsl(240, 73%, 65%);
+}
+
+/*CSS Reset*/
+*,
+*::after,
+*::before {
+  padding:0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Kumbh Sans', sans-serif;
+  line-height: 1.4;
+  display: flex;
+  padding:15px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(0deg,var(--softBlue),var(--softViolet) 50%);
+}
+
+.container{
+  position: relative;
+  padding:10px;
+}
+
+.box-container{
+  position: absolute;
+  left:-8%;
+  top:41%;
+  z-index: 1;
+}
+
+.card {
+  max-width: 1000px;
+  background: #fff;
+  border-radius: 25px;
+  padding:20px;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  overflow: hidden;
+  position: relative;
+}
+
+.bg-pattern{
+  position: absolute;
+  height:500px;
+  width: 500px;
+  left:-180px;
+  bottom:-60px;
+}
+
+/*Left Side - Images*/
+.left-side{
+  position: relative;
+}
+
+.womanOnline{
+  position: absolute;
+  left:-100px;
+  top:50%;
+  transform: translateY(-50%);
+}
+
+/*Righ Side Accordion*/
+
+.right-side{
+  padding:50px 0px;
+  padding-right: 20px;
+}
+
+.title{
+  text-transform: uppercase;
+  font-size: 25px;
+}
+
+/*Accordion*/
+.accordion{
+  margin-top: 20px;
+  padding-right: 40px;
+}
+
+.accordion-item{
+  border-bottom: 1px solid var(--veryDarkGrayishBlue);
+}
+.question {
+font-size: 18px;
+font-weight: 600;
+}
+
+/*Push Footer down*/
+footer{
+  position: absolute;
+  bottom: 30px;
+}
+
+
+
+
+
