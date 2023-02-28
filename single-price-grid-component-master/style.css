@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+
+:root{
+  /*Colors*/
+  --clrCyan:hsl(179, 62%, 43%);
+  --clrLightCyan:hsl(179,47%,52%);
+  --clrBrightYellow:hsl(71, 73%, 54%);
+  --clrLightGray:hsl(204, 43%, 93%);
+  --clrGrayishBlue:hsl(218, 22%, 67%);
+}
+
+*,
+*::after,
+*::before {
+  padding:0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+body{
+  font-family: 'Karla';
+  line-height: 1.4;
+  background: var(--clrLightGray);
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  height: 100vh;
+
+}
+
+
+.card{
+  max-width: 640px;
+  display: grid;
+  grid-template-areas: 
+  'top top'
+  'bottom-left bottom-right'
+  ;
+}
+
+.section-top{
+  background: #fff;
+  grid-area: top;
+  padding:40px;
+  border-radius: 10px 10px 0 0 ;
+}
+
+.section-left{
+  background: var(--clrCyan);
+  grid-area: bottom-left;
+}
+
+
+.section-top h1{
+  color:var(--clrCyan);
+  margin-bottom: 1.25rem;
+  font-size: 1.5rem;
+}
+
+.section-top h3 {
+  color:var(--clrBrightYellow);
+  margin-bottom: 0.7rem;
+}
+
+.section-top p{
+  color:var(--clrGrayishBlue);
+}
+
+.section-right{
+  grid-area: bottom-right;
+  background: var(--clrLightCyan);
+}
+
+
+footer {
+  position: fixed;
+  bottom: 15px;
+  left:50%;
+  transform: translateX(-50%);
+}
