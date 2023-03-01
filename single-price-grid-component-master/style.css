@@ -33,29 +33,71 @@ body{
 .card{
   max-width: 640px;
   display: grid;
-  grid-template-areas: 
-  'top top'
-  'bottom-left bottom-right'
-  ;
+  grid-template-columns: repeat(2,1fr);
+  border-radius: 8px;
+  box-shadow: 0px 0 40px 3px rgba(0,0,0,0.1);
 }
 
 .section-top{
+  grid-column: span 2;
   background: #fff;
-  grid-area: top;
   padding:40px;
   border-radius: 10px 10px 0 0 ;
 }
 
-.section-left{
-  background: var(--clrCyan);
-  grid-area: bottom-left;
+.section-top h3{
+  font-size:1.1rem;
 }
 
+.section-top p{
+  line-height: 1.6;
+}
+
+.section-left{
+  padding: 30px 40px;
+  max-width: 100%;
+  background: var(--clrCyan);
+  color:var(--clrLightGray);
+  border-radius: 0 0 0 8px;
+}
+
+.section-left h2{
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.price{
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.price span{
+  margin-left: 0.75rem;
+  font-size: 1rem;
+  color:#e0f8f8;
+  font-weight: 400;
+}
+
+.btn{
+  border:none;
+  background: var(--clrBrightYellow);
+  width: 100%;
+  color:#fff;
+  padding:15px;
+  font-size: 1rem;
+  font-family: inherit;
+  border-radius: 5px;
+  margin-top: 2rem;
+  box-shadow: 0px 3px 10px 2px rgba(0,0,0,0.2);
+}
 
 .section-top h1{
   color:var(--clrCyan);
   margin-bottom: 1.25rem;
   font-size: 1.5rem;
+ 
 }
 
 .section-top h3 {
@@ -68,9 +110,24 @@ body{
 }
 
 .section-right{
-  grid-area: bottom-right;
+  max-width: 100%;
   background: var(--clrLightCyan);
+  color:var(--clrLightGray);
+  padding:30px 40px;
+  border-radius: 0 0 8px;
 }
+
+.section-right h2{
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.section-right ul{
+  list-style: none;
+  font-size: .85rem;
+  line-height: 150%;
+}
+
 
 
 footer {
