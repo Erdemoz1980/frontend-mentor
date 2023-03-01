@@ -128,11 +128,26 @@ body{
   line-height: 150%;
 }
 
+@media only screen and (max-width: 670px) {
+  body{
+    margin:0 20px;
+  }
 
+  .card{
+    display: grid;
+    grid-template-columns: 1fr; 
+  }
 
-footer {
-  position: fixed;
-  bottom: 15px;
-  left:50%;
-  transform: translateX(-50%);
+  .section-top {
+    grid-column: 1 / 1;
+  }
+  
+  .section-left{
+    border-radius: 0;
+  }
+
+  .section-right {
+    border-radius: 0 0 8px 8px;
+  }
+
 }
