@@ -57,11 +57,30 @@ border-radius: 20px;
   justify-content: space-between;
   border-bottom: 2px solid var(--clrCream);
   padding-bottom: 25px;
+  margin-top: 65px;
   margin-bottom: 25px;
 }
 
+.bar-container{
+  display: flex;
+  flex-direction: column-reverse;
+  gap:0.5rem;
+  width: 50px;
+  height: 180px;
+}
+
+.bar{
+  background:var(--clrSoftRed);
+  width: 50px;
+  border-radius: 5px;
+}
+
+.bar.max{
+  background: var(--clrCyan);
+}
+
 .chart small{
-  color:var(--clrMediumBrown)
+  color:var(--clrMediumBrown);
 }
 
 /*Footer*/
