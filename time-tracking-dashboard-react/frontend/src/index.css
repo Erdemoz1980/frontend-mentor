@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+
+:root {
+  /*Font Family*/
+  --ffMain:'Rubik', sans-serif;
+
+  /*Font Sizes*/
+  --fsTitle:18px;
+
+  /*Colors*/
+    /*Primary*/
+  --clrBlue: hsl(246, 80%, 60%);
+  --clrWork:hsl(15, 100%, 70%);
+  --clrPlay:hsl(195, 74%, 62%);
+  --clrStudy:hsl(348, 100%, 68%);
+  --clrExercise:hsl(145, 58%, 55%);
+  --clrSocial: hsl(264, 64%, 52%);
+  --clrSelfCare:hsl(43, 84%, 65%);
+
+    /*Neutral*/
+  --clrVeryDarkBlue:hsl(226, 43%, 10%);
+  --clrDarkBlue: hsl(235, 46%, 20%);
+  --clrDesaturatedBlue: hsl(235, 45%, 61%);
+  --clrPaleBlue: hsl(236, 100%, 87%);
+}
+
+*,
+*::after,
+*::before {
+  padding:0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+li{
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+  color:#fff;
+}
+
+body{
+font-family: 'Rubik', sans-serif;
+line-height: 1.2;
+background: var(--clrVeryDarkBlue);
+height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 15px;
+}
+
+
+.dashboard{
+  max-width: 1440px;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap:25px;
+  color:#fff;
+}
+
+.card-featured{
+  grid-row: span 2;
+  border-radius: 15px;
+  border-radius: 15px;
+  width: 250px;
+  transform: translateY(-10px);
+
+}
+
+.bio-section{
+  border-radius: 15px;
+  background: var(--clrBlue);
+  padding:30px 30px 90px 30px;
+  color:var(--clrPaleBlue);
+  transform: translateY(10px);
+}
+
+.bio-img{
+  width: 80px;
+  border:3px solid #fff;
+  border-radius: 50%;
+  margin-bottom: 30px;
+}
+
+.bio-section h2 {
+  font-size: 40px;
+  font-weight: 300;
+  color:#fff;
+  margin-top: 5px;
+}
+
+.timeframes{
+  background: var(--clrDarkBlue);
+  padding: 30px;
+  padding-bottom: 50px;
+  border-radius: 0 0 15px 15px;
+}
+
+.timeframes a{
+  display: block;
+  color:var(--clrDesaturatedBlue);
+  margin-bottom: 10px;
+
+}
+
+.card-tab{
+position: relative;
+border-radius: 15px 15px 0 0;
+height: 50px;
+overflow: hidden;
+}
+
+.card-img{
+  position: absolute;
+  right:20px;
+  top:-8px;
+}
+
+.card-body{
+  background: var(--clrDarkBlue);
+  padding:30px;
+  border-radius: 15px;
+  transform: translateY(-10px);
+}
+
+.card-category{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.card-category h4{
+  font-weight: 400;
+}
+
+.current-hours h1{
+  font-weight: 300;
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+
+.previous-stats{
+  color:var(--clrPaleBlue);
+  font-size: 15px;
+}
