@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+
+:root{
+  /*Colors*/
+  --clrLimeGreen: hsl(163, 72%, 41%);
+  --clrBrightRed: hsl(356, 69%, 56%);
+  --clrFacebook: hsl(208, 92%, 53%);
+  --clrTwitter: hsl(203, 89%, 53%);
+  --clrInstagram: 
+  linear-gradient(to right, hsl(37, 97%, 70%) 10%, hsl(329, 70%, 50%) 50%);
+  --clrYoutube: hsl(348, 97%, 39%);
+
+  /*Dark Theme*/
+  --clrDarkTheme:linear-gradient(hsl(210, 78%, 56%) to hsl(146, 68%, 55%));
+  --clrLightTheme:hsl(230, 22%, 74%);
+  
+  /*Dark Theme*/
+  --clrVeryDarkBlueBG: hsl(230, 17%, 14%);
+  --clrDarkBlueTop: hsl(232, 19%, 15%);
+  --clrDarkDesaturatedBlue: hsl(228, 28%, 20%);
+  --clrDesatBlue:hsl(228, 34%, 66%);
+
+  /*Light Theme*/
+  --clrVeryPaleBlue: hsl(225, 100%, 98%);
+  --clrLightGrayishBlue: hsl(228,29%,20%);
+  --clrDarkGrayishBlue:hsl(228, 12%, 44%);
+  --clrVeryDarkBlue: hsl(230, 17%, 14%)
+
+
+}
+
+*,
+*::after,
+*::before{
+  padding:0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Inter', sans-serif;
+  background: var(--clrVeryDarkBlue);
+  padding:0 20px;
+}
+
+header{
+  color:#fff;
+  margin-bottom: 50px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+header p, label {
+  color:var(--clrDesatBlue);
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.container{
+  height: 100vh;
+  max-width: 1440px;
+  margin:50px auto 75px auto; 
+}
+
+.dashboard{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 50px;
+  color:#fff;
+}
+
+.card{
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ background: var(--clrLightGrayishBlue);
+ padding: 20px;
+ border-radius: 5px;
+ position: relative;
+}
+
+.card-header{
+  display: flex;
+  gap:10px;
+  margin-bottom: 25px;
+}
+
+.card-body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.card-body h1 {
+  font-size: 50px;
+  margin-bottom: 5px;
+}
+
+.card-body p {
+  text-transform: uppercase;
+  color:var(--clrDesatBlue);
+  font-size: 12px;
+  letter-spacing: 5px;
+}
+
+
+.card-footer {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.seperator{
+  color:#fff;
+  margin-top: 50px;
+  margin-bottom: 30px;
+
+}

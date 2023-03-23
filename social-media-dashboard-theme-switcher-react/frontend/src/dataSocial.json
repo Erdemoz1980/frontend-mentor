@@ -1,66 +1,74 @@
 [
-  {
+{
+  "id":"0001",
   "name":"@nathanf",
-  "platform":"facebook",
+  "platform":"Facebook",
   "followers":{
     "current":"1987",
-    "yesterday":"1975"
+    "previous":"1975"
   },
   "views":{
     "current":"87",
-    "yesterday":"83"
+    "previous":"83"
   },
   "likes":{
     "current":"52",
-    "yesterday":"55"
-  }
+    "previous":"55"
+  },
+  "icon":"./icons/icon-facebook.svg"
 },
-  {
-    "name":"@nathanf",
-    "platform":"twitter",
-   "followers":{
+{
+  "id":"0002",
+  "name":"@nathanf",
+  "platform":"Twitter",
+  "followers":{
     "current":"1044",
-    "yesterday":"945"
-   },
-   "reTweets":{
+    "previous":"945"
+  },
+  "views":{
     "current":"117",
-    "yesterday":"31"
+    "previous":"31"
   },
   "likes":{
     "current":"507",
-    "yesterday":"103"
-  }
+    "previous":"103"
   },
-  {
-    "name":"@realnathanf",
-    "platform":"instagram",
-    "followers":{
-     "current":"11000",
-     "yesterday":"11099"
-    },
-    "likes":{
-      "current":"5462",
-      "yesterday":"49"
-    },
-    "views":{
-      "current":"52000",
-      "yesterday":"50374"
-    }
-   },
-   {
-    "name":"Nathan F",
-   "platform":"youtube",
-    "followers":{
-     "current":"8239",
-     "yesterday":"8383"
-    },
-    "likes":{
-      "current":"107",
-      "yesterday":"135"
-    },
-    "views":{
-      "current":"1407",
-      "yesterday":"1487"
-    }
-   }
+  "icon":"./icons/icon-twitter.svg"
+},
+{
+  "id":"0003",
+  "name":"@realnathanf",
+  "platform":"Instagram",
+  "followers":{
+    "current":"11000",
+    "previous":"9548"
+  },
+  "likes":{
+    "current":"5462",
+    "previous":"49"
+  },
+  "views":{
+    "current":"52000",
+    "previous":"50374"
+  },
+  "icon":"./icons/icon-instagram.svg"
+},
+{
+  "id":"0004",
+  "name":"Nathan F",
+  "platform":"Youtube",
+  "followers":{
+    "current":"8039",
+    "previous":"8083"
+  },
+  "likes":{
+    "current":"107",
+    "previous":"135"
+  },
+  "views":{
+    "current":"1407",
+    "previous":"1487"
+  },
+  "icon":"./icons/icon-youtube.svg"
+}
 ]
