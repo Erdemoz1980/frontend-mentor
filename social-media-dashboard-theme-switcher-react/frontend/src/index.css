@@ -44,20 +44,17 @@ body{
   padding:0 20px;
 }
 
-header{
-  color:#fff;
-  margin-bottom: 50px;
-}
-
 header {
   display: flex;
   justify-content: space-between;
+  color:#fff;
+  margin-bottom: 50px;
 }
 
 header p, label {
   color:var(--clrDesatBlue);
   font-weight: 700;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .container{
@@ -121,3 +118,29 @@ header p, label {
   margin-bottom: 30px;
 
 }
+
+.card-overview{
+  background: var(--clrLightGrayishBlue);
+  padding: 30px;
+  border-radius: 5px;
+ }
+
+ .overview-header{
+  margin-bottom:20px;
+ }
+
+ .card-view-body {
+  display: flex;
+  justify-content: space-between;
+  align-items:baseline;
+ }
+
+ .card-view-body h2{
+  font-size: 30px;
+ }
+
+ .percentage{
+  font-size: 12px;
+  font-weight: 700;
+ }
+

@@ -1,8 +1,6 @@
-import upIcon from '../images/icon-up.svg';
-import downIcon from '../images/icon-down.svg';
 
-const CardMain = ({ profile }) => {
-  const { name, platform, followers, views, likes, icon } = profile;
+const CardMain = ({ profile, icons:{upIcon, downIcon} }) => {
+  const { name, platform, followers, icon } = profile;
 
   const borderTop = {
     borderTop:`4px solid var(--clr${platform})`
