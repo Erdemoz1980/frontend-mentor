@@ -1,28 +1,19 @@
 import data from './dataSocial.json';
 import Header from "./components/Header";
-import CardMain from "./components/CardMain";
+import CardMain from './components/CardMain';
 import CardOverview from './components/CardOverview';
+import Grid from './components/Grid';
+
+
 
 const App = () => {
   return (
     <>
       <div className='container'>
-      <Header />
-         <div className='dashboard'>
-         {
-        data.map(profile => (
-          <CardMain profile={profile} key={profile.id} />
-       ))
-          }
-        </div>
+        <Header />
+        <Grid data={data} component={CardMain} />
         <h2 className='seperator'>Overview - Today</h2>
-        <div className='dashboard'>
-        {
-            data.map(profile => (
-              <CardOverview profile={profile} key={profile.id} />
-            ))
-          }
-        </div>
+        <Grid data={data} component={CardOverview} />
       
       </div>
      
