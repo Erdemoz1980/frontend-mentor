@@ -1,7 +1,8 @@
 import data from './dataSocial.json';
 import Header from "./components/Header";
 import CardMain from './components/CardMain';
-import CardOverview from './components/CardOverview';
+import CardViews from './components/CardViews';
+import CardLikes from './components/CardLikes';
 import Grid from './components/Grid';
 
 
@@ -13,7 +14,8 @@ const App = () => {
         <Header />
         <Grid data={data} component={CardMain} />
         <h2 className='seperator'>Overview - Today</h2>
-        <Grid data={data} component={CardOverview} />
+        <Grid data={data} component={CardViews} />
+        <Grid data={data} component={CardLikes} />
       
       </div>
      

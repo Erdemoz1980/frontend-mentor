@@ -59,7 +59,7 @@ header p, label {
 
 .container{
   height: 100vh;
-  max-width: 1440px;
+  max-width: 1240px;
   margin:50px auto 75px auto; 
 }
 
@@ -84,7 +84,10 @@ header p, label {
 .card-header{
   display: flex;
   gap:10px;
-  margin-bottom: 25px;
+  margin: 15px 0;
+  color:var(--clrDesatBlue);
+  font-weight: 700;
+  font-size: 12px;
 }
 
 .card-body{
@@ -110,6 +113,7 @@ header p, label {
 .card-footer {
   font-size: 12px;
   font-weight: 700;
+  margin-bottom: 10px;
 }
 
 .seperator{
@@ -119,10 +123,13 @@ header p, label {
 
 }
 
+/*CARD OVERVIEW*/
+
 .card-overview{
   background: var(--clrLightGrayishBlue);
   padding: 30px;
   border-radius: 5px;
+  margin-bottom: 25px;
  }
 
  .overview-header{
