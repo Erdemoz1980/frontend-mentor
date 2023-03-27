@@ -1,5 +1,5 @@
 
-const CardMain = ({ profile, icons:{upIcon, downIcon} }) => {
+const CardMain = ({ profile, icons:{upIcon, downIcon}, darkTheme }) => {
   const { name, platform, followers, icon } = profile;
 
   const folChg = followers.current - followers.previous;
@@ -11,10 +11,10 @@ const CardMain = ({ profile, icons:{upIcon, downIcon} }) => {
 
   const border = {
     borderTop: `4px solid ${platform === 'Instagram' ? '' : `var(--clr${platform})`}`,
-    borderImage: platform === 'Instagram' ? `var(--clr${platform})` : '',
-    borderImageSlice:platform === 'Instagram' ? '1' : '',
+    borderImage: `${platform === 'Instagram' ? `var(--clr${platform})` : ''}`,
   }
-  
+
+
  
   return (
     <div className="card-container">
