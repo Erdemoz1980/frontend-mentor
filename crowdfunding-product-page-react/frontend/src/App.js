@@ -1,13 +1,16 @@
-
+import data from './data.json';
+import Navbar from './components/Navbar';
+import ProductPage from './pages/ProductPage';
 
 const App = () => {
+
   return (
     <>
-      <div className='container'>
-        
-      <h1>Crowdfunding Page</h1>
-     </div>
-    
+        {
+          data.map(product => (
+            <ProductPage product={product} key={product.id} />
+          ))
+        }
     </>
       
   )
