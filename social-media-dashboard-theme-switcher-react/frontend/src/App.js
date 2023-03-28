@@ -6,24 +6,19 @@ import CardViews from './components/CardViews';
 import CardLikes from './components/CardLikes';
 import Grid from './components/Grid';
 
-
-
 const App = () => {
   const [darkTheme, setDarkTheme] = useState(true);
 
   useEffect(() => {
-    const root = document.querySelector(':root');
     if (darkTheme) {
-      root.style.setProperty('--clrBGColor', 'hsl(230, 17%, 14%)');
-      document.documentElement.classList.add('dark');
-
+      document.body.style.background = 'var(--clrVeryDarkBlueBG)';
+      document.documentElement.classList.remove('light-theme')
     } else {
-      root.style.setProperty('--clrBGColor', '#fff');
-      document.documentElement.classList.remove('dark');
-    }
+      document.body.style.background = '#fff'
+      document.documentElement.classList.add('light-theme')
+    }    
+  },[darkTheme])
   
-  }, [darkTheme]);
-
   return (
     <>
       <div className='container'>
@@ -32,9 +27,7 @@ const App = () => {
         <h2 className='seperator'>Overview - Today</h2>
         <Grid data={data} component={CardViews}/>
         <Grid data={data} component={CardLikes}/>
-      
       </div>
-     
     </>
   )
 }

@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
-
 :root{
   /*Colors*/
   --clrLimeGreen: hsl(163, 72%, 41%);
@@ -14,7 +13,8 @@
   /*Dark Theme*/
   --clrDarkTheme:
   linear-gradient(to right, hsl(210, 78%, 56%) 5%,  hsl(146, 68%, 55%) 95%);
-  --clrLightTheme:hsl(222,50%,96%);
+  --clrLightTheme:hsl(240, 3%, 93%);
+
   
   /*Dark Theme*/
   --clrVeryDarkBlueBG: hsl(230, 17%, 14%);
@@ -27,8 +27,6 @@
   --clrLightGrayishBlue: hsl(228,29%,20%);
   --clrDarkGrayishBlue:hsl(228, 12%, 44%);
   --clrVeryDarkBlue: hsl(230, 17%, 14%)
-
-
 }
 
 *,
@@ -39,12 +37,16 @@
   box-sizing: border-box;
 }
 
-body{
+ body{
   font-family: 'Inter', sans-serif;
-  height: 100vh;
   overflow: hidden;
-  background: var(--clrBGColor);
-  transition: background 0.4s ease-in-out;
+  height: 100vh;
+  transition: background 0.3s ease-in-out;
+}
+
+.container{
+  max-width: 1240px;
+  margin: 50px auto 75px auto ;
 }
 
 header {
@@ -54,16 +56,14 @@ header {
   margin-bottom: 50px;
 }
 
+.light-theme header {
+  color:#000;
+}
+
 header p, label {
   color:var(--clrDesatBlue);
   font-weight: 700;
   font-size: 14px;
-}
-
-.container{
-  height: 100%;
-  max-width: 1240px;
-  margin:50px auto 75px auto; 
 }
 
 .dashboard{
@@ -75,10 +75,17 @@ header p, label {
 
 
 /*Slider Button*/
+.label{
+  display: flex;
+  gap:15px;
+  align-items: center;
+
+}
+
 .switch{
   position: relative;
-  display: inline-block;
-  height:25px;
+  display: block;
+  height:26px;
   width: 55px;
 }
 
@@ -119,7 +126,7 @@ background: var(--clrDarkGrayishBlue);
 
 .switch input:checked + span::before{
   background: #fff;
-  transform: translateX(26px);
+  transform: translateX(27px);
 }
 
 .card-container{
@@ -132,15 +139,14 @@ background: var(--clrDarkGrayishBlue);
  flex-direction: column;
  align-items: center;
  justify-content: center;
- background: var(--clrLightTheme);
- color:#000;
  padding: 20px;
- transition: background 0.8s ease-in-out;
+ background: var(--clrLightGrayishBlue);
+ color:#fff;
 }
 
-.dark .card-main{
-  background: var(--clrLightGrayishBlue);
-  color:#fff;
+.light-theme .card-main{
+  background:var(--clrLightTheme);
+  color:#000;
 }
 
 .card-header{
@@ -171,7 +177,6 @@ background: var(--clrDarkGrayishBlue);
   letter-spacing: 5px;
 }
 
-
 .card-footer {
   font-size: 12px;
   font-weight: 700;
@@ -182,16 +187,19 @@ background: var(--clrDarkGrayishBlue);
   color:#fff;
   margin-top: 50px;
   margin-bottom: 30px;
-
 }
 
 /*CARD OVERVIEW*/
-
 .card-overview{
   background: var(--clrLightGrayishBlue);
   padding: 30px;
   border-radius: 5px;
   margin-bottom: 25px;
+ }
+
+ .light-theme .card-overview{
+  background: var(--clrLightTheme);
+  color:#000;
  }
 
  .overview-header{
