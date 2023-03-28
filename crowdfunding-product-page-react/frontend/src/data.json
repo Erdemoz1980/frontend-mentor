@@ -1,0 +1,35 @@
+[
+  {
+    "id":"00001",
+    "product_name":"Mastercraft Bamboo Monior Riser",
+    "product_desc":"A beautiful & handcrafted monitor stand to reduce neck and eye strain.",   
+    "total_backed_amt":"89,914",
+    "number_backers":"5,007",
+    "days_left":"56",
+    "about_project":"The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform that elevates your screen to a more comfortable viewing height. Placing your monitor at eye level has the potential to improve your posture and make you more comfortable while at work, helping you stay focused on the task at hand.\nFeaturing artisan craftsmanship, the simplicity of design creates extra desk space below your computer to allow notepads, pens, and USB sticks to be stored under the stand.",
+    "product_editions":[
+      {
+      "edition_id":"01",
+      "edition_name":"Bamboo Stand",
+      "edition_desc":"You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you’ll be added to a special Backer member list.",
+      "min_pledge":"25",
+      "countInStock":"101"
+      },
+      {
+      "edition_id":"02",
+      "edition_name":"Black Edition Stand",
+      "edition_desc":" You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer member list. Shipping is included.",
+      "min_pledge":"75",
+      "countInStock":"64"
+      },
+      {
+        "edition_id":"03",
+        "edition_name":"Mahogany Special Edition",
+        "edition_desc":" You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added to our Backer member list. Shipping is included.",
+        "min_pledge":"200",
+        "countInStock":"0"
+        }
+    ]
+  }
+
+]
