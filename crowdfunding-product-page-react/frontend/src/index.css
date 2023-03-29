@@ -40,7 +40,7 @@ body{
   gap:20px;
   left:50%;
   transform: translateX(-50%);
-  top: 310px;
+  top: 350px;
 }
 
 .card{
@@ -138,13 +138,70 @@ body{
 }
 
 /*About Card*/
-
 .about-text{
   color:var(--clrDarkGray);
   text-align: left;
   line-height: 1.8;
   font-size: 16px;
   margin: 30px 0;
+}
+
+/*Editions Card*/
+.edition-card{
+  padding: 30px;
+  border: 1px solid rgba(122,122,122, 0.45);
+  border-radius: 10px;
+  margin-bottom:30px;
+}
+
+.edition-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.edition-header p {
+  color: var(--clrModerateCyan);
+  font-weight:500;
+}
+
+.edition-header h2{
+  font-size: 19px;
+}
+
+.edition-text {
+  text-align: start;
+  color:var(--clrDarkGray);
+  line-height: 1.8;
+}
+
+.edition-footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.edition-footer > div {
+  display: flex;
+  align-items: center;
+}
+
+.edition-footer p{
+  font-size: 15px;
+  color:var(--clrDarkGray);
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.btn-edition{
+  background: var(--clrModerateCyan);
+  color:#fff;
+  font-size: 14px;
+  letter-spacing: 0.25px;
+  padding: 15px 30px;
+  font-weight: 500;
 }
 
 
