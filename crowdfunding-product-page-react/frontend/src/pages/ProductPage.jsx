@@ -1,9 +1,8 @@
-import ProductDesc from "../components/ProductDesc"
+import ProductDescCard from "../components/ProductDescCard";
+import ProductStatsCard from "../components/ProductStatsCard";
 
 const ProductPage = ({ product }) => {
   
-
-
   return (
     <div className="product-page">
       <img
@@ -11,7 +10,8 @@ const ProductPage = ({ product }) => {
         src={product.img}
         alt='product-img' />
       <div className="product-container">
-        <ProductDesc product={product} />
+        <ProductDescCard product={product} />
+        <ProductStatsCard product={product} />
       </div>
     </div>
   )
