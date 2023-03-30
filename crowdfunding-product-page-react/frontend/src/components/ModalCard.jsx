@@ -1,10 +1,15 @@
-import React from 'react'
 
 const ModalCard = ({ edition }) => {
-  const { name, desc, min_pledge, countInStock } = edition;
+  const {id, name, desc, min_pledge, countInStock } = edition;
+
+
   return (
     <div className="modal-card">
-         <input type="radio" name="" id="" />    
+     
+      <label htmlFor={id} className="radio-label">
+        <input type="radio" className="radio-button" id={id} name="radio-button" />
+        <span></span>
+      </label>
     <div className="modal-text">
         <h3>{name}</h3>
         <p>{desc}</p>

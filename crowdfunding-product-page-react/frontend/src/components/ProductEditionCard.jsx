@@ -6,8 +6,6 @@ const ProductEditionCard = ({ edition }) => {
     opacity:countInStock > 0 ? '1' :'0.5'
   }
 
-  console.log(countInStock)
-
   return (
     <div className="edition-card" style={opacity}>
       <header className="edition-header">
