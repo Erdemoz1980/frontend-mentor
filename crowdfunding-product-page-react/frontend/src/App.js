@@ -1,5 +1,4 @@
 import data from './data.json';
-import Navbar from './components/Navbar';
 import ProductPage from './pages/ProductPage';
 
 const App = () => {
@@ -10,7 +9,7 @@ const App = () => {
           data.map(product => (
             <ProductPage product={product} key={product.id} />
           ))
-        }
+      }
     </>
       
   )

@@ -5,9 +5,9 @@ const ProductEditionCard = ({ edition }) => {
   const opacity = {
     opacity:countInStock > 0 ? '1' :'0.5'
   }
-  const btnStyle = {
-    background:countInStock > 0 ? 'var(--clrModerateCyan)' : 'var(--clrDarkGray)'
-  }
+
+  console.log(countInStock)
+
   return (
     <div className="edition-card" style={opacity}>
       <header className="edition-header">
@@ -19,9 +19,10 @@ const ProductEditionCard = ({ edition }) => {
         <div><h1>{countInStock}</h1>
           <p>left</p>
         </div>
-        <button className="btn btn-edition" style={btnStyle}>{countInStock>0?'Select Reward' : 'Out of stock'}</button>
+        <button className={`btn btn-edition ${countInStock > 0 ? '': 'disabled'}`}>
+         {countInStock > 0 ?'Select Reward' :'Out of stock'}</button>
       </footer>
-    </div>
+    </div> 
   )
 }
 
