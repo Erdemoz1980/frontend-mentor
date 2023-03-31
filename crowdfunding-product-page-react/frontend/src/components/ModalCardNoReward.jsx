@@ -1,7 +1,12 @@
-const ModalCardNoReward = () => {
+const ModalCardNoReward = ({isOpen}) => {
+
+  const moddalStyle = {
+  transform: isOpen ? '' : 'translateY(-200%)'
+}
+
 
   return (
-    <div className="modal-card">
+    <div className="modal-card" style={moddalStyle}>
        <label htmlFor="radio-button" className="radio-label">
         <input type="radio" className="radio-button" id="radio-button" name="radio-button" />
         <span></span>

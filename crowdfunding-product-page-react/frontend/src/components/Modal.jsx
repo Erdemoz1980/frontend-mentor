@@ -1,22 +1,32 @@
+import { useState } from 'react';
 import ModalCardNoReward from './ModalCardNoReward';
 import ModalCard from './ModalCard';
 
 const Modal = ({ editions }) => {
+  const [isOpen, setIsOpen] = useState(true);
   
+  const overlayStyle = {
+    opacity: isOpen ? '1' : '0',
+    visibility:isOpen ? 'visible':'hidden'
+ }
+
+
+
   return (
-    <div className="modal-overlay">
-    <div className='modal'>
+    <div className="modal-overlay" style={overlayStyle}>
+      <div className='modal'>
+        <button onClick={() => setIsOpen(false)
+        } className='modal-btn'></button>
       <header className='modal-header'>
         <h1>Back this project</h1>
         <p>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</p>
-        {/*<button className="close-btn">x</button>*/}
       </header>
 
       <div className="modal-card-container">
-        <ModalCardNoReward />
+        <ModalCardNoReward isOpen={isOpen} />
         {
           editions.map(edition => (
-            <ModalCard edition={edition} key={edition.id} />
+            <ModalCard edition={edition} key={edition.id} isOpen={isOpen} />
           ))
         }
       </div>
