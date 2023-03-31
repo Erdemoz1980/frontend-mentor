@@ -14,8 +14,6 @@ const ModalCard = ({ edition, isOpen }) => {
       : 'translateX(200%)'
   }
   
-
-
   return (
     <div className="modal-card" style={modalCardStyle}>
      
@@ -27,7 +25,7 @@ const ModalCard = ({ edition, isOpen }) => {
         <div className="modal-product-edition">
           <div className="modal-product-title">
             <h3>{name}</h3>
-            <h3>Pledge ${min_pledge} or more</h3>
+            <h3 className="pledge">Pledge ${min_pledge} or more</h3>
           </div>
           <h4 className="modal-qty">{countInStock}<span> left</span></h4>
         </div>

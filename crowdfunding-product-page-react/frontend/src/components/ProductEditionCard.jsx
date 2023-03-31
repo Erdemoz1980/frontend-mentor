@@ -1,5 +1,5 @@
 
-const ProductEditionCard = ({ edition }) => {
+const ProductEditionCard = ({ edition, setIsOpen }) => {
   const { name, desc, min_pledge, countInStock } = edition;
   
   const opacity = {
@@ -17,7 +17,7 @@ const ProductEditionCard = ({ edition }) => {
         <div><h1>{countInStock}</h1>
           <p>left</p>
         </div>
-        <button className={`btn btn-edition ${countInStock > 0 ? '': 'disabled'}`}>
+        <button onClick={()=>setIsOpen(true)} className={`btn btn-edition ${countInStock > 0 ? '': 'disabled'}`}>
          {countInStock > 0 ?'Select Reward' :'Out of stock'}</button>
       </footer>
     </div> 

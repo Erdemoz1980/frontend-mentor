@@ -1,16 +1,13 @@
-import { useState } from 'react';
 import ModalCardNoReward from './ModalCardNoReward';
 import ModalCard from './ModalCard';
 
-const Modal = ({ editions }) => {
-  const [isOpen, setIsOpen] = useState(true);
+const Modal = ({ editions, isOpen, setIsOpen }) => {
+
   
   const overlayStyle = {
     opacity: isOpen ? '1' : '0',
     visibility:isOpen ? 'visible':'hidden'
  }
-
-
 
   return (
     <div className="modal-overlay" style={overlayStyle}>

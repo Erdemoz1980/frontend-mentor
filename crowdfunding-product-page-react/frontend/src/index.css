@@ -366,6 +366,13 @@ border-radius: 50%;
   font-weight: 500;
 }
 
+.modal-card h3:hover {
+  color:var(--clrModerateCyan);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+
  .modal-qty {
   font-size: 18px;
 }

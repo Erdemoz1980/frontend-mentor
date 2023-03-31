@@ -1,6 +1,6 @@
 import ProductEditionCard from "./ProductEditionCard";
 
-const ProductAboutCard = ({product}) => {
+const ProductAboutCard = ({product, setIsOpen}) => {
   const {about,editions} = product;
   return (
     <div className="card">
@@ -12,7 +12,7 @@ const ProductAboutCard = ({product}) => {
       }
       {
         editions.map(edition => (
-          <ProductEditionCard edition={edition} key={edition.id} />
+          <ProductEditionCard edition={edition} key={edition.id} setIsOpen={setIsOpen} />
         ))
       }
     </div>
