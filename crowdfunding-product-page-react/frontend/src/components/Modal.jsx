@@ -4,8 +4,8 @@ import { GlobalContext } from '../context/GlobalState';
 import ModalCardNoReward from './ModalCardNoReward';
 import ModalCard from './ModalCard';
 
-const Modal = ({ editions }) => {
-  const { isOpen, setIsOpen} = useContext(GlobalContext);
+const Modal = () => {
+  const { isOpen, setIsOpen, product} = useContext(GlobalContext);
   const overlayRef = useRef();
 
   const overlayStyle = {
@@ -32,7 +32,7 @@ const Modal = ({ editions }) => {
       <div className="modal-card-container">
           <ModalCardNoReward />
         {
-          editions.map(edition => (
+          product.editions && product.editions.map(edition => (
             <ModalCard edition={edition} key={edition.id}/>
           ))
         }

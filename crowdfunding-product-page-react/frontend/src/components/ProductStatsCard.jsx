@@ -1,7 +1,7 @@
 
-
-const ProductStatsCard = ({ product }) => {
-  const { total_backed_amt, total_goal,num_backers, days_left } = product;
+const ProductStatsCard = ({product}) => {
+  const { total_backed_amt, total_goal, num_backers, days_left } = product;
+  
   return (
     <div className="card product-stats">
       <div className="stat-item">

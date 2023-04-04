@@ -1,9 +1,11 @@
+import data from '../data.json';
 import React, { createContext, useReducer } from 'react';
 import AppReducer from './AppReducer';
 
 const initialState = {
   selectedEdition:"",
-  isOpen:false
+  isOpen: false,
+  product:null
 }
 
 export const GlobalContext = createContext(initialState);
@@ -22,8 +24,10 @@ export const GlobalProvider = ({ children }) => {
   return (<GlobalContext.Provider value={{
     selectedEdition: state.selectedEdition,
     isOpen: state.isOpen,
+    product:data,
     setIsOpen,
-    setSelectedEdition
+    setSelectedEdition,
+    
   }}>
     {children}
   </GlobalContext.Provider>)

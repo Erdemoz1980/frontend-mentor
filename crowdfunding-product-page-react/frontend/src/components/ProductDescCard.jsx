@@ -1,5 +1,5 @@
 
-const ProductDescCard = ({ product }) => {
+const ProductDescCard = ({product}) => {
   const { logo, name, description } = product;
   return (
     <div className="card product-desc">
