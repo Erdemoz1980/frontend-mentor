@@ -1,7 +1,8 @@
 import ProductEditionCard from "./ProductEditionCard";
 
-const ProductAboutCard = ({product, setIsOpen}) => {
-  const {about,editions} = product;
+const ProductAboutCard = ({product, setIsOpen, setSelectedEdition}) => {
+  const { about, editions } = product;
+
   return (
     <div className="card">
       <h2>About this project</h2>
@@ -12,7 +13,8 @@ const ProductAboutCard = ({product, setIsOpen}) => {
       }
       {
         editions.map(edition => (
-          <ProductEditionCard edition={edition} key={edition.id} setIsOpen={setIsOpen} />
+          <ProductEditionCard edition={edition} key={edition.id} setIsOpen={setIsOpen}
+            setSelectedEdition={setSelectedEdition} />
         ))
       }
     </div>

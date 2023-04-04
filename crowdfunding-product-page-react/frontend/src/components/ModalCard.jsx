@@ -1,7 +1,12 @@
+import { useState } from "react";
 
-const ModalCard = ({ edition, isOpen }) => {
-  const {id, name, desc, min_pledge, countInStock } = edition;
- 
+const ModalCard = ({ edition, isOpen, selectedEdition, setSelectedEdition }) => {
+  const { id, name, desc, min_pledge, countInStock } = edition;
+
+  const [pledgeValue, setPledgeValue] = useState(min_pledge);
+
+  const checked = selectedEdition === name;
+
   const isEnabled = countInStock > 0;
 
   const modalCardStyle = {
@@ -13,12 +18,22 @@ const ModalCard = ({ edition, isOpen }) => {
       edition.id % 2 === 0 ? 'translateX(-200%)'
       : 'translateX(200%)'
   }
+
+  const onClickHandler = () => {
+    setSelectedEdition(name)
+  }
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    //is
+  }
   
   return (
-    <div className="modal-card" style={modalCardStyle}>
+    <div className="modal-card-wrapper" style={modalCardStyle}>
+    <div className="modal-card" >
      
       <label htmlFor={id} className="radio-label">
-        <input type="radio" className="radio-button" id={id} name="radio-button" disabled={countInStock<1} />
+          <input type="radio" className="radio-button" checked={checked} id={id} name="radio-button" disabled={countInStock < 1} onClick={onClickHandler} />
         <span></span>
       </label>
       <div className="modal-text">
@@ -29,10 +44,22 @@ const ModalCard = ({ edition, isOpen }) => {
           </div>
           <h4 className="modal-qty">{countInStock}<span> left</span></h4>
         </div>
-        
         <p>{desc}</p>
-    </div>
-  </div>
+        </div>
+        
+      </div>
+      <div className="pledge-container">
+        <h4>Enter your pledge</h4>
+
+        <form className="pledge-form" onSubmit={submitHandler}>
+          <label htmlFor="pledge-input">
+            <input type="text" name="" id="pledge-input" value={pledgeValue} onChange={(e) => setPledgeValue(e.target.value)} />
+          </label>
+        
+          <button className="btn btn-pledge">Continue</button>
+        </form>
+        </div>
+      </div>
   )
 }
 

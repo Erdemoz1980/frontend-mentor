@@ -5,7 +5,7 @@ const ProductStatsCard = ({ product }) => {
   return (
     <div className="card product-stats">
       <div className="stat-item">
-        <h1>{total_backed_amt}</h1>
+        <h1>${total_backed_amt}</h1>
         <p>of {total_goal} backed</p>
       </div>
       <div className="stat-item">
