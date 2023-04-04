@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { useState } from 'react';
+import { GlobalContext } from "../context/GlobalState";
 
-const ModalCard = ({ edition, isOpen, selectedEdition, setSelectedEdition }) => {
+const ModalCard = ({ edition }) => {
   const { id, name, desc, min_pledge, countInStock } = edition;
 
   const [pledgeValue, setPledgeValue] = useState(min_pledge);
+
+  const {isOpen, selectedEdition,setSelectedEdition } = useContext(GlobalContext);
 
   const checked = selectedEdition === name;
 
@@ -25,7 +29,6 @@ const ModalCard = ({ edition, isOpen, selectedEdition, setSelectedEdition }) => 
 
   const submitHandler = (e) => {
     e.preventDefault();
-    //is
   }
   
   return (

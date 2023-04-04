@@ -1,8 +1,11 @@
 import { useRef } from 'react';
+import { useContext } from 'react';
+import { GlobalContext } from '../context/GlobalState';
 import ModalCardNoReward from './ModalCardNoReward';
 import ModalCard from './ModalCard';
 
-const Modal = ({ editions, isOpen, setIsOpen, selectedEdition, setSelectedEdition }) => {
+const Modal = ({ editions }) => {
+  const { isOpen, setIsOpen} = useContext(GlobalContext);
   const overlayRef = useRef();
 
   const overlayStyle = {
@@ -27,10 +30,10 @@ const Modal = ({ editions, isOpen, setIsOpen, selectedEdition, setSelectedEditio
       </header>
 
       <div className="modal-card-container">
-          <ModalCardNoReward isOpen={isOpen} selectedEdition={selectedEdition} setSelectedEdition={setSelectedEdition} />
+          <ModalCardNoReward />
         {
           editions.map(edition => (
-            <ModalCard edition={edition} key={edition.id} isOpen={isOpen} selectedEdition={selectedEdition} setSelectedEdition={setSelectedEdition} />
+            <ModalCard edition={edition} key={edition.id}/>
           ))
         }
       </div>

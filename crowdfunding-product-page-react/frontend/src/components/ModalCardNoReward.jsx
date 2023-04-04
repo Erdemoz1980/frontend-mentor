@@ -1,4 +1,8 @@
-const ModalCardNoReward = ({isOpen,selectedEdition, setSelectedEdition}) => {
+import { useContext } from 'react';
+import { GlobalContext } from '../context/GlobalState';
+
+const ModalCardNoReward = () => {
+  const {isOpen, selectedEdition, setSelectedEdition } = useContext(GlobalContext);
 
   const moddalStyle = {
   transform: isOpen ? '' : 'translateY(-200%)'
