@@ -23,7 +23,7 @@ body{
 
 .container {
   height: 100%;
-  max-width: 11440px;
+  max-width: 1440px;
   background:white url('./images/bg-main-desktop.png') no-repeat;
   background-size: auto 100vh;
   position: relative;
