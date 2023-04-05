@@ -20,10 +20,10 @@
 
 body{
   font-family: 'Commissioner', sans-serif;
-  line-height: 1.2;
   height: 100vh;
-  background: var(--clrMainBg)
-}
+  background: var(--clrMainBg);
+  line-height: 1.2;
+  }
 
 .product-page{
   position: relative;
@@ -132,6 +132,15 @@ body{
 
 .btn:hover {
   background: var(--clrDarkCyan);
+}
+
+.btn-alert{
+  background: red;
+  color:#fff;
+}
+
+.btn-alert:hover{
+  background:#800008;
 }
 
 .disabled{
@@ -258,6 +267,107 @@ padding:50px 50px 30px 50px;
 border-radius: 10px;
 z-index: 10;
 }
+
+.modal-completed{
+width: 540px;
+display: flex;
+flex-direction: column;
+align-items: center;
+gap:20px;
+top:-500px;
+transition: top 0.35s ease-in-out;
+}
+
+.modal-completed p{
+  color:var(--clrDarkGray);
+  line-height: 1.8;
+}
+
+.modal-completed.slide{
+  top:200px;
+}
+
+/*Checkmark Logo*/
+.check-mark-container{
+  height:90px;
+  width: 90px;
+  background: var(--clrModerateCyan);
+  border-radius: 50%;
+  margin-bottom: 25px;
+  overflow: hidden;
+  position: relative;
+  transform: rotate(-45deg);
+}
+
+.check-mark{
+  position: absolute;
+  height: 40%;
+  width: 40%;
+  bottom:40%;
+  left:35%;
+}
+
+.check-mark::before{
+content:'';
+ position: absolute;
+ height:20px;
+ width: 6px;
+ background: #fff;
+ bottom: 0;
+}
+
+.check-mark::after{
+  content:'';
+  position: absolute;
+  height:6px;
+  width: 40px;
+  background: #fff;
+  bottom: 0;
+}
+
+/*X-Mark*/
+
+.x-mark-container{
+  height:90px;
+  width: 90px;
+  background: red;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.x-mark{
+  height: 55%;
+  width: 55%;
+  transform: rotate(45deg);
+  position: relative;
+}
+
+.x-mark::before{
+content: '';
+position: absolute;
+width: 100%;
+height: 7px;
+top:50%;
+transform: translateY(-50%);
+background: #fff;
+border-radius: 5px;
+}
+
+.x-mark::after{
+  content: '';
+  position: absolute;
+  width: 7px;
+  height: 100%;
+  left:50%;
+  transform: translateX(-50%);
+  background: #fff;
+  border-radius: 5px;
+}
+
+
 
 .modal-btn{
   position: absolute;

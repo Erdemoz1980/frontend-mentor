@@ -7,7 +7,10 @@ const ProductEditionCard = ({ edition }) => {
   const {setIsOpen, setSelectedEdition } = useContext(GlobalContext);
 
   const onClickHandler = () => {
-    setIsOpen(true);
+    setIsOpen({
+      mainModalOpen: true,
+      completedModaOpen:false
+    });
     setSelectedEdition(name)
   }
 

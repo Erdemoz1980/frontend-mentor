@@ -7,7 +7,7 @@ const ModalCardNoReward = () => {
   const checked = selectedEdition === 'no-reward'
 
   return (
-    <div className={`modal-card-wrapper no-reward enabled ${isOpen ? 'active' : ''} ${checked?'checked':''}`} >
+    <div className={`modal-card-wrapper no-reward enabled ${isOpen.mainModalOpen ? 'active' : ''} ${checked?'checked':''}`} >
     <div className="modal-card" >
        <label htmlFor="radio-button" className="radio-label">
           <input type="radio" className="radio-button" checked={checked} id="radio-button" name="radio-button"

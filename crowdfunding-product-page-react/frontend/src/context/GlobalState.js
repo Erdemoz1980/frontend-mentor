@@ -4,7 +4,11 @@ import AppReducer from './AppReducer';
 
 const initialState = {
   selectedEdition:"",
-  isOpen: false,
+  isOpen: {
+    mainModalOpen: false,
+    completedModalOpen: false,
+    alertModalOpen:false
+  },
   product:null
 }
 

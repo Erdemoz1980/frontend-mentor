@@ -4,13 +4,17 @@ import ProductDescCard from "../components/ProductDescCard";
 import ProductStatsCard from "../components/ProductStatsCard";
 import ProductAboutCard from '../components/ProductAboutCard';
 import Modal from "../components/Modal";
+import ModalCompleted from '../components/ModalCompleted';
+import ModalAlert from '../components/ModalAlert';
 
 const ProductPage = () => {
   const { product } = useContext(GlobalContext);
   
   return (
     <div className="product-page">
-      <Modal/>
+      <Modal />
+      <ModalCompleted />
+      <ModalAlert />
       {product && (<img
         className='product-image'
         src={product.img}

@@ -3,7 +3,7 @@ import { GlobalContext } from "../context/GlobalState";
 
 const ModalCard = ({ edition }) => {
   const { id, name, desc, min_pledge, countInStock } = edition;
-  const {isOpen, selectedEdition,setSelectedEdition } = useContext(GlobalContext);
+  const {isOpen, setIsOpen ,selectedEdition,setSelectedEdition } = useContext(GlobalContext);
 
   const [pledgeValue, setPledgeValue] = useState(min_pledge);
   const pledgeValRegex =/^[0-9]{2,5}(\.[0-9]{1,2})?$/
@@ -14,14 +14,26 @@ const ModalCard = ({ edition }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    if (!pledgeValRegex.test(pledgeValue)) {
-      alert('Please enter a valid amount!')
+    if(pledgeValue<min_pledge){
+      setIsOpen({
+        alertModalOpen: true,
+        mainModalOpen: false,
+        completedModalOpen: false,
+      })
+    } else {
+        setIsOpen({
+      mainModalOpen: false,
+      completedModalOpen: true,
+      alertModalOpen:false
+    })
     }
+     
+  
   }
   
   return (
     <div
-      className={`modal-card-wrapper ${isEnabled ? 'enabled' : ''} ${isOpen ? 'active' : ''} ${edition.id % 2 === 0 ? 'even' : 'odd'} ${checked?'checked':''}`}>
+      className={`modal-card-wrapper ${isEnabled ? 'enabled' : ''} ${isOpen.mainModalOpen ? 'active' : ''} ${edition.id % 2 === 0 ? 'even' : 'odd'} ${checked?'checked':''}`}>
 
     <div className="modal-card" >
       <label htmlFor={id} className="radio-label">
@@ -45,7 +57,7 @@ const ModalCard = ({ edition }) => {
 
         <form className="pledge-form" onSubmit={submitHandler}>
           <label htmlFor="pledge-input">
-            <input type="text" name="" id="pledge-input" pattern="/^[0-9]{1,5}(\.[0-9]{1,2})?$/" title='Please enter up to five digits, followed by maximum two decimals' value={pledgeValue} onChange={(e) => setPledgeValue(e.target.value.replace(/[^0-9.]/g,''))}/>
+            <input type="text" name="" id="pledge-input"  value={pledgeValue} onChange={(e) => setPledgeValue(e.target.value.replace(/[^0-9.]/g,''))}/>
           </label>
         
           <button className="btn btn-pledge">Continue</button>
