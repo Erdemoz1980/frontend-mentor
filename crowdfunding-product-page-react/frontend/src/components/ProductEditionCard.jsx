@@ -16,7 +16,6 @@ const ProductEditionCard = ({ edition }) => {
     setSelectedEdition(name)
   }
 
-
   return (
     <div className="edition-card" style={opacity}>
       <header className="edition-header">

@@ -318,41 +318,41 @@ z-index: 10;
   pointer-events: none;
   opacity: 0.5;
   border:none;
+  filter:blur(1px);
   transition: all .6s;
 }
 
 .enabled{
   opacity: 1;
-  pointer-events: default;
+  pointer-events: auto;
   border:1px solid rgba(180,180,180,0.4);
 }
 
-.modal-card-wrapper.no-reward{
+.no-reward{
   transform: translateY(-200%);
 }
 
-.modal-card-wrapper.no-reward.active{
+.no-reward.active{
 transform: translateY(0);
 }
 
-.modal-card-wrapper.odd{
+.odd {
   transform: translateX(200%);
 }
 
-.modal-card-wrapper.even{
+.even{
   transform: translateX(-200%);
 }
 
-
-
-.modal-card-wrapper.active{
-  pointer-events:default;
-}
-
-.modal-card-wrapper.active{
+.active{
   transform: translateX(0);
 }
 
+.checked{
+  border:1px solid var(--clrModerateCyan);
+  box-shadow: 0 0 1px 1px var(--clrDarkCyan);
+  filter:none;
+}
 
 
 .modal-card{

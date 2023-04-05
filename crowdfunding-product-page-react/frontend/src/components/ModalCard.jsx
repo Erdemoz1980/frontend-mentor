@@ -13,21 +13,13 @@ const ModalCard = ({ edition }) => {
 
   const isEnabled = countInStock > 0;
 
-  const modalCardStyle = {
-    border: checked ? '1px solid var(--clrModerateCyan)' : isEnabled ? '1px solid rgba(180,180,180, 0.4)' : 'none',
-    boxShadow: checked ? '0 0 1px 1px var(--clrDarkCyan)' : 'none',
-    transform: isOpen ? '' : edition.id % 2 === 0 ? 'translateX(-200%)' : 'translateX(200%)',
-    filter: checked ? 'none' : 'blur(1px)',
-    transition: 'filter 0.6s ease-in-out, transform 0.65s ease-in-out',
-  }
-  
-
   const submitHandler = (e) => {
     e.preventDefault();
   }
   
   return (
-    <div className={`modal-card-wrapper ${isEnabled?'enabled':''} ${isOpen?'active':''} ${edition.id % 2 === 0?'even':'odd'}`}>
+    <div
+      className={`modal-card-wrapper ${isEnabled ? 'enabled' : ''} ${isOpen ? 'active' : ''} ${edition.id % 2 === 0 ? 'even' : 'odd'} ${checked?'checked':''}`}>
 
     <div className="modal-card" >
       <label htmlFor={id} className="radio-label">
