@@ -13,7 +13,7 @@ export const GlobalContext = createContext(initialState);
 export const GlobalProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
-  const setIsOpen = (value) => {
+  const setIsOpen = value => {
     dispatch({ type: 'SET_IS_OPEN', payload: value })
   };
 

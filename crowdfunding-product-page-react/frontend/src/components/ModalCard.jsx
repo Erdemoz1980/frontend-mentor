@@ -1,13 +1,12 @@
-import { useContext } from "react";
-import { useState } from 'react';
+import { useContext, useState } from "react";
 import { GlobalContext } from "../context/GlobalState";
 
 const ModalCard = ({ edition }) => {
   const { id, name, desc, min_pledge, countInStock } = edition;
+  const {isOpen, selectedEdition,setSelectedEdition } = useContext(GlobalContext);
 
   const [pledgeValue, setPledgeValue] = useState(min_pledge);
-
-  const {isOpen, selectedEdition,setSelectedEdition } = useContext(GlobalContext);
+  const pledgeValRegex =/^[0-9]{2,5}(\.[0-9]{1,2})?$/
 
   const checked = selectedEdition === name;
 
@@ -15,6 +14,9 @@ const ModalCard = ({ edition }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    if (!pledgeValRegex.test(pledgeValue)) {
+      alert('Please enter a valid amount!')
+    }
   }
   
   return (
@@ -43,7 +45,7 @@ const ModalCard = ({ edition }) => {
 
         <form className="pledge-form" onSubmit={submitHandler}>
           <label htmlFor="pledge-input">
-            <input type="text" name="" id="pledge-input" value={pledgeValue} onChange={(e) => setPledgeValue(e.target.value)} />
+            <input type="text" name="" id="pledge-input" pattern="/^[0-9]{1,5}(\.[0-9]{1,2})?$/" title='Please enter up to five digits, followed by maximum two decimals' value={pledgeValue} onChange={(e) => setPledgeValue(e.target.value.replace(/[^0-9.]/g,''))}/>
           </label>
         
           <button className="btn btn-pledge">Continue</button>

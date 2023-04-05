@@ -124,7 +124,7 @@ body{
 
 .btn-pledge{
   color:#fff;
-  background: var(--clrDarkCyan);
+  background: var(--clrModerateCyan);
   padding: 15px 30px;
   font-size: 15px;
   font-weight: 500;
@@ -184,6 +184,7 @@ body{
   border: 1px solid rgba(122,122,122, 0.45);
   border-radius: 10px;
   margin-bottom:30px;
+  opacity: 0.5;
 }
 
 .edition-header{
@@ -266,7 +267,11 @@ z-index: 10;
   border:none;
   background: var(--clrDarkGray);
   cursor: pointer;
-  
+  transition: all 0.2s ease-in-out
+}
+
+.modal-btn:hover{
+  background: #000;
 }
 
 /*Modal close button*/
@@ -315,11 +320,12 @@ z-index: 10;
   border-radius: 10px;
   margin-bottom:20px;
   background: #fff;
-  pointer-events: none;
   opacity: 0.5;
   border:none;
+  pointer-events: none;
   filter:blur(1px);
   transition: all .6s;
+  position: relative;
 }
 
 .enabled{
@@ -354,30 +360,31 @@ transform: translateY(0);
   filter:none;
 }
 
-
 .modal-card{
   display: flex;
   gap:20px;
   align-items: baseline;
   padding: 30px;
-
+  border-radius: 10px;
 }
 
-/*Pledge form only visible when active*/
 
+
+/*Pledge form only visible when active*/
 .pledge-container{
-display: none;
+display:none;
 border-top: 1px solid var(--clrLightGray);
 padding: 20px 30px;
-align-items: center;
-justify-content: space-between;
-transition: display 0.3s ease-in-out;
+transform: translateY(0%);
+transition: all 0.3s ease-in-out;
 }
 
 /*On Selection of pledge item*/
 .pledge-container.active{
   display: flex;
+  justify-content: space-between;
 }
+
 
 .pledge-container h4{
   font-weight: 400;
@@ -385,15 +392,20 @@ transition: display 0.3s ease-in-out;
 }
 
 .pledge-form input{
-  width: 100px;
+  width: 116px;
   height: 50px;
   margin-right: 20px;
   border-radius: 50px;
   border: 1px solid var(--clrDarkCyan);
   padding: 20px;
-  padding-left: 40px;
+  padding-left: 25px;
   font-size: 16px;
   font-weight: 700; 
+  outline: none;
+}
+
+.pledge-form input:focus{
+  box-shadow:0 0 1px 1px var(--clrDarkCyan);
 }
 
 label[for="pledge-input"]{
@@ -404,7 +416,7 @@ label[for="pledge-input"]::before{
   content:'$';
   position: absolute;
   top:0;
-  left:20px;
+  left:15px;
   color:var(--clrDarkGray);
   font-weight: 500;
 }
