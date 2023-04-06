@@ -19,7 +19,7 @@ const ModalAlert = () => {
   return (
     <div className={`modal-overlay ${isOpen.alertModalOpen ? 'active' : ''}`} ref={overlayRef} onClick={closeModal}>
 
-      <div className={`modal modal-completed ${isOpen.alertModalOpen ? 'slide' : ''}`}>
+      <div className={`modal modal-alert ${isOpen.alertModalOpen ? 'open' : ''}`}>
         <div className="x-mark-container">
           <div className="x-mark"></div>
         </div>

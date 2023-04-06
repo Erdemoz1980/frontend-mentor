@@ -19,7 +19,7 @@ const ModalCompleted = () => {
   return (
     <div className={`modal-overlay ${isOpen.completedModalOpen ? 'active' : ''}`} ref={overlayRef} onClick={closeModal}>
 
-      <div className={`modal modal-completed ${isOpen.completedModalOpen ? 'slide' : ''}`}>
+      <div className={`modal modal-completed ${isOpen.completedModalOpen ? 'open' : ''}`}>
         <div className="check-mark-container">
           <div className="check-mark"></div>
         </div>

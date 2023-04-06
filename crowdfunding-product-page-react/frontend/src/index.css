@@ -268,13 +268,18 @@ border-radius: 10px;
 z-index: 10;
 }
 
-.modal-completed{
+.modal-completed, .modal-alert{
 width: 540px;
 display: flex;
 flex-direction: column;
 align-items: center;
 gap:20px;
 top:-500px;
+transition: top 0.7s ease-in-out;
+}
+
+.modal-alert{
+top:-350px;
 transition: top 0.35s ease-in-out;
 }
 
@@ -283,7 +288,7 @@ transition: top 0.35s ease-in-out;
   line-height: 1.8;
 }
 
-.modal-completed.slide{
+.open{
   top:200px;
 }
 
@@ -326,7 +331,6 @@ content:'';
 }
 
 /*X-Mark*/
-
 .x-mark-container{
   height:90px;
   width: 90px;
@@ -339,8 +343,8 @@ content:'';
 }
 
 .x-mark{
-  height: 55%;
-  width: 55%;
+  height: 40%;
+  width: 40%;
   transform: rotate(45deg);
   position: relative;
 }
@@ -353,7 +357,6 @@ height: 7px;
 top:50%;
 transform: translateY(-50%);
 background: #fff;
-border-radius: 5px;
 }
 
 .x-mark::after{
@@ -364,10 +367,7 @@ border-radius: 5px;
   left:50%;
   transform: translateX(-50%);
   background: #fff;
-  border-radius: 5px;
 }
-
-
 
 .modal-btn{
   position: absolute;
@@ -478,8 +478,6 @@ transform: translateY(0);
   border-radius: 10px;
 }
 
-
-
 /*Pledge form only visible when active*/
 .pledge-container{
 display:none;
@@ -494,7 +492,6 @@ transition: all 0.3s ease-in-out;
   display: flex;
   justify-content: space-between;
 }
-
 
 .pledge-container h4{
   font-weight: 400;
@@ -530,7 +527,6 @@ label[for="pledge-input"]::before{
   color:var(--clrDarkGray);
   font-weight: 500;
 }
-
 
 /*Radio button*/
 .radio-label {
