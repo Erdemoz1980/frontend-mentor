@@ -4,7 +4,7 @@ const ProductAboutCard = ({product}) => {
   const { about, editions } = product;
 
   return (
-    <div className="card">
+    <div className="card" id="about">
       <h2>About this project</h2>
       {
         about && about.split('\n').map((paragraph, index) => (

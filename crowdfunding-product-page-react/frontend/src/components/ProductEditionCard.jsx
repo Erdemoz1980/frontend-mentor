@@ -15,7 +15,7 @@ const ProductEditionCard = ({ edition }) => {
   }
 
   return (
-    <div className={`edition-card ${countInStock>0 ?'enabled':''}`} >
+    <div id="product-edition" className={`edition-card ${countInStock>0 ?'enabled':''}`} >
       <header className="edition-header">
         <h2>{name}</h2>
         <p>Pledge ${min_pledge} or more</p>

@@ -25,6 +25,10 @@ body{
   line-height: 1.2;
   }
 
+a{
+  text-decoration: none;
+}
+
 .product-page{
   position: relative;
 }
@@ -94,6 +98,10 @@ body{
   transition: background 0.25s ease-in-out;
 }
 
+.btn:hover {
+  background: var(--clrDarkCyan);
+}
+
 .btn-primary{
   color:#fff;
   background: var(--clrModerateCyan);
@@ -106,12 +114,38 @@ body{
   padding:20px 20px 20px 70px;
  }
 
+ .btn-bookmark:hover{
+  background: var(--clrLightGray);
+ }
+
+.bookmark-icon{
+  position: absolute;
+  left:0;
+  top:50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.bookmark-icon svg path {
+  fill:red !important;
+}
+
+
+ /*
 .btn-bookmark::before{
   content: url('./images/icon-bookmark.svg');
   position: absolute;
-  left:0;
-  top:0;  
+  left:0px;
+  top:50%;
+  fill:cyan !important;
+  transform: translateY(-50%);
+  transition: fill 0.25s ease-in-out;
 }
+
+svg:hover{
+  fill: purple !important;
+}
+*/
 
 .btn-edition{
   background: var(--clrModerateCyan);
@@ -130,9 +164,7 @@ body{
   font-weight: 500;
 }
 
-.btn:hover {
-  background: var(--clrDarkCyan);
-}
+
 
 .btn-alert{
   background: red;
