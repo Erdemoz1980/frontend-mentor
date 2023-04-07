@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+:root{
+  /*Colors*/
+  --clrStrongCyan: hsl(172, 67%, 45%);
+  --clrVeryDarkCyan: hsl(183, 100%, 15%);
+  --clrDarkGrayishCyan: hsl(186, 14%, 43%);
+  --clrGrayishCyan: hsl(184, 14%, 56%);
+  --clrLightGrayishCyan: hsl(185, 41%, 84%);
+  --clrVeryLightGrayishCyan: hsl(189, 35%, 93%);
+}
+
+*,
+*::after,
+*::before{
+  padding:0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Space Mono', monospace;
+  line-height: 1.2;
+  height: 100vh;
+  background: var(--clrLightGrayishCyan);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+}
+
+header{
+  margin-bottom: 50px;
+}
+
+.main-title{
+  text-align: center;
+  color:var(--clrVeryDarkCyan);
+  font-size: 25px;
+  letter-spacing: 10px;
+  line-height: 1.5;
+}
+
+.main-panel{
+  height:500px;
+  width: 920px;
+  background: #fff;
+  border-radius: 30px;
+  display:grid;
+  grid-template-columns: repeat(2,1fr);
+  gap:50px;
+  padding: 40px;
+}
+
+.splitter-panel{
+color:var(--clrDarkGrayishCyan);
+}
+
+.total-panel{
+  background: var(--clrVeryDarkCyan);
+  padding: 40px;
+  border-radius: 15px;
+}
+
+.bill-input-group{
+  margin-bottom: 40px;
+}
+
+input[type='text']{
+  border:none;
+  color:var(--clrVeryDarkCyan);
+  background: var(--clrVeryLightGrayishCyan);
+  width: 100%;
+  padding: 10px;
+  border-radius: 3px;
+  text-align: right;
+  font-size: 20px;
+  font-family:inherit;
+  font-weight: 700;
+}
+
+input[type='text']::placeholder{
+  color:var(--clrGrayishCyan);
+}
+
+input[type='text']:focus{
+  outline: 2px solid var(--clrStrongCyan);
+}
+
+label[for="bill-input"], label[for="nbr-people"]{
+  position: relative;
+}
+
+label[for="bill-input"]::before, 
+label[for="nbr-people"]::before {
+  position: absolute;
+  color:var(--clrGrayishCyan);
+  font-size: 20px;
+  font-weight: 400;
+  font-family: 'Space Mono', monospace;
+  top:50%;
+  left:10px;
+  transform: translateY(-50%);
+}
+
+label[for="bill-input"]::before{
+  content:'$'
+}
+
+label[for="nbr-people"]::before{
+  content: url('./images/icon-person.svg');
+}
+
+.tip-title{
+  margin-bottom: 20px;
+}
+
+/*Percentage Grid*/
+.tip-percentage-container{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap:10px;
+}
+
+.percentage{
+  color:var(--clrVeryLightGrayishCyan);
+  background: var(--clrVeryDarkCyan);
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 25px;
+}
+
