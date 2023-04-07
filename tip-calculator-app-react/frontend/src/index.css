@@ -57,28 +57,61 @@ header{
 color:var(--clrDarkGrayishCyan);
 }
 
-.total-panel{
-  background: var(--clrVeryDarkCyan);
-  padding: 40px;
-  border-radius: 15px;
-}
-
-.bill-input-group{
+.bill-input-group, 
+.tip-calculator{
   margin-bottom: 40px;
-}
+  }
 
-input[type='text']{
+  .tip-title{
+    margin-bottom: 20px;
+  }
+
+  /*Bill input + Number of people input*/
+  
+ .input-field,
+ .percentage
+ {
   border:none;
   color:var(--clrVeryDarkCyan);
   background: var(--clrVeryLightGrayishCyan);
   width: 100%;
-  padding: 10px;
   border-radius: 3px;
   text-align: right;
   font-size: 20px;
   font-family:inherit;
   font-weight: 700;
 }
+
+.input-field{
+  padding: 15px;
+}
+
+.percentage{
+  padding: 10px;
+  text-align: center;
+  color:var(--clrVeryLightGrayishCyan);
+  background: var(--clrVeryDarkCyan);
+}
+
+.percentage.custom{
+  background: var(--clrVeryLightGrayishCyan);
+}
+
+.percentage.custom::placeholder{
+  color:var(--clrVeryDarkCyan);
+}
+
+.percentage-grid{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap:15px;
+}
+
+.percentage:not(.custom):hover {
+  color:#000;
+  background: var(--clrStrongCyan);
+}
+
 
 input[type='text']::placeholder{
   color:var(--clrGrayishCyan);
@@ -112,23 +145,4 @@ label[for="nbr-people"]::before{
   content: url('./images/icon-person.svg');
 }
 
-.tip-title{
-  margin-bottom: 20px;
-}
-
-/*Percentage Grid*/
-.tip-percentage-container{
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap:10px;
-}
-
-.percentage{
-  color:var(--clrVeryLightGrayishCyan);
-  background: var(--clrVeryDarkCyan);
-  padding: 10px;
-  text-align: center;
-  border-radius: 5px;
-  font-size: 25px;
-}
 
