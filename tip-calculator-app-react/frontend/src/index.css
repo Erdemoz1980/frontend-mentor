@@ -2,6 +2,7 @@
 
 :root{
   /*Colors*/
+  --clrLightCyan:hsl(173,61%,77%);
   --clrStrongCyan: hsl(172, 67%, 45%);
   --clrVeryDarkCyan: hsl(183, 100%, 15%);
   --clrDarkGrayishCyan: hsl(186, 14%, 43%);
@@ -67,34 +68,36 @@ color:var(--clrDarkGrayishCyan);
   }
 
   /*Bill input + Number of people input*/
-  
+
  .input-field,
  .percentage
  {
   border:none;
-  color:var(--clrVeryDarkCyan);
   background: var(--clrVeryLightGrayishCyan);
   width: 100%;
-  border-radius: 3px;
+  padding: 5px 10px;
+  border-radius: 5px;
   text-align: right;
-  font-size: 20px;
+  font-size: 25px;
   font-family:inherit;
   font-weight: 700;
 }
 
-.input-field{
-  padding: 15px;
+.input-title{
+  margin-bottom: 10px;
 }
 
 .percentage{
-  padding: 10px;
   text-align: center;
   color:var(--clrVeryLightGrayishCyan);
   background: var(--clrVeryDarkCyan);
+  transition: all 0.1s ease-in-out;
 }
 
 .percentage.custom{
   background: var(--clrVeryLightGrayishCyan);
+  color:var(--clrVeryDarkCyan);
+  text-align: right;
 }
 
 .percentage.custom::placeholder{
@@ -108,10 +111,9 @@ color:var(--clrDarkGrayishCyan);
 }
 
 .percentage:not(.custom):hover {
-  color:#000;
-  background: var(--clrStrongCyan);
+  color:var(--clrVeryDarkCyan);
+  background: var(--clrLightCyan);
 }
-
 
 input[type='text']::placeholder{
   color:var(--clrGrayishCyan);
@@ -145,4 +147,39 @@ label[for="nbr-people"]::before{
   content: url('./images/icon-person.svg');
 }
 
+/*Total Panel*/
+.total-panel{
+  border-radius: 15px;
+  background: var(--clrVeryDarkCyan);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.amount{
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  margin-bottom: 30px;
+}
+
+.amount h3{
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.amount p{
+  font-size: 13px;
+  color:var(--clrGrayishCyan);
+}
+
+.amount-label{
+  color:var(--clrVeryLightGrayishCyan);
+}
+
+.amount h1{
+  font-size: 50px;
+  color:var(--clrStrongCyan)
+}
 

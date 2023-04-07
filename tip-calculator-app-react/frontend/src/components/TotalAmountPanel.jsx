@@ -3,19 +3,19 @@ const TotalAmountPanel = () => {
   return (
     <div className="panel total-panel">
       <section className="amount-container">
-        <div className="tip-amount">
-          <div className="tip-label">
+        <div className="amount">
+          <div className="amount-label">
               <h3>Tip Amount</h3>
             <p>/ person</p>
-            <h1>${/*Make it dynamic*/ }Tip/Person</h1>
           </div>
+          <h1>$0.00</h1>
         </div>
-        <div className="total-amount">
-          <div className="total-label">
+        <div className="amount">
+          <div className="amount-label">
             <h3>Total</h3>
             <p>/ person</p>
           </div>
-          <h1>${/*Make it dynamic*/ }Total</h1>
+          <h1>$0.00</h1>
         </div>
       </section>
       <button className="btn btn-reset">reset</button>
