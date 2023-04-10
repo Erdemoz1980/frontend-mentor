@@ -4,6 +4,7 @@
   /*Colors*/
   --clrLightCyan:hsl(173,61%,77%);
   --clrStrongCyan: hsl(172, 67%, 45%);
+  --clrMediumCyan:hsl(183,80%,24%);
   --clrVeryDarkCyan: hsl(183, 100%, 15%);
   --clrDarkGrayishCyan: hsl(186, 14%, 43%);
   --clrGrayishCyan: hsl(184, 14%, 56%);
@@ -18,6 +19,20 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+/*Utilities */
+.btn{
+ border: none;
+ padding: 15px;
+ color:var(--clrVeryDarkCyan);
+ background: var(--clrMediumCyan);
+ text-transform: uppercase;
+ font-size: 18px;
+ font-weight: 700;
+ border-radius: 5px;
+ cursor: pointer;
+}
+
 
 body{
   font-family: 'Space Mono', monospace;
@@ -59,7 +74,7 @@ color:var(--clrDarkGrayishCyan);
 }
 
 .bill-input-group, 
-.tip-calculator{
+.tip-calculator{/*Change the classname to tip-input-group*/
   margin-bottom: 40px;
   }
 
@@ -123,6 +138,14 @@ input[type='text']:focus{
   outline: 2px solid var(--clrStrongCyan);
 }
 
+.nbr-people.alert{
+  outline:2px solid red;
+}
+
+.nbr-input-alert{
+  color:red;
+}
+
 label[for="bill-input"], label[for="nbr-people"]{
   position: relative;
 }
@@ -145,6 +168,11 @@ label[for="bill-input"]::before{
 
 label[for="nbr-people"]::before{
   content: url('./images/icon-person.svg');
+}
+
+.nbr-people-container{
+  display: flex;
+  justify-content: space-between;
 }
 
 /*Total Panel*/
