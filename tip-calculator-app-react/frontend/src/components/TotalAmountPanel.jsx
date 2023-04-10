@@ -1,6 +1,10 @@
 
-const TotalAmountPanel = ({ amount, setAmount }) => {
-  const { billAmount, tipAmount, numPeople } = amount;
+const TotalAmountPanel = ({input, reset}) => {
+  const { billAmount, tipAmount, numPeople, resetActive } = input;
+  
+  const tipPerPerson = (billAmount <= 0 || numPeople <= 0) ? Number(0).toFixed(2) : (tipAmount / numPeople).toFixed(2);
+  const totalPerPerson = (billAmount <= 0 || tipAmount <= 0 || numPeople <= 0) ? Number(0).toFixed(2) : ((billAmount / numPeople) + (tipAmount / numPeople)).toFixed(2);
+
 
   return (
     <div className="panel total-panel">
@@ -10,17 +14,18 @@ const TotalAmountPanel = ({ amount, setAmount }) => {
               <h3>Tip Amount</h3>
             <p>/ person</p>
           </div>
-          <h1>${Number(tipAmount).toFixed(2)}</h1>
+          <h1>${tipPerPerson}</h1>
         </div>
         <div className="amount">
           <div className="amount-label">
             <h3>Total</h3>
             <p>/ person</p>
           </div>
-          <h1>${`${Number(numPeople)<1 || Number(tipAmount)<=0 ? '0.00' : (Number(billAmount)/Number(numPeople)+Number(tipAmount)).toFixed(2)}`}</h1>
+          <h1>${totalPerPerson}</h1>
         </div>
       </section>
-      <button className="btn">reset</button>
+      <button className={`btn ${resetActive ? 'reset-active' : ''}`}
+        onClick={reset}>reset</button>
     </div>
   )
 }

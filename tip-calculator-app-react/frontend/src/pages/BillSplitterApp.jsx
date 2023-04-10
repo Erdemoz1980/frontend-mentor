@@ -3,17 +3,23 @@ import BillSplitterPanel from '../components/BillSplitterPanel';
 import TotalAmountPanel from '../components/TotalAmountPanel';
 
 const BillSplitterApp = () => {
-  const [amount, setAmount] = useState({
-    billAmount:0,
-    numPeople:0,
-    tipAmount:0
+  const [input, setInput] = useState({
+    billAmount: 0,
+    tipPercentage:0,
+    tipAmount: 0,
+    numPeople: 0,
+    resetActive:false
   });
 
-  console.log(amount);
+  const reset = () => {
+   setInput({billAmount:0, tipAmount:0, numPeople:0, resetActive:false})
+  }
+  
+  console.log(input)
   return (
     <div className="main-panel">
-      <BillSplitterPanel amount={amount} setAmount={setAmount}/>
-      <TotalAmountPanel amount={amount} setAmount={setAmount} />
+      <BillSplitterPanel input={input} setInput={setInput}/>
+      <TotalAmountPanel input={input} setInput={setInput} reset={reset} />
     </div>
   )
 }

@@ -30,13 +30,15 @@
  font-size: 18px;
  font-weight: 700;
  border-radius: 5px;
- cursor: pointer;
 }
 
+.btn.reset-active{
+background: var(--clrStrongCyan);
+cursor: pointer;
+}
 
 body{
   font-family: 'Space Mono', monospace;
-  line-height: 1.2;
   height: 100vh;
   background: var(--clrLightGrayishCyan);
   display: flex;
@@ -83,13 +85,21 @@ color:var(--clrDarkGrayishCyan);
   }
 
   /*Bill input + Number of people input*/
-
+ 
+  .percentage-grid{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap:15px;
+  }
+  
  .input-field,
  .percentage
  {
+  height: 50px;
+  width: 100%;
   border:none;
   background: var(--clrVeryLightGrayishCyan);
-  width: 100%;
+  color:var(--clrVeryDarkCyan);
   padding: 5px 10px;
   border-radius: 5px;
   text-align: right;
@@ -109,21 +119,22 @@ color:var(--clrDarkGrayishCyan);
   transition: all 0.1s ease-in-out;
 }
 
-.percentage.custom{
-  background: var(--clrVeryLightGrayishCyan);
+.percentage.active{
+  background: var(--clrStrongCyan);
   color:var(--clrVeryDarkCyan);
+}
+
+.percentage.custom{
+  height: 50px;
+  background: var(--clrVeryLightGrayishCyan);
   text-align: right;
+  color:var(--clrVeryDarkCyan);
 }
 
 .percentage.custom::placeholder{
-  color:var(--clrVeryDarkCyan);
+  color:var(--clrDarkGrayishCyan);
 }
 
-.percentage-grid{
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap:15px;
-}
 
 .percentage:not(.custom):hover {
   color:var(--clrVeryDarkCyan);

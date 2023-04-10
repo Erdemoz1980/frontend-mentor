@@ -1,25 +1,19 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-const BillSplitterPanel = ({ amount, setAmount }) => {
+const BillSplitterPanel = ({ input, setInput }) => {
   const [alert, setAlert] = useState(false);
-  const {billAmount, numPeople } = amount;
-
-  const calculateTip = (percentage) => {
-    const tipPerson = Number(billAmount) * Number(percentage) / Number(numPeople);
-    return tipPerson.toFixed(2)
-  }
-
-  const handleTipChange = (percentage) => {
-    //Check to make sure number of people > 0
-    if (numPeople < 1) {
-      setAlert(true);
+  
+  const tipPercentageHandler = (value) => {
+    if (input.numPeople < 1) {
+      setAlert(true)
     } else {
       setAlert(false);
-      setAmount(prevState => ({
+      setInput(prevState => ({
         ...prevState,
-        tipAmount: calculateTip(percentage)
-      }
-      ))
+        tipPercentage: value,
+        tipAmount: prevState.billAmount * value,
+        resetActive:true
+      }))
     }
   };
 
@@ -29,32 +23,35 @@ const BillSplitterPanel = ({ amount, setAmount }) => {
         <p className="input-title">Bill</p>
         <label htmlFor="bill-input">
           <input
-            type="text" name="bill" id="bill-input" value={billAmount}
-            className="input-field bill" placeholder="0" onChange={(e)=>setAmount({...amount, billAmount:e.target.value})} />
+            type="text" name="bill" id="bill-input"
+            className="input-field bill" placeholder="0" value={input.billAmount}
+            onChange={(e)=>setInput(prevState=>({...prevState,billAmount:Number(e.target.value),resetActive:true}))}
+          />
       </label>
       </div>
-
       <div className="tip-calculator">
         <p className="tip-title">Select Tip %</p>
-        <form className="percentage-grid">
-          <input type="button" className="percentage" value="5%" onClick={()=>handleTipChange(0.05)} />
-          <input type="button" className="percentage" value="10%" onClick={()=>handleTipChange(0.1)} />
-          <input type="button" className="percentage" value="15%" onClick={()=>handleTipChange(0.15)} />
-          <input type="button" className="percentage" value="20%" onClick={()=>handleTipChange(0.2)} />
-          <input type="button" className="percentage" value="50%" onClick={()=>handleTipChange(0.5)} />
-          <input className="percentage custom" type="text" name="custom" id="custom" placeholder="Custom" onChange={(e)=>handleTipChange(Number(e.target.value)/100)} />
-        </form>
+        <div className="percentage-grid">
+          <div className={`percentage ${input.tipPercentage===0.05 ? 'active':''}`} onClick={()=>tipPercentageHandler(0.05)}>5%</div>
+          <div className={`percentage ${input.tipPercentage===0.1 ? 'active':''}`} onClick={()=>tipPercentageHandler(0.1)}>10%</div>
+          <div className={`percentage ${input.tipPercentage===0.15 ? 'active':''}`} onClick={()=>tipPercentageHandler(0.15)}>15%</div>
+          <div className={`percentage ${input.tipPercentage===0.25 ? 'active':''}`} onClick={()=>tipPercentageHandler(0.25)}>25%</div>
+          <div className={`percentage ${input.tipPercentage===0.5 ? 'active':''}`} onClick={()=>tipPercentageHandler(0.5)}>50%</div>
+          <input className="percentage custom" type="text" name="custom" id="custom" placeholder="Custom"  />
+        </div>
       </div>
       
       <div className="nbr-input-group">
-        <div className="nbr-people-container">
+      <div className="nbr-people-container">
           <p className="input-title">Number of People</p>
           {alert && <p className="nbr-input-alert">Can't be zero</p>}
         </div>
         
         <label htmlFor="nbr-people">
-          <input type="text" name='nbr-people' id='nbr-people' value={numPeople} className={`input-field nbr-people ${alert ? 'alert' : ''}`} placeholder="0"
-            onChange={(e) => setAmount({ ...amount, numPeople: e.target.value })} />
+          <input type="text" name='nbr-people' id='nbr-people' className="input-field nbr-people"  placeholder="0"
+          value={input.numPeople}
+          onChange={e=>setInput(prevState=>({...prevState, numPeople:Number(e.target.value), resetActive:true}))} 
+          />
       </label>
       </div>
     </div>
