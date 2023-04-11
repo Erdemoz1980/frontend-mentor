@@ -79,6 +79,11 @@ color:var(--clrDarkGrayishCyan);
 .tip-calculator{/*Change the classname to tip-input-group*/
   margin-bottom: 40px;
   }
+  
+  .bill-title-group{
+    display: flex;
+    justify-content: space-between;
+  }
 
   .tip-title{
     margin-bottom: 20px;
@@ -149,13 +154,15 @@ input[type='text']:focus{
   outline: 2px solid var(--clrStrongCyan);
 }
 
-.nbr-people.alert{
+.input-field.alert{
   outline:2px solid red;
+
 }
 
-.nbr-input-alert{
+.alert{
   color:red;
 }
+
 
 label[for="bill-input"], label[for="nbr-people"]{
   position: relative;

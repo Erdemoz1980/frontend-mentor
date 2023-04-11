@@ -1,54 +1,74 @@
 import { useState } from 'react';
 
 const BillSplitterPanel = ({ input, setInput }) => {
-  const [alert, setAlert] = useState(false);
+  const [alert, setAlert] = useState({
+    billAlert:false,
+    numPeopleAlert: false,
+  });
+
   
   const tipPercentageHandler = (value) => {
     if (input.numPeople < 1) {
-      setAlert(true)
-    } else {
-      setAlert(false);
+      setAlert(prevState => ({ ...prevState, numPeopleAlert: true }));
+    } else if (input.billAmount <= 0) {
+      setAlert(prevState => ({ ...prevState, billAlert: true }))
+    }
+    else {
+      setAlert({ billAlert: false, numPeopleAlert: false });
       setInput(prevState => ({
         ...prevState,
         tipPercentage: value,
         tipAmount: prevState.billAmount * value,
-        resetActive:true
+        resetActive: true
       }))
     }
   };
 
+  const tipPercentages = [
+    { percentage: 0.05, displayValue: '5%' },
+    { percentage: 0.1, displayValue: '10%' },
+    { percentage: 0.15, displayValue: '15%' },
+    { percentage: 0.25, displayValue: '25%' },
+    { percentage: 0.5, displayValue: '50%' },
+  ]
+
   return (
     <div className="panel splitter-panel">
       <div className="bill-input-group">
-        <p className="input-title">Bill</p>
+        <div className="bill-title-group">
+          <p className="input-title">Bill</p>
+          {alert.billAlert && <p className='alert'>Can't be zero</p>}
+        </div>
+        
         <label htmlFor="bill-input">
           <input
             type="text" name="bill" id="bill-input"
-            className="input-field bill" placeholder="0" value={input.billAmount}
-            onChange={(e)=>setInput(prevState=>({...prevState,billAmount:Number(e.target.value),resetActive:true}))}
+            pattern="^[0-9]+$" title='Please enter numerical characters only'
+            className={`input-field bill ${alert.billAlert && 'alert'}`} placeholder="0" value={input.billAmount}
+            onInput={(e) => {e.target.value = e.target.value.replace(/[^0-9]/g, '')}}
+            onChange={(e) => setInput(prevState => ({ ...prevState, billAmount: Number(e.target.value), resetActive: true }))}
+            
           />
       </label>
       </div>
       <div className="tip-calculator">
         <p className="tip-title">Select Tip %</p>
         <div className="percentage-grid">
-          <div className={`percentage ${input.tipPercentage===0.05 ? 'active':''}`} onClick={()=>tipPercentageHandler(0.05)}>5%</div>
-          <div className={`percentage ${input.tipPercentage===0.1 ? 'active':''}`} onClick={()=>tipPercentageHandler(0.1)}>10%</div>
-          <div className={`percentage ${input.tipPercentage===0.15 ? 'active':''}`} onClick={()=>tipPercentageHandler(0.15)}>15%</div>
-          <div className={`percentage ${input.tipPercentage===0.25 ? 'active':''}`} onClick={()=>tipPercentageHandler(0.25)}>25%</div>
-          <div className={`percentage ${input.tipPercentage===0.5 ? 'active':''}`} onClick={()=>tipPercentageHandler(0.5)}>50%</div>
-          <input className="percentage custom" type="text" name="custom" id="custom" placeholder="Custom"  />
+          {tipPercentages.map(tip => (
+            <div key={tip.percentage} className={`percentage ${input.tipPercentage===tip.percentage ? 'active' : ''}`} onClick={()=>tipPercentageHandler(tip.percentage)}>{tip.displayValue}</div>
+           ))}
+          <input className="percentage custom" type="text" name="custom" id="custom" placeholder="Custom" onChange={e=>tipPercentageHandler(Number(e.target.value)/100)}/>
         </div>
       </div>
       
       <div className="nbr-input-group">
       <div className="nbr-people-container">
           <p className="input-title">Number of People</p>
-          {alert && <p className="nbr-input-alert">Can't be zero</p>}
+          {alert.numPeopleAlert && <p className="alert">Can't be zero</p>}
         </div>
         
         <label htmlFor="nbr-people">
-          <input type="text" name='nbr-people' id='nbr-people' className="input-field nbr-people"  placeholder="0"
+          <input type="text" name='nbr-people' id='nbr-people' className={`input-field nbr-people ${alert.numPeopleAlert && 'alert'}`}  placeholder="0"
           value={input.numPeople}
           onChange={e=>setInput(prevState=>({...prevState, numPeople:Number(e.target.value), resetActive:true}))} 
           />
