@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap');
+
+:root{
+  /*Colors*/
+  /*Primary*/
+  --clrSoftCyan: hsl(174, 77%, 80%);
+  --clrStrongCyan:hsl(174, 86%, 45%);
+  --clrLightGrayishRed: hsl(14, 92%, 95%);
+  --clrLightRed: hsl(15, 100%, 70%);
+  --clrPaleBlue: hsl(226, 100%, 87%);
+
+  /*Neutral*/
+  --clrVeryPaleBlue: hsl(230, 100%, 99%);
+  --clrLightGrayishBlue:hsl(224, 65%, 95%);
+  --clrSliderBg:hsl(215,63%,95%);
+  --clrGrayishBlue:hsl(223, 50%, 87%);
+  --clrDarkGrayishBlue: hsl(225, 20%, 60%);
+  --clrDarkDesaturatedBlue:hsl(227, 35%, 25%);
+}
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'Manrope', sans-serif;
+  height: 100vh;
+  background: url('./images/bg-pattern.svg') no-repeat;
+  background-size: 100vw 60vh;
+  background-color: var(--clrVeryPaleBlue);
+  overflow: hidden;
+
+}
+
+/*Utilites*/
+.text{
+  color:var(--clrDarkGrayishBlue);
+}
+
+ul{
+  list-style: none;
+}
+
+.btn{
+  text-align: center;
+  background: var(--clrDarkDesaturatedBlue);
+  color:var(--clrGrayishBlue);
+  display: inline-block;
+  width: 160px;
+  padding: 10px;
+  border-radius: 50px;
+  font-size: 13px;
+}
+
+.panel-container{
+  margin: auto;
+  width: 530px;
+  box-shadow: 0 0 15px 0px rgba(133,143,173, 0.25);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.header,
+.pricing-panel,
+.benefits-panel{
+  margin: auto;
+}
+
+.header{
+ margin:100px auto;
+ width: 450px;
+ text-align: center;
+ position: relative;
+}
+
+.header-title,
+.header-sub{
+  z-index: 1;
+}
+
+.header-title{
+  color:var(--clrDarkDesaturatedBlue);
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.circles{
+  position: absolute;
+  left:50%;
+  top:-50%;
+  transform: translateX(-50%) scale(1.1);
+  z-index: -1;
+}
+
+.pricing-panel,
+.benefits-panel{
+  background: #fff;
+  width: 100%;
+  padding: 50px;
+  
+}
+
+/*Pricing Panel*/
+.pricing-panel-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.views-count{
+  font-weight:800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 15px;
+}
+
+.pricing-panel {
+  height: 250px;
+  margin-bottom: 2px;
+}
+
+.price{
+  font-size: 40px;
+  color:var(--clrDarkDesaturatedBlue);
+}
+
+.price span{
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  transform: translateY(-50%);
+}
+
+/*Slider Style*/
+
+.price-slider{
+  margin-bottom:20px;
+}
+
+input[type='range']{
+  appearance: none;
+  width: 100%;
+  border-radius: 5px;
+  height:8px;
+  background-color: var(--clrGrayishBlue);
+  position: relative;
+  z-index: 0;
+}
+
+input[type='range']::before{
+  content: "";
+  position: absolute;
+  top:0;
+  left:0;
+  height: 100%;
+  width: var(--sliderTrackWidth);
+  background-color: var(--clrStrongCyan);
+  border-radius: 5px;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+input[type="range"]::-webkit-slider-thumb{
+  appearance: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--clrStrongCyan) url('./images/icon-slider.svg') no-repeat center center;
+  box-shadow:2px 15px 20px 10px rgba(16, 213, 194, 0.25);
+  z-index: 2;
+}
+
+
+
+
+/*Benefits Panel*/
+.benefits-panel{
+background:#fff;
+height: 150px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 10px; /*Remove this after check mark styling*/
+}
+
+.benefits-item{
+  font-size: 13px;
+  padding:5px 0;
+  align-items: baseline;
+}
+
+/*Check Mark*/
+.check-mark-container{
+  display: inline-block;
+  position: relative;
+  height: 13px;
+  width: 13px;
+  margin: auto;
+  transform: rotate(-45deg);
+  margin-right: 10px;
+ vertical-align:text-top;
+}
+
+.check-mark-container::before{
+  content:'';
+  position: absolute;
+  height: 35%;
+  width:15%;
+  bottom: 0;
+  background: var(--clrStrongCyan);
+}
+
+.check-mark-container::after{
+  content:'';
+  position: absolute;
+  width: 75%;
+  height: 15%;
+  bottom: 0;
+  background: var(--clrStrongCyan);
+}
