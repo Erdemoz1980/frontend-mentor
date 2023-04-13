@@ -29,11 +29,8 @@
 body{
   font-family: 'Manrope', sans-serif;
   height: 100vh;
-  background: url('./images/bg-pattern.svg') no-repeat;
-  background-size: 100vw 60vh;
-  background-color: var(--clrVeryPaleBlue);
+  background: var(--clrVeryPaleBlue) url('./images/bg-pattern.svg') no-repeat top / 100vw 60vh;
   overflow: hidden;
-
 }
 
 /*Utilites*/
@@ -137,9 +134,8 @@ ul{
 }
 
 /*Slider Style*/
-
 .price-slider{
-  margin-bottom:20px;
+  margin-bottom:50px;
 }
 
 input[type='range']{
@@ -173,6 +169,49 @@ input[type="range"]::-webkit-slider-thumb{
   background: var(--clrStrongCyan) url('./images/icon-slider.svg') no-repeat center center;
   box-shadow:2px 15px 20px 10px rgba(16, 213, 194, 0.25);
   z-index: 2;
+}
+
+/* Billing Container + Radio Slider */
+.billing-container{
+  display: flex;
+  justify-content: flex-end;
+  gap:40px;
+  font-size: 13px;
+}
+
+input[type="radio"]{
+  appearance: none;
+}
+
+.billing-cycle-label{
+  height: 22px;
+  width: 44px;
+  background: var(--clrGrayishBlue);
+  border-radius: 10px;
+  position: relative;
+  transition: all 0.25s ease-in-out;
+}
+
+.billing-cycle-label span{
+display:block;
+position: absolute;
+height: 16px;
+width: 16px;
+background: #fff;
+border-radius: 50%;
+top:50%;
+transform: translateY(-50%);
+left: 4px;
+z-index: 5;
+transition: left 0.25s ease-in-out;
+}
+
+.billing-cycle-label:hover{
+  background: var(--clrStrongCyan);
+}
+
+input[type="radio"]:checked + span{
+  left:24px
 }
 
 
