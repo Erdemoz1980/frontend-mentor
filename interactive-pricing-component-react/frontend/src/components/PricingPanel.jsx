@@ -8,8 +8,12 @@ const PricingPanel = ({data}) => {
   const handleSliderChange = (e) => {
     const value = e.target.value;
     setSliderValue(value);
-    setPlanValue(Number(data[value].price));
-  }
+    if (checked) {
+      setPlanValue(Number(data[value].price) * 0.75);
+    } else {
+      setPlanValue(Number(data[value].price));
+    }
+  };
 
   const sliderTrackStyle = {
     '--sliderTrackWidth': `${(sliderValue / 4) * 100}%`
@@ -26,7 +30,7 @@ const PricingPanel = ({data}) => {
   return (
     <div className="pricing-panel">
       <section className="pricing-panel-header">
-        <h4 className="views-count text">100K Pageviews</h4>
+        <h4 className="views-count text">{data[sliderValue].pageViews} Pageviews</h4>
         <h1 className="price">${Number(planValue).toFixed(2)}<span className='text'>/month</span></h1>
       </section>
 
