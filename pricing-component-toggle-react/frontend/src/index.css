@@ -45,10 +45,48 @@ body{
   justify-content: center;
 }
 
-/*
-.page-container{
+.main-title{
+  text-align: center;
+  margin-bottom: 40px;
+}
 
-}*/
+/*Switch Button*/
+.pricing-switch-container{
+  display: flex;
+  gap:20px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 60px;
+  font-size: 15px;
+}
+
+.pricing-switch-container label{
+  background: linear-gradient(90deg, hsl(236, 72%, 79%) 20%, hsl(237, 63%, 64%) 90%);
+  height:32px;
+  width: 54px;
+  border-radius: 20px;
+  position: relative;
+}
+
+.pricing-switch-container label span{
+  position: absolute;
+  height: 22px;
+  width: 22px;
+  background: #fff;
+  border-radius: 50%;
+  top:50%;
+  transform: translateY(-50%);
+  left: 4px;
+  transition: all 0.3s ease;
+}
+
+input[type="radio"]{
+  appearance:none;
+}
+
+input[type="radio"]:checked + span {
+  left: calc(100% - 26px);
+}
 
 /*Card Styling*/
 .card-container{
@@ -61,7 +99,7 @@ body{
   height: 450px;
   background: #fff;
   padding: 30px;
-  border-radius: 15px;
+  border-radius: 15px 0 0 15px;
   box-shadow: 0 0 25px 0px rgba(105,115,221,0.3);
 }
 
@@ -73,6 +111,7 @@ body{
   background:linear-gradient(135deg, hsl(236, 72%, 79%), hsl(237, 63%, 64%) 85%);
   height: 500px;
   padding: 55px 30px;
+  border-radius: 15px;
 }
 
 .plan-type,
@@ -87,28 +126,26 @@ body{
 }
 
 .plan-price{
-  font-size: 60px;
+  font-size: 70px;
 }
 
 .plan-price span{
   display: inline-block;
-  font-size: 34px;
+  font-size: 40px;
   margin-right: 5px;
   transform: translateY(-10px);
 }
 
 /*Card Body*/
 .card-body{
-  border-top: 1px solid var(--clrLightGrayishBlue);
+  border-top: 1px solid rgba(179, 181, 198,0.5);
+  margin-bottom: 30px;
 }
 
-.card-item{
-  border-bottom: 1px solid var(--clrLightGrayishBlue);
-  padding-bottom: 20px;
-}
-
-.card-item{
-  margin-bottom: 20px;
+.card-item {
+  border-bottom: 1px solid rgba(179, 181, 198,0.5);
+  padding: 17px 0;
+  font-size:15px; 
 }
 
 .btn{
