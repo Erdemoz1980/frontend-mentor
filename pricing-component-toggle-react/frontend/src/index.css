@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+:root{
+  --clrVeryLightGrayishBlue: hsl(240, 78%, 98%);
+  --clrLightGrayishBlue: hsl(234, 14%, 74%);
+  --clrGrayishBlue: hsl(233, 13%, 49%);
+  --clrDarkGrayishBlue: hsl(232, 13%, 33%);  
+}
+
+*,
+*::after,
+*::before{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/*Utilities*/
+.text-white{
+  color:#fff;
+}
+
+.text-light{
+  color:var(--clrLightGrayishBlue);
+}
+
+.text-medium{
+  color:var(--clrGrayishBlue)
+}
+
+.text-dark{
+  color:var(--clrDarkGrayishBlue)
+}
+
+body{
+  font-family: 'Montserrat', sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  background-color:var(--clrVeryLightGrayishBlue);
+  background-image: url('./images/bg-bottom.svg'), url('./images/bg-top.svg');
+  background-repeat: no-repeat, no-repeat;
+  background-position: bottom left, top right;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*
+.page-container{
+
+}*/
+
+/*Card Styling*/
+.card-container{
+  display: flex;
+  align-items: center;
+}
+
+.card{
+  width: 350px;
+  height: 450px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 25px 0px rgba(105,115,221,0.3);
+}
+
+.card-header{
+  margin-bottom: 20px;
+}
+
+.professional{
+  background:linear-gradient(135deg, hsl(236, 72%, 79%), hsl(237, 63%, 64%) 85%);
+  height: 500px;
+  padding: 55px 30px;
+}
+
+.plan-type,
+.plan-price,
+.card-body{
+  text-align: center;
+}
+
+.plan-type{
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.plan-price{
+  font-size: 60px;
+}
+
+.plan-price span{
+  display: inline-block;
+  font-size: 34px;
+  margin-right: 5px;
+  transform: translateY(-10px);
+}
+
+/*Card Body*/
+.card-body{
+  border-top: 1px solid var(--clrLightGrayishBlue);
+}
+
+.card-item{
+  border-bottom: 1px solid var(--clrLightGrayishBlue);
+  padding-bottom: 20px;
+}
+
+.card-item{
+  margin-bottom: 20px;
+}
+
+.btn{
+  width: 100%;
+  border:none;
+  padding: 15px 0;
+  border-radius: 10px;
+  background:linear-gradient(90deg, hsl(236, 72%, 79%), hsl(237, 63%, 64%) 80%);
+  color:#fff;
+  text-transform: uppercase;
+  font-family: inherit;
+  letter-spacing: 2px;
+}
+
+.btn-professional{
+  background: #fff;
+  color: hsl(237, 63%, 64%);
+}

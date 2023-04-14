@@ -1,0 +1,32 @@
+[
+  {
+    "type":"Basic",
+    "priceAnnual":199.99,
+    "priceMonth":19.99,
+    "storageSize":500,
+    "storageUnit":"GB",
+    "noUsers":2,
+    "uploadSize":2,
+    "uploadUnit":"GB"
+  },
+  {
+    "type":"Professional",
+    "priceAnnual":249.99,
+    "priceMonth":24.99,
+    "storageSize":1,
+    "storageUnit":"TB",
+    "noUsers":5,
+    "uploadSize":10,
+    "uploadUnit":"GB"
+  },
+  {
+    "type":"Master",
+    "priceAnnual":399.99,
+    "priceMonth":39.99,
+    "storageSize":2,
+    "storageUnit":"TB",
+    "noUsers":10,
+    "uploadSize":20,
+    "uploadUnit":"GB"
+  }
+]
