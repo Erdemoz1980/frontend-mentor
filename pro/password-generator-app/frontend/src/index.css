@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,700&display=swap');
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --clrVeryDarkGreyBlue:rgb(19,18,24);
+  --clrDarkBlue:rgb(24,23,31);
+  --clrMediumGreyBlue:rgb(36,35,43);
+  --clrGrey:rgb(127,124,141);
+  --clrMediumGrey:rgb(85,84,92);
+  --clrRadioactiveGreen:rgb(164,255,175);
+  --clrDirtyWhite:rgb(230,229,234);
+  --clrMutedYellow:rgb(247,204,101);
+}
+
+body{
+  font-family: 'JetBrains Mono', monospace;
+  overflow: hidden;
+  background: var(--clrVeryDarkGreyBlue);
+  color:var(--clrDirtyWhite);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.main-title{
+ text-align: center;
+ margin-bottom: 35px;
+ color:var(--clrGrey);
+}
+
+.password-display,
+.generator-container{
+  background: var(--clrMediumGreyBlue);
+  width: 540px;
+  padding: 30px;
+}
+
+/*Password Display Component*/
+.password-display{
+  margin-bottom: 25px;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.password-display h3{
+  color:var(--clrMediumGrey);
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.copy-container{
+  cursor: pointer;
+}
+
+/*Generator Panel*/
+.generator-container{
+  height: 500px;
+  color:var(--clrDirtyWhite);
+}
+
+.char-length-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.char-length-container h4{
+  font-size: 18px;
+  font-weight:400;
+}
+
+.char-length-number{
+  color:var(--clrRadioactiveGreen);
+  font-size: 32px;
+}
+
+input[type="range"]{
+  width: 100%;
+  margin-bottom: 40px;
+  height: 7px;
+  appearance: none;
+  background: var(--clrVeryDarkGreyBlue);
+}
+
+input[type="range"]::-webkit-slider-thumb{
+ appearance: none;
+ height: 26px;
+ width: 26px;
+ background: var(--clrDirtyWhite);
+ border-radius: 50%;
+}
+
+/*Passoword Control Section*/
+.password-controls{
+  display: flex;
+  flex-direction: column;
+}
+
+.password-controls label{
+  font-size: 18px;
+  display: flex;
+}
+
+/*Custom checkmark*/
+.checkbox-container{
+  position: relative;
+}
+
+input[type="checkbox"]{
+appearance: none;
+margin:0 22px 22px 0;
+height: 20px;
+width: 20px;
+background:var(--clrMediumGreyBlue);
+border: 2px solid var(--clrDirtyWhite);
+position: relative;
+}
+
+input[type="checkbox"]:checked{
+  border:none;
+}
+
+input[type="checkbox"]:checked::before{
+ display: flex;
+ justify-content: center;
+ align-items:flex-end;
+ content:url('./assets/images/icon-check.svg');
+ background: var(--clrRadioactiveGreen);
+ color:var(--clrMediumGreyBlue);
+ height: 100%;
+ width: 100%;
+}
+
+/*Strength Display*/
+.strength-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--clrDarkBlue);
+  padding: 26px;
+}
+
+.strength-container h4{
+  text-transform: uppercase;
+  color:var(--clrGrey);
+  font-size: 18px;
+}
+
+.strength-display{
+  display: flex;
+  align-items: center;
+  gap:15px;
+}
+
+.strength-container h3{
+  text-transform: uppercase;
+  font-size: 26px;
+}
+
+.strength-gage-container{
+display: flex;
+}
+
+.strength-gage-item{
+height: 28px;
+width: 10px;
+border: 2px solid var(--clrDirtyWhite);
+margin-right: 7px;
+}
+
+.btn{
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 20px;
+  border: none;
+  text-transform: uppercase;
+  display: block;
+  width: 100%;
+  background: var(--clrRadioactiveGreen);
+  padding:20px;
+  margin-top: 20px;
+}
+
+
+
