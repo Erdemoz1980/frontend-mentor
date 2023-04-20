@@ -1,6 +1,6 @@
 import copyIcon from '../assets/images/icon-copy.svg';
 
-const PasswordDisplay = () => {
+const PasswordDisplay = ({password}) => {
 
 
   const onClickHandler = (e) => {
@@ -9,7 +9,7 @@ const PasswordDisplay = () => {
 
   return (
     <div className='password-display'>
-      <h3>GDF%v$G43$</h3>
+      <h3>{password}</h3>
       <div className="copy-container" onClick={onClickHandler}>
          <img src={copyIcon} alt="copy-icon" />
       </div>
