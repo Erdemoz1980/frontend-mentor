@@ -16,7 +16,9 @@
   --clrMediumGrey:rgb(85,84,92);
   --clrRadioactiveGreen:rgb(164,255,175);
   --clrDirtyWhite:rgb(230,229,234);
-  --clrMutedYellow:rgb(247,204,101);
+  --clrWeakStrength:rgb(252, 234, 193);
+  --clrMediumStrength:rgb(245, 200, 96);
+  --clrStrongStrength:rgb(233, 73, 10);
 }
 
 body{
@@ -133,9 +135,7 @@ input[type="range"]::-webkit-slider-thumb:active{
   border: 2px solid var(--clrRadioactiveGreen);
 }
 
-
-
-/*Passoword Control Section*/
+/*Password Control Section*/
 .password-controls{
   display: flex;
   flex-direction: column;
@@ -207,10 +207,25 @@ border: 2px solid var(--clrDirtyWhite);
 margin-right: 7px;
 }
 
+.strength-gage-item.weak{
+  border: none;
+  background: var(--clrWeakStrength);
+}
+
+.strength-gage-item.medium{
+  border: none;
+  background: var(--clrMediumStrength);
+}
+
+.strength-gage-item.strong{
+  border: none;
+  background: var(--clrStrongStrength);
+}
+
 .btn{
   font-family: inherit;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 18px;
   border: none;
   text-transform: uppercase;
   display: block;
@@ -219,6 +234,10 @@ margin-right: 7px;
   padding:20px;
   margin-top: 20px;
   cursor: pointer;
+}
+
+.btn svg{
+ margin-left: 20px;
 }
 
 .btn:active{

@@ -7,13 +7,14 @@ const Generator = ({ setPassword, setError }) => {
     lowercase: false,
     numbers: false,
     symbols: false
-  })
-
-  const { uppercase, lowercase, numbers, symbols } = passwordControl
+  });
+  const [strength, setStrength] = useState(0);
+  const { uppercase, lowercase, numbers, symbols } = passwordControl;
      
   const sliderStyle = {
     '--sliderProgressWidth': `${(charLength / 20) * 100}%`
   }
+
 
   const charPool = {
     uppercase: Array.from({ length: 26 }).map((_, i) => String.fromCharCode(i + 65)),
@@ -21,9 +22,11 @@ const Generator = ({ setPassword, setError }) => {
     numbers: [0,1,2,3,4,5,6,7,8,9],
     symbols: ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '=', '+', '[', ']', '{', '}', ';', ':', '<', '>', ',', '.', '?', '/', '\\', '|', '~']
   };
-  
+
   const generatePassword = () => {
     const numSelectedOptions = Object.values(passwordControl).filter(Boolean).length;
+    setStrength(numSelectedOptions);
+   
     
     if (charLength < 1 || numSelectedOptions < 1) {
       setError('Please set character length, and select at least one option')
@@ -31,6 +34,7 @@ const Generator = ({ setPassword, setError }) => {
     } else {
       if (charLength < numSelectedOptions) {
         setCharLength(numSelectedOptions)
+        
       }
       let selectedCharPool = [];
       let guaranteedCharacters = '';
@@ -60,10 +64,14 @@ const Generator = ({ setPassword, setError }) => {
       setError('');
     }
   };
-  
-  
-  
- 
+
+  const passwordStrength = {
+    0: 'Weak',
+    1: 'Weak',
+    2: 'Weak',
+    3: 'Medium',
+    4: 'Strong',
+  }
   
     return (
       <div className='generator-container'>
@@ -116,12 +124,12 @@ const Generator = ({ setPassword, setError }) => {
         <section className="strength-container">
           <h4>Strength</h4>
           <div className="strength-display">
-            {/*<h3>Medium</h3>-->*/}
+            <h3>{passwordStrength[strength]}</h3>
             <div className="strength-gage-container">
-              <div className="strength-gage-item"></div>
-              <div className="strength-gage-item"></div>
-              <div className="strength-gage-item"></div>
-              <div className="strength-gage-item"></div>
+              <div className={`strength-gage-item ${strength===4 ? 'strong': strength>=3 ? 'medium' : strength>=1 ? 'weak' : '' }`}></div>
+              <div className={`strength-gage-item ${strength===4 ? 'strong': strength>=3 ? 'medium' : strength>=2 ? 'weak' : '' }`}></div>
+              <div className={`strength-gage-item ${strength===4 ? 'strong': strength>=3 ? 'medium' : '' }`}></div>
+              <div className={`strength-gage-item ${strength>=4 ? 'strong' : ''}`}></div>
             </div>
           </div>
         </section>
