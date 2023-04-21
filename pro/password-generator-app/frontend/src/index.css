@@ -14,7 +14,7 @@
   --clrMediumGreyBlue:rgb(36,35,43);
   --clrGrey:rgb(127,124,141);
   --clrMediumGrey:rgb(85,84,92);
-  --clrRadioactiveGreen:rgb(164,255,175);
+  --clrRadioactiveGreen:rgb(164, 255, 175);
   --clrDirtyWhite:rgb(230,229,234);
   --clrWeakStrength:rgb(252, 234, 193);
   --clrMediumStrength:rgb(245, 200, 96);
@@ -60,10 +60,40 @@ body{
   font-weight: 700;
 }
 
+.password-display svg{
+  fill:var(--clrRadioactiveGreen);
+ }
+
+.password-display.copied h3{
+  color:var(--clrDirtyWhite);
+}
+
+.password-display.copied svg{
+   fill:var(--clrDirtyWhite);
+   animation: excited 0.2s ease-in-out;
+   animation-iteration-count:1;
+}
+
+@keyframes excited {
+  0% {
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.25);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+
 .password-display.error h3{
   color:red;
   font-size: 12px;
   font-weight: 400;
+}
+
+.password-display.error svg{
+  fill:red;
 }
 
 .copy-container{

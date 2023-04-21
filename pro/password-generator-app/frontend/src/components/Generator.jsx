@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Generator = ({ setPassword, setError }) => {
+const Generator = ({ setPassword, setError, setCopied }) => {
   const [charLength, setCharLength] = useState(0);
   const [passwordControl, setPasswordControl] = useState({
     uppercase: false,
@@ -62,6 +62,7 @@ const Generator = ({ setPassword, setError }) => {
   
       setPassword(passwordArray.join(''));
       setError('');
+      setCopied(false)
     }
   };
 

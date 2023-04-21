@@ -5,12 +5,13 @@ import PasswordDisplay from './components/PasswordDisplay';
 const App = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [copied, setCopied] = useState(false);
   
   return (
     <>
       <h2 className="main-title">Password Generator</h2>
-       <PasswordDisplay password={password} error={error}/>
-       <Generator setPassword={setPassword} setError={setError} />
+       <PasswordDisplay setError={setError} error={error} password={password} setCopied={setCopied} copied={copied} />
+      <Generator setPassword={setPassword} setError={setError} setCopied={setCopied} />
     </>
   )
 }
