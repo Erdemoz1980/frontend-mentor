@@ -58,6 +58,12 @@ body{
   font-weight: 700;
 }
 
+.password-display.error h3{
+  color:red;
+  font-size: 12px;
+  font-weight: 400;
+}
+
 .copy-container{
   cursor: pointer;
 }
@@ -78,6 +84,12 @@ body{
 .char-length-container h4{
   font-size: 18px;
   font-weight:400;
+}
+
+.char-length-container.error h4{
+  font-size: 12px;
+  font-weight: 400;
+  color:red;
 }
 
 .char-length-number{

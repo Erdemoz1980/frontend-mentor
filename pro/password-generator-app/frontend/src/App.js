@@ -3,13 +3,14 @@ import Generator from "./components/Generator";
 import PasswordDisplay from './components/PasswordDisplay';
 
 const App = () => {
-  const [passWord, setPassword] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   
   return (
     <>
       <h2 className="main-title">Password Generator</h2>
-       <PasswordDisplay password={passWord}/>
-       <Generator setPassword={setPassword} />
+       <PasswordDisplay password={password} error={error}/>
+       <Generator setPassword={setPassword} setError={setError} />
     </>
   )
 }
