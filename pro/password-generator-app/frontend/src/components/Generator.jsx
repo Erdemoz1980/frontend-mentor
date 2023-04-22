@@ -15,7 +15,6 @@ const Generator = ({ setPassword, setError, setCopied }) => {
     '--sliderProgressWidth': `${(charLength / 20) * 100}%`
   }
 
-
   const charPool = {
     uppercase: Array.from({ length: 26 }).map((_, i) => String.fromCharCode(i + 65)),
     lowercase: Array.from({ length: 26 }).map((_, i) => String.fromCharCode(i + 97)),
@@ -27,7 +26,6 @@ const Generator = ({ setPassword, setError, setCopied }) => {
     const numSelectedOptions = Object.values(passwordControl).filter(Boolean).length;
     setStrength(numSelectedOptions);
    
-    
     if (charLength < 1 || numSelectedOptions < 1) {
       setError('Please set character length, and select at least one option')
       setPassword('')
@@ -93,7 +91,6 @@ const Generator = ({ setPassword, setError, setCopied }) => {
               checked={uppercase}
               onChange={() => setPasswordControl(prevState => ({ ...prevState, uppercase: !uppercase }))}
             />
-      
             Include Uppercase Letters
           </label>
           <label htmlFor="lowercase">
@@ -121,7 +118,6 @@ const Generator = ({ setPassword, setError, setCopied }) => {
             Include Symbols
           </label>
         </section>
-
         <section className="strength-container">
           <h4>Strength</h4>
           <div className="strength-display">
