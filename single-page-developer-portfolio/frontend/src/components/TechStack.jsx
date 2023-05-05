@@ -1,31 +1,21 @@
-import portfolio from '../portfolio.json'; 
+import techStack from '../techStack.json';
+import rings from '../assets/images/pattern-rings.svg';
 
 const TechStack = () => {
+
   return (
     <div className='tech-stack'>
-      <header className="tech-stack-header">
-        <h1>Projects</h1>
-        <a href="/">Contact Me</a>
-      </header>
-      
-      <div className="projects-grid">
-        {portfolio.map(project => (
-          <div key={project.id} className="tech-card">
-            <div className="card-image">
-              <img src={project.imageSm} alt="screenshot" />
-            </div>
-            <div className="card-text">
-              <h4 className='card-title'>{project.name}</h4>
-              <div className='card-stack'>
-                {project.stack.map(stack => (
-                  <small key={stack.id}>{stack.name}</small>
-                ))}
+      <img  className='rings-svg' src={rings} alt="rings" />
+        <div className="tech-grid">
+          {
+            techStack.map(tech => (
+              <div key={tech.id} className="tech">
+                <h1 className="tech-skill">{tech.skill}</h1>
+                <h3 className="years">{tech.years} Years Experience </h3>
               </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
+            ))
+          }
+        </div>
     </div>
   )
 }

@@ -2,53 +2,41 @@
   {
     "id":"1000",
     "skill":"HTML",
-    "years:":3
+    "years":3
   },
   {
     "id":"1001",
     "skill":"CSS",
-    "years:":3
+    "years":3
   },
   {
     "id":"1002",
     "skill":"Javascript",
-    "years:":3,
-    "imageLg":"/images/thumbnail-project-1-large.webbp",
-    "imageSm":"/images/thumbnail-project-1-small.webp"
+    "years":3
   },
   {
     "id":"1003",
-    "skill":"React",
-    "years:":3,
-    "imageLg":"/images/thumbnail-project-2-large.webbp",
-    "imageSm":"/images/thumbnail-project-2-small.webp"
+    "skill":"ReactJS",
+    "years":2.5
   },
   {
     "id":"1004",
     "skill":"Redux Toolkit",
-    "years:":2.5,
-    "imageLg":"/images/thumbnail-project-3-large.webbp",
-    "imageSm":"/images/thumbnail-project-3-small.webp"
+    "years":2.5
   },
   {
     "id":"1005",
     "skill":"SCSS",
-    "years:":2,
-    "imageLg":"/images/thumbnail-project-4-large.webbp",
-    "imageSm":"/images/thumbnail-project-4-small.webp"
+    "years":2
   },
   {
     "id":"1006",
     "skill":"GraphQL",
-    "years:":2.5,
-    "imageLg":"/images/thumbnail-project-5-large.webbp",
-    "imageSm":"/images/thumbnail-project-5-small.webp"
+    "years":2.5
   },
   {
     "id":"1007",
     "skill":"Node/Express",
-    "years:":2,
-    "imageLg":"/images/thumbnail-project-6-large.webbp",
-    "imageSm":"/images/thumbnail-project-6-small.webp"
+    "years":2
   }
 ]

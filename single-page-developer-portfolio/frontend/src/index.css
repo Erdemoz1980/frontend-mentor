@@ -1,0 +1,148 @@
+@import url('design-system.css');
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/*Utilities*/
+img{
+  display: block;
+}
+
+a{
+  text-decoration: none;
+  color:#fff;
+}
+
+.btn{
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+  padding-bottom: 8px;
+  border-bottom: 3px solid var(--clrGreen);
+}
+
+.main-container{
+  max-width:1540px;
+  margin: auto;
+  background:var(--clrBlack);
+  padding: var(--bodyPadding);
+  position: relative;
+  overflow: hidden;
+ 
+}
+
+.container{
+  max-width: 1116px;
+  height: 100%;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.border{
+  border-bottom: 1px solid #fff;
+}
+
+body{
+  background: #000;
+  font-family: 'SpaceGrotesk', sans-serif;
+  color:#fff;
+}
+
+/*Header*/
+.header{
+ height: 90vh;
+ position: relative;
+}
+
+.profile-img{
+  position: absolute;
+  width: 450px;
+  height: auto;
+  top:300px;
+  z-index: -1;
+}
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+.logo{
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.profile-links{
+  display: flex;
+  gap:30px;
+  margin-right:30px;
+}
+
+.main-title{
+  font-size: var(--XL-font-size);
+  line-height: var(--XL-line-height);
+  letter-spacing: var(--XL-letter-spacing);
+}
+
+.main-title span{
+  position: relative;
+}
+
+.main-title span::before{
+  content: '';
+  position: absolute;
+  width: 93%;
+  border-bottom: 6px solid var(--clrGreen);
+  bottom: 8px;
+  left:1%;
+}
+
+.hero p{
+  width: 445px;
+  height: 84px;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+  margin: 42px 0;
+}
+
+/*Tech Stack*/
+.tech-stack{
+  margin-top: 60px;
+  position: relative;
+}
+
+.rings-svg{
+  position: absolute;
+  right:-305px;
+  bottom:25%;
+  }
+
+.tech-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 80px;
+  row-gap: 50px;
+}
+
+.tech-skill{
+  font-size: var(--L-font-size);
+  line-height: var(--L-line-height);
+  letter-spacing: var(--L-letter-spacing);
+  color:#fff;
+}
+
+.years{
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 28px;
+  color:var(--clrLightGrey);
+  margin-top: 10px;
+}
