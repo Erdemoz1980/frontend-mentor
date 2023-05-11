@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap');
+
+:root{
+  /*Colors*/
+  --clrDarkBlue:hsl(240, 38%, 20%);
+  --clrGrayishBlue:hsl(240, 18%, 77%);
+
+}
+
+body{
+background: #000;
+font-family: 'Inter', sans-serif;
+display: flex;
+align-items: center;
+justify-content: center;
+height: 100vh;
+overflow: hidden;
+}
+
+.main-wrapper{
+  width: 1440px;
+  height: 800px;
+  background: #fff;
+  background-image: url('./images/pattern-curve.svg'),url('./images/pattern-bg.svg'), url('./images/pattern-quotes.svg');
+  background-repeat: no-repeat;
+  background-position: 0 100%, 90% 25%, 20% 30%;
+}
+
+*,
+*::before,
+*::after{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/*Slider Card*/
+.slider-wrapper{
+  display:flex;
+  height: 100%;
+  align-items: center;
+  width: 1100px;
+  margin: auto;
+}
+
+.slider-card{
+  display: flex;
+  align-items: center;
+}
+
+.card-text-container{
+ width: 60%;
+ z-index: 1;
+}
+
+.slider-text{
+  font-size: 32px;
+  font-weight: 300;  
+  color:var(--clrDarkBlue);
+  line-height:1.4;
+}
+
+.card-profile-wrapper{
+  position: relative;
+}
+
+.card-image-wrapper{
+position: absolute;
+transform: translate(-17%,-52%);
+}
+
+/*Slider Button*/
+.slider-btn{
+  transform: translate(100%,-60%);
+  background: #fff;
+  border:none;
+  padding:20px;
+  border-radius: 30px;
+  box-shadow: 0 5px 10px 0px rgba(0,0,0,0.3);
+}
+
+.slider-btn img:first-child{
+ margin-right: 40px;
+}
+
+
+
