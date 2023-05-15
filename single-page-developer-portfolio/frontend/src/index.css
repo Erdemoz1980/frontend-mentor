@@ -8,6 +8,7 @@
   box-sizing: border-box;
 }
 
+
 /*Utilities*/
 img{
   display: block;
@@ -26,21 +27,17 @@ a{
   border-bottom: 3px solid var(--clrGreen);
 }
 
-.main-container{
+.container-bg{
   max-width:1540px;
   margin: auto;
-  background:var(--clrBlack);
   padding: var(--bodyPadding);
-  position: relative;
   overflow: hidden;
- 
 }
 
-.container{
+.container-margin{
   max-width: 1116px;
   height: 100%;
   margin: auto;
-  overflow: hidden;
   position: relative;
 }
 
@@ -48,30 +45,63 @@ a{
   border-bottom: 1px solid #fff;
 }
 
+/*Body*/
+
 body{
-  background: #000;
   font-family: 'SpaceGrotesk', sans-serif;
+  background: var(--clrBlack);
   color:#fff;
 }
 
 /*Header*/
 .header{
  height: 90vh;
+ z-index: 5;
  position: relative;
 }
 
-.profile-img{
+.profile-image-container{
   position: absolute;
+  right:0;
   width: 450px;
   height: auto;
-  top:300px;
+  top:calc(-1*var(--bodyPadding));
   z-index: -1;
 }
+
+.profile-image{
+width: 100%;
+height: 100%;
+}
+
+.circle-pattern{
+  position: absolute;
+  bottom:70px;
+  transform: translateX(-50%);
+}
+
+/*
+.ring-pattern-container{
+  position: absolute;
+  transform: translateX(-40%);
+  top:15%;
+  z-index: -1;
+}
+
+.ring-pattern-container::before{
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, var(--clrBlack), rgba(0,0,0,0) 70%);
+}*/
+
 .navbar{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 100px;
+  margin-bottom: 140px;
+  z-index:10;
 }
 
 .logo{
@@ -85,6 +115,7 @@ body{
   margin-right:30px;
 }
 
+/*Hero*/
 .main-title{
   font-size: var(--XL-font-size);
   line-height: var(--XL-line-height);
@@ -119,11 +150,15 @@ body{
   position: relative;
 }
 
-.rings-svg{
-  position: absolute;
-  right:-305px;
-  bottom:25%;
-  }
+/*
+.tech-stack .ring-pattern-container{
+  right:-50%;
+  bottom: 50px;
+}
+
+.tech-stack .ring-pattern-container::before {
+  background: linear-gradient(-90deg, var(--clrBlack), rgba(0,0,0,0) 70%);
+}*/
 
 .tech-grid{
   display: grid;
@@ -145,4 +180,22 @@ body{
   line-height: 28px;
   color:var(--clrLightGrey);
   margin-top: 10px;
+}
+
+/*Projects Section*/
+.projects-grid-container{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap:40px;
+  margin: auto;
+}
+
+.project-card{
+
+}
+
+.project-card img{
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }

@@ -5,7 +5,10 @@ const TechStack = () => {
 
   return (
     <div className='tech-stack'>
-      <img  className='rings-svg' src={rings} alt="rings" />
+      {/*<div className="ring-pattern-container">
+        <img  src={rings} alt="rings" />
+  </div>*/}
+      
         <div className="tech-grid">
           {
             techStack.map(tech => (

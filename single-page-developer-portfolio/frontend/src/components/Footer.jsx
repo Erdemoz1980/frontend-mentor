@@ -12,7 +12,11 @@ const Footer = () => {
   });
 
   const { name, email, message } = formData;
+ 
 
+  function onChangeHandler(e) {
+    
+  }
 
   function submitHandler(e) {
     e.preventDefault();
