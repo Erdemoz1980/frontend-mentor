@@ -5,14 +5,14 @@ import Projects from './components/Projects';
 
 const App = () => {
   return (
-
+    <>
      <div className='container-bg'>
       <Header />
       <TechStack />
-      <Projects />
+        <Projects />
+    </div>
       <Footer />
-      </div>
-    
+      </>
   )
 };
 

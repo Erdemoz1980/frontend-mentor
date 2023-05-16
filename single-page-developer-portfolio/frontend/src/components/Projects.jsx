@@ -5,7 +5,7 @@ const Projects = () => {
   return (
     <section className='projects-section'>
       <header className="projects-header">
-        <h1>Projects</h1>
+        <h1 className='main-title'>Projects</h1>
         <a className='btn' href="/">Contact Me</a>
       </header>
       <div className="projects-grid-container">
@@ -13,10 +13,10 @@ const Projects = () => {
           portfolio.map(project => (
             <div key={project.id} className='project-card'>
               <img src={project.imageLg} alt='project' />
-              <h3>{project.name}</h3>
+              <h2>{project.name}</h2>
               {
                 project.stack.map(stack => (
-                  <p id={stack.id}>{stack.name}</p>
+                  <span key={stack.id}>{stack.name}</span>
                 ))
               }
             </div>

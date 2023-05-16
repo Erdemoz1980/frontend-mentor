@@ -13,30 +13,34 @@ const Footer = () => {
 
   const { name, email, message } = formData;
  
-
   function onChangeHandler(e) {
-    
+    setFormData(prevState => ({
+      ...prevState,
+      [e.target.name]: e.target.value
+    }))
   }
 
   function submitHandler(e) {
-    e.preventDefault();
+    e.preventDefault()
+    console.log(formData)
   }
 
 
   return (
-    <div className='contact-container'>
-      <div className="container">
-      <div className="contact-grid">
+    <section className='footer-container'>
+      <div className="container-bg">
+      <div className="contact-grid border">
         <div className="contact-section">
-          <h1>Contact</h1>
+          <h1 className='main-title'>Contact</h1>
           <p>I would love to hear about your project and how I could help. Please fill in the form, and I'll get back to you as soon as possible.</p>
         </div>
 
-        <form onSubmit={submitHandler}>
-            <input type="text" value={name} />
-            <input type="email" value={email} />
-            <textarea value={message} id="" cols="30" rows="10"></textarea>
-         <button type="submit" className='btn'>Send Message</button>
+        <form className='contact-form' onSubmit={submitHandler}>
+            <input type="text" name="name" value={name} placeholder='NAME' onChange={onChangeHandler} />
+            <input type="email" name="email" value={email} placeholder='EMAIL' onChange={onChangeHandler} />
+            <textarea value={message} name="message" id="" cols="30" rows="5" placeholder='MESSAGE' onChange={onChangeHandler} ></textarea>
+         <button type='submit' className='btn'>Send Message</button>
+         <button  className='btn clear'>Clear Fields</button>
         </form>
       </div>
       <footer>
@@ -49,7 +53,7 @@ const Footer = () => {
         </div>
       </footer>
       </div>
-    </div>
+    </section>
   )
 }
 

@@ -16,16 +16,20 @@ img{
 
 a{
   text-decoration: none;
-  color:#fff;
 }
 
 .btn{
+  color:#fff;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: 500;
   padding-bottom: 8px;
+  border:none;
+  background: none;
   border-bottom: 3px solid var(--clrGreen);
+  cursor: pointer;
 }
+
 
 .container-bg{
   max-width:1540px;
@@ -39,6 +43,12 @@ a{
   height: 100%;
   margin: auto;
   position: relative;
+}
+
+.main-title{
+  font-size: var(--XL-font-size);
+  line-height: var(--XL-line-height);
+  letter-spacing: var(--XL-letter-spacing);
 }
 
 .border{
@@ -116,12 +126,6 @@ height: 100%;
 }
 
 /*Hero*/
-.main-title{
-  font-size: var(--XL-font-size);
-  line-height: var(--XL-line-height);
-  letter-spacing: var(--XL-letter-spacing);
-}
-
 .main-title span{
   position: relative;
 }
@@ -146,7 +150,7 @@ height: 100%;
 
 /*Tech Stack*/
 .tech-stack{
-  margin-top: 60px;
+  margin: 60px 0 200px 0;
   position: relative;
 }
 
@@ -183,6 +187,17 @@ height: 100%;
 }
 
 /*Projects Section*/
+.projects-section{
+  margin-bottom: 60px;
+}
+
+.projects-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
 .projects-grid-container{
   display: grid;
   grid-template-columns: repeat(2,1fr);
@@ -190,8 +205,17 @@ height: 100%;
   margin: auto;
 }
 
-.project-card{
+.project-card h2{
+  text-transform: uppercase;
+  font-weight: 500;
+  margin: 12px 0 8px 0;
+}
 
+.project-card span{
+  margin-right: 10px;
+  font-weight: 300;
+  font-size: 18px;
+  color:var(--clrLightGrey)
 }
 
 .project-card img{
@@ -199,3 +223,60 @@ height: 100%;
   height: auto;
   object-fit: cover;
 }
+
+/*Footer*/
+.footer-container{
+  background: var(--clrDarkGrey);
+}
+
+.contact-grid{
+  display: grid;
+  grid-template-columns: repeat(2,1fr); 
+  gap:200px;
+  padding-bottom: 80px;
+}
+
+.contact-form{
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form input,
+textarea {
+  background: none;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #fff;
+  margin-bottom: 20px;
+  resize: none;
+  padding: 20px;
+  font-family: 'SpaceGrotesk', sans-serif;
+  color:#fff;
+  font-size: 16px; 
+  font-weight: 500;
+  line-height: 26px;
+}
+
+.contact-form .btn{
+  align-self:flex-end;
+  margin-top: 10px;
+}
+
+.contact-form .clear{
+  align-self: flex-start;
+}
+
+.footer-container footer{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.footer-container footer .profile{
+  display: flex;
+  gap: 25px;
+}
+
+
+
