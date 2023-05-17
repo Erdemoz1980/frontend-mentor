@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import iconCross from '../images/icon-cross.svg';
 
 const TodoList = ({ todoList, setTodoList }) => {
   
@@ -10,7 +12,12 @@ const TodoList = ({ todoList, setTodoList }) => {
         return item
       }
     }))
-    
+  }
+
+  function deleteItem(itemId) {
+    setTodoList(prevState =>
+      prevState.filter(item=>item.id!==itemId)
+      )
   }
 
   return (
@@ -18,11 +25,15 @@ const TodoList = ({ todoList, setTodoList }) => {
       {
         todoList.map(todo => (
           <div className="todo-item" key={todo.id}>
-            <label htmlFor="todo-complete">
+            <div className="todo-display">
+              <label htmlFor="todo-complete">
               <input type="checkbox" name="todo-complete" id="todo-complete" checked={todo.completed} onChange={()=>onChangeHandler(todo.id)} />
             </label>
             <p>{todo.todoInput}</p>
-          </div>
+            </div>
+            <img src={iconCross} alt='icon cross' onClick={()=>deleteItem(todo.id)} />
+            </div>
+            
         ))
       }
     </div>

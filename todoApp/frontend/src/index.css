@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;600;700&display=swap');
+
+
+:root{
+  /*Colors*/
+  --clrBrightBlue: hsl(220, 98%, 61%);
+
+  /*Light Theme*/
+  --clrVeryLightGray:hsl(0, 0%, 96%);
+  --clrVeryLightGrayishBlue: hsl(236, 33%, 92%);
+  --clrLightGrayishBlue: hsl(233, 11%, 84%);
+  --clrDarkGrayishBlue: hsl(236, 9%, 61%);
+  --clrVeryDarkGrayishBlue: hsl(235, 19%, 35%);
+
+  /*Dark Theme*/
+  --clrVeryDarkBlue: hsl(235, 21%, 11%);
+  --clrVeryDarkDesaturatedBlue: hsl(235, 24%, 19%);
+  --clrLightGrayishBlue: hsl(234, 39%, 85%);
+  --clrLightGrayishBlue: hsl(236, 33%, 92%); /*hover*/
+  --clrDarkGrayishBlue: hsl(234, 11%, 52%);
+  --clrVeryDarkGrayishBlue: hsl(233, 14%, 35%);
+  --clrVeryDarkGrayishBlue: hsl(237, 14%, 26%);
+}
+
+
+*,
+*::after,
+*::before {
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+}
+
+body{
+  font-family: 'Josefin Sans', sans-serif;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.todo-bg-wrapper {
+  width: 1440px;
+  height:800px;
+  background:url('./images/bg-desktop-light.jpg') no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.todo-bg-wrapper.light{
+  background:var(--clrVeryLightGray) url('./images/bg-desktop-light.jpg') no-repeat;;
+}
+
+.todo-bg-wrapper.dark{
+  background:var(--clrVeryDarkBlue) url('./images/bg-desktop-dark.jpg') no-repeat;;
+}
+
+.todo-main-wrapper {
+  width: 500px;
+}
+
+.todo-main-wrapper header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.main-title{
+  text-transform: uppercase;
+  color:#fff;
+  font-size: 40px;
+  letter-spacing: 10px;
+  font-weight: 700;
+}
+
+/*Input Component*/
+.todo-input-wrapper{
+  background: #fff;
+  border-radius: 5px;
+}
+
+.todo-list-wrapper{
+  max-height: 400px;
+  background: #fff;
+  box-shadow: 0 0 16px 0 rgba(0,0,0,0.075);
+}
+
+.todo-item{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  border-bottom: 1px solid var(--clrDarkGrayishBlue);
+}
+
+.todo-item img{
+  cursor: pointer;
+}
+

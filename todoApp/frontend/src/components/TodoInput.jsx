@@ -1,24 +1,16 @@
-import { useState, useEffect } from "react"
+import { useState} from "react"
 
-const TodoInput = ({ todoList, setTodoList }) => {
+const TodoInput = ({ setTodoList }) => {
   const [checked, setChecked] = useState(false)
   const [todoInput, setTodoInput] = useState('')
   
-
-
  //Add todo item to todo list
   function submitHandler() {
-    let newId = Math.floor(Math.random() * 1000);
-    
-    while (todoList.some(item => item.id === newId)) {
-      newId = Math.floor(Math.random() * 101); // Generate a new random ID
-    }
-
     //Add current todo item to todo List
     setTodoList(prevState => [
       ...prevState,
       {
-        id: Math.floor(Math.random() * 101),
+        id: Date.now(),
         completed: false,
         todoInput
       }
@@ -27,11 +19,6 @@ const TodoInput = ({ todoList, setTodoList }) => {
     setChecked(false)
     setTodoInput('')
   }
-
-  useEffect(() => {
-    localStorage.setItem('todo', JSON.stringify(todoList))
-  },[todoList])
-
 
   return (
     <div className="todo-input-wrapper">
