@@ -21,14 +21,16 @@ const TodoPage = () => {
   return (
     <div className={`todo-bg-wrapper ${theme}`}>
       <div className="todo-main-wrapper">
-      <header>
-        <h1 className="main-title">Todo</h1>
+        <header>
+          <div className="header-container">
+          <h1 className="main-title">Todo</h1>
         <div className="switch-group">
           <label htmlFor="theme-switch">Theme Switcher</label>
         <input type="checkbox" name="theme-switch" id="theme-switch" value={theme} checked={theme==='dark'}  onChange={switchHandler} />
-        </div>
+            </div>
+          </div>
+          <TodoInput setTodoList={setTodoList} todoList={todoList} />
       </header>
-      <TodoInput setTodoList={setTodoList} todoList={todoList} />
       <TodoList todoList={todoList} setTodoList={setTodoList} />
       </div>
       </div>

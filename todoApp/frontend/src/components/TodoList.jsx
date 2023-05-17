@@ -1,17 +1,17 @@
-import { useEffect } from 'react';
 import iconCross from '../images/icon-cross.svg';
 
 const TodoList = ({ todoList, setTodoList }) => {
   
   //Set todo Item to completed or uncompleted upon second click
   function onChangeHandler(currentId) {
-    setTodoList(prevState => prevState.map(item => {
-      if (item.id === currentId) {
-        return { ...item, completed: !item.completed }
-      } else {
-        return item
-      }
-    }))
+    setTodoList(prevState =>
+       prevState.map(item => {
+        if (item.id === currentId) {
+          return { ...item, completed: !item.completed }
+        } else {
+          return item
+        }
+      }))
   }
 
   function deleteItem(itemId) {
@@ -26,10 +26,10 @@ const TodoList = ({ todoList, setTodoList }) => {
         todoList.map(todo => (
           <div className="todo-item" key={todo.id}>
             <div className="todo-display">
-              <label htmlFor="todo-complete">
-              <input type="checkbox" name="todo-complete" id="todo-complete" checked={todo.completed} onChange={()=>onChangeHandler(todo.id)} />
+              <label className="todo-completed-label" htmlFor={`todo-completed-${todo.id}`}>
+              <input type="checkbox" name="todo-complete" id={`todo-completed-${todo.id}`} checked={todo.completed} onChange={()=>onChangeHandler(todo.id)} />
             </label>
-            <p>{todo.todoInput}</p>
+            <p className={todo.completed ? 'completed' : ''}>{todo.todoInput}</p>
             </div>
             <img src={iconCross} alt='icon cross' onClick={()=>deleteItem(todo.id)} />
             </div>
