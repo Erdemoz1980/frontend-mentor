@@ -32,8 +32,19 @@ box-sizing: border-box;
 /*Utilities*/
 .completed{
   text-decoration: line-through;
-  color:var(--clrDarkGrayishBlue);
+}
 
+.btn{
+  border:none;
+  background: none;
+  font-family: inherit;
+  font-size: 14px;
+  color:var(--clrDarkGrayishBlue);
+  cursor: pointer;
+}
+
+.active{
+  color:var(--clrBrightBlue);
 }
 
 body{
@@ -216,4 +227,48 @@ body{
 .todo-item img{
   cursor: pointer;
 }
+
+.todo-info {
+ display: grid;
+ grid-template-columns: repeat(6,1fr);
+ padding: 20px;
+}
+
+.items-left{
+  align-self: center;
+  grid-column: span 2;
+  color:var(--clrDarkGrayishBlue);
+  margin-right: 40px;
+  font-size: 14px;
+}
+
+.items-left span{
+ grid-column: span 1;
+}
+
+.items-left span:first-child{
+  height: auto;
+  width: 10px;
+  display: inline-block;
+}
+
+.display-control{
+  display: flex;
+  align-items: center;
+}
+
+.items-clear{
+  grid-column: span 3;
+  justify-self: end;
+}
+
+.items-clear:has(button:disabled) .btn{
+  color:var(--clrLightGrayishBlue);
+}
+
+.display-control .btn{
+  margin-right: 10px;
+  font-weight: 700;
+}
+
 

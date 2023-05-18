@@ -1,13 +1,13 @@
 import { useState } from "react";
 
 const TodoInput = ({ setTodoList }) => {
-  const [checked, setChecked] = useState(false)
   const [todoInput, setTodoInput] = useState('')
+  const [checked, setChecked] = useState(false);
   
  //Add todo item to todo list
   function submitHandler() {
     //Add current todo item to todo List
-    setChecked(true);
+    setChecked(true)
     setTodoList(prevState => [
         ...prevState,
         {
@@ -22,7 +22,6 @@ const TodoInput = ({ setTodoList }) => {
       setTodoInput('')
       setChecked(false)
     },500)
-   
   }
 
   return (

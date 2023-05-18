@@ -1,8 +1,7 @@
 import iconCross from '../images/icon-cross.svg';
 
-const TodoList = ({ todoList, setTodoList }) => {
-  
-  //Set todo Item to completed or uncompleted upon second click
+const TodoList = ({ todoList, setTodoList, setDisplay, display, numLeft }) => {
+
   function onChangeHandler(currentId) {
     setTodoList(prevState =>
        prevState.map(item => {
@@ -11,13 +10,21 @@ const TodoList = ({ todoList, setTodoList }) => {
         } else {
           return item
         }
-      }))
-  }
+       }))
+  };
 
   function deleteItem(itemId) {
     setTodoList(prevState =>
       prevState.filter(item=>item.id!==itemId)
-      )
+    )
+  };
+
+  function clearCompleted() {
+    setTodoList(prevState => prevState.filter(item => !item.completed));
+  }
+
+  function displayControlHandler(e) {
+    setDisplay(e.target.getAttribute('data'))
   }
 
   return (
@@ -33,9 +40,22 @@ const TodoList = ({ todoList, setTodoList }) => {
             </div>
             <img src={iconCross} alt='icon cross' onClick={()=>deleteItem(todo.id)} />
             </div>
-            
         ))
       }
+
+      <div className="todo-info">
+        <p className="items-left">
+          <span>{numLeft}</span>
+          <span>item{`${numLeft > 1 || numLeft < 1 ? 's' : ''}`} left</span></p>
+          <div className='display-control'>
+            <button className={`btn ${display==='all' ? 'active' : ''}`} data='all' onClick={displayControlHandler}>All</button>
+          <button className={`btn ${display==='active' ? 'active' : ''}`} data='active' onClick={displayControlHandler}>Active</button>
+          <button className={`btn ${display==='completed' ? 'active' : ''}`}  data='completed' onClick={displayControlHandler}>Completed</button>
+          </div>
+        <div className="items-clear">
+          <button className="btn" data='clear'disabled={numLeft===todoList.length} onClick={clearCompleted}>Clear Completed</button>
+        </div>
+      </div>
     </div>
   )
 }
