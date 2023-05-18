@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import TodoInput from "../components/TodoInput";
 import TodoList from "../components/TodoList";
+import TodoControls from '../components/TodoControls';
 
 const TodoPage = () => {
   const [theme, setTheme] = useState('light');
@@ -9,30 +10,41 @@ const TodoPage = () => {
     return storedTodoList ? JSON.parse(storedTodoList) : []
   });
   const [display, setDisplay] = useState('all');
-  const numLeft = todoList.filter(item => !item.completed).length;
-  
+  const numLeft = todoList.filter(item => !item.completed).length
+
   useEffect(() => {
     localStorage.setItem('todo', JSON.stringify(todoList))
+    //Set display control buttons disable/active
   }, [todoList])
 
   function switchHandler(e) {
     setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light')
   }
 
+  const todoListFiltered = useMemo(() => {
+    if (display === 'active') {
+      return todoList.filter(item => !item.completed)
+    } else if (display === 'completed') {
+      return todoList.filter(item=>item.completed)
+    } else {
+      return todoList
+    }
+  },[display, todoList])
+
   return (
     <div className={`todo-bg-wrapper ${theme}`}>
-      <div className="todo-main-wrapper">
-        <header>
+       <header>
           <div className="header-container">
             <h1 className="main-title">Todo</h1>
-            <div className="switch-group">
-              <label htmlFor="theme-switch">Theme Switcher</label>
-              <input type="checkbox" name="theme-switch" id="theme-switch" value={theme} checked={theme === 'dark'} onChange={switchHandler} />
-            </div>
+              <label className={`theme-switch ${theme}`} htmlFor="theme-switch">
+               <input type="checkbox" name="theme-switch" id="theme-switch" value={theme} checked={theme === 'dark'} onChange={switchHandler} /> 
+              </label> 
           </div>
           <TodoInput setTodoList={setTodoList} todoList={todoList} />
         </header>
-        <TodoList todoList={display === 'active' ? todoList.filter(item => !item.completed) : display === 'completed' ? todoList.filter(item => item.completed) : todoList} setTodoList={setTodoList} setDisplay={setDisplay} display={display} numLeft={numLeft} />
+      <div className="todo-main-wrapper">
+        <TodoList todoListOriginal={todoList} todoListFiltered={todoListFiltered} setTodoList={setTodoList} setDisplay={setDisplay} display={display} numLeft={numLeft} />
+        {todoList.length>0 && <TodoControls todoList={todoList} setTodoList={setTodoList} todoListFiltered={todoListFiltered} display={display} setDisplay={setDisplay} numLeft={numLeft}  />}
       </div>
     </div>
   )

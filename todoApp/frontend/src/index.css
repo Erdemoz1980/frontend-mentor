@@ -47,6 +47,12 @@ box-sizing: border-box;
   color:var(--clrBrightBlue);
 }
 
+.disabled{
+  color:var(--clrLightGrayishBlue);
+  cursor: default;
+}
+
+/*Body*/
 body{
   font-family: 'Josefin Sans', sans-serif;
   background: #000;
@@ -56,15 +62,43 @@ body{
   height: 100vh;
 }
 
+/*Main*/
 .todo-bg-wrapper {
   width: 1440px;
   height:800px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   position: relative;
   color:var(--clrVeryDarkGrayishBlue);
+}
+
+/*Header, includes input field*/ 
+header{
+  position: absolute;
+  width: 540px;
+  top:50px;
+}
+
+/*Theme Switcher*/
+.theme-switch {
+  position: relative;
+  height: 26px;
+  width: 26px;
+  cursor: pointer;
+}
+
+.theme-switch.light {
+  background: url('./images/icon-moon.svg') no-repeat center/contain;
+}
+
+.theme-switch.dark{
+  background: url('./images/icon-sun.svg') no-repeat center/contain;
+}
+
+.theme-switch input[type="checkbox"]{
+  visibility: hidden;
+  position: absolute;
 }
 
 .todo-bg-wrapper.light{
@@ -73,16 +107,6 @@ body{
 
 .todo-bg-wrapper.dark{
   background:var(--clrVeryDarkBlue) url('./images/bg-desktop-dark.jpg') no-repeat;;
-}
-
-.todo-main-wrapper {
-  width: 540px;
-}
-
-.todo-main-wrapper header{
-  position: absolute;
-  top:100px;
-  width: 540px;
 }
 
 .header-container{
@@ -99,7 +123,6 @@ body{
   letter-spacing: 10px;
   font-weight: 700;
 }
-
 
 /*Input Component*/
 .todo-input-wrapper{
@@ -168,12 +191,21 @@ body{
   color:var(--clrDarkGrayishBlue);
 }
 
-/*Todo List*/
+/*Todo List Display*/
+.todo-main-wrapper {
+  position: absolute;
+  width: 540px;
+  top:200px;
+  box-shadow: 0 0 16px 0 rgba(0,0,0,0.2);
+}
+
 .todo-list-wrapper{
-  max-height: 400px;
   background: #fff;
-  box-shadow: 0 0 16px 0 rgba(0,0,0,0.075);
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  max-height: 480px;
+  overflow-y: auto;
 }
 
 .todo-item{
@@ -223,7 +255,7 @@ body{
   position: absolute;
 }
 
-/*Delete Button*/
+/*Delete Individual Item Button*/
 .todo-item img{
   cursor: pointer;
 }
@@ -232,6 +264,8 @@ body{
  display: grid;
  grid-template-columns: repeat(6,1fr);
  padding: 20px;
+ background: #fff;
+ border-radius: 5px;
 }
 
 .items-left{
@@ -248,7 +282,7 @@ body{
 
 .items-left span:first-child{
   height: auto;
-  width: 10px;
+  width: 15px;
   display: inline-block;
 }
 
@@ -260,10 +294,6 @@ body{
 .items-clear{
   grid-column: span 3;
   justify-self: end;
-}
-
-.items-clear:has(button:disabled) .btn{
-  color:var(--clrLightGrayishBlue);
 }
 
 .display-control .btn{
