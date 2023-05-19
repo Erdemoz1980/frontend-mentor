@@ -25,7 +25,9 @@ const TodoList = ({ todoListFiltered, setTodoList}) => {
     setTodoList(prevState => {
       const updatedList = [...prevState];
       const draggedIndex = updatedList.findIndex(item => item === draggedItem);
+      console.log(`This is dragged Index:${draggedIndex}`)
       const droppedIndex = updatedList.findIndex(item => item === droppedItem);
+      console.log(`This is dropped Index:${droppedIndex}`)
 
       updatedList.splice(draggedIndex, 1);
       updatedList.splice(droppedIndex, 0, draggedItem);

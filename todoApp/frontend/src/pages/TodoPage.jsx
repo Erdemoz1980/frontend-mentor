@@ -39,7 +39,7 @@ const TodoPage = () => {
                <input type="checkbox" name="theme-switch" id="theme-switch" value={theme} checked={theme === 'dark'} onChange={switchHandler} /> 
               </label> 
           </div>
-          <TodoInput setTodoList={setTodoList} todoList={todoList} />
+          <TodoInput setTodoList={setTodoList} todoList={todoList} theme={theme} />
         </header>
       <div className="todo-main-wrapper">
         <TodoList todoListOriginal={todoList} todoListFiltered={todoListFiltered} setTodoList={setTodoList} setDisplay={setDisplay} display={display} numLeft={numLeft} />

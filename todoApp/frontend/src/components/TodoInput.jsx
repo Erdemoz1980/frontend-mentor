@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const TodoInput = ({ setTodoList }) => {
+const TodoInput = ({ setTodoList, theme }) => {
   const [todoInput, setTodoInput] = useState('')
   const [checked, setChecked] = useState(false);
   
@@ -25,7 +25,7 @@ const TodoInput = ({ setTodoList }) => {
   }
 
   return (
-    <div className="todo-input-wrapper">
+    <div className={`todo-input-wrapper ${theme}`}>
         <label className="todo-input-label" htmlFor="todoInput">
           <input type="radio" name="todo-input" id="todoInput" checked={checked} disabled={!todoInput} onChange={submitHandler} />
       </label>
