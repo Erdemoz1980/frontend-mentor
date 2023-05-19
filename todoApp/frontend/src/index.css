@@ -7,17 +7,17 @@
   /*Light Theme*/
   --clrVeryLightGray:hsl(0, 0%, 96%);
   --clrVeryLightGrayishBlue: hsl(236, 33%, 92%);
-  --clrLightGrayishBlue: hsl(233, 11%, 84%);
-  --clrDarkGrayishBlue: hsl(236, 9%, 61%);
+  --clrLightGrayishBlue: hsl(234, 17%, 77%);
+  --clrDarkGrayishBlue: hsl(240, 10%, 60%);
   --clrVeryDarkGrayishBlue: hsl(235, 19%, 35%);
 
   /*Dark Theme*/
   --clrVeryDarkBlue: hsl(235, 21%, 11%);
   --clrVeryDarkDesaturatedBlue: hsl(235, 24%, 19%);
-  --clrLightGrayishBlue: hsl(234, 39%, 85%);
-  --clrLightGrayishBlue: hsl(236, 33%, 92%); /*hover*/
-  --clrDarkGrayishBlue: hsl(233, 13%, 63%);
-  --clrVeryDarkGrayishBlue: hsl(233, 14%, 35%);
+  --clrLightGrayishBlueDark: hsl(234, 39%, 85%);
+  --clrLightGrayishBlueDark: hsl(236, 33%, 92%); /*hover*/
+  --clrDarkGrayishBlueDark: hsl(233, 13%, 63%);
+  --clrVeryDarkGrayishBlueDark: hsl(233, 14%, 35%);
   --clrVeryDarkGrayishBlue: hsl(237, 14%, 26%);
 }
 
@@ -32,6 +32,7 @@ box-sizing: border-box;
 /*Utilities*/
 .completed{
   text-decoration: line-through;
+  color:var(--clrLightGrayishBlue);
 }
 
 .btn{
@@ -47,7 +48,7 @@ box-sizing: border-box;
   color:var(--clrBrightBlue);
 }
 
-.disabled{
+button[disabled]{
   color:var(--clrLightGrayishBlue);
   cursor: default;
 }
@@ -181,6 +182,7 @@ header{
 }
 
 .todo-input-wrapper input[type="text"]{
+  width: 90%;
   border:none;
   outline:none;
   font-size: 18px;
@@ -190,6 +192,7 @@ header{
 .todo-input-wrapper input[type="text"]::placeholder{
   color:var(--clrDarkGrayishBlue);
 }
+
 
 /*Todo List Display*/
 .todo-main-wrapper {
@@ -265,7 +268,8 @@ header{
  grid-template-columns: repeat(6,1fr);
  padding: 20px;
  background: #fff;
- border-radius: 5px;
+ border-radius: 0px 0px 5px 5px;
+ position: relative;
 }
 
 .items-left{
@@ -296,9 +300,22 @@ header{
   justify-self: end;
 }
 
+/*All - active - completed buttons*/
 .display-control .btn{
   margin-right: 10px;
   font-weight: 700;
+}
+
+/*Re-order label*/
+.reorder{
+  position: absolute;
+  top:80px;
+  left:50%;
+  transform:translateX(-50%);
+  font-weight: 600;
+  font-size: 14px;
+  color:var(--clrDarkGrayishBlue);
+  
 }
 
 

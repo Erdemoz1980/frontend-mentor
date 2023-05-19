@@ -14,7 +14,6 @@ const TodoPage = () => {
 
   useEffect(() => {
     localStorage.setItem('todo', JSON.stringify(todoList))
-    //Set display control buttons disable/active
   }, [todoList])
 
   function switchHandler(e) {
@@ -44,7 +43,7 @@ const TodoPage = () => {
         </header>
       <div className="todo-main-wrapper">
         <TodoList todoListOriginal={todoList} todoListFiltered={todoListFiltered} setTodoList={setTodoList} setDisplay={setDisplay} display={display} numLeft={numLeft} />
-        {todoList.length>0 && <TodoControls todoList={todoList} setTodoList={setTodoList} todoListFiltered={todoListFiltered} display={display} setDisplay={setDisplay} numLeft={numLeft}  />}
+        {todoList.length>0 && <TodoControls todoList={todoList} setTodoList={setTodoList} display={display} setDisplay={setDisplay} numLeft={numLeft}  />}
       </div>
     </div>
   )

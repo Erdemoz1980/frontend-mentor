@@ -21,7 +21,7 @@ const TodoInput = ({ setTodoList }) => {
     setTimeout(() => {
       setTodoInput('')
       setChecked(false)
-    },500)
+    },300)
   }
 
   return (
