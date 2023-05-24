@@ -1,0 +1,119 @@
+@import url('design-system.css');
+
+
+/*Navigation*/
+.navbar{
+  display: flex;
+  height: 100px;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--clrGrayishDarkBlue);
+}
+
+.navbar-header{
+  background: none;
+  color:var(--clrGrayishDarkBlue);
+}
+
+.navbar-footer-wrapper{
+  width: 100%;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+
+.logo-menu-wrapper{
+  display: flex;
+  align-items: center;
+}
+
+.logo-menu-wrapper svg{
+  margin-right: 50px;
+}
+
+.menu{
+  display: flex;
+  gap:30px;
+}
+
+.menu a{
+  color:#fff;
+}
+
+.menu.navbar-header a{
+  color:var(--clrGrayishDarkBlue);
+}
+
+.social-links{
+  display: flex;
+  gap:20px;
+}
+
+/*Hero Section*/
+.hero-section{
+  position: relative;
+  margin-bottom: var(--marginSectionBottom);
+}
+
+.hero-image img{
+  height: inherit;
+  width: 100%;
+  object-fit: cover;
+}
+
+ .text-box{
+  position: absolute;
+  height: 370px;
+  width: 452px;
+  bottom: 0;
+  left:0;
+  background: #fff;
+  padding: 60px 60px 60px 0;
+}
+
+.hero-section .btn{
+  position: absolute;
+  transform: translateX(48px);  
+  bottom: 0;
+}
+
+/*About Section*/
+.about-section{
+  display: grid;
+  height: 600px;
+  width: 1015px;
+  grid-template-columns: repeat(2,1fr);
+  gap:120px;
+  margin-bottom: var(--marginSectionBottom);
+}
+
+.about-text {
+  border-top: 1px solid var(--clrLineColor);
+  border-bottom: 1px solid var(--clrLineColor);
+  padding:50px 0;
+}
+
+.about-text h2, .about-text p {
+  padding-bottom: 20px;
+}
+
+/*CTA*/
+.cta-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--marginSectionBottom);
+}
+
+.cta-text-box{
+  width:350px;
+  height: 84px;
+}
+
+.connecting-line{
+  width: 534px;
+  height: 1px;
+  background: var(--clrLineColor);
+}
+
+/*Navbar*/

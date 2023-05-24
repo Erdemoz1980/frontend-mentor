@@ -1,17 +1,19 @@
 import Navbar from "./Navbar";
-import github from '../images/icons/github.svg';
-import twitter from '../images/icons/twitter.svg';
-import linkedin from '../images/icons/linkedin.svg';
 
 const Footer = () => {
   return (
     <footer>
-      <Navbar />
-      <ul className="social-links">
-        <li><a href="/"><img src={github} alt="github"/></a></li>
-        <li><a href="/"><img src={twitter} alt="twitter"/></a></li>
-        <li><a href="/"><img src={linkedin} alt="linkedin"/></a></li>
-      </ul>
+      <div className="container">
+        <section className="cta-wrapper">
+          <div className="cta-text-box">
+            <h2>Interested in doing a project together?</h2>
+          </div>
+          <div className="connecting-line"></div>
+        <button className="btn btn-secondary btn-action">Contact Me</button>
+      </section>
+      </div>
+    
+      <Navbar/>
     </footer>
   )
 }

@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:wght@400;500;600;700&family=Public+Sans:ital,wght@0,100;0,300;0,400;0,500;0,600;1,700&display=swap');
+
+:root{
+  /*Primary Colors*/
+  --clrDesatCyan: hsl(167,36%,54%);
+  --clrVeryDarkBlue:#1d3445;
+  --clrDarkBlue:#203A4C;
+  --clrGrayishDarkBlue:#33323d;
+
+  /*Secondary Colors*/
+  --clrVeryLlightGrey: hsl(0,0%,98%);
+  --clrLightGrey:#eaeaeb;
+  --clrMediumGrey:rgb(51, 50, 61);
+  --clrBrightRed:hsl(0,90%,57%);
+
+  --clrLineColor:rgba(51, 50, 61, 0.15);
+
+  /*Margin & Padding*/
+  --marginSectionBottom:150px  
+}
+
+/*CSS Reset*/
+*,
+*::before,
+*::after {
+  padding:0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  color:var(--clrGrayishDarkBlue);
+}
+
+ul{
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+}
+
+  /*Typography*/
+
+  /*Headings*/
+h1, h2, h3 {
+  font-family: 'Ibarra Real Nova', serif;
+}
+
+h1{
+  font-size: 50px;
+  font-weight: bold;
+  line-height: 50px;
+  letter-spacing: -0.45px;
+}
+
+h2{
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 42px;
+  letter-spacing: -0.36px;
+}
+
+h3{
+  font-size: 42px;
+  font-weight: normal;
+  line-height: 36px;
+  letter-spacing: 0.29rem;
+}
+
+p, a, span {
+  font-family: 'Public Sans', sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 30px;
+}
+
+
+/*Buttons*/
+.btn{
+  border:none;
+  width: 200px;
+  height: 48px;
+  font-family: 'Public Sans', sans-serif;
+  text-transform: uppercase;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 2px;
+  background: #fff;
+}
+
+.btn-primary {
+  width: 152px;
+  background: var(--clrDarkBlue);
+  color:#fff;
+  position: relative;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  height: inherit;
+  width: 48px;
+  background:var(--clrVeryDarkBlue) url('./images/icons/down-arrows.svg') no-repeat center;
+  left:-48px;
+  top:0;
+}
+
+.btn-secondary{
+  border:1px solid #000;
+}
+
+.btn-action{
+  width: 162px;
+}
+
+.container{
+  width: 1140px;
+  margin: auto;
+}
+
