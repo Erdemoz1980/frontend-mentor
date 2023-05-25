@@ -15,9 +15,16 @@
 
   --clrLineColor:rgba(51, 50, 61, 0.15);
 
-  /*Margin & Padding*/
-  --marginSectionBottom:150px  
+  /*Margin & Padding & Gaps*/
+  --marginSectionBottom:150px;
+  --marginPortfolioItemBottom:85px;
+  --gapGrid:120px;  
+
+  /*Border*/
+  --borderLine: 1px solid var(--clrLineColor);
 }
+
+
 
 /*CSS Reset*/
 *,
@@ -116,6 +123,10 @@ a{
 
 .btn-action{
   width: 162px;
+}
+
+.btn-large{
+  width: 175px;
 }
 
 .container{

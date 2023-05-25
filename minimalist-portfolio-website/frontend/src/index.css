@@ -83,13 +83,13 @@
   height: 600px;
   width: 1015px;
   grid-template-columns: repeat(2,1fr);
-  gap:120px;
+  gap:var(--gapGrid);
   margin-bottom: var(--marginSectionBottom);
 }
 
 .about-text {
-  border-top: 1px solid var(--clrLineColor);
-  border-bottom: 1px solid var(--clrLineColor);
+  border-top: var(--borderLine);
+  border-bottom:var(--borderLine);
   padding:50px 0;
 }
 
@@ -116,4 +116,26 @@
   background: var(--clrLineColor);
 }
 
-/*Navbar*/
+/*Portfolio Index Card*/
+.card-wrapper{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap:var(--gapGrid);
+  height:500px;
+  width: 1015px;
+  margin-bottom: var(--marginPortfolioItemBottom);
+}
+
+.card-text{
+ padding:100px 0;
+ border-top:var(--borderLine);
+ border-bottom:var(--borderLine);
+}
+
+.card-text h2{
+  margin-bottom: 30px;
+}
+
+.card-text p{
+  margin-bottom: 20px;
+}
