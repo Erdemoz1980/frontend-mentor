@@ -36,10 +36,6 @@ ul{
   list-style: none;
 }
 
-a{
-  text-decoration: none;
-}
-
   /*Typography*/
 
   /*Headings*/
@@ -75,6 +71,14 @@ p, a, span {
   line-height: 30px;
 }
 
+a{
+  text-decoration: none;
+  line-height: 14px;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
 
 /*Buttons*/
 .btn{
