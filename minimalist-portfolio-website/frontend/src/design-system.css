@@ -18,7 +18,9 @@
   /*Margin & Padding & Gaps*/
   --marginSectionBottom:150px;
   --marginPortfolioItemBottom:85px;
-  --gapGrid:120px;  
+  --marginDetailHero:110px;
+  --gapGrid:120px;
+  
 
   /*Border*/
   --borderLine: 1px solid var(--clrLineColor);
@@ -98,6 +100,7 @@ a{
   line-height: 14px;
   letter-spacing: 2px;
   background: #fff;
+  cursor: pointer;
 }
 
 .btn-primary {

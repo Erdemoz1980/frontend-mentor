@@ -1,0 +1,75 @@
+[
+  {
+    "id":10001,
+    "title":"Manage",
+    "description":"This project required me to build a fully responsive landing page to the designs provided. I used HTML5,along with CSS Grid and JavaScript for the areas that required interactivity, such as the testimonial slider.",
+    "image":"/images/portfolio/desktop/image-portfolio-manage.jpg",
+    "details":{
+      "imgDeskHero":"/images/detail/desktop/image-manage-hero.jpg",
+      "imgTabletHero":"/images/detail/tablet/image-manage-hero.jpg",
+      "imgMobileHero":"/images/detail/mobile/image-manage-hero.jpg",
+      "projectBackground":"This project was a front-end challenge from Frontend Mentor.It's a platform that enables you to practice building websites to a design and project brief. Each challenge includes mobile and desktop designs to show how the website should look at different screen sizes. Creating these projects has helped me refine my workflow and solve real-world coding problems. I've learned something new with each project, helping me to improve and adopt my style.",
+      "keywords":[{"id":101,"name":"Interaction Design"},{"id":102,"name":"Frontend Development"}],
+      "techStack":[{"id":101,"name":"HTML"}, {"id":102,"name":"CSS"}, {"id":103,"name":"JS"}],
+      "staticPreviews":[
+        {"id":101,"image":"/images/detail/desktop/image-manage-preview-1.jpg"},
+        {"id":102,"image":"/images/detail/desktop/image-manage-preview-2.jpg"}
+      ]
+    }
+  },
+  {
+    "id":10002,
+    "title":"Bookmark",
+    "description":"This project required me to build a fully responsive landing page to the designs provided. I used HTML5,along with CSS Grid and JavaScript for the areas that required interactivity, such as the features section",
+    "image":"/images/portfolio/desktop/image-portfolio-bookmark.jpg",
+    "details":{
+      "imgDeskHero":"/images/detail/desktop/image-bookmark-hero.jpg",
+      "imgTabletHero":"/images/detail/tablet/image-bookmark-hero.jpg",
+      "imgMobileHero":"/images/detail/mobile/image-bookmark-hero.jpg",
+      "projectBackground":"This project was a front-end challenge from Frontend Mentor.It's a platform that enables you to practice building websites to a design and project brief. Each challenge includes mobile and desktop designs to show how the website should look at different screen sizes. Creating these projects has helped me refine my workflow and solve real-world coding problems. I've learned something new with each project, helping me to improve and adopt my style.",
+      "keywords":[{"id":101,"name":"Interaction Design"},{"id":102,"name":"Frontend Development"}],
+      "techStack":[{"id":101,"name":"HTML"}, {"id":102,"name":"CSS"}, {"id":103,"name":"JS"}],
+      "staticPreviews":[
+        {"id":101,"image":"/images/detail/desktop/image-bookmark-preview-1.jpg"},
+        {"id":102,"image":"/images/detail/desktop/image-bookmark-preview-2.jpg"}
+      ]
+    }
+  },
+  {
+    "id":10003,
+    "title":"Insure",
+    "description":"This was a small project which mostly consisted of HTML and CSS. I built a fully-responsive landing page. The only JavaScript this project required was to enable the toggling of the mobile navigation",
+    "image":"/images/portfolio/desktop/image-portfolio-insure.jpg",
+    "details":{
+      "imgDeskHero":"/images/detail/desktop/image-insure-hero.jpg",
+      "imgTabletHero":"/images/detail/tablet/image-insure-hero.jpg",
+      "imgMobileHero":"/images/detail/mobile/image-insure-hero.jpg",
+      "projectBackground":"This project was a front-end challenge from Frontend Mentor.It's a platform that enables you to practice building websites to a design and project brief. Each challenge includes mobile and desktop designs to show how the website should look at different screen sizes. Creating these projects has helped me refine my workflow and solve real-world coding problems. I've learned something new with each project, helping me to improve and adopt my style.",
+      "keywords":[{"id":101,"name":"Interaction Design"},{"id":102,"name":"Frontend Development"}],
+      "techStack":[{"id":101,"name":"HTML"}, {"id":102,"name":"CSS"}, {"id":103,"name":"JS"}],
+      "staticPreviews":[
+        {"id":101,"image":"/images/detail/desktop/image-insure-preview-1.jpg"},
+        {"id":102,"image":"/images/detail/desktop/image-insure-preview-2.jpg"}
+      ]
+    }
+  },
+  {
+      "id":10004,
+      "title":"Fylo",
+      "description":"This project was built in pure HTML and CSS. I had mobile and desktop designs to work to and built it so that it was fully-responsive. I took a mobile-first approach and used modern CSS like Flexbox and Grid for layout purposes.",
+      "image":"/images/portfolio/desktop/image-portfolio-fylo.jpg",
+      "details":{
+        "imgDeskHero":"/images/detail/desktop/image-fylo-hero.jpg",
+        "imgTabletHero":"/images/detail/tablet/image-fylo-hero.jpg",
+        "imgMobileHero":"/images/detail/mobile/image-fylo-hero.jpg",
+        "projectBackground":"This project was a front-end challenge from Frontend Mentor.It's a platform that enables you to practice building websites to a design and project brief. Each challenge includes mobile and desktop designs to show how the website should look at different screen sizes. Creating these projects has helped me refine my workflow and solve real-world coding problems. I've learned something new with each project, helping me to improve and adopt my style.",
+        "keywords":[{"id":101,"name":"Interaction Design"},{"id":102,"name":"Frontend Development"}],
+      "techStack":[{"id":101,"name":"HTML"}, {"id":102,"name":"CSS"}],
+        "staticPreviews":[
+          {"id":101,"image":"/images/detail/desktop/image-fylo-preview-1.jpg"},
+          {"id":102,"image":"/images/detail/desktop/image-fylo-preview-2.jpg"}
+        ]
+      }
+      
+  }
+]
