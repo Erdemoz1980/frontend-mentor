@@ -1,18 +1,19 @@
 import portfolioData from '../portfolioData.json';
 import PortfolioCard from '../components/PortfolioCard';
+import CTAContactMe from '../components/CTAContactMe';
 
 const PortfolioIndex = () => {
 
   return (
     <div className="container">
-      <div className="portofolio-index-wrapper">
+      <div className="portfolio-index-wrapper">
         {
           portfolioData.map(portfolioItem => (
             <PortfolioCard key={portfolioItem.id} portfolioItem={portfolioItem} />
           ))
         }
       </div>
-
+      <CTAContactMe />
       </div>
   )
 }

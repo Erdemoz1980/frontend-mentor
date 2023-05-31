@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import portfolioData from '../portfolioData.json';
 import arrowRight from '../images/icons/arrow-right.svg';
 import arrowLeft from '../images/icons/arrow-left.svg';
+import CTAContactMe from '../components/CTAContactMe';
 
 const PortfolioDetails = () => {
   const { id } = useParams()
@@ -11,7 +12,7 @@ const PortfolioDetails = () => {
   const { title, description } = currentItem;
 
   const { imgDeskHero, projectBackground, keywords, techStack, staticPreviews } = currentItem.details;
-
+  
   const prevItem = portfolioData.indexOf(currentItem) === 0 ? portfolioData[portfolioData.length - 1] : portfolioData[portfolioData.indexOf(currentItem) - 1];
   const nextItem = portfolioData.indexOf(currentItem) === portfolioData.length - 1 ? portfolioData[0] : portfolioData[portfolioData.indexOf(currentItem) + 1];
 
@@ -76,6 +77,7 @@ const PortfolioDetails = () => {
           </Link>
         </div>
       </nav>
+      <CTAContactMe />
     </div>
   )
 };

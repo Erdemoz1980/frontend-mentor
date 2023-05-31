@@ -1,20 +1,20 @@
-import Navbar from "./Navbar";
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer>
+
       <div className="container">
         <section className="cta-wrapper">
           <div className="cta-text-box">
             <h2>Interested in doing a project together?</h2>
           </div>
           <div className="connecting-line"></div>
-        <button className="btn btn-secondary btn-action">Contact Me</button>
+          <Link to='/contact'>
+            <button className="btn btn-secondary btn-action">Contact Me</button>
+          </Link>
       </section>
       </div>
-    
-      <Navbar/>
-    </footer>
+
   )
 }
 

@@ -1,13 +1,11 @@
 import { Link } from 'react-router-dom';
 import profileImage from '../images/homepage/desktop/image-homepage-profile.jpg';
 
-const About = () => {
+const About = ({sectionRef}) => {
 
   return (
-    <section className="about-section">
-      <div className="about-image-container">
-        <img src={profileImage} alt="profile" />
-      </div>
+    <section className="about-section" ref={sectionRef}>
+        <img className='profile-image' src={profileImage} alt="profile" />
       <div className="about-text-wrapper">
         <h2>About Me</h2>
         <p className='about-me'>
