@@ -81,21 +81,28 @@
 .about-section{
   display: grid;
   height: 600px;
-  width: 1015px;
   grid-template-columns: repeat(2,1fr);
   gap:var(--gapGrid);
   margin-bottom: var(--marginSectionBottom);
 }
 
-.about-text {
+.about-text-wrapper {
   border-top: var(--borderLine);
   border-bottom:var(--borderLine);
   padding:50px 0;
 }
 
-.about-text h2, .about-text p {
-  padding-bottom: 20px;
+.about-text-wrapper h2{
+  margin-bottom: var(--marginSectionTitleBottom);
 }
+
+.about-me{
+  width: 350px;
+  height: 360px;
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
 
 /*CTA*/
 .cta-wrapper{
@@ -122,7 +129,6 @@
   grid-template-columns: repeat(2,1fr);
   gap:var(--gapGrid);
   height:500px;
-  width: 1015px;
   margin-bottom: var(--marginPortfolioItemBottom);
 }
 
@@ -152,14 +158,93 @@
 
 .portfolio-details-wrapper{
   display: grid;
-  grid-template-columns: 350px 670px ;
+  grid-template-columns: 400px 715px;
   gap:var(--gapGrid);
 }
 
-.details-description{
+.details-description-wrapper{
   border-top: var(--borderLine);
   border-bottom: var(--borderLine);
-
+  padding: 48px 0;
+  height: 498px;
 }
 
+.description{
+  padding: 29px 0 23px 0;
+}
+
+.keywords-wrapper{
+  margin-bottom: 16px;
+}
+
+.keywords{
+  color:var(--clrDesatCyan);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 30px;
+}
+
+.techstack-wrapper{
+  margin-bottom: var(--marginSectionElementBottom);
+}
+
+.project-background h3{
+  margin-bottom: var(--marginSectionTitleBottom);
+}
+.project-background-text{
+  margin-bottom: 40px;
+}
+
+.static-previews-wrapper img{
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: var(--marginSectionElementBottom);
+}
+
+/*Portfolio Details Nav*/
+.details-nav{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  height: 132px;
+}
+
+
+.prev-details,
+.next-details{
+  display: flex;
+  align-items: center;
+  border: var(--borderLine);
+}
+
+.prev-details{
+  border-left: none;
+  border-right: none;
+}
+
+.next-details {
+  border-right: none;
+}
+
+.next-details{
+  justify-content: end;
+}
+
+.prev-details img{
+  margin-right: 32px;
+}
+
+.next-details img{
+  margin-left: 32px;
+}
+
+.details-nav p {
+  font-size: 16px;
+  opacity: 0.5;
+}
+
+.prev-navigation, 
+.next-navigation{
+  display: flex;
+  flex-direction: column;
+}
 
