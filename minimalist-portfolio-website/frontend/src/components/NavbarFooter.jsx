@@ -19,8 +19,8 @@ const NavbarFooter = ({version}) => {
     </div>
     <ul className="social-links">
       <li><a href="https://github.com/Erdemoz1980" target='_blank' rel='noopener noreferrer'><IconGithub version={version}/></a></li>
-      <li><a href="https://twitter.com/ErdemOz1980" target='_blank' rel='noopener noreferrer'  ><IconTwitter version={version} /></a></li>
-      <li><a href="/"><IconLinkedIn version={version} /></a></li>
+      <li><a href="https://twitter.com/ErdemOz1980" target='_blank' rel='noopener noreferrer' ><IconTwitter version={version} /></a></li>
+      <li><a href="https://www.linkedin.com/in/erdem-ozdemir-95148553/" target='_blank' rel='noopener noreferrer'><IconLinkedIn version={version} /></a></li>
         </ul>
         </div>
       </div>

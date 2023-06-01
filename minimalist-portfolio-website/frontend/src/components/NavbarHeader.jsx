@@ -9,9 +9,9 @@ const NavbarHeader = ({version}) => {
        <Link to='/'><IconLogo version={version}/></Link> 
       </div>
       <ul className={`menu ${version}`}>
-        <li><Link to='/'><a href="/">Home</a></Link></li>
-        <li><Link to='/portfolioindex'><a href="/">Portfolio</a></Link></li>
-        <li><Link to='/contact'><a href="/">Contact Me</a></Link></li>
+        <li><Link to='/'><a>Home</a></Link></li>
+        <li><Link to='/portfolioindex'><a>Portfolio</a></Link></li>
+        <li><Link to='/contact'><a>Contact Me</a></Link></li>
       </ul>
     </nav>
   </div>

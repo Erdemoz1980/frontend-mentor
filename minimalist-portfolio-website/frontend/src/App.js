@@ -11,7 +11,7 @@ const App = () => {
   return (
     <Router>
       <ScrollToTop />
-      <Navbar version='navbar-header' />
+      <Navbar version='nav-header'/>
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/portfolioindex' element={<PortfolioIndex />} />

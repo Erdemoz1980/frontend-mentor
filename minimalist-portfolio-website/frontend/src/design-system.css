@@ -10,7 +10,7 @@
   /*Secondary Colors*/
   --clrVeryLlightGrey: hsl(0,0%,98%);
   --clrLightGrey:#eaeaeb;
-  --clrMediumGrey:rgb(51, 50, 61);
+  --clrMediumGrey:#33323d;
   --clrBrightRed:hsl(0,90%,57%);
   --clrLineColor:rgba(51, 50, 61, 0.15);
 
@@ -21,6 +21,7 @@
   --marginPortfolioItemBottom:85px;
   --marginDetailHero:110px;
   --marginDetailSections:29px;
+  --paddingSectionElement:48px;
   --gapGrid:125px;
   
   /*Border*/
@@ -60,7 +61,7 @@ h1{
 
 h2{
   font-size: 40px;
-  font-weight: bold;
+  font-weight: 700;
   line-height: 42px;
   letter-spacing: -0.36px;
 }
@@ -117,7 +118,7 @@ a{
   position: relative;
 }
 
-.btn-primary::before {
+.btn-primary.btn-arrow::before {
   content: '';
   position: absolute;
   height: inherit;
@@ -125,6 +126,12 @@ a{
   background:var(--clrVeryDarkBlue) url('./images/icons/down-arrows.svg') no-repeat center;
   left:-48px;
   top:0;
+}
+
+.btn-main{
+  width: 200px;
+  background: var(--clrDarkBlue);
+  color:#fff;
 }
 
 .btn-secondary{

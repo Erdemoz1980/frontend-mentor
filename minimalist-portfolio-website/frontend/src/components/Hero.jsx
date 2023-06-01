@@ -7,7 +7,7 @@ const Hero = ({handleScroll}) => {
         <img src={homepageHero} alt="hero" />
         <div className="text-box">
           <h1 className="main-title">Hey, I'm Erdem Oz and I love building beatiful websites.</h1>
-          <button className="btn btn-primary temp" onClick={handleScroll} >About Me</button>
+          <button className="btn btn-primary btn-arrow" onClick={handleScroll} >About Me</button>
         </div>
       </div>
     </section>
