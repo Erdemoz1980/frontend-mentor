@@ -1,8 +1,17 @@
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import portfolioData from '../portfolioData.json';
 import PortfolioCard from '../components/PortfolioCard';
 import CTAContactMe from '../components/CTAContactMe';
 
-const PortfolioIndex = () => {
+
+const PortfolioIndex = ({setActivePage}) => {
+  const location = useLocation();
+  useEffect(() => {
+    setActivePage(location)
+  },[location, setActivePage])
+
+
 
   return (
     <div className="container">

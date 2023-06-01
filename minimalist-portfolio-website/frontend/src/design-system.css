@@ -3,6 +3,7 @@
 :root{
   /*Primary Colors*/
   --clrDesatCyan: #5FB4A2;
+  --clrDarkCyan:#56a292;
   --clrVeryDarkBlue:#1d3445;
   --clrDarkBlue:#203A4C;
   --clrGrayishDarkBlue:#33323d;
@@ -26,6 +27,9 @@
   
   /*Border*/
   --borderLine: 1px solid var(--clrLineColor);
+
+  /*Transitions*/
+  --trnHover:0.2s ease-in-out;
 }
 
 /*CSS Reset*/
@@ -109,6 +113,7 @@ a{
   letter-spacing: 2px;
   background: #fff;
   cursor: pointer;
+  transition: all var(--trnHover);
 }
 
 .btn-primary {
@@ -118,14 +123,34 @@ a{
   position: relative;
 }
 
-.btn-primary.btn-arrow::before {
-  content: '';
+/*Arrow Icon*/
+.arrow-icon-wrapper{
+ position: absolute;
+ height: 48px;
+ width: 48px;
+ left:-48px;
+ bottom:0;
+ background: var(--clrVeryDarkBlue);
+ transition: all var(--trnHover);
+}
+
+.arrow-icon-wrapper svg{
   position: absolute;
-  height: inherit;
-  width: 48px;
-  background:var(--clrVeryDarkBlue) url('./images/icons/down-arrows.svg') no-repeat center;
-  left:-48px;
-  top:0;
+  transform: translate(-50%,-50%);
+  top:50%;
+  left:50%;
+}
+
+.arrow-icon-wrapper:hover{
+  background: cyan;
+}
+
+.btn-primary:hover {
+  background: var(--clrDesatCyan);
+}
+
+.btn-primary:hover .arrow-icon-wrapper{
+  background: var(--clrDarkCyan);
 }
 
 .btn-main{
@@ -135,8 +160,16 @@ a{
 }
 
 .btn-secondary{
-  border:1px solid #000;
+  border:1px solid var(--clrGrayishDarkBlue);
+  color:var(--clrGrayishDarkBlue);
 }
+
+.btn-secondary:hover{
+  background: var(--clrGrayishDarkBlue);
+  color:#fff;
+}
+
+
 
 .btn-action{
   width: 162px;

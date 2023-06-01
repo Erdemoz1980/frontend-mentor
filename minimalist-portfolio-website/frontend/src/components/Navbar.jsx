@@ -2,11 +2,11 @@ import NavbarHeader from "./NavbarHeader"
 import NavbarFooter from "./NavbarFooter"
 
 
-const Navbar = ({version}) => {
+const Navbar = ({version, activePage}) => {
   if (version === 'nav-header') {
-    return <NavbarHeader version={version} />
+    return <NavbarHeader version={version} activePage={activePage} />
   } else {
-    return <NavbarFooter version={version} />
+    return <NavbarFooter version={version} activePage={activePage}/>
   }
 
 }

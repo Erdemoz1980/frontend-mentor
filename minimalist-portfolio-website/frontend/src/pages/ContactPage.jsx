@@ -1,13 +1,20 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import GetinTouch from "../components/GetinTouch"
 import ContactForm from '../components/ContactForm';
 
-const ContactPage = () => {
+const ContactPage = ({ setActivePage }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message:''
-})
+    message: ''
+  })
+  const location = useLocation();
+
+  useEffect(() => {
+    setActivePage(location)
+  }, [location, setActivePage])
+
 
   return (
     <div className='container'>
@@ -15,6 +22,6 @@ const ContactPage = () => {
       <ContactForm formData={formData} setFormData={setFormData} />
     </div>
   )
-}
+};
 
 export default ContactPage

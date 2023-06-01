@@ -4,7 +4,7 @@ import IconTwitter from "./IconTwitter"
 import IconLinkedIn from "./IconLinkedIn"
 import IconLogo from "./IconLogo"
 
-const NavbarFooter = ({version}) => {
+const NavbarFooter = ({version, activePage}) => {
   return (
     <nav className="navbar" >
     <div className="container">
@@ -12,9 +12,9 @@ const NavbarFooter = ({version}) => {
     <div className="logo-menu-wrapper">
       <Link to='/'><IconLogo version={version}/></Link>  
       <ul className='menu'>
-        <li><Link to='/'><a href="/">Home</a></Link></li>
-        <li><Link to='/portfolioindex'><a href="/">Portfolio</a></Link></li>
-        <li><Link to='/contact'><a href="/">Contact Me</a></Link></li>
+        <li><Link to='/' className={activePage==='/' ? 'active-nav-link' : ''}>Home</Link></li>
+        <li><Link to='/portfolioindex' className={activePage==='/portfolioindex' ? 'active-nav-link' : ''}>Portfolio</Link></li>
+        <li><Link to='/contact' className={activePage==='/contact' ? 'active-nav-link' : ''}>Contact Me</Link></li>
       </ul>
     </div>
     <ul className="social-links">
