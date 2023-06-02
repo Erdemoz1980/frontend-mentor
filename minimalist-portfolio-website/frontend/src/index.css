@@ -47,7 +47,7 @@
 }
 
 .menu a.active-nav-link {
-  color:var(--clrDesatCyan);
+  color:var(--clrDarkCyan);
 }
 
 .social-links{
@@ -326,6 +326,16 @@
   font-size: 13px;
   line-height: 30px;
   padding:9px 16px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+  outline:1px solid var(--clrDesatCyan);
+}
+
+.contact-form input.alert,
+.contact-form textarea.alert{
+  outline: 1px solid var(--clrBrightRed);
 }
 
 .contact-form textarea {

@@ -12,7 +12,7 @@
   --clrVeryLlightGrey: hsl(0,0%,98%);
   --clrLightGrey:#eaeaeb;
   --clrMediumGrey:#33323d;
-  --clrBrightRed:hsl(0,90%,57%);
+  --clrBrightRed:#f42f2f;
   --clrLineColor:rgba(51, 50, 61, 0.15);
 
   /*Margin & Padding & Gaps*/
@@ -157,6 +157,10 @@ a{
   width: 200px;
   background: var(--clrDarkBlue);
   color:#fff;
+  transition: all var(--trnHover);
+}
+.btn-main:hover{
+  background: #3a5f7a;
 }
 
 .btn-secondary{
