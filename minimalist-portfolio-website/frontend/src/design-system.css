@@ -83,12 +83,20 @@ h4{
   font-weight: 400;
 }
 
-p, a, span {
+p, a, span, small {
   font-family: 'Public Sans', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
   line-height: 30px;
+}
+
+small{
+  font-style: italic;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 12px;
+  color:var(--clrBrightRed);
 }
 
 a{

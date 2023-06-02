@@ -301,6 +301,15 @@
 
 .form-group{
   margin-bottom: 24px;
+  position: relative;
+}
+
+small{
+  position: absolute;
+  left:0;
+  bottom:-14px;
+  margin: 0;
+  padding: 0;
 }
 
 .contact-form label{
@@ -314,8 +323,7 @@
 }
 
 .contact-form input, 
-.contact-form textarea
-{
+.contact-form textarea{
   width: 100%;
   height: 48px;
   border:none;
@@ -326,6 +334,11 @@
   font-size: 13px;
   line-height: 30px;
   padding:9px 16px;
+}
+
+.form-group input,
+.form-group textarea {
+  vertical-align: middle;
 }
 
 .contact-form input:focus,

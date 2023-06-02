@@ -12,7 +12,6 @@ const PortfolioIndex = ({setActivePage}) => {
   },[location, setActivePage])
 
 
-
   return (
     <div className="container">
       <div className="portfolio-index-wrapper">
