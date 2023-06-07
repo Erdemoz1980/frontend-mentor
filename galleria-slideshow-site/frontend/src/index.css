@@ -10,6 +10,9 @@
 
 body{
   font-family: var(--ffMain);
+  font-size: 14px;
+  line-height: 28px;
+  color:var(--clrDarKGrey);
 }
 
 /*Navbar*/
@@ -43,6 +46,7 @@ body{
   break-inside: avoid-column;
   width: 310px;
   margin-bottom: 40px;
+  cursor: pointer;
 }
 
 .thumbnail-image-container img {

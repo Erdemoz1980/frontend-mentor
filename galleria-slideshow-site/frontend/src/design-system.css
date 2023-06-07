@@ -7,7 +7,18 @@
   --clrLightGrey:#F3F3F3;
 
   /*Font-Family*/
-  -ffMain:'Libre Baskerville, serif';
+  --ffMain:'Libre Baskerville', serif;
+
+  /*Transitions*/
+  --trStandard:0.15s ease-out;
+}
+
+/*Typography*/
+.display{
+  font-size: 200px;
+  font-weight: 700;
+  line-height: 150px;
+  color:var(--clrLightGrey);
 }
 
 h1{
@@ -28,16 +39,42 @@ h3{
   line-height: 22px;
 }
 
+.subhead1{
+  font-size: 15px;
+  line-height: 19px;
+  color:var(--clrDarkGrey);
+}
+
+.subhead2{
+  font-size: 13px;
+  line-height: 17px;
+  color:var(--clrDarkGrey)
+}
+
 /*Buttons*/
 .btn{
   border: none;
   background: none;
   font-weight: 700;
+  text-align: center;
+  font-family:inherit;
+  text-transform: uppercase;
+  color:var(--clrDarkGrey);
+  transition:all var(--trStandard);
+}
+
+.btn-primary{
   font-size: 12px;
   line-height: 15px;
-  text-align: center;
   letter-spacing: 2.571px;
-  font-family: inherit;
-  text-transform: uppercase;
-  color:var(--clrDarkGrey)
+}
+
+.btn-secondary{
+  font-size: 9px;
+  line-height: 11px;
+  letter-spacing: 2px;
+}
+
+.btn:hover{
+color:#000;
 }

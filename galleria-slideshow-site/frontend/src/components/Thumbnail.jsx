@@ -1,7 +1,10 @@
+import { useNavigate } from 'react-router-dom';
 
-const Thumbnail = ({ thumbnail, title, artist }) => {
+const Thumbnail = ({ id, thumbnail, title, artist }) => {
+  const navigate = useNavigate();
+
   return (
-    <div className='thumbnail-body'>
+    <div className='thumbnail-body' onClick={()=>navigate(`/painting/${id}`)}>
       <div className="thumbnail-image-container">
         <img src={thumbnail} alt='thumbnail' className='thumbnail-image' />
       </div>
