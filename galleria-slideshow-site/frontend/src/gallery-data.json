@@ -1,0 +1,152 @@
+[
+  {
+    "id":10001,
+    "title":"Starry Night",
+    "artist":"Vincent Van Gogh",
+    "artist-img":"/assets/starry-night/artist.jpg",
+    "gallery-img":"/assets/starry-night/gallery.jpg",
+    "hero-lg":"/assets/starry-night/hero-large.jpg",
+    "hero-sm":"/assets/starry-night/hero-small.jpg",
+    "thumbnail":"/assets/starry-night/thumbnail.jpg"
+  },
+  {
+    "id":10002,
+    "title":"The Storm on the Sea of Galilee",
+    "artist":"Rembrandt",
+    "artist-img":"/assets/the-storm-on-the-sea-of-galilee/artist.jpg",
+    "gallery-img":"/assets/the-storm-on-the-sea-of-galilee/gallery.jpg",
+    "hero-lg":"/assets/the-storm-on-the-sea-of-galilee/hero-large.jpg",
+    "hero-sm":"/assets/the-storm-on-the-sea-of-galilee/hero-small.jpg",
+    "thumbnail":"/assets/the-storm-on-the-sea-of-galilee/thumbnail.jpg"
+  },
+  {
+    "id":10003,
+    "title":"Lady with an Ermine",
+    "artist":"Leonardo da Vinci",
+    "artist-img":"/assets/lady-with-an-ermine/artist.jpg",
+    "gallery-img":"/assets/lady-with-an-ermine/gallery.jpg",
+    "hero-lg":"/assets/lady-with-an-ermine/hero-large.jpg",
+    "hero-sm":"/assets/lady-with-an-ermine/hero-small.jpg",
+    "thumbnail":"/assets/lady-with-an-ermine/thumbnail.jpg"
+  },
+  {
+    "id":10004,
+    "title":"The Boy in the Red Vest",
+    "artist":"Edward Hopper",
+    "artist-img":"/assets/the-boy-in-the-red-vest/artist.jpg",
+    "gallery-img":"/assets/the-boy-in-the-red-vest/gallery.jpg",
+    "hero-lg":"/assets/the-boy-in-the-red-vest/hero-large.jpg",
+    "hero-sm":"/assets/the-boy-in-the-red-vest/hero-small.jpg",
+    "thumbnail":"/assets/the-boy-in-the-red-vest/thumbnail.jpg"
+  },
+  {
+    "id":10005,
+    "title":"Girl With a Pearl Earring",
+    "artist":"Johannes Vermeer",
+    "artist-img":"/assets/girl-with-pearl-earring/artist.jpg",
+    "gallery-img":"/assets/girl-with-pearl-earring/gallery.jpg",
+    "hero-lg":"/assets/girl-with-pearl-earring/hero-large.jpg",
+    "hero-sm":"/assets/girl-with-pearl-earring/hero-small.jpg",
+    "thumbnail":"/assets/girl-with-pearl-earring/thumbnail.jpg"
+  },
+  {
+    "id":10006,
+    "title":"The Great Wave off Kanagawa",
+    "artist":"Hokusai",
+    "artist-img":"/assets/the-great-wave-off-kanagawa/artist.jpg",
+    "gallery-img":"/assets/the-great-wave-off-kanagawa/gallery.jpg",
+    "hero-lg":"/assets/the-great-wave-off-kanagawa/hero-large.jpg",
+    "hero-sm":"/assets/the-great-wave-off-kanagawa/hero-small.jpg",
+    "thumbnail":"/assets/the-great-wave-off-kanagawa/thumbnail.jpg"
+  },
+  {
+    "id":10007,
+    "title":"The Night Cafè",
+    "artist":"Vincent Van Gogh",
+    "artist-img":"/assets/the-night-cafe/artist.jpg",
+    "gallery-img":"/assets/the-night-cafe/gallery.jpg",
+    "hero-lg":"/assets/the-night-cafe/hero-large.jpg",
+    "hero-sm":"/assets/the-night-cafe/hero-small.jpg",
+    "thumbnail":"/assets/the-night-cafe/thumbnail.jpg"
+  },
+  {
+    "id":10008,
+    "title":"Arnolfini Portrait",
+    "artist":"Jan van Eyck",
+    "artist-img":"/assets/arnolfini-portrait/artist.jpg",
+    "gallery-img":"/assets/arnolfini-portrait/gallery.jpg",
+    "hero-lg":"/assets/arnolfini-portrait/hero-large.jpg",
+    "hero-sm":"/assets/arnolfini-portrait/hero-small.jpg",
+    "thumbnail":"/assets/arnolfini-portrait/thumbnail.jpg"
+  },
+  {
+    "id":10009,
+    "title":"Guernica",
+    "artist":"Pablo Picasso",
+    "artist-img":"/assets/guernica/artist.jpg",
+    "gallery-img":"/guernicat/gallery.jpg",
+    "hero-lg":"/assets/guernica/hero-large.jpg",
+    "hero-sm":"/assets/guernica/hero-small.jpg",
+    "thumbnail":"/assets/guernica/thumbnail.jpg"
+  }, 
+  {
+    "id":10010,
+    "title":"Van Gogh Self Portrait",
+    "artist":"Vincent Van Gogh",
+    "artist-img":"/assets/van-gogh-self-portrait/artist.jpg",
+    "gallery-img":"/assets/van-gogh-self-portrait/gallery.jpg",
+    "hero-lg":"/assets/van-gogh-self-portrait/hero-large.jpg",
+    "hero-sm":"/assets/van-gogh-self-portrait/hero-small.jpg",
+    "thumbnail":"/assets/van-gogh-self-portrait/thumbnail.jpg"
+  }, 
+  {
+    "id":10011,
+    "title":"Mona Lisa",
+    "artist":"Leonardo da Vinci",
+    "artist-img":"/assets/mona-lisa/artist.jpg",
+    "gallery-img":"/assets/mona-lisa/gallery.jpg",
+    "hero-lg":"/assets/mona-lisa/hero-large.jpg",
+    "hero-sm":"/assets/mona-lisa/hero-small.jpg",
+    "thumbnail":"/assets/mona-lisa/thumbnail.jpg"
+  },
+  {
+    "id":10012,
+    "title":"Penitent Magdalene",
+    "artist":"Artemisia Gentileschi",
+    "artist-img":"/assets/penitent-magdalene/artist.jpg",
+    "gallery-img":"/assets/penitent-magdalene/gallery.jpg",
+    "hero-lg":"/assets/penitent-magdalene/hero-large.jpg",
+    "hero-sm":"/assets/penitent-magdalene/hero-small.jpg",
+    "thumbnail":"/assets/penitent-magdalene/thumbnail.jpg"
+  },
+  {
+    "id":10013,
+    "title":"The Sleeping Gypsy",
+    "artist":"Henry Rousseau",
+    "artist-img":"/assets/the-sleeping-gypsy/artist.jpg",
+    "gallery-img":"/assets/the-sleeping-gypsy/gallery.jpg",
+    "hero-lg":"/assets/the-sleeping-gypsy/hero-large.jpg",
+    "hero-sm":"/assets/the-sleeping-gypsy/hero-small.jpg",
+    "thumbnail":"/assets/the-sleeping-gypsy/thumbnail.jpg"
+  },
+  {
+    "id":10014,
+    "title":"The Basket of Apples",
+    "artist":"Paul Cèzanne",
+    "artist-img":"/assets/the-basket-of-apples/artist.jpg",
+    "gallery-img":"/assets/the-basket-of-apples/gallery.jpg",
+    "hero-lg":"/assets/the-basket-of-apples/hero-large.jpg",
+    "hero-sm":"/assets/the-basket-of-apples/hero-small.jpg",
+    "thumbnail":"/assets/the-basket-of-apples/thumbnail.jpg"
+  },
+  {
+    "id":10015,
+    "title":"The Swing",
+    "artist":"Jean Honoré Fragonard",
+    "artist-img":"/assets/the-swing/artist.jpg",
+    "gallery-img":"/assets/the-swing/gallery.jpg",
+    "hero-lg":"/assets/the-swing/hero-large.jpg",
+    "hero-sm":"/assets/the-swing/hero-small.jpg",
+    "thumbnail":"/assets/the-swing/thumbnail.jpg"
+  }
+]

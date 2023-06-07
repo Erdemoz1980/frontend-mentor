@@ -1,0 +1,57 @@
+@import url(./design-system.css);
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: var(--ffMain);
+}
+
+/*Navbar*/
+.navbar-wrapper{
+  width: 1440px;
+  margin:0 auto;
+  padding:40px 40px 0 40px;
+}
+
+.navbar-inner{
+  width: 100%;
+  display:flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #979797;
+  padding-bottom: 40px;
+
+}
+
+.main-page-masonry{
+  width: 1440px;
+  height: 1606px;
+  column-count: 4;
+  column-gap: 40px;
+  margin: 0 auto;
+  padding:40px;
+}
+
+.thumbnail-body{
+  position: relative;
+  display: inline-block;
+  break-inside: avoid-column;
+  width: 310px;
+  margin-bottom: 40px;
+}
+
+.thumbnail-image-container img {
+ width: 100%;
+}
+
+.thumbnail-text-overlay{
+  position: absolute;
+  color:#fff;
+  left:32px;
+  bottom:32px;
+}
