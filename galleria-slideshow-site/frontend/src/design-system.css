@@ -5,9 +5,14 @@
   --clrDarkGrey:#7D7D7D;
   --clrMediumGrey:#E5E5E5;
   --clrLightGrey:#F3F3F3;
+  --clrLightBeige:#f2f2f2;
 
   /*Font-Family*/
   --ffMain:'Libre Baskerville', serif;
+
+ /*Margin, Padding, Gap*/
+ --paddingBottomNav:100px;
+ --marginBottomCard:75px;
 
   /*Transitions*/
   --trStandard:0.15s ease-out;
@@ -39,9 +44,18 @@ h3{
   line-height: 22px;
 }
 
+a{
+  color:var(--clrDarkGrey);
+  text-transform: uppercase;
+  font-size: 9px;
+  line-height: 11px;
+  letter-spacing: 2px;
+}
+
 .subhead1{
   font-size: 15px;
   line-height: 19px;
+  font-weight: 400;
   color:var(--clrDarkGrey);
 }
 
