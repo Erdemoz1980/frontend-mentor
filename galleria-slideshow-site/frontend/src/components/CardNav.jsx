@@ -1,7 +1,9 @@
 import IconBack from './IconBack';
 import IconNext from './IconNext';
 
-const CardNav = ({title, artist, percentage}) => {
+const CardNav = ({ title, artist, percentage, navigateBack, navigateNext, disabled }) => {
+  
+
   return (
     <nav className='card-nav-container' style={{ "--progressPercentage": `${percentage}%`}}>
       
@@ -11,8 +13,8 @@ const CardNav = ({title, artist, percentage}) => {
       </div>
 
       <div className="card-nav-buttons">
-        <IconBack />
-        <IconNext />
+        <IconBack navigateBack={navigateBack} disabled={disabled.back} />
+        <IconNext navigateNext={navigateNext} disabled={disabled.next} />
       </div>
       
     </nav>
