@@ -37,10 +37,9 @@ const PaintingCard = ({setIsOpen, setCurrentIndex}) => {
   return (
     <div className='painting-card-wrapper'>
       <div className="painting-card-body">
-        <button onClick={()=>setIsOpen(true)} className="btn view-image-btn">
-        <img src={iconViewImage} alt="view icon" />
-          <p className="subhead3">View Image</p>
-        
+        <button onClick={()=>setIsOpen(true)} className=" view-image-btn">
+          <img src={iconViewImage} alt="view icon" />
+          View Image
         </button>
           <div className="card-img-container">
             <img src={heroLg} alt="gallery img" className='gallery-image' />

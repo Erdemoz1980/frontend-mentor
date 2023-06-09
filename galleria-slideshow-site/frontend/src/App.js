@@ -13,12 +13,15 @@ const App = () => {
 
   const navigate = useNavigate();
   const navigateRef = useRef();  
+  navigateRef.current = navigate
   
-  useEffect(() => {
-    navigateRef.current = navigate
-  }, [navigate]);
-
-  const startStopSlideShow = () => setIsSlideShowOn(prevState => !prevState)
+  const startStopSlideShow = () => {
+    if (!isSlideShowOn) {
+      // If the slideshow is not currently running, trigger the first slide manually
+      navigateRef.current(`/painting/${galleryData[currentIndex].id}`);
+    }
+    setIsSlideShowOn(prevState => !prevState);
+  };
   
   useEffect(() => {
     let i = currentIndex;
@@ -26,14 +29,14 @@ const App = () => {
     if (isSlideShowOn) {
        intervalId = setInterval(() => {
          if (i > galleryData.length - 1 ) {
-           setIsSlideShowOn(false);
+           setIsSlideShowOn(false)
            setCurrentIndex(0)
            navigateRef.current('/')
           return;
         }
         navigateRef.current(`/painting/${galleryData[i].id}`);
-        i++;
-      }, 500);
+        i++
+      }, 200);
     }
 
     return () => {
@@ -45,7 +48,7 @@ const App = () => {
   return (
     <>
       <Modal isOpen={isOpen} setIsOpen={setIsOpen} painting={galleryData[currentIndex].heroLg} />
-      <Navbar  startStopSlideShow={startStopSlideShow} isSlideShowOn={isSlideShowOn} setCurrentIndex={setCurrentIndex} />
+      <Navbar  setIsSlideShowOn={setIsSlideShowOn} startStopSlideShow={startStopSlideShow} isSlideShowOn={isSlideShowOn} setCurrentIndex={setCurrentIndex} />
       <Routes>
         <Route path='/' element={<Homepage galleryData={galleryData}/>} /> 
         <Route path='/painting/:id' element={<PaintingCard setIsOpen={setIsOpen} setCurrentIndex={setCurrentIndex} />} />

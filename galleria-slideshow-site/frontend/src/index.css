@@ -33,6 +33,24 @@ body{
   padding-bottom: 40px;
 }
 
+.navbar-logo-container{
+  width: 170px;
+  height: 48px;
+}
+
+.navbar-logo-container img{
+  width: 100%;
+  object-fit: cover;
+}
+
+.thumbnail-text-overlay{
+  width: 246px;
+}
+
+.thumbnail-text-overlay h2{
+  margin-bottom: 7px;
+}
+
 .main-page-masonry{
   width: 1440px;
   height: 1606px;
@@ -50,10 +68,29 @@ body{
   width: 310px;
   margin-bottom: 40px;
   cursor: pointer;
+  transition: all var(--trStandard);
 }
 
-.thumbnail-image-container img {
- width: 100%;
+
+.thumbnail-body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(rgba(255,255,255, 0.5), rgba(0, 0, 0, 0.85));
+  opacity: 0;
+  transition: opacity var(--trStandard);
+}
+
+.thumbnail-body:hover::before {
+ opacity: 1;
+}
+
+.thumbnail-image-container img{
+  width: 100%;
+
 }
 
 .thumbnail-text-overlay{
@@ -83,6 +120,7 @@ body{
   position: absolute;
   height: 40px;
   width: 152px;
+  border:none;
   background:rgba(0,0,0,0.60);
   bottom:80px;
   left:16px;
@@ -92,6 +130,14 @@ body{
   justify-content: center;
   gap:14px;
   cursor: pointer;
+  font-family: inherit;
+  font-size: 10px;
+  line-height: 12px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color:#fff;
+  transition: all var(--trStandard);
 }
 
 .view-image-btn:hover{
@@ -232,5 +278,64 @@ margin-bottom: 8px;
   max-width: 100%;
   max-height: 100%;
   object-fit: cover;
+}
+
+/*Responsive Design*/
+ /*Tablet*/
+@media screen and (max-width:1420px) {
+  .navbar-wrapper{
+    width: 768px;
+  }
+
+  .navbar-logo-container{
+    width: 113px;
+    height: 32px;
+  }
+
+  .main-page-masonry{
+    width: 768px;
+    height: 2989px;
+    column-count: 2;
+  }
+
+  .thumbnail-body{
+    width: 324px;
+    } 
+  }
+
+/*Mobile*/
+@media screen and (max-width:740px){
+  .main-page-masonry{
+    width: 375px;
+    height: 5620px;
+    column-count: 1;
+    column-gap: 24px;
+    padding:0 24px;
+  }
+
+  .navbar-wrapper {
+    width: 375px;
+    padding:24px 24px 0 24px;
+    padding-bottom: var(--paddingBottomNavMobile);
+  }
+
+  .navbar-inner{
+    padding-bottom: 24px;
+  }
+
+  .navbar-logo-container{
+    width: 113px;
+    height: 32px;
+  }
+  
+  .btn-primary{
+    font-size: 9px;
+    line-height: 11px;
+    letter-spacing: 1.92857px;
+  }
+  .thumbnail-body{
+    width: 327px; 
+    margin-bottom: 24px;
+  }
 }
 

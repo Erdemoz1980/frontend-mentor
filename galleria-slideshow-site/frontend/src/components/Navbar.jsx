@@ -1,18 +1,22 @@
 import { Link } from 'react-router-dom';
 import logo from '../assets/shared/logo.svg';
 
-const Navbar = ({ isSlideShowOn, startStopSlideShow, setCurrentIndex }) => {
+const Navbar = ({ isSlideShowOn, startStopSlideShow, setIsSlideShowOn, setCurrentIndex }) => {
   
   const onClickHandler = () => {
     setCurrentIndex(0)
-    startStopSlideShow()
+    setIsSlideShowOn(false)
   }
 
   return (
     <div className="navbar-wrapper">
       <nav className="navbar-inner">
-        <Link onClick={onClickHandler} to='/'><img className='logo' src={logo} alt='logo'/></Link> 
-        <button className='btn' onClick={startStopSlideShow} >{`${isSlideShowOn ? 'Stop Slideshow' : 'Start Slideshow'}`}</button>
+        <Link onClick={onClickHandler} to='/'>
+          <div className="navbar-logo-container">
+            <img className='logo' src={logo} alt='logo' />
+          </div>
+          </Link>
+        <button className='btn btn-primary' onClick={startStopSlideShow} >{`${isSlideShowOn ? 'Stop Slideshow' : 'Start Slideshow'}`}</button>
       </nav>
     </div>
   )
