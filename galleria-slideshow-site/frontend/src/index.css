@@ -31,7 +31,6 @@ body{
   justify-content: space-between;
   border-bottom: 1px solid #979797;
   padding-bottom: 40px;
-
 }
 
 .main-page-masonry{
@@ -40,7 +39,7 @@ body{
   column-count: 4;
   column-gap: 40px;
   margin: 0 auto;
-  padding:40px;
+  padding:0 40px;
   background: #fff;
 }
 
@@ -67,7 +66,7 @@ body{
 /*Painting Card*/
 .painting-card-wrapper{
   width: 1440px;
-  height: 1024px;
+  height: auto;
   margin: 0 auto;
   padding: 0 40px;
   background: #fff;
@@ -78,6 +77,29 @@ body{
   height: 624px;
   position: relative;
   margin-bottom: var(--marginBottomCard);
+}
+
+.view-image-btn{
+  position: absolute;
+  height: 40px;
+  width: 152px;
+  background:rgba(0,0,0,0.60);
+  bottom:80px;
+  left:16px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:14px;
+  cursor: pointer;
+}
+
+.view-image-btn:hover{
+  background: rgba(255,255,255,0.25);
+}
+
+.view-image-container p{
+  text-transform: uppercase;
 }
 
 .card-img-container{
@@ -134,7 +156,7 @@ body{
   color:var(--clrDarkGrey)
 }
 
-.source{
+.source-link{
   position: absolute;
   right:373px;
   bottom: 53px;
@@ -176,3 +198,39 @@ margin-bottom: 8px;
 .icon-back{
   cursor: pointer;
 }
+
+/*Modal*/
+.modal-overlay{
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0,0,0,0.85);
+  z-index: 2;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.35s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-overlay.active{
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-image-container{
+  height: 770px;
+  width:917px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.modal-image-container img{
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+

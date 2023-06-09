@@ -11,8 +11,8 @@
   --ffMain:'Libre Baskerville', serif;
 
  /*Margin, Padding, Gap*/
- --paddingBottomNav:100px;
- --marginBottomCard:75px;
+ --paddingBottomNav:40px;
+ --marginBottomCard:40px;
 
   /*Transitions*/
   --trStandard:0.15s ease-out;
@@ -53,6 +53,11 @@ a{
   letter-spacing: 2px;
 }
 
+a:hover{
+  color:#000;
+  transition: all var(--trStandard);
+}
+
 .subhead1{
   font-size: 15px;
   line-height: 19px;
@@ -64,6 +69,14 @@ a{
   font-size: 13px;
   line-height: 17px;
   color:var(--clrDarkGrey)
+}
+
+.subhead3{
+  font-size: 10px;
+  line-height: 12px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color:#fff;
 }
 
 /*Buttons*/
@@ -90,6 +103,19 @@ a{
   letter-spacing: 2px;
 }
 
+.btn-modal{
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color:#fff;
+}
+
 .btn:hover{
-color:#000;
+  color:#000;
+}
+
+.btn-modal:hover{
+  color:#fff;
 }

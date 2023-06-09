@@ -1,7 +1,6 @@
-import galleryData from '../gallery-data.json';
 import Thumbnail from '../components/Thumbnail';
 
-const Homepage = () => {
+const Homepage = ({galleryData}) => {
   return (
     <div className='main-page-masonry'>
       {

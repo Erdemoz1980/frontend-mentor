@@ -1,5 +1,5 @@
-import IconBack from './IconBack';
-import IconNext from './IconNext';
+import ButtonPrevious from './ButtonPrevious';
+import ButtonNext from './ButtonNext';
 
 const CardNav = ({ title, artist, percentage, navigateBack, navigateNext, disabled }) => {
   
@@ -13,8 +13,8 @@ const CardNav = ({ title, artist, percentage, navigateBack, navigateNext, disabl
       </div>
 
       <div className="card-nav-buttons">
-        <IconBack navigateBack={navigateBack} disabled={disabled.back} />
-        <IconNext navigateNext={navigateNext} disabled={disabled.next} />
+        <ButtonPrevious navigateBack={navigateBack} disabled={disabled.previous} />
+        <ButtonNext navigateNext={navigateNext} disabled={disabled.next} />
       </div>
       
     </nav>
