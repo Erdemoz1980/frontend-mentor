@@ -71,7 +71,6 @@ body{
   transition: all var(--trStandard);
 }
 
-
 .thumbnail-body::before {
   content: '';
   position: absolute;
@@ -90,7 +89,6 @@ body{
 
 .thumbnail-image-container img{
   width: 100%;
-
 }
 
 .thumbnail-text-overlay{
@@ -122,7 +120,7 @@ body{
   width: 152px;
   border:none;
   background:rgba(0,0,0,0.60);
-  bottom:80px;
+  bottom:16px;
   left:16px;
   z-index: 1;
   display: flex;
@@ -154,7 +152,7 @@ body{
   position: relative;
 }
 
-.card-img-container img{
+.gallery-image{
   width: 100%;
   object-fit: contain;
 }
@@ -187,20 +185,26 @@ body{
   object-fit: contain;
 }
 
-.display{
-  position: absolute;
-  top:0;
-  right:0;
-}
 
 .description-container{
   position: absolute;
   width: 350px;
   height: 337px;
-  top:115px;
+  bottom:160px;
   right:125px;
-  color:var(--clrDarkGrey)
+  color:var(--clrDarkGrey);
 }
+
+.year{
+  position: absolute;
+  top:0;
+  right:0;
+  font-size: 200px;
+  font-weight: 700;
+  line-height: 150px;
+  color:var(--clrLightGrey);
+}
+
 
 .source-link{
   position: absolute;
@@ -210,7 +214,7 @@ body{
 
 /*Card Navigation*/
 .card-nav-container{
-  width: 1360px;
+  width: 100%;
   height: 96px;
   margin: 0 auto;
   display: flex;
@@ -267,7 +271,7 @@ margin-bottom: 8px;
 
 .modal-image-container{
   height: 770px;
-  width:917px;
+  width: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -275,8 +279,8 @@ margin-bottom: 8px;
 }
 
 .modal-image-container img{
-  max-width: 100%;
   max-height: 100%;
+  max-width: 100%;
   object-fit: cover;
 }
 
@@ -285,6 +289,13 @@ margin-bottom: 8px;
 @media screen and (max-width:1420px) {
   .navbar-wrapper{
     width: 768px;
+    padding:40px 40px 0 40px;
+    border-bottom: 1px solid #979797;
+  }
+
+  .navbar-inner{
+    border:none;
+    padding-bottom: 24px; 
   }
 
   .navbar-logo-container{
@@ -296,11 +307,56 @@ margin-bottom: 8px;
     width: 768px;
     height: 2989px;
     column-count: 2;
+    padding-top: 40px;
   }
 
   .thumbnail-body{
     width: 324px;
     } 
+ 
+    /*Painting Card*/
+    .painting-card-wrapper{
+      width: 768px;
+      padding-top: 40px;
+    }
+
+    .painting-card-body{
+      height: 1084px;
+      margin-bottom: 0;
+    }
+
+    .gallery-title-container{
+      width: 445px;
+      height: 238px;
+      left:243px;
+    }
+
+    .gallery-title-container h1{
+      margin-bottom: 24px;
+    }
+
+    .artist-image-container{
+      position: absolute;
+      top:238px;
+    }
+ 
+    .year{
+      left:24px;
+      top:620px;
+    }
+
+    .description-container{
+      position: absolute;
+      width: 457px;
+      height: 280px;
+      left:115px;
+      bottom:100px; 
+      }
+
+    .source-link{
+      left:115px;
+      bottom: 65px;
+    }
   }
 
 /*Mobile*/
@@ -337,5 +393,7 @@ margin-bottom: 8px;
     width: 327px; 
     margin-bottom: 24px;
   }
+
+
 }
 

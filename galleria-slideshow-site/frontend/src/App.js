@@ -36,7 +36,7 @@ const App = () => {
         }
         navigateRef.current(`/painting/${galleryData[i].id}`);
         i++
-      }, 200);
+      }, 2000);
     }
 
     return () => {
@@ -47,7 +47,7 @@ const App = () => {
 
   return (
     <>
-      <Modal isOpen={isOpen} setIsOpen={setIsOpen} painting={galleryData[currentIndex].heroLg} />
+      <Modal isOpen={isOpen} setIsOpen={setIsOpen} painting={galleryData[currentIndex].galleryImg} />
       <Navbar  setIsSlideShowOn={setIsSlideShowOn} startStopSlideShow={startStopSlideShow} isSlideShowOn={isSlideShowOn} setCurrentIndex={setCurrentIndex} />
       <Routes>
         <Route path='/' element={<Homepage galleryData={galleryData}/>} /> 

@@ -17,16 +17,10 @@
 
   /*Transitions*/
   --trStandard:0.15s ease-out;
+
 }
 
 /*Typography*/
-.display{
-  font-size: 200px;
-  font-weight: 700;
-  line-height: 150px;
-  color:var(--clrLightGrey);
-}
-
 
 h1{
   font-weight: 700;
