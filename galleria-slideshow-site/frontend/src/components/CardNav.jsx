@@ -5,8 +5,9 @@ const CardNav = ({ title, artist, percentage, navigateBack, navigateNext, disabl
   
 
   return (
-    <nav className='card-nav-container' style={{ "--progressPercentage": `${percentage}%`}}>
+    <div className='card-nav-container' style={{ "--progressPercentage": `${percentage}%`}}>
       
+      <nav className="card-nav">
       <div className="card-nav-text-container">
         <h3>{title}</h3>
       <p className="subhead2">{artist}</p>
@@ -16,8 +17,8 @@ const CardNav = ({ title, artist, percentage, navigateBack, navigateNext, disabl
         <ButtonPrevious navigateBack={navigateBack} disabled={disabled.previous} />
         <ButtonNext navigateNext={navigateNext} disabled={disabled.next} />
       </div>
-      
-    </nav>
+      </nav>
+    </div>
   )
 }
 

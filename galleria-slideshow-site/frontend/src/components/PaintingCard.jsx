@@ -42,17 +42,16 @@ const PaintingCard = ({setIsOpen, setCurrentIndex}) => {
             <img src={heroLg} alt="gallery img" className='gallery-image' />
             <div className="gallery-title-container">
               <h1>{title}</h1>
-              <p className="subhead1">{artist}</p>
+            <p className="artist-name subhead1">{artist}</p>
+            <div className="artist-image-container">
+            <img src={artistImg} alt="artist" className='artist-image' />
+        </div>
           </div>
           <button onClick={()=>setIsOpen(true)} className="view-image-btn">
           <img src={iconViewImage} alt="view icon" />
           View Image
         </button>
         </div>
-
-        <div className="artist-image-container">
-            <img src={artistImg} alt="artist" className='artist-image' />
-            </div>
             <p className="year">{year}</p>
         <div className="description-container">
           <p>{description}</p>

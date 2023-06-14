@@ -36,7 +36,7 @@ const App = () => {
         }
         navigateRef.current(`/painting/${galleryData[i].id}`);
         i++
-      }, 2000);
+      }, 500);
     }
 
     return () => {
