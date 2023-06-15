@@ -8,6 +8,10 @@
   box-sizing: border-box;
 }
 
+img{
+  display: block;
+}
+
 body{
   font-family: var(--ffMain);
   font-size: 14px;
@@ -63,12 +67,23 @@ body{
 
 .thumbnail-body{
   position: relative;
-  display: inline-block;
+  display: block;
   break-inside: avoid-column;
   width: 310px;
+  height: auto;
   margin-bottom: 40px;
   cursor: pointer;
   transition: all var(--trStandard);
+}
+
+.thumbnail-image-container {
+  max-width: 100%;
+  height: auto;
+}
+
+.thumbnail-image{
+  max-width: 100%;
+  display: block;
 }
 
 .thumbnail-body::before {
@@ -85,10 +100,6 @@ body{
 
 .thumbnail-body:hover::before {
  opacity: 1;
-}
-
-.thumbnail-image-container img{
-  width: 100%;
 }
 
 .thumbnail-text-overlay{
@@ -166,9 +177,12 @@ body{
   background: #fff;
 }
 
-.gallery-title-container h1,
-.gallery-title-container p
-{
+.gallery-title-container h1{
+  margin-bottom: 24px;
+  margin-left:65px;
+}
+
+.gallery-title-container p{
   margin-left: 65px;
 }
 
@@ -189,8 +203,8 @@ body{
 .description-container{
   position: absolute;
   width: 350px;
-  height: 337px;
-  bottom:160px;
+  max-height: max-content;
+  top:115px;
   right:125px;
   color:var(--clrDarkGrey);
 }
@@ -209,6 +223,7 @@ body{
   position: absolute;
   right:373px;
   bottom: 53px;
+  width: max-content;
 }
 
 /*Card Navigation*/
@@ -273,7 +288,7 @@ margin-bottom: 8px;
 
 .modal-image-container{
   height: 770px;
-  width: auto;
+  max-width: 90%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -283,6 +298,7 @@ margin-bottom: 8px;
 .modal-image-container img{
   max-height: 100%;
   max-width: 100%;
+  display: block;
   object-fit: cover;
 }
 
@@ -314,7 +330,7 @@ margin-bottom: 8px;
 
   .thumbnail-body{
     width: 324px;
-    } 
+  } 
  
     /*Painting Card*/
     .painting-card-wrapper{
@@ -352,9 +368,7 @@ margin-bottom: 8px;
     }
 
     .description-container{
-      position: absolute;
       width: 457px;
-      height: auto;
       left:115px;
       bottom:100px; 
       }
@@ -376,22 +390,10 @@ margin-bottom: 8px;
 
 /*Mobile*/
 @media screen and (max-width:740px){
-  .main-page-masonry{
-    width: 375px;
-    height: 5620px;
-    column-count: 1;
-    column-gap: 24px;
-    padding:0 24px;
-  }
-
+   /*Mobile Navbar*/
   .navbar-wrapper {
     width: 375px;
-    padding:24px 24px 0 24px;
-    padding-bottom: var(--paddingBottomNavMobile);
-  }
-
-  .navbar-inner{
-    padding-bottom: 24px;
+    padding: 24px 24px 0 24px;
   }
 
   .navbar-logo-container{
@@ -402,11 +404,97 @@ margin-bottom: 8px;
   .btn-primary{
     font-size: 9px;
     line-height: 11px;
-    letter-spacing: 1.92857px;
+    letter-spacing: 2px;
   }
+
+  /*Mobile Masonry*/
+  .main-page-masonry{
+    width: 375px;
+    height: auto;
+    column-count: 1;
+    padding: 0 24px;
+  }
+
   .thumbnail-body{
-    width: 327px; 
-    margin-bottom: 24px;
+    width: 327px;
+    margin: auto;
+    padding-top: 24px;
+  }
+
+  .thumbnail-body:last-child{
+   padding-bottom: 24px;
+  }
+
+  /*Mobile Painting Card*/
+  .painting-card-wrapper{
+    width: 375px;
+    height: auto;
+    padding: 24px;
+  }
+
+  .painting-card-body{
+    width: 100%;
+  }
+
+  .card-img-container{
+    width: 327px;
+    height: 280px;
+  }
+
+  .view-image-btn{
+    top:16px;
+    left:16px;
+  }
+
+  .gallery-title-container{
+    width: 280px;
+    height: 133px;
+    left:0;
+    top:300px;
+  }
+
+  .gallery-title-container h1{
+    font-size: 24px;
+    line-height: 29px;
+    margin:24px 24px 8px 24px;
+  }
+
+  .gallery-title-container p {
+    margin-left: 24px;
+  }
+
+  .artist-image-container{
+    height: 64px;
+    width: 64px;
+    left:12px;
+    bottom:-64px;
+  }
+
+  .year{
+    font-size: 100px;
+    line-height: 100px;
+    top:450px;
+    left:90px;
+  }
+
+  .description-container {
+    width: 327px;
+    left:0;
+    top:525px;
+  }
+
+  .source-link{
+    left:0;
+    bottom: 100px;
+  }
+
+  .card-nav-container{
+    width: 375px;
+    margin-left: -24px;
+  }
+
+  .card-nav{
+    padding: 24px;
   }
 
 }
