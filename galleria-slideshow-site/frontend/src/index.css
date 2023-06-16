@@ -16,7 +16,7 @@ body{
   font-family: var(--ffMain);
   font-size: 14px;
   line-height: 28px;
-  color:var(--clrDarKGrey);
+  color:var(--clrDarkGrey);
   background: var(--clrLightBeige);
 }
 
@@ -206,7 +206,6 @@ body{
   max-height: max-content;
   top:115px;
   right:125px;
-  color:var(--clrDarkGrey);
 }
 
 .year{
@@ -261,8 +260,7 @@ margin-bottom: 8px;
   gap:40px;
 }
 
-.icon-next,
-.icon-back{
+.icon-nav{
   cursor: pointer;
 }
 
@@ -287,8 +285,8 @@ margin-bottom: 8px;
 }
 
 .modal-image-container{
-  height: 770px;
-  max-width: 90%;
+  height: 95%;
+  max-width: 95%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -434,6 +432,7 @@ margin-bottom: 8px;
 
   .painting-card-body{
     width: 100%;
+    height: 1000px;
   }
 
   .card-img-container{
@@ -485,17 +484,41 @@ margin-bottom: 8px;
 
   .source-link{
     left:0;
-    bottom: 100px;
+    bottom: 50px;
   }
 
   .card-nav-container{
     width: 375px;
+    height: 72px;
     margin-left: -24px;
   }
 
   .card-nav{
     padding: 24px;
   }
+
+  .card-nav-text-container h3{
+    font-size: 14px;
+    line-height: 17px;
+    color:#000;
+  }
+
+  .subhead2-mobile{
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 12px;
+    color:#000;
+  }
+
+  .card-nav-buttons{
+    gap:16px;
+  }
+
+  .icon-nav{
+    transform: scale(0.6538, 0.6667);
+  }
+  
+
 
 }
 

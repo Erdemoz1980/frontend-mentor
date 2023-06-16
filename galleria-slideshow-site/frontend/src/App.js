@@ -31,6 +31,7 @@ const App = () => {
          if (i > galleryData.length - 1 ) {
            setIsSlideShowOn(false)
            setCurrentIndex(0)
+           setIsOpen(false)
            navigateRef.current('/')
           return;
         }

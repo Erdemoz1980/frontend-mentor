@@ -9,8 +9,8 @@ const CardNav = ({ title, artist, percentage, navigateBack, navigateNext, disabl
       
       <nav className="card-nav">
       <div className="card-nav-text-container">
-        <h3>{title}</h3>
-      <p className="subhead2">{artist}</p>
+        <h3 className='card-nav-title'>{title}</h3>
+      <p className="subhead2 subhead2-mobile">{artist}</p>
       </div>
 
       <div className="card-nav-buttons">

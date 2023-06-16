@@ -33,12 +33,6 @@ h2{
   line-height: 30px;
 }
 
-h3{
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 22px;
-}
-
 a{
   color:var(--clrDarkGrey);
   text-transform: uppercase;
@@ -62,7 +56,6 @@ a:hover{
 .subhead2{
   font-size: 13px;
   line-height: 17px;
-  color:var(--clrDarkGrey)
 }
 
 .subhead3{
@@ -73,11 +66,18 @@ a:hover{
   color:#fff;
 }
 
-.thumnail-artist{
+.thumbnail-artist{
   font-weight: 400;
   font-size: 13px;
   line-height: 16px;
   opacity: 0.75;
+}
+
+.card-nav-title{
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color:#000;
 }
 
 /*Buttons*/

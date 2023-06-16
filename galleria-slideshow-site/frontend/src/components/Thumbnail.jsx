@@ -10,7 +10,7 @@ const Thumbnail = ({ id, thumbnail, title, artist }) => {
       </div>
       <div className="thumbnail-text-overlay">
         <h2>{title}</h2>
-        <p className='thumnail-artist'>{artist}</p>
+        <p className='thumbnail-artist'>{artist}</p>
       </div>
     </div>
   )
