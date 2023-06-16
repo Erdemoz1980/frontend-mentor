@@ -199,13 +199,16 @@ body{
   object-fit: contain;
 }
 
-
 .description-container{
   position: absolute;
   width: 350px;
   max-height: max-content;
   top:115px;
   right:125px;
+}
+
+.description-container p {
+  font-weight: 700;
 }
 
 .year{
@@ -368,7 +371,7 @@ margin-bottom: 8px;
     .description-container{
       width: 457px;
       left:115px;
-      bottom:100px; 
+      top:700px;
       }
 
     .source-link{
@@ -427,7 +430,7 @@ margin-bottom: 8px;
   .painting-card-wrapper{
     width: 375px;
     height: auto;
-    padding: 24px;
+    padding: 24px 24px 0 24px;
   }
 
   .painting-card-body{
@@ -447,7 +450,7 @@ margin-bottom: 8px;
 
   .gallery-title-container{
     width: 280px;
-    height: 133px;
+    height: 120px;
     left:0;
     top:300px;
   }
@@ -479,7 +482,7 @@ margin-bottom: 8px;
   .description-container {
     width: 327px;
     left:0;
-    top:525px;
+    top:515px;
   }
 
   .source-link{
@@ -518,7 +521,5 @@ margin-bottom: 8px;
     transform: scale(0.6538, 0.6667);
   }
   
-
-
 }
 

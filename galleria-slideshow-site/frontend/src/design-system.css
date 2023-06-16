@@ -25,6 +25,7 @@ h1{
   font-weight: 700;
   font-size: 56px;
   line-height: 64px;
+  color:#000;
 }
 
 h2{
@@ -56,6 +57,7 @@ a:hover{
 .subhead2{
   font-size: 13px;
   line-height: 17px;
+  color:#000;
 }
 
 .subhead3{
