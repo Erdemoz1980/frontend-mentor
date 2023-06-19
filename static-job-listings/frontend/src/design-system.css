@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap');
+
+
+
+:root{
+  /*Colors*/
+  --clrBodyBg:hsl(0,0%,95%);
+  --clrDesatCyan:#5CA5A5;
+  --clrLightGrayishCyan: #effafa;
+  --clrFilterTablets:#eef6f6;
+  --clrDarkGrayishCyan:#7C8F8F;
+  --clrVeryDarkGrayishCyan: #2B3939;
+
+  /*Typography*/
+  --fsBody:15px;
+  --ffMain:'League Spartan', sans-serif;
+}
+
+.subhead1{
+  font-size: 18px;
+  line-height: 17px;
+}
+
+.tab1{
+  font-size: 14px;
+  letter-spacing: -0.107px;
+  line-height: 14px;
+  border-radius: 12px;
+  color:#fff;
+  display: flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 5px;
+}
+
+.featured {
+  border-left: 5px solid var(--clrDesatCyan);
+}
