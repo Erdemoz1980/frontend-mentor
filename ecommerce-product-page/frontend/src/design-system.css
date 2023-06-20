@@ -1,0 +1,9 @@
+
+.btn{
+  cursor: pointer;
+  border: none;
+}
+
+.btn:disabled{
+  cursor:default;
+}
