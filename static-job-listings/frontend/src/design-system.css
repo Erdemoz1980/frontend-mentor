@@ -16,6 +16,24 @@
   --ffMain:'League Spartan', sans-serif;
 }
 
+.tab{
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.123px;
+  color:var(--clrDesatCyan);
+  background: var(--clrFilterTablets);
+  padding: 4px 8px;
+}
+
+.btn{
+  border: none;
+  font-family: inherit;
+  font-weight: inherit;
+  color:var(--clrDarkGrayishCyan);
+  cursor: pointer;
+  vertical-align:center;
+}
+
 .subhead1{
   font-size: 18px;
   line-height: 17px;

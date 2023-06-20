@@ -23,6 +23,18 @@ body{
   width: 1440px;
   height: 156px;
   background:var(--clrDesatCyan) url('./images/bg-header-desktop.svg') no-repeat; 
+  position: relative;
+}
+
+.filterbox-wrapper{
+  position: absolute;
+  width: 1110px;
+  height: 72px;
+  background: #fff;
+  top:120px;
+  left:50%;
+  transform: translateX(-50%);
+
 }
 
 .homepage-wrapper{
@@ -120,11 +132,27 @@ body{
   gap:16px
 }
 
-.keyword-tab{
-  font-size: 16px;
-  line-height: 24px;
-  letter-spacing: -0.123px;
-  color:var(--clrDesatCyan);
-  background: var(--clrFilterTablets);
-  padding: 4px 8px;
+.keyword{
+  cursor: pointer;
+}
+
+.filterbox-wrapper{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+}
+
+.keywords-wrapper{
+  display: flex;
+  gap:16px
+}
+
+.keywords-tabs-wrapper{
+  display: flex;
+}
+
+.tab-close{
+  background: var(--clrDesatCyan);
+  color:#fff;
+  border-radius:0 5px 5px 0 ;
 }

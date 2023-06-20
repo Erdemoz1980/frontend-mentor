@@ -1,12 +1,12 @@
 import JobCard from "../components/JobCard";
 
-const HomePage = ({ data }) => {
+const HomePage = ({ filteredList }) => {
   return (
     <div className="homepage-wrapper container">
   
  
         {
-          data.map(jobListing => (
+          filteredList.map(jobListing => (
             <JobCard key={jobListing.id} {...jobListing} />
           ))
         }
