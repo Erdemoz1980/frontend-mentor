@@ -10,20 +10,30 @@ const App = () => {
   const [keywords, setKeywords] = useState([]);
 
   useEffect(() => {
+    if(keywords.length<1){
+      setFilteredList(data);
+    }    
+
     const filteredList = data.filter(item => {
       if (keywords.length < 1) {
-        return data;
+        return item
       } else {
-        return (
-          keywords.includes(item.role) ||
-          keywords.includes(item.level) ||
-          item.languages.some(language => keywords.includes(language)) ||
-          item.tools.some(tool => keywords.includes(tool))
-        );
+        if (keywords.every(keyword =>
+        (keyword === item.role ||
+          keyword === item.level ||
+          item.languages.includes(keyword) ||
+          item.tools.includes(keyword)
+        )
+        )) {
+          return item
+        } else {
+          return false
+        }
       }
-    });
+    })
+
     setFilteredList(filteredList);
-      
+
   }, [keywords]);
 
 
