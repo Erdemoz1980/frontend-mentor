@@ -10,25 +10,21 @@ const App = () => {
   const [keywords, setKeywords] = useState([]);
 
   useEffect(() => {
-    if(keywords.length<1){
+    if (keywords.length < 1) {
       setFilteredList(data);
-    }    
+    }
 
     const filteredList = data.filter(item => {
-      if (keywords.length < 1) {
+      if (keywords.every(keyword =>
+      (keyword === item.role ||
+        keyword === item.level ||
+        item.languages.includes(keyword) ||
+        item.tools.includes(keyword)
+      )
+      )) {
         return item
       } else {
-        if (keywords.every(keyword =>
-        (keyword === item.role ||
-          keyword === item.level ||
-          item.languages.includes(keyword) ||
-          item.tools.includes(keyword)
-        )
-        )) {
-          return item
-        } else {
-          return false
-        }
+        return false
       }
     })
 
@@ -40,7 +36,7 @@ const App = () => {
   return (
     <Context.Provider value={{ keywords, setKeywords }}>
       <TopBar keywords={keywords} />
-      {keywords.length > 0 && <FilterBox keywords={keywords} setKeywords={setKeywords} />}
+      {keywords.length>0 && <FilterBox keywords={keywords} setKeywords={setKeywords} />}
       <HomePage filteredList={filteredList} />
     </Context.Provider>
   )
