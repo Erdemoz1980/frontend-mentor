@@ -15,6 +15,63 @@ body{
   font-weight: 400;
 }
 
+/*Navbar*/
+.navbar-wrapper{
+  max-width: 1110px;
+  height: 50px;
+  margin-top: 28px;
+  margin-bottom: 125px;
+  position: relative;
+}
+
+.navbar-wrapper::after{
+  content:'';
+  position:absolute;
+  bottom:-35px;
+  left:0;
+  width: 100%;
+  height: 1px;
+  background: #E4E9F2;
+}
+
+.navbar-wrapper,
+.navbar-brand,
+.navbar-menu,
+.navbar-user{
+  display: flex;
+  align-items: center;
+}
+
+.navbar-wrapper {
+  justify-content: space-between;
+}
+
+.logo-wrapper{
+  margin-right: 56px;
+}
+
+.navbar-menu{
+  gap:32px;
+}
+
+.navbar-menu a{
+  color:var(--clrBlueGrey);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 26px;
+}
+
+.navbar-user{
+  gap:46px
+}
+
+.avatar-wrapper{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+/*Product Page*/
 .product-page-wrapper{
   display: flex;
   gap:125px;

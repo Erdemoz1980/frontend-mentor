@@ -4,7 +4,7 @@ import cart from '../images/icon-cart.svg';
 
 const Navbar = () => {
   return (
-    <nav className="navbar-wrapper">
+    <nav className="navbar-wrapper container">
       <div className="navbar-brand">
          <div className="logo-wrapper">
         <img src={logo} alt="logo" />
@@ -17,6 +17,7 @@ const Navbar = () => {
         <li><a href="/contact">Contact</a></li>
       </ul>
       </div>
+
       <div className="navbar-user">
         <div className="cart-wrapper">
           <img src={cart} alt="cart" />

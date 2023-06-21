@@ -13,7 +13,7 @@ const ProductDetail = ({ company, name, description, price, discount, imageThumb
   }
 
   return (
-    <div className="product-page-wrapper">
+    <div className="product-page-wrapper container">
       <div className="product-display-wrapper">
         <div className="product-main-image-wrapper">
           <img src={imagesMain[activeImage]} alt="main product" />

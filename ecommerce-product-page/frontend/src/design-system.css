@@ -23,6 +23,18 @@ img{
   object-fit:cover;
 }
 
+/*Remove list styling*/
+ul{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+
+.container{
+  margin: auto;
+}
+
 .active::before{
   content: '';
   position: absolute;
