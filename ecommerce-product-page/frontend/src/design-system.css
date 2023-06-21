@@ -3,8 +3,11 @@
 :root{
   /*Colors*/
   --clrOrange:#FF7E1B;
+  --clrLightOrange:#FFEEE2;
   --clrVeryDarkBlue:#1D2026;
   --clrBlueGrey:#69707D;
+  --clrLightGrey:#B6BCC8;
+  --clrVeryLightGrey:#F6F8FD;
 
   /*Typography*/
   --ffMain:'Kumbh Sans', sans-serif;
@@ -33,10 +36,32 @@ img{
 }
 
 .btn{
+  border:none;
+  background: none;
   cursor: pointer;
-  border: none;
+  font-family: inherit;
+}
+
+.btn-primary{
+  background: var(--clrOrange);
+  border-radius: 10px;
+  color:#fff;
+  padding: 18px 76px;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700;
 }
 
 .btn:disabled{
   cursor:default;
+}
+
+.text-dark{
+  color:var(--clrVeryDarkBlue);
+  font-weight: 700;
+}
+
+.text-light{
+  color:var(--clrLightGrey);
+  font-weight: 700;
 }

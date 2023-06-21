@@ -12,7 +12,7 @@
 body{
   font-family: var(--ffMain);
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .product-page-wrapper{
@@ -63,7 +63,6 @@ border-radius: 10px;
 .product-name{
 font-size: 44px;
 line-height: 48px;
-color:var(--clrVeryDarkBlue);
 margin-bottom: 32px;
 }
 
@@ -74,7 +73,55 @@ margin-bottom: 32px;
   margin-bottom: 24px;
 }
 
-.product-price{
-
+.price-wrapper{
+  margin-bottom: 32px;
 }
+.product-price{
+  font-size: 28px;
+  line-height: 35px;
+  margin-bottom: 10px;
+}
+
+.discount-tab{
+ margin-left: 16px;
+ font-size: 16px;
+ line-height: 20px;
+ color:var(--clrOrange);
+ padding: 4px 8px;
+ background: var(--clrLightOrange);
+ border-radius: 6px;
+}
+
+.original-price{
+  font-size: 16px;
+  line-height: 26px;
+  text-decoration: line-through;
+}
+
+.cart-control-wrapper{
+  display: flex;
+  gap:16px;
+}
+
+.qty-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 157px;
+  height: 56px;
+  background: var(--clrVeryLightGrey);
+  border-radius: 10px;
+}
+.icon-cart{
+margin-right: 12px;
+vertical-align:bottom;
+transform: scale(0.8);
+}
+
+.qty-info{
+  margin: 0 45px;
+}
+
+
+
 
