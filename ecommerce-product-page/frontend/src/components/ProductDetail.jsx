@@ -4,13 +4,12 @@ import iconPlus from '../images/icon-plus.svg';
 import iconCart from '../images/icon-cart.svg';
 
 const ProductDetail = ({company, name, description, price, discount, imageThumbnails, imagesMain }) => {
-  const [activeImage, setActiveImage] = useState(3);
+  const [activeImage, setActiveImage] = useState(0);
   const [qty, setQty] = useState(0);
 
   function addToCartHandler() {
     
   }
-
 
   return (
     <div className="product-page-wrapper">
@@ -19,10 +18,10 @@ const ProductDetail = ({company, name, description, price, discount, imageThumbn
         <div className="product-main-image-wrapper">
           <img src={imagesMain[activeImage]} alt="main product"/>
         </div>
-        <div className="product-thumbnails-wrapper">
+        <div className="product-thumbnails">
           {
             imageThumbnails.map((thumbnail, index) => (
-              <div key={index} className="thumbnail-wrapper" onClick={()=>setActiveImage(index)}>
+              <div key={index} className={`thumbnail-wrapper ${activeImage===index ? 'active' : ''}`} onClick={()=>setActiveImage(index)}>
                 <img src={thumbnail} alt="thumbnail"/>
               </div>
             ))
@@ -35,7 +34,7 @@ const ProductDetail = ({company, name, description, price, discount, imageThumbn
         <h1 className='product-name'>{name}</h1>
         <p className="product-description">{description}</p>
         <div className="price-wrapper">
-          <h2 className='product-price'>${`${discount ? price*(discount/100) : price}`}</h2>{discount && <span className='discount-tab'>{discount}%</span>}
+          <h2 className='product-price'>${`${discount ? price-(price*(discount/100)) : price}`}</h2>{discount && <span className='discount-tab'>{discount}%</span>}
           {discount && <small className='original-price'>${price}</small>}
         </div>
         <div className="add-to-cart-wrapper">

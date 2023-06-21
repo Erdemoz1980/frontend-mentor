@@ -1,3 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500;700&display=swap');
+
+:root{
+  /*Colors*/
+  --clrOrange:#FF7E1B;
+  --clrVeryDarkBlue:#1D2026;
+  --clrBlueGrey:#69707D;
+
+  /*Typography*/
+  --ffMain:'Kumbh Sans', sans-serif;
+  
+}
+
+
+/*Make images easier to work with*/
+img{
+  display:block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit:cover;
+}
+
+.active::before{
+  content: '';
+  position: absolute;
+  top:0;
+  left:0;
+  height: 100%;
+  width: 100%;
+  background: rgba(255,255,255, 0.75);
+  border: 2px solid var(--clrOrange);
+  border-radius: 10px;
+}
 
 .btn{
   cursor: pointer;

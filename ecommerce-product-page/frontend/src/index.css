@@ -1,1 +1,80 @@
 @import url('./design-system.css');
+
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: var(--ffMain);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.product-page-wrapper{
+  display: flex;
+  gap:125px;
+}
+
+/*Product Images*/
+.product-main-image-wrapper{
+  width: 445px;
+  height: 445px;
+  margin-bottom: 30px;
+}
+
+.product-thumbnails{
+  display: flex;
+  max-width: 445px;
+  justify-content: space-between;
+}
+
+.thumbnail-wrapper{
+  width: 88px;
+  height: 88px;
+  position: relative;
+  cursor: pointer;
+}
+
+.product-main-image-wrapper img,
+.thumbnail-wrapper img{
+border-radius: 10px;
+}
+
+/*Product Info Section*/
+.product-info-wrapper{
+  padding: 62px 0;
+  max-width: 445px;
+}
+
+.company-name{
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color:var(--clrOrange);
+  margin-bottom: 27px;
+}
+
+.product-name{
+font-size: 44px;
+line-height: 48px;
+color:var(--clrVeryDarkBlue);
+margin-bottom: 32px;
+}
+
+.product-description{
+  font-weight: 400;
+  line-height: 26px;
+  color:var(--clrBlueGrey);
+  margin-bottom: 24px;
+}
+
+.product-price{
+
+}
+
