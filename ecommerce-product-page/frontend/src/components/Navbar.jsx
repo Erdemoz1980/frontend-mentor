@@ -2,7 +2,9 @@ import logo from '../images/logo.svg';
 import avatar from '../images/image-avatar.png';
 import cartIcon from '../images/icon-cart.svg';
 
-const Navbar = () => {
+const Navbar = ({setIsCartOpen, cartItems}) => {
+  const cartItemsQty = cartItems.reduce((acc, item) => acc + item.qty, 0);
+
   return (
     <nav className="navbar-wrapper container">
       <div className="navbar-brand">
@@ -20,16 +22,15 @@ const Navbar = () => {
 
       <div className="navbar-user">
         <div className="cart-icon-wrapper">
-        <img src={cartIcon} alt='cart' />
+          <button className="btn" onClick={()=>setIsCartOpen(prevState=>!prevState)}>
+            <img src={cartIcon} alt='cart' />
+            {cartItems.length > 0 && <div className='cart-qty-display'>{cartItemsQty}</div>}
+          </button>
         </div>
-
         <div className="avatar-wrapper">
           <img src={avatar} alt="avatar" />
         </div>
       </div>
-     
-
-
     </nav>
   )
 }

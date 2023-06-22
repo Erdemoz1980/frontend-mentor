@@ -4,20 +4,35 @@ import IconMinus from './IconMinus';
 import IconPlus from './IconPlus';
 import ShoppingCart from './ShoppingCart';
 
-const ProductDetail = ({ id, company, name, description, price, discount, imageThumbnails, imagesMain, cartItems, setCartItems }) => {
+const ProductDetail = ({ id, company, name, description, price, discount, imageThumbnails, imagesMain, cartItems, setCartItems, isCartOpen, setIsCartOpen }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [qty, setQty] = useState(0);
+
 
   price = price.toFixed(2)
 
   function addToCartHandler() {
-    setCartItems(prevCartItems => [...prevCartItems, { id, qty, name, img: imageThumbnails[0], price, totalPrice: (qty * price).toFixed(2) }])
-    setQty(0);
-  }
+    setCartItems(prevCartItems => {
+      const itemExists = prevCartItems.find(item => item.id === id);
+      
+      if (itemExists) {
+        return prevCartItems.map(cartItem => {
+          if (cartItem.id === id) {
+            return {...cartItem, qty}
+          } else {
+            return cartItem
+          }
+        })
+      } else {
+        return [...prevCartItems, {id,img:imageThumbnails[0],name, qty, price, discount }]
+      }
+    })
+    setQty(0)
+  };
 
   return (
     <div className="product-page-wrapper container">
-      <ShoppingCart cartItems={cartItems} setCartItems={setCartItems} />
+      {isCartOpen && <ShoppingCart cartItems={cartItems} setCartItems={setCartItems} isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} />}
       <div className="product-display-wrapper">
         <div className="product-main-image-wrapper">
           <img src={imagesMain[activeImage]} alt="main product" />
