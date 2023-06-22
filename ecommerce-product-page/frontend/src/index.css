@@ -27,11 +27,11 @@ body{
 .navbar-wrapper::after{
   content:'';
   position:absolute;
-  bottom:-35px;
+  bottom:-15px;
   left:0;
   width: 100%;
   height: 1px;
-  background: #E4E9F2;
+  background: var(--clrSeperator);
 }
 
 .navbar-wrapper,
@@ -59,6 +59,28 @@ body{
   font-size: 15px;
   font-weight: 400;
   line-height: 26px;
+  transition: var(--trsMain);
+  position: relative;
+}
+
+.navbar-menu a:hover{
+  color:var(--clrVeryDarkBlue);
+}
+
+.navbar-menu a::after{
+  content:'';  
+  position: absolute;
+  left:50%;
+  bottom: -30px;
+  width: 0;
+  height: 4px;
+  background: var(--clrOrange);
+  transform: translateX(-50%);
+  transition: var(--trsMain);
+}
+
+.navbar-menu a:hover::after{
+  width:58px;
 }
 
 .navbar-user{
@@ -75,6 +97,7 @@ body{
 .product-page-wrapper{
   display: flex;
   gap:125px;
+  position: relative;
 }
 
 /*Product Images*/
@@ -179,6 +202,71 @@ transform: scale(0.8);
   margin: 0 45px;
 }
 
+/*Shopping Cart*/
+.cart-wrapper{
+  position: absolute;;
+  width: 360px;
+  height: 256px;
+  top: -111px;
+  right:-50px;
+  background: #fff;
+  padding: 24px 24px 32px 24px;
+  border-radius: 10px;
+ box-shadow: 0px 20px 50px -20px rgba(29, 32, 38, 0.50);;
+}
 
+.cart-notification{
+  line-height: 26px;
+  font-weight: 700;
+  text-align: center;
+  color:var(--clrBlueGrey);
+  position: absolute;
+  bottom:85px;
+  left:110px
+}
 
+.cart-title{
+  font-size: 16px;
+  color:var(--clrVeryDarkBlue);
+  font-weight: 700;
+  position: relative;
+  margin-bottom: 52px;
+}
+
+.cart-title::after{
+  content:'';
+  position:absolute;
+  width: 360px;
+  height: 1px;
+  left:-24px;
+  bottom:-27px;
+  background:var(--clrSeperator);
+}
+
+.cart-item-details-wrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.cart-item-image-wrapper{
+  width: 50px;
+  height: 50px;
+}
+
+.cart-item-image-wrapper img{
+  border-radius: 4px;
+}
+
+.cart-item-name,
+.cart-item-price {
+  line-height: 26px;
+  color:var(--clrBlueGrey);
+}
+
+.cart-item-price span{
+  font-weight: 700;
+  color:var(--clrVeryDarkBlue);
+}
 

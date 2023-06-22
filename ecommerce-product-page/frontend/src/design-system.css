@@ -8,12 +8,14 @@
   --clrBlueGrey:#69707D;
   --clrLightGrey:#B6BCC8;
   --clrVeryLightGrey:#F6F8FD;
+  --clrSeperator:#E4E9F2;
 
   /*Typography*/
-  --ffMain:'Kumbh Sans', sans-serif;
-  
-}
+  --ffMain:'Kumbh Sans', sans-serif;  
 
+  /*Transitions*/
+  --trsMain:0.25s ease-in-out;
+}
 
 /*Make images easier to work with*/
 img{
@@ -27,6 +29,7 @@ img{
 ul{
   list-style: none;
 }
+
 a{
   text-decoration: none;
 }
@@ -64,8 +67,16 @@ a{
   font-weight: 700;
 }
 
+.btn-primary:disabled{
+  background: var(--clrLightGrey);
+}
+
 .btn:disabled{
   cursor:default;
+}
+
+.btn-block{
+  width: 100%;
 }
 
 .text-dark{

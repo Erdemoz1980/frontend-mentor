@@ -2,18 +2,22 @@ import { useState } from 'react';
 import IconCart from './IconCart';
 import IconMinus from './IconMinus';
 import IconPlus from './IconPlus';
+import ShoppingCart from './ShoppingCart';
 
-const ProductDetail = ({ company, name, description, price, discount, imageThumbnails, imagesMain }) => {
+const ProductDetail = ({ id, company, name, description, price, discount, imageThumbnails, imagesMain, cartItems, setCartItems }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [qty, setQty] = useState(0);
 
   price = price.toFixed(2)
 
   function addToCartHandler() {
+    setCartItems(prevCartItems => [...prevCartItems, { id, qty, name, img: imageThumbnails[0], price, totalPrice: (qty * price).toFixed(2) }])
+    setQty(0);
   }
 
   return (
     <div className="product-page-wrapper container">
+      <ShoppingCart cartItems={cartItems} setCartItems={setCartItems} />
       <div className="product-display-wrapper">
         <div className="product-main-image-wrapper">
           <img src={imagesMain[activeImage]} alt="main product" />
@@ -39,14 +43,14 @@ const ProductDetail = ({ company, name, description, price, discount, imageThumb
         <div className="cart-control-wrapper">
           <div className="qty-wrapper">
             <button className='btn btn-qty' disabled={qty === 0} onClick={() => setQty(prevState => prevState - 1)}>
-              <IconMinus disabled={qty===0} />
+              <IconMinus disabled={qty === 0} />
             </button>
             <p className='qty-info text-dark'>{qty}</p>
             <button className='btn btn-qty' onClick={() => setQty(prevState => prevState + 1)}>
-             <IconPlus />
+              <IconPlus />
             </button>
           </div>
-          <button className="btn btn-primary" onClick={addToCartHandler}>
+          <button className="btn btn-primary" disabled={qty === 0} onClick={addToCartHandler}>
             <IconCart type='primary' />
             Add to cart</button>
         </div>

@@ -1,6 +1,6 @@
 import logo from '../images/logo.svg';
 import avatar from '../images/image-avatar.png';
-import cart from '../images/icon-cart.svg';
+import cartIcon from '../images/icon-cart.svg';
 
 const Navbar = () => {
   return (
@@ -19,8 +19,8 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-user">
-        <div className="cart-wrapper">
-          <img src={cart} alt="cart" />
+        <div className="cart-icon-wrapper">
+        <img src={cartIcon} alt='cart' />
         </div>
 
         <div className="avatar-wrapper">
