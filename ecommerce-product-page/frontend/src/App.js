@@ -1,16 +1,15 @@
-import { useState } from 'react';
 import Navbar from "./components/Navbar";
 import ProductPage from "./pages/ProductPage";
+import Lightbox from "./components/Lightbox";
 import data from './data.json';
 
 const App = () => {
-  const [cartItems, setCartItems] = useState([]);
-  const [isCartOpen, setIsCartOpen] = useState(false);
 
   return (
     <>
-      <Navbar setIsCartOpen={setIsCartOpen} cartItems={cartItems} />
-      <ProductPage data={data} cartItems={cartItems} setCartItems={setCartItems} isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} />
+      <Lightbox data={data} />
+      <Navbar />
+      <ProductPage data={data}/>
       </>
   )
 }

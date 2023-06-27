@@ -1,46 +1,36 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCartItems, setActiveImage, setLightBox } from '../slices/cartSlice';
 import IconCart from './IconCart';
 import IconMinus from './IconMinus';
 import IconPlus from './IconPlus';
 import ShoppingCart from './ShoppingCart';
 
-const ProductDetail = ({ id, company, name, description, price, discount, imageThumbnails, imagesMain, cartItems, setCartItems, isCartOpen, setIsCartOpen }) => {
-  const [activeImage, setActiveImage] = useState(0);
+const ProductDetail = ({ id, company, name, description, price, countInStock,  discount, imageThumbnails, imagesMain}) => {
   const [qty, setQty] = useState(0);
-
+  
+  const { isCartOpen, activeImage } = useSelector(state => state.cart);
+  const dispatch = useDispatch();
 
   price = price.toFixed(2)
 
   function addToCartHandler() {
-    setCartItems(prevCartItems => {
-      const itemExists = prevCartItems.find(item => item.id === id);
-      
-      if (itemExists) {
-        return prevCartItems.map(cartItem => {
-          if (cartItem.id === id) {
-            return {...cartItem, qty}
-          } else {
-            return cartItem
-          }
-        })
-      } else {
-        return [...prevCartItems, {id,img:imageThumbnails[0],name, qty, price, discount }]
-      }
-    })
+    const newItem = { id, img: imageThumbnails[0], name, qty, price, countInStock, discount };
+    dispatch(setCartItems(newItem));
     setQty(0)
   };
 
   return (
     <div className="product-page-wrapper container">
-      {isCartOpen && <ShoppingCart cartItems={cartItems} setCartItems={setCartItems} isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} />}
+      {isCartOpen && <ShoppingCart qty={qty} setQty={setQty} />}
       <div className="product-display-wrapper">
-        <div className="product-main-image-wrapper">
+        <div className="product-main-image-wrapper" onClick={()=>dispatch(setLightBox({isOpen:true, id}))}>
           <img src={imagesMain[activeImage]} alt="main product" />
         </div>
         <div className="product-thumbnails">
           {
             imageThumbnails.map((thumbnail, index) => (
-              <div key={index} className={`thumbnail-wrapper ${activeImage === index ? 'active' : ''}`} onClick={() => setActiveImage(index)}>
+              <div key={index} className={`thumbnail-wrapper ${activeImage === index ? 'active' : ''}`} onClick={() => dispatch(setActiveImage(index))}>
                 <img src={thumbnail} alt="thumbnail" />
               </div>
             ))
@@ -61,12 +51,12 @@ const ProductDetail = ({ id, company, name, description, price, discount, imageT
               <IconMinus disabled={qty === 0} />
             </button>
             <p className='qty-info text-dark'>{qty}</p>
-            <button className='btn btn-qty' onClick={() => setQty(prevState => prevState + 1)}>
-              <IconPlus />
+            <button className='btn btn-qty' disabled={qty>=countInStock} onClick={() => setQty(prevState => prevState + 1)}>
+              <IconPlus disabled={qty>=countInStock} />
             </button>
           </div>
           <button className="btn btn-primary" disabled={qty === 0} onClick={addToCartHandler}>
-            <IconCart type='primary' />
+            <IconCart type='primary'/>
             Add to cart</button>
         </div>
       </div>
