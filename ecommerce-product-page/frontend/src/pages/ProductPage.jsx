@@ -1,11 +1,12 @@
-import ProductDetail from "../components/ProductDetail"
+import ProductCard from "../components/ProductCard";
 
-const ProductPage = ({ data, cartItems, setCartItems, isCartOpen, setIsCartOpen }) => {
+const ProductPage = ({ data }) => {
+  
   return (
     <div className='product-page-wrapper'>
       {
-        data.map(product => (
-          <ProductDetail key={product.id} {...product} cartItems={cartItems} setCartItems={setCartItems} isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} />
+        data.map(item => (
+          <ProductCard key={item.id} {...item} />
         ))
       }
     </div>

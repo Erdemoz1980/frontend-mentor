@@ -123,7 +123,7 @@ body{
 
 /*Navbar*/
 .navbar-wrapper{
-  max-width: 1110px;
+  max-width: var(--widthMain);
   height: 50px;
   margin-top: 28px;
   margin-bottom: 125px;
@@ -245,9 +245,24 @@ border: 2px solid var(--clrOrange);
 
 /*Product Page*/
 .product-page-wrapper{
-  display: flex;
-  gap:125px;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap:24px;
+  margin: auto;
+  max-width: var(--widthMain);
   position: relative;
+}
+
+/*Product Card*/
+.product-card-wrapper{
+  padding: 12px;
+  border:1px solid var(--clrLightGrey);
+}
+
+.product-card-img-wrapper{
+  width: 250px;
+  height: 250px;
+  margin-bottom: 24px;
 }
 
 /*Product Images*/
@@ -256,6 +271,42 @@ border: 2px solid var(--clrOrange);
   height: 445px;
   margin-bottom: 30px;
   cursor: pointer;
+}
+
+.product-card-body .company-name{
+  margin-bottom: 14px;
+}
+
+.product-card-body .product-name{
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.product-card-body .product-price{
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  line-height: 16px;
+}
+
+.product-category{
+  color: var(--clrBlueGrey);
+  margin-bottom: 18px;
+}
+
+.color-thumbnails-wrapper{
+  display: flex;
+  gap:10px;
+  cursor:pointer
+}
+
+.color-thumbnail-wrapper{
+  width: 50px;
+  height: 40px;
+}
+
+.color-thumbnail-wrapper img{
+  border-radius: 5px;
 }
 
 .product-thumbnails{
@@ -309,8 +360,6 @@ border-radius: 10px;
 }
 
 .product-name{
-font-size: 44px;
-line-height: 48px;
 margin-bottom: 32px;
 }
 
@@ -374,7 +423,7 @@ transform: scale(0.8);
 .cart-wrapper{
   position: absolute;;
   width: 360px;
-  height: 256px;
+  height: auto;
   top: -111px;
   right:-50px;
   background: #fff;
@@ -420,13 +469,13 @@ transform: scale(0.8);
 .cart-item-details-wrapper{
   display: flex;
   justify-content: space-between;
-  align-items: center;
   margin-bottom: 24px;
 }
 
 .cart-item-image-wrapper{
   width: 50px;
   height: 50px;
+  align-self: flex-start;
 }
 
 .cart-item-image-wrapper img{
@@ -444,3 +493,18 @@ transform: scale(0.8);
   color:var(--clrVeryDarkBlue);
 }
 
+.stock-info-wrapper{
+  display: flex;
+  align-items: center;
+  color:var(--clrBlueGrey);
+  font-size: 14px;
+  gap:20px;
+  margin-top: 6px;
+
+}
+
+.stock-info-wrapper select{
+  border: none;
+  background: var(--clrVeryLightGrey);
+  
+}

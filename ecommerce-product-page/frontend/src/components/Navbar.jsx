@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { setCartIsOpen } from '../slices/cartSlice';
 import logo from '../images/logo.svg';
 import avatar from '../images/image-avatar.png';
@@ -14,7 +15,9 @@ const Navbar = () => {
     <nav className="navbar-wrapper container">
       <div className="navbar-brand">
         <div className="logo-wrapper">
-          <img src={logo} alt="logo" />
+          <Link to='/'>
+            <img src={logo} alt="logo" />
+          </Link>
         </div>
         <ul className="navbar-menu">
           <li><a href="/collections">Collections</a></li>
