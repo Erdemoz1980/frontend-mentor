@@ -1,26 +1,21 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
 import { setColorVersion } from '../slices/productSlice';
 import { Link } from 'react-router-dom';
 
-const ProductCard = ({id, company, name, category, gender, price, colors, imagesMain, discount}) => {
+const ProductCard = ({ id, company, name, category, gender, price, colors, imagesMain, discount }) => {
   const dispatch = useDispatch();
+  
   const { colorVersion } = useSelector(state => state.product);
-
-  useEffect(() => {
-    if (colors) {
-       dispatch(setColorVersion(colors[0]))
-    }
-  }, [colors, dispatch]);
 
   return (
     <div className="product-card-wrapper">
       <div className="product-card-img-wrapper">
       <Link to={`/product/${id}`}> 
-        <img src={colors && colorVersion? imagesMain[colorVersion][0] : imagesMain[0]} alt='hero' />
+      <img src={colors.length > 1 ? (imagesMain && imagesMain[colorVersion].images[0]) : (imagesMain && imagesMain[0]) } alt="card hero" />
+
+
          </Link>
       </div>
-    
       <div className="product-card-body">
         <h4 className='company-name'>{company}</h4>
         <h1 className='product-name text-dark text-medium'>{name}</h1>
@@ -28,9 +23,10 @@ const ProductCard = ({id, company, name, category, gender, price, colors, images
           <h4 className='product-category text-small'>{category[0].toUpperCase() + category.substring(1)} / <span>{gender[0].toUpperCase()+gender.substring(1)}</span></h4>
         </div>
         <div className="color-thumbnails-wrapper">
-          {colors && colors.map((color, index) => (
-            <div key={index} className='color-thumbnail-wrapper' onClick={()=>dispatch(setColorVersion(color))} >
-              <img src={imagesMain[color][0]} alt='color version' />
+          
+          {colors.length > 0 && colors.map((_, index) => (
+            <div key={index} className='color-thumbnail-wrapper' onClick={()=>dispatch(setColorVersion(index))} >
+              <img src={imagesMain[index].images[0]} alt='color version' />
             </div>
           ))}
         </div>
@@ -40,7 +36,6 @@ const ProductCard = ({id, company, name, category, gender, price, colors, images
         </div>
       </div>
     </div>
-   
   )
 }
 

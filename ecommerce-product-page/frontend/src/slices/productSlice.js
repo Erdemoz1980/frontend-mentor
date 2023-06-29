@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const productSlice = createSlice({
   name: 'product',
   initialState: {
-    colorVersion:false,
+    colorVersion:0,
   },
   reducers: {
     setColorVersion: (state, action) => {

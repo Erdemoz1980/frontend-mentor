@@ -11,19 +11,19 @@ import data from '../data.json';
 const ProductDetail = () => {
   const [qty, setQty] = useState(0);
   const { isCartOpen, activeImage } = useSelector(state => state.cart);
+  const { colorVersion } = useSelector(state => state.product);
   
   const dispatch = useDispatch()
   const { id } = useParams()
   const numericId = Number(id)
   
-  const { company, name, description, price, countInStock, discount, imageThumbnails, imagesMain }
+  const { company, name, description, price, countInStock, discount, colors, imageThumbnails, imagesMain }
   = data.find(item => item.id === numericId);
-
 
   // const priceFixed = price.toFixed(2)
 
   function addToCartHandler() {
-    const newItem = { id:numericId, img: imageThumbnails[0], name, qty, price, countInStock, discount };
+    const newItem = { id:numericId, img: colors ? imageThumbnails[colors[0]][0] : imageThumbnails[0], name, qty, price, countInStock, discount };
     dispatch(setCartItems(newItem));
     setQty(0)
   };
@@ -33,15 +33,19 @@ const ProductDetail = () => {
       {isCartOpen && <ShoppingCart qty={qty} setQty={setQty} />}
       <div className="product-display-wrapper">
         <div className="product-main-image-wrapper" onClick={()=>dispatch(setLightBox({isOpen:true, id:numericId}))}>
-          <img src={imagesMain[activeImage]} alt="main product" />
+          <img src={colors.length > 1 ? imagesMain[colorVersion].images[activeImage] : imagesMain[activeImage]} alt="main product" />
         </div>
         <div className="product-thumbnails">
           {
-            imageThumbnails.map((thumbnail, index) => (
+           colors.length > 0 ? imageThumbnails[colorVersion].images.map((thumbnail, index) => (
               <div key={index} className={`thumbnail-wrapper ${activeImage === index ? 'active' : ''}`} onClick={() => dispatch(setActiveImage(index))}>
                 <img src={thumbnail} alt="thumbnail" />
               </div>
-            ))
+            )) : imageThumbnails.map((thumbnail, index) => (
+              <div key={index} className={`thumbnail-wrapper ${activeImage === index ? 'active' : ''}`} onClick={() => dispatch(setActiveImage(index))}>
+                <img src={thumbnail} alt="thumbnail" />
+              </div>
+            )) 
           }
         </div>
       </div>

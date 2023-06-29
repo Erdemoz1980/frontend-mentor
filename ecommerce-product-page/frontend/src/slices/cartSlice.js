@@ -8,7 +8,7 @@ const cartSlice = createSlice({
     isCartOpen: false,
     cartItems,
     activeImage: 0, 
-    lightbox:{isOpen:false, id:0}
+    lightbox:{isOpen:false, id:undefined}
   },
   reducers: {
     setCartIsOpen: (state, action) => {
