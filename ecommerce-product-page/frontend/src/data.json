@@ -82,7 +82,7 @@
     "colors":["GreenAbyss","SandDrift"],
     "imageThumbnails": [
       {
-        "color": "GreenAbyss",
+        "color": "Green_Abyss",
         "images": [
           "/product-images/10006/green_abyss/image-product-1.jpg",
           "/product-images/10006/green_abyss/image-product-2.webp",
@@ -91,7 +91,7 @@
         ]
       },
       {
-        "color": "SandDrift",
+        "color": "Sand_Drift",
         "images": [
           "/product-images/10006/sand_drift/image-product-1.webp",
           "/product-images/10006/sand_drift/image-product-2.webp",
@@ -102,7 +102,7 @@
     ],
     "imagesMain": [
       {
-        "color": "GreenAbyss",
+        "color": "Green_Abyss",
         "images": [
           "/product-images/10006/green_abyss/image-product-1.jpg",
           "/product-images/10006/green_abyss/image-product-2.webp",
@@ -111,7 +111,7 @@
         ]
       },
       {
-        "color": "SandDrift",
+        "color": "Sand_Drift",
         "images": [
           "/product-images/10006/sand_drift/image-product-1.webp",
           "/product-images/10006/sand_drift/image-product-2.webp",
@@ -146,8 +146,16 @@
     "countInStock":14,
     "discount":15,
     "colors":[],
-    "imageThumbnails": ["/product-images/10008/image-product-1.webp", "/product-images/10008/image-product-2.webp", "/product-images/10008/image-product-3.webp", "/product-images/10008/image-product-4.webp"],
-    "imagesMain":["/product-images/10008/image-product-1.webp", "/product-images/10008/image-product-2.webp", "/product-images/10008/image-product-3.webp", "/product-images/10008/image-product-4.webp"]
+    "imageThumbnails": [
+      "/product-images/10008/image-product-1.webp", 
+      "/product-images/10008/image-product-2.webp", 
+      "/product-images/10008/image-product-3.webp", 
+      "/product-images/10008/image-product-4.webp"],
+    "imagesMain":[
+      "/product-images/10008/image-product-1.webp", 
+      "/product-images/10008/image-product-2.webp", 
+      "/product-images/10008/image-product-3.webp", 
+      "/product-images/10008/image-product-4.webp"]
   },
   {
     "id": 10009,
@@ -159,11 +167,39 @@
     "price": 160,
     "countInStock":6,
     "discount":false,
-    "colors":[],
-    "imageThumbnails":{
-      "PinkBloom":["/product-images/10009/pink_bloom/image-product-1.webp", "/product-images/10009/pink_bloom/image-product-2.webp", "/product-images/10009/pink_bloom/image-product-3.webp", "/product-images/10009/pink_bloom/image-product-4.jpg"],
-      "TealNebula":["/product-images/10009/teal_nebula/image-product-1.webp", "/product-images/10009/teal_nebula/image-product-2.webp", "/product-images/10009/teal_nebula/image-product-3.webp", "/product-images/10009/teal_nebula/image-product-4.jpg"]
-    }
+    "colors":["Pink_Bloom","Teal_Nebula"],
+    "imageThumbnails":[
+      {
+        "images":[
+          "/product-images/10009/pink_bloom/image-product-1.webp", 
+          "/product-images/10009/pink_bloom/image-product-2.webp", 
+          "/product-images/10009/pink_bloom/image-product-3.webp", 
+          "/product-images/10009/pink_bloom/image-product-4.jpg"]
+      },
+      {
+        "images":[
+          "/product-images/10009/teal_nebula/image-product-1.webp", 
+          "/product-images/10009/teal_nebula/image-product-2.webp", 
+          "/product-images/10009/teal_nebula/image-product-3.webp", 
+          "/product-images/10009/teal_nebula/image-product-4.webp"]
+      }
+    ],
+    "imagesMain":[
+      {
+        "images":[
+          "/product-images/10009/pink_bloom/image-product-1.webp", 
+          "/product-images/10009/pink_bloom/image-product-2.webp", 
+          "/product-images/10009/pink_bloom/image-product-3.webp", 
+          "/product-images/10009/pink_bloom/image-product-4.jpg"]
+      },
+      {
+        "images":[
+          "/product-images/10009/teal_nebula/image-product-1.webp", 
+          "/product-images/10009/teal_nebula/image-product-2.webp", 
+          "/product-images/10009/teal_nebula/image-product-3.webp", 
+          "/product-images/10009/teal_nebula/image-product-4.webp"]
+      }
+    ]
   }
 ]
 

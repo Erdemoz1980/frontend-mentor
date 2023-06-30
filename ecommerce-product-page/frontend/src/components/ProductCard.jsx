@@ -1,31 +1,26 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { setColorVersion } from '../slices/productSlice';
+import { useState} from 'react';
 import { Link } from 'react-router-dom';
 
 const ProductCard = ({ id, company, name, category, gender, price, colors, imagesMain, discount }) => {
-  const dispatch = useDispatch();
-  
-  const { colorVersion } = useSelector(state => state.product);
+  const [colorVersion, setColorVersion] = useState(0);
 
   return (
     <div className="product-card-wrapper">
       <div className="product-card-img-wrapper">
-      <Link to={`/product/${id}`}> 
-      <img src={colors.length > 1 ? (imagesMain && imagesMain[colorVersion].images[0]) : (imagesMain && imagesMain[0]) } alt="card hero" />
-
-
-         </Link>
+        <Link to={`/product/${id}/${colorVersion}`}>
+          <img src={colors.length > 1 ? (imagesMain && imagesMain[colorVersion].images[0]) : (imagesMain && imagesMain[0])} alt="card hero" />
+        </Link>
       </div>
       <div className="product-card-body">
         <h4 className='company-name'>{company}</h4>
         <h1 className='product-name text-dark text-medium'>{name}</h1>
         <div className="card-categories">
-          <h4 className='product-category text-small'>{category[0].toUpperCase() + category.substring(1)} / <span>{gender[0].toUpperCase()+gender.substring(1)}</span></h4>
+          <h4 className='product-category text-small'>{category[0].toUpperCase() + category.substring(1)} / <span>{gender[0].toUpperCase() + gender.substring(1)}</span></h4>
         </div>
         <div className="color-thumbnails-wrapper">
           
           {colors.length > 0 && colors.map((_, index) => (
-            <div key={index} className='color-thumbnail-wrapper' onClick={()=>dispatch(setColorVersion(index))} >
+            <div key={index} className='color-thumbnail-wrapper' onClick={() =>setColorVersion(index)} >
               <img src={imagesMain[index].images[0]} alt='color version' />
             </div>
           ))}
