@@ -2,9 +2,11 @@
 
 :root{
   /*Colors*/
+  --clrFuchsia:#552655;
   --clrOrange:#FF7E1B;
   --clrLightOrange:#FFEEE2;
   --clrVeryDarkBlue:#1D2026;
+  --clrDarkBlue:#2e4064;
   --clrBlueGrey:#69707D;
   --clrLightGrey:#B6BCC8;
   --clrVeryLightGrey:#F6F8FD;
@@ -64,13 +66,13 @@ a{
 }
 
 .btn-primary{
-  background: var(--clrOrange);
+  background: var(--clrDarkBlue);
   border-radius: 10px;
   color:#fff;
   padding: 18px 76px;
   font-size: 16px;
-  line-height: 20px;
-  font-weight: 700;
+  line-height: 16px;
+  font-weight: 400;
 }
 
 .btn-primary:disabled{

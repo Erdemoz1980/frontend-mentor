@@ -26,7 +26,7 @@ const ProductDetail = () => {
   // const priceFixed = price.toFixed(2)
 
   function addToCartHandler() {
-    const newItem = { id: numericId, img: colors ? imageThumbnails[colors[0]][0] : imageThumbnails[0], name, qty, price, countInStock, discount };
+    const newItem = { id: numericId, img: colors.length > 0 ? imageThumbnails[colorVersion[0]].images[0] : imageThumbnails[0], name, qty, price, countInStock, discount };
     dispatch(setCartItems(newItem));
     setQty(0)
   };
@@ -66,7 +66,7 @@ const ProductDetail = () => {
             <button className='btn btn-qty' disabled={qty === 0} onClick={() => setQty(prevState => prevState - 1)}>
               <IconMinus disabled={qty === 0} />
             </button>
-            <p className='qty-info text-dark'>{qty}</p>
+            <p className='qty-info'>{qty}</p>
             <button className='btn btn-qty' disabled={qty >= countInStock} onClick={() => setQty(prevState => prevState + 1)}>
               <IconPlus disabled={qty >= countInStock} />
             </button>

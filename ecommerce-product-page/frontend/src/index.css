@@ -203,7 +203,7 @@ body{
   position: absolute;
   width: 24px;
   height: 20px;
-  background: var(--clrOrange);
+  background: var(--clrFuchsia);
   color:#fff;
   display: flex;
   align-items: center;
@@ -349,7 +349,7 @@ border-radius: 10px;
 /*Product Info Section*/
 .product-info-wrapper{
   padding: 62px 0;
-  max-width: 445px;
+  width: 445px;
 }
 
 .company-name{
@@ -419,6 +419,7 @@ transform: scale(0.8);
 
 .qty-info{
   margin: 0 45px;
+  font-weight: 500;
 }
 
 /*Shopping Cart*/
