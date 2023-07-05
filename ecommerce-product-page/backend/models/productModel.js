@@ -13,11 +13,12 @@ const productSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     auto:true
   },
+  id:String,
   company: { type: String, required: true },
   name: { type: String, required: true },
   category:{
     type: String,
-    enum: ['casual', 'sport', 'formal'],
+    enum: ['casual', 'running', 'tennis', 'formal'],
     required:true
   },
   gender: {
@@ -40,11 +41,11 @@ const productSchema = mongoose.Schema({
   timestamps:true
   })
 
-productSchema.pre('save', function (next) {
-  if (!this.id && this._id) {
-      this.id = this._id.toString()
-  }
-  next()
-  })
+  productSchema.pre('save', function (next) {
+    if (!this.id && this._id) {
+      this.id = this._id.toString();
+    }
+    next();
+  });
 
 module.exports = mongoose.model('Product', productSchema);
