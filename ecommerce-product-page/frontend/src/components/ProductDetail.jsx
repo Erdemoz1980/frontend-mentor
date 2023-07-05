@@ -1,11 +1,10 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import {  useParams } from 'react-router-dom';
 import { setCartItems } from '../slices/cartSlice';
 import IconCart from './IconCart';
 import IconMinus from './IconMinus';
 import IconPlus from './IconPlus';
-import ShoppingCart from './ShoppingCart';
 import Lightbox from './Lightbox';
 import data from '../data.json';
 
@@ -13,9 +12,7 @@ const ProductDetail = () => {
   const [qty, setQty] = useState(0)
   const [lightboxIsOpen, setLightboxIsOpen] = useState(false)
   const [activeImage, setActiveImage] = useState(0)
-  
-  const { isCartOpen } = useSelector(state => state.cart)
-  
+    
   const dispatch = useDispatch()
   const { id, colorVersion } = useParams()
   const numericId = Number(id)
@@ -26,7 +23,7 @@ const ProductDetail = () => {
   // const priceFixed = price.toFixed(2)
 
   function addToCartHandler() {
-    const newItem = { id: numericId, img: colors.length > 0 ? imageThumbnails[colorVersion[0]].images[0] : imageThumbnails[0], name, qty, price, countInStock, discount };
+    const newItem = { id: numericId, img: colors.length > 0 ? imageThumbnails[colorVersion[0]].images[0] : imageThumbnails[0], name, qty, price, countInStock};
     dispatch(setCartItems(newItem));
     setQty(0)
   };
@@ -34,7 +31,6 @@ const ProductDetail = () => {
   return (
     <div className="product-page-wrapper container">
       {lightboxIsOpen && <Lightbox imagesMain={imagesMain} imageThumbnails={imageThumbnails} colors={colors} colorVersion={colorVersion} setLightboxIsOpen={setLightboxIsOpen} lightboxIsOpen={lightboxIsOpen} activeImage={activeImage} setActiveImage={setActiveImage} />}
-      {isCartOpen && <ShoppingCart qty={qty} setQty={setQty} />}
       <div className="product-display-wrapper">
         <div className="product-main-image-wrapper" onClick={() => setLightboxIsOpen(true)}>
           <img src={colors.length > 1 ? imagesMain[colorVersion].images[activeImage] : imagesMain[activeImage]} alt="main product" />

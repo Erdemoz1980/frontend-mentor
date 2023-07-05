@@ -4,9 +4,10 @@ import { setCartIsOpen } from '../slices/cartSlice';
 import logo from '../images/logo.svg';
 import avatar from '../images/image-avatar.png';
 import cartIcon from '../images/icon-cart.svg';
+import ShoppingCart from './ShoppingCart';
 
 const Navbar = () => {
-  const { cartItems, isCartOpen } = useSelector(state => state.cart);
+  const { cartItems, isCartOpen} = useSelector(state => state.cart);
   const cartItemsQty = cartItems.reduce((acc, item) => acc + item.qty, 0);
 
   const dispatch = useDispatch();
@@ -29,6 +30,7 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-user">
+      {isCartOpen && <ShoppingCart/>}
         <div className="cart-icon-wrapper">
           <button className="btn" onClick={() => dispatch(setCartIsOpen(!isCartOpen))}>
             <img src={cartIcon} alt='cart' />
