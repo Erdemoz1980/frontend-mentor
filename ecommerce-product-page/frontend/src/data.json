@@ -10,8 +10,16 @@
     "countInStock":7,
     "discount": 35, 
     "colors":[],
-    "imageThumbnails": ["/product-images/10001/image-product-1-thumbnail.jpg", "/product-images/10001/image-product-2-thumbnail.jpg", "/product-images/10001/image-product-3-thumbnail.jpg", "/product-images/10001/image-product-4-thumbnail.jpg"],
-    "imagesMain": ["/product-images/10001/image-product-1.jpg", "/product-images/10001/image-product-2.jpg", "/product-images/10001/image-product-3.jpg", "/product-images/10001/image-product-4.jpg"]
+    "imageThumbnails": [
+      {
+        "images":["/product-images/10001/image-product-1-thumbnail.jpg", "/product-images/10001/image-product-2-thumbnail.jpg", "/product-images/10001/image-product-3-thumbnail.jpg", "/product-images/10001/image-product-4-thumbnail.jpg"]
+      }
+    ],
+    "imagesMain": [
+      {
+      "images":["/product-images/10001/image-product-1.jpg", "/product-images/10001/image-product-2.jpg", "/product-images/10001/image-product-3.jpg", "/product-images/10001/image-product-4.jpg"]
+      }
+    ]
   },
   {
     "id": 10002,
@@ -24,8 +32,16 @@
     "countInStock":16,
     "discount":0,
     "colors":[],
-    "imageThumbnails": ["/product-images/10002/image-product-1.jpg", "/product-images/10002/image-product-2.jpg", "/product-images/10002/image-product-3.jpg", "/product-images/10002/image-product-4.jpg"],
-    "imagesMain": ["/product-images/10002/image-product-1.jpg", "/product-images/10002/image-product-2.jpg", "/product-images/10002/image-product-3.jpg", "/product-images/10002/image-product-4.jpg"]
+    "imageThumbnails": [
+      {
+        "images":["/product-images/10002/image-product-1.jpg", "/product-images/10002/image-product-2.jpg", "/product-images/10002/image-product-3.jpg", "/product-images/10002/image-product-4.jpg"]
+      }
+    ],
+    "imagesMain": [
+      {
+      "images":["/product-images/10002/image-product-1.jpg", "/product-images/10002/image-product-2.jpg", "/product-images/10002/image-product-3.jpg", "/product-images/10002/image-product-4.jpg"]
+    }
+  ]
   },
   {
     "id": 10003,
@@ -38,8 +54,16 @@
     "countInStock":11,
     "discount": 0,
     "colors":[],
-    "imageThumbnails": ["/product-images/10003/image-product-1.jpg", "/product-images/10003/image-product-2.jpg", "/product-images/10003/image-product-3.jpg", "/product-images/10003/image-product-4.webp"],
-    "imagesMain": ["/product-images/10003/image-product-1.jpg", "/product-images/10003/image-product-2.jpg", "/product-images/10003/image-product-3.jpg", "/product-images/10003/image-product-4.webp"]
+    "imageThumbnails": [
+      {
+      "images":["/product-images/10003/image-product-1.jpg", "/product-images/10003/image-product-2.jpg", "/product-images/10003/image-product-3.jpg", "/product-images/10003/image-product-4.webp"]
+      }
+  ],
+    "imagesMain": [
+      {
+        "images":["/product-images/10003/image-product-1.jpg", "/product-images/10003/image-product-2.jpg", "/product-images/10003/image-product-3.jpg", "/product-images/10003/image-product-4.webp"]
+      }
+    ]
   },
   {
     "id": 10004,
@@ -52,8 +76,16 @@
     "countInStock":18,
     "discount": 0,
     "colors":[],
-    "imageThumbnails": ["/product-images/10004/image-product-1.webp", "/product-images/10004/image-product-2.jpg", "/product-images/10004/image-product-3.webp", "/product-images/10004/image-product-4.webp"],
-    "imagesMain": ["/product-images/10004/image-product-1.webp", "/product-images/10004/image-product-2.jpg", "/product-images/10004/image-product-3.webp", "/product-images/10004/image-product-4.webp"]
+    "imageThumbnails": [
+      {
+        "images":["/product-images/10004/image-product-1.webp", "/product-images/10004/image-product-2.jpg", "/product-images/10004/image-product-3.webp", "/product-images/10004/image-product-4.webp"]
+      }
+    ],
+    "imagesMain":[
+      {
+      "images":["/product-images/10004/image-product-1.webp", "/product-images/10004/image-product-2.jpg", "/product-images/10004/image-product-3.webp", "/product-images/10004/image-product-4.webp"]
+    }
+  ]
   },
   {
     "id": 10005,
@@ -66,8 +98,16 @@
     "countInStock":22,
     "discount":10,
     "colors":[],
-    "imageThumbnails": ["/product-images/10005/image-product-1.webp", "/product-images/10005/image-product-2.webp", "/product-images/10005/image-product-3.webp", "/product-images/10005/image-product-4.webp"],
-    "imagesMain":["/product-images/10005/image-product-1.webp", "/product-images/10005/image-product-2.webp", "/product-images/10005/image-product-3.webp", "/product-images/10005/image-product-4.webp"]
+    "imageThumbnails": [
+      {
+        "images": ["/product-images/10005/image-product-1.webp", "/product-images/10005/image-product-2.webp", "/product-images/10005/image-product-3.webp", "/product-images/10005/image-product-4.webp"]
+      }
+    ],
+    "imagesMain":[
+      {
+      "images":["/product-images/10005/image-product-1.webp", "/product-images/10005/image-product-2.webp", "/product-images/10005/image-product-3.webp", "/product-images/10005/image-product-4.webp"]
+     }
+    ]
   },
   {
     "id": 10006,
@@ -132,8 +172,16 @@
     "countInStock":7,
     "discount":0,
     "colors":[],
-    "imageThumbnails": ["/product-images/10007/image-product-1.webp", "/product-images/10007/image-product-2.webp", "/product-images/10007/image-product-3.webp", "/product-images/10007/image-product-4.jpg"],
-    "imagesMain":["/product-images/10007/image-product-1.webp", "/product-images/10007/image-product-2.webp", "/product-images/10007/image-product-3.webp", "/product-images/10007/image-product-4.jpg"]
+    "imageThumbnails": [
+      {
+      "iamges":["/product-images/10007/image-product-1.webp", "/product-images/10007/image-product-2.webp", "/product-images/10007/image-product-3.webp", "/product-images/10007/image-product-4.jpg"]
+      }
+   ],
+    "imagesMain":[
+    {
+      "images":["/product-images/10007/image-product-1.webp", "/product-images/10007/image-product-2.webp", "/product-images/10007/image-product-3.webp", "/product-images/10007/image-product-4.jpg"]
+    }
+  ]
   },
   {
     "id": 10008,
@@ -146,16 +194,22 @@
     "countInStock":14,
     "discount":15,
     "colors":[],
-    "imageThumbnails": [
-      "/product-images/10008/image-product-1.webp", 
-      "/product-images/10008/image-product-2.webp", 
-      "/product-images/10008/image-product-3.webp", 
-      "/product-images/10008/image-product-4.webp"],
-    "imagesMain":[
-      "/product-images/10008/image-product-1.webp", 
+    "imageThumbnails":[
+      {
+        "images":[ "/product-images/10008/image-product-1.webp", 
       "/product-images/10008/image-product-2.webp", 
       "/product-images/10008/image-product-3.webp", 
       "/product-images/10008/image-product-4.webp"]
+      }
+    ],
+    "imagesMain":[
+      {
+        "images":["/product-images/10008/image-product-1.webp", 
+      "/product-images/10008/image-product-2.webp", 
+      "/product-images/10008/image-product-3.webp", 
+      "/product-images/10008/image-product-4.webp"]
+      }
+   ]
   },
   {
     "id": 10009,
@@ -169,14 +223,16 @@
     "discount":0,
     "colors":["Pink_Bloom","Teal_Nebula"],
     "imageThumbnails":[
-      {
+      {  
+        "color":"Pink Bloom",
         "images":[
           "/product-images/10009/pink_bloom/image-product-1.webp", 
           "/product-images/10009/pink_bloom/image-product-2.webp", 
           "/product-images/10009/pink_bloom/image-product-3.webp", 
           "/product-images/10009/pink_bloom/image-product-4.jpg"]
       },
-      {
+      {  
+        "color":"Teal Nebula",
         "images":[
           "/product-images/10009/teal_nebula/image-product-1.webp", 
           "/product-images/10009/teal_nebula/image-product-2.webp", 
@@ -185,14 +241,16 @@
       }
     ],
     "imagesMain":[
-      {
+      { 
+        "color":"Pink Bloom", 
         "images":[
           "/product-images/10009/pink_bloom/image-product-1.webp", 
           "/product-images/10009/pink_bloom/image-product-2.webp", 
           "/product-images/10009/pink_bloom/image-product-3.webp", 
           "/product-images/10009/pink_bloom/image-product-4.jpg"]
       },
-      {
+      { 
+        "color":"Teal Nebula",
         "images":[
           "/product-images/10009/teal_nebula/image-product-1.webp", 
           "/product-images/10009/teal_nebula/image-product-2.webp", 
