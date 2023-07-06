@@ -4,7 +4,7 @@ import IconClose from './IconClose';
 
 const Lightbox = ({ imagesMain, imageThumbnails, lightboxIsOpen, setLightboxIsOpen, activeImage, setActiveImage, colors, colorVersion }) => {
   
-  const imagesLength = colors.length > 1 ? imagesMain[colorVersion].images.length : imagesMain.length;
+  const imagesLength = colors.length > 1 ? imagesMain[colorVersion].images.length : imagesMain[0].images.length;
   
   const navigateLightbox = {
     nextImage: () => {
@@ -18,7 +18,7 @@ const Lightbox = ({ imagesMain, imageThumbnails, lightboxIsOpen, setLightboxIsOp
   return (
     <div className={`lightbox-overlay ${lightboxIsOpen ? 'lightbox-open' : ''}`}>
       <div className="lightbox-img-wrapper">
-        <img src={colors.length > 0 ? (imagesMain && imagesMain[colorVersion].images[activeImage]) : (imagesMain[activeImage])} alt="active" />
+        <img src={colors.length > 0 ? (imagesMain && imagesMain[colorVersion].images[activeImage]) : (imagesMain[0].images[activeImage])} alt="active" />
         <div className="icon-prev-wrapper" onClick={navigateLightbox.prevImage}>
           <IconPrevious />
         </div>
@@ -34,7 +34,7 @@ const Lightbox = ({ imagesMain, imageThumbnails, lightboxIsOpen, setLightboxIsOp
               <div key={index} className={`lightbox-thumbnail-wrapper ${activeImage === index ? 'active' : ''}`} onClick={() => setActiveImage(index)}>
                 <img src={item} alt='thumbnail' />
               </div>
-            )) : (imageThumbnails.map((item, index) => (
+            )) : (imageThumbnails[0].images.map((item, index) => (
               <div key={index} className={`lightbox-thumbnail-wrapper ${activeImage === index ? 'active' : ''}`} onClick={() => setActiveImage(index)}>
                 <img src={item} alt='thumbnail' />
               </div>

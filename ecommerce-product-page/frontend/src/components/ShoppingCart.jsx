@@ -20,8 +20,7 @@ const ShoppingCart = () => {
       ) : (
         <>
           {cartItems.map(item => (
-            <div key={item.id}>
-              <div className="cart-item-details-wrapper">
+              <div key={item.id} className="cart-item-details-wrapper">
                 <div className="cart-item-image-wrapper">
                   <img src={item.img} alt='cart item' />
                 </div>
@@ -39,11 +38,14 @@ const ShoppingCart = () => {
                     </select>
                   </div>
                 </div>
+              <div className="cart-trash-container">
                 <button className="btn" onClick={() => dispatch(deleteCartItem(item.id))}>
-                  <img src={trashIcon} alt='trash' />
+                <div className="cart-delete-img-container">
+                <img src={trashIcon} alt='trash' />
+                </div>  
                 </button>
+                </div>
               </div>
-            </div>
           ))}
           <button className="btn btn-primary btn-block">Checkout</button>
         </>

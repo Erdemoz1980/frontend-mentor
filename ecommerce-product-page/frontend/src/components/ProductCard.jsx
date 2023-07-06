@@ -8,7 +8,7 @@ const ProductCard = ({ id, company, name, category, gender, price, colors, image
     <div className="product-card-wrapper">
       <div className="product-card-img-wrapper">
         <Link to={`/product/${id}/${colorVersion}`}>
-          <img src={colors.length > 1 ? (imagesMain && imagesMain[colorVersion].images[0]) : (imagesMain && imagesMain[0])} alt="card hero" />
+          <img src={colors.length > 1 ? (imagesMain && imagesMain[colorVersion].images[0]) : (imagesMain && imagesMain[0].images[0])} alt="card hero" />
         </Link>
       </div>
       <div className="product-card-body">
