@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { setCartIsOpen } from '../slices/cartSlice';
 import logo from '../images/logo.svg';
 import avatar from '../images/image-avatar.png';
@@ -9,8 +9,20 @@ import ShoppingCart from './ShoppingCart';
 const Navbar = () => {
   const { cartItems, isCartOpen} = useSelector(state => state.cart);
   const cartItemsQty = cartItems.reduce((acc, item) => acc + item.qty, 0);
-
+  
+  const location = useLocation();
+  const keyword = location.search.split('=')[1];
   const dispatch = useDispatch();
+
+  console.log(location.pathname)
+
+  const navItems = [
+    { to: '/collections', label: 'Collections' },
+    { to: '/?=men', label: 'Men' },
+    { to: '/?=women', label: 'Women' },
+    { to: '/about', label: 'About' },
+    { to: '/contact', label: 'Contact' }
+  ]
 
   return (
     <nav className="navbar-wrapper container">
@@ -21,14 +33,14 @@ const Navbar = () => {
           </Link>
         </div>
         <ul className="navbar-menu">
-          <li><a href="/collections">Collections</a></li>
-          <li><a href="/men">Men</a></li>
-          <li><a href="/women">Women</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/contact">Contact</a></li>
+          {
+            navItems.map(item => (
+              <li key={item.to}><Link className={`${keyword && keyword === item.label.toLowerCase() ? 'current-nav' : (location.pathname === item.to ? 'current-nav' : '')}`}
+              to={`${item.to}`}>{item.label}</Link></li>
+            ))
+          }
         </ul>
       </div>
-
       <div className="navbar-user">
       {isCartOpen && <ShoppingCart/>}
         <div className="cart-icon-wrapper">

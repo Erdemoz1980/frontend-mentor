@@ -12,15 +12,20 @@ const ProductCard = ({ id, company, name, category, gender, price, colors, image
         </Link>
       </div>
       <div className="product-card-body">
-        <h4 className='company-name'>{company}</h4>
+        <Link to={`/?=${company}`}><h4 className='company-name'>{company}</h4></Link>
         <h1 className='product-name text-dark text-medium'>{name}</h1>
         <div className="card-categories">
-          <h4 className='product-category text-small'>{category[0].toUpperCase() + category.substring(1)} / <span>{gender[0].toUpperCase() + gender.substring(1)}</span></h4>
+          <Link to={`/?=${category}`}><h4 className='product-category text-small'>
+            {category[0].toUpperCase() + category.substring(1)}</h4></Link>
+          <Link to={`/?=${gender}`}>
+            <h4 className='product-category text-small'>
+              {gender[0].toUpperCase() + gender.substring(1)}
+            </h4>
+          </Link>
         </div>
         <div className="color-thumbnails-wrapper">
-          
           {colors.length > 0 && colors.map((_, index) => (
-            <div key={index} className='color-thumbnail-wrapper' onClick={() =>setColorVersion(index)} >
+            <div key={index} className='color-thumbnail-wrapper' onClick={() => setColorVersion(index)} >
               <img src={imagesMain[index].images[0]} alt='color version' />
             </div>
           ))}
@@ -32,6 +37,6 @@ const ProductCard = ({ id, company, name, category, gender, price, colors, image
       </div>
     </div>
   )
-}
+};
 
 export default ProductCard
