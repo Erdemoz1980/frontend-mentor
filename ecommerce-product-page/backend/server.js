@@ -13,6 +13,7 @@ app.use(express.urlencoded({ extended: false }))
 connectDB()
 
 app.use('/api/products', require('./routes/productRoutes'))
+app.use('/api/users', require('./routes/userRoutes'))
 app.use(errorHandler)
 
 app.listen(port, () => console.log(`Server is listenning on Port:${port}

@@ -13,7 +13,6 @@ const productSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     auto:true
   },
-  id:String,
   company: { type: String, required: true },
   name: { type: String, required: true },
   category:{

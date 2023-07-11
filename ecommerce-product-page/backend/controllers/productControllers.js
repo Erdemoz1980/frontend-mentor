@@ -6,7 +6,13 @@ const Product = require('../models/productModel')
 //@access Public
 const getProducts = asyncHandler(async (req, res) => {
   const products = await Product.find({});
+
+  if (products) {
     res.status(200).json(products)
+  } else {
+    res.status(404).json({messsage:'No products found'})
+  }
+    
 })
 
 //@desc Fetches a single product
@@ -17,8 +23,10 @@ const getProduct = asyncHandler(async (req, res) => {
   const product = await Product.findById(req.params.id)
   if (product) {
     res.status(200).json(product)
-  } 
-  return res.status(404).json({message:'Product not found'})
+  } else {
+     return res.status(404).json({message:'Product not found'})
+  }
+ 
 })
 
 //@desc Creates a product

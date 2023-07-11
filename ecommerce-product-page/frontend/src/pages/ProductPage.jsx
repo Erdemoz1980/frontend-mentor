@@ -8,7 +8,6 @@ const ProductPage = () => {
 
   const location = useLocation();
   const keyword = location.search.split('=')[1]
-  console.log(keyword)
 
   useEffect(() => {
     const fetchData = async () => {

@@ -1,20 +1,22 @@
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import { setCartIsOpen } from '../slices/cartSlice';
 import logo from '../images/logo.svg';
-import avatar from '../images/image-avatar.png';
 import cartIcon from '../images/icon-cart.svg';
 import ShoppingCart from './ShoppingCart';
+import UserDropdownMenu from './UserDropdownMenu';
 
 const Navbar = () => {
-  const { cartItems, isCartOpen} = useSelector(state => state.cart);
-  const cartItemsQty = cartItems.reduce((acc, item) => acc + item.qty, 0);
+  const [showUserMenu, setShowUserMenu] = useState(true)
+  
+  const { cartItems, isCartOpen } = useSelector(state => state.cart)
+  const { userInfo } = useSelector(state => state.user)
+  const cartItemsQty = cartItems.reduce((acc, item) => acc + item.qty, 0)
   
   const location = useLocation();
   const keyword = location.search.split('=')[1];
   const dispatch = useDispatch();
-
-  console.log(location.pathname)
 
   const navItems = [
     { to: '/collections', label: 'Collections' },
@@ -49,9 +51,16 @@ const Navbar = () => {
             {cartItems.length > 0 && <div className='cart-qty-display'>{cartItemsQty}</div>}
           </button>
         </div>
-        <div className="avatar-wrapper">
-          <img src={avatar} alt="avatar" />
-        </div>
+        <div className="login-info-wrapper">
+          {userInfo ? (
+            <div className='user-profile-wrapper'>
+              <h4>{userInfo.name} {userInfo.lastName}</h4>
+              {showUserMenu && <UserDropdownMenu />}
+            </div>) : (
+              <Link to='/login'>Login</Link>
+            )
+          }
+       </div>
       </div>
     </nav>
   )

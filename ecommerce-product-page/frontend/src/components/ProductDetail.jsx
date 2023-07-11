@@ -13,6 +13,8 @@ const ProductDetail = () => {
   const [lightboxIsOpen, setLightboxIsOpen] = useState(false)
   const [activeImage, setActiveImage] = useState(0)
   const [alert, setAlert] = useState('')
+  const [isZoomed, setIsZoomed] = useState(false)
+  const [zoomValue, setZoomValue] = useState(1)
     
   const dispatch = useDispatch()
   const { id, colorVersion } = useParams()
@@ -45,6 +47,34 @@ const ProductDetail = () => {
     setQty(0)
   };
 
+ //On hover zoom-in on the image
+ /* const handleZoom = {
+    handleMouseEnter: () => {
+      setIsZoomed(true)
+    },
+    handleMouseLeave: () => {
+      setIsZoomed(false)
+    },
+    handleMouseMove: (e) => {
+      if (isZoomed) {
+        //Calculate the position of the mouse within the image
+        const rect = e.target.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / e.target.offsetWidth) * 100;
+        const y = ((e.clientY - rect.top) / e.target.offsetHeight) * 100
+        
+        //Use the position of the mouse to move the background position of the image
+        e.target.style.transformOrigin = `${x}% ${y}%`
+      }
+    }
+  }*/
+  
+  const scaleRate = (zoomValue - 1) * (5 - 1) / (100 - 1) + 1;
+
+  const imageStyle = {
+    transform: `scale(${scaleRate})`
+  }
+
+
   return (
     <div className="product-page-wrapper container">
       {lightboxIsOpen && (
@@ -63,11 +93,14 @@ const ProductDetail = () => {
         <div>Alert!</div>
       ) : (
         <div className="product-display-wrapper">
-          <div className="product-main-image-wrapper" onClick={() => setLightboxIsOpen(true)}>
-            <img
-                src={selectedImages?.[activeImage]}
-              alt="main product"
-            />
+            <div className={`product-detail-image-wrapper ${isZoomed ? 'zoomed' : ''}`}
+              //onClick={() => setLightboxIsOpen(true)}
+            >
+            
+            <img src={selectedImages?.[activeImage]} alt="main product" style={imageStyle} />
+              <div className='zoom-slider-container'>
+                <input type="range" name="" id="" min='1' max='100' value={zoomValue} onChange={(e)=>setZoomValue(e.target.value)} className='zoom-slider'/>
+              </div>
           </div>
           <div className="product-thumbnails">
               {selectedThumbnailImages?.map((thumbnail, index) => (
