@@ -4,6 +4,8 @@ import ProductPage from "./pages/ProductPage";
 import ProductDetail from './components/ProductDetail';
 import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
+import AccountPage from './pages/AccountPage';
+import EditAddressPage from './pages/EditAddressPage';
 
 const App = () => {
 
@@ -15,6 +17,8 @@ const App = () => {
         <Route path='/product/:id/:colorVersion' element={<ProductDetail />} />
         <Route path='/register' element={<RegisterForm />} />
         <Route path='/login' element={<LoginForm />} /> 
+        <Route path='/user/account/:id' element={<AccountPage />} />
+        <Route path='/user/account/editaddress/' element={<EditAddressPage />} />
       </Routes>
       </BrowserRouter>
   )

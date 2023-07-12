@@ -1,48 +1,42 @@
-//Register user
-const registerUser = async (userData) => {
-
-    const response = await fetch('http://localhost:8000/api/users', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(userData)
-    })
-
+const API_URL = 'http://localhost:8000/api/users'
+//Register
+const register = async (userData) => {
+  const response = await fetch(`${API_URL}/register`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(userData)
+  })
+   
   if (!response.ok) {
-    const errorData = response.json();
+    const errorData = await response.json();
     throw new Error(errorData.message)
   }
-    
-    const data = await response.json();
-    localStorage.setItem('user', JSON.stringify(data))
-    return data
+
+  return await response.json()
 };
 
-//Login User
-const loginUser = async (loginData) => {
+const login = async (userData) => {
+  const response = await fetch(`${API_URL}/login`, {
+    method: 'POST',
+    headers: {
+      'Content-Type':'application/json'
+    },
+    body:JSON.stringify(userData)
+  })
 
-    const response = await fetch('http://localhost:8000/api/users/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body:JSON.stringify(loginData)
-    })
+  if (!response.ok) {
+    const errorData = await response.json() 
+    throw new Error(errorData.message)
+  }
 
-    if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(errorData.message);
-    }
-
-    const data = await response.json();
-    localStorage.setItem('user', JSON.stringify(data))
-    return data
+  return await response.json()
 }
 
 const userService = {
-  registerUser,
-  loginUser
+  register,
+  login
 }
 
 export default userService

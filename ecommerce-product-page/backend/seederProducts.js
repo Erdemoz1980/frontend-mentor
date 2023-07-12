@@ -1,5 +1,5 @@
 const Product = require('./models/productModel');
-const data = require('./data.json');
+const productsData = require('./productsData');
 const connectDB = require('./config/db');
 const dotenv = require('dotenv')
 
@@ -11,7 +11,7 @@ const seedDatabase = async () => {
   try {
     await Product.deleteMany()
 
-    for (const document of data) {
+    for (const document of productsData) {
       const newDocument = new Product(document)
       await newDocument.save()
 

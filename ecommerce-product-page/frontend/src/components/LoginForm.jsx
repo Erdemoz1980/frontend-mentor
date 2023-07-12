@@ -18,7 +18,7 @@ const LoginForm = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const { userInfo, message, isError } = useSelector(state => state.user);
+  const { userInfo, errMessage } = useSelector(state => state.user);
 
   useEffect(() => {
     if (userInfo) {
@@ -49,7 +49,7 @@ const LoginForm = () => {
 
   return (
     <div className='container form-wrapper'>
-      {(alert || isError) && <Alert message={alert ? alert : message} />}
+      {(alert || errMessage) && <Alert message={alert ? alert : errMessage} />}
       <h1>Sign In</h1>
       <form onSubmit={submitHandler} className='login-register-form'>
         <div className="form-group">

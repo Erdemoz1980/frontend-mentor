@@ -54,8 +54,8 @@ const Navbar = () => {
         <div className="login-info-wrapper">
           {userInfo ? (
             <div className='user-profile-wrapper'>
-              <h4>{userInfo.name} {userInfo.lastName}</h4>
-              {showUserMenu && <UserDropdownMenu />}
+              <h4>{userInfo?.name} {userInfo?.lastName}</h4>
+              {showUserMenu && <UserDropdownMenu userInfo={userInfo} />}
             </div>) : (
               <Link to='/login'>Login</Link>
             )

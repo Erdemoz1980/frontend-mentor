@@ -6,42 +6,38 @@ const userInfo = JSON.parse(localStorage.getItem('user'))
 
 const initialState = {
   userInfo: userInfo ? userInfo : null,
-  isError: false,
-  isSuccess: false,
-  isLoading: false,
-  message:null
+  isLoading:false,
+  errMessage:null
 }
 
 //Register user
 export const register = createAsyncThunk('user/register', async (userData, thunkApi) => {
   try {
-    return await userService.registerUser(userData)
+    return await userService.register(userData)
   } catch (error) {
-    const message = (error.response && error.response.data.message) || error.message || error.toString()
-    return thunkApi.rejectWithValue(message);
-  }
-}); 
-
-//Login User
-export const login = createAsyncThunk('user/login', async (loginData, thunkApi) => {
-  try {
-    return await userService.loginUser(loginData)
-  } catch (error) {
-    const message = (error.response && error.response.data.message) || error.message || error.toString()
-    return thunkApi.rejectWithValue(message);
+    return thunkApi.rejectWithValue(error.message)
   }
 })
+ 
+//Login User
+export const login = createAsyncThunk('user/login', async (userData, thunkApi) => {
+  try {
+    return await userService.login(userData)
+  } catch (error) {
+    return thunkApi.rejectWithValue(error.message)
+
+  }
+})
+
 
 export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
     logout: (state) => {
+      state.isLoading =false
       state.userInfo = null
-      state.isLoading = false
-      state.isError = false
-      state.isSuccess = false
-      state.message = null
+      state.errMessage = null
       localStorage.removeItem('user')
     }
   },
@@ -52,16 +48,13 @@ export const userSlice = createSlice({
       })
       .addCase(register.fulfilled, (state, action) => {
         state.isLoading = false
-        state.isSuccess = true
         state.userInfo = action.payload
-        state.message = null
+        state.errMessage = null
         localStorage.setItem('user', JSON.stringify(action.payload))
       })
       .addCase(register.rejected, (state, action) => {
         state.isLoading = false
-        state.isSuccess = false
-        state.isError = true
-        state.message = action.payload
+        state.errMessage = action.payload
         state.user = null
       })
       .addCase(login.pending, (state) => {
@@ -69,17 +62,12 @@ export const userSlice = createSlice({
       })
       .addCase(login.fulfilled, (state, action) => {
         state.isLoading = false
-        state.isSuccess = true
-        state.isError = false
         state.userInfo = action.payload
-        state.message = null
+        state.errMessage = null
         localStorage.setItem('user', JSON.stringify(action.payload))
       })
       .addCase(login.rejected, (state, action) => {
-        state.isLoading = false
-        state.isSuccess = false
-        state.isError = true
-        state.message = action.payload
+        state.errMessage = action.payload
         state.user = null
     })
   }

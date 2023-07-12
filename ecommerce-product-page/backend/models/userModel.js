@@ -1,5 +1,22 @@
 const mongoose = require('mongoose');
 
+const addressSchema = mongoose.Schema({
+  streetNo: { type: String, required: true },
+  streetName: { type: String, required: true },
+  postalCode: { type: String, required: true },
+  province: {
+    type: String,
+    enum: ['AB', 'BC', 'MB', 'NB', 'NL', 'NS', 'ON', 'PE', 'QC', 'SK'],
+    required:true
+  },
+  country: {
+    type: String,
+    enum: ['Canada'],
+    default: 'Canada',
+    required:true
+  }
+})
+
 const userSchema = mongoose.Schema({
   _id: {
     type: mongoose.Schema.Types.ObjectId,
@@ -9,7 +26,7 @@ const userSchema = mongoose.Schema({
   lastName: { type: String, required: true },
   email: { type: String, required: true },
   password: { type: String, required: true },
-  address: { type: String, required: true }
+  address: addressSchema
 }, {
   timestamps: true
 });

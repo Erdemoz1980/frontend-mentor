@@ -126,7 +126,7 @@ body{
   width: var(--widthMain);
   height: 50px;
   margin-top: 28px;
-  margin-bottom: 100px;
+  margin-bottom: 80px;
   justify-content: space-between;
   position: relative;
 }
@@ -622,21 +622,20 @@ margin-bottom: 20px;
 }
 
 .form-wrapper h1{
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  font-size: 26px;
+  text-align: center;
 }
 
 .form-wrapper label{
   color:var(--clrBlueGrey);
 }
 
-.form-wrapper input{
+.form-wrapper input,
+.form-wrapper select
+{
   height: 40px;
   border:1px solid var(--clrLightGrey);
-}
-
-textarea {
-  resize: none;
-  border: 1px solid var(--clrLightGrey);
 }
 
 .form-group{
@@ -649,6 +648,26 @@ textarea {
   margin-bottom: 15px;
 }
 
+.form-group-address{
+  border:1px solid var(--clrLightGrey);
+}
+
+.form-group-address h4{
+  text-align: center;
+}
+
+.form-group-address input,
+.form-group-address select {
+  height:30px;
+  width: 80%;
+  margin: auto;
+}
+
+.form-group-address label {
+  font-size: 14px;
+  margin-left:10%;
+}
+
 .login-register-form{
   margin-bottom: 15px;
 }
@@ -657,3 +676,45 @@ textarea {
  font-weight: 700;
 }
 
+/*Account Page*/
+.account-page-wrapper{
+  width: var(--widhtMedium)
+}
+
+.account-page-wrapper h1{
+  font-weight: 500;
+  font-size: 30px;
+}
+
+.account-page-wrapper h1,
+.account-card-wrapper h3
+{
+  color:var(--clrVeryDarkBlue)
+}
+
+.account-page{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  margin-top: 20px;
+}
+/*Account Card*/
+.account-card-wrapper{
+  width: 300px;
+  height: 120px;
+  padding: 20px;
+  border:1px solid var(--clrLightGrey);
+}
+
+.account-card-wrapper h3{
+  font-weight: 500;
+}
+
+.account-card-wrapper p{
+  color:var(--clrDarkBlue);
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+.account-card-wrapper:hover{
+  background: var(--clrVeryLightGrey);
+}
