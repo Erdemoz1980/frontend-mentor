@@ -7,7 +7,7 @@ const userInfo = JSON.parse(localStorage.getItem('user'))
 const initialState = {
   userInfo: userInfo ? userInfo : null,
   isLoading:false,
-  errMessage:null
+  errMessage:false
 }
 
 //Register user
@@ -26,6 +26,16 @@ export const login = createAsyncThunk('user/login', async (userData, thunkApi) =
   } catch (error) {
     return thunkApi.rejectWithValue(error.message)
 
+  }
+})
+
+//Update User info
+export const updateUser = createAsyncThunk('user/update', async (userData, thunkApi) => {
+  try {
+    return await userService.update(userData)
+  } catch (error) {
+    return thunkApi.rejectWithValue(error.message)
+    
   }
 })
 
@@ -69,7 +79,20 @@ export const userSlice = createSlice({
       .addCase(login.rejected, (state, action) => {
         state.errMessage = action.payload
         state.user = null
-    })
+      })
+      .addCase(updateUser.pending, (state) => {
+      state.isLoading = true
+      })
+      .addCase(updateUser.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.userInfo = action.payload
+        state.errMessage = null
+        localStorage.setItem('user', JSON.stringify(action.payload))
+      })
+      .addCase(updateUser.rejected, (state, action) => {
+        state.isLoading = false
+        state.errMessage = action.payload
+       })
   }
 })
 

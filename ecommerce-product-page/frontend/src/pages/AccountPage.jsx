@@ -15,8 +15,8 @@ const AccountPage = () => {
     },
     {
       id: 10003,
-      title: 'Your Address',
-      desc: 'Edit your address',
+      title: 'Your Profile',
+      desc: 'Edit your profile and address',
       to:'/user/account/editaddress/'
     }
   ]

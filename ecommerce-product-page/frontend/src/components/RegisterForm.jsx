@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import { register, logout } from '../slices/userSlice';
+import { register } from '../slices/userSlice';
 import Alert from './Alert';
 
 const RegisterForm = () => {
@@ -20,7 +20,7 @@ const RegisterForm = () => {
       country: 'Canada'
     }
   });
-  const [alert, setAlert] = useState(false);
+  const [alertRegister, setAlertRegister] = useState(false);
 
   const { name, lastName, email, password, passwordConfirm, address:{streetNo, streetName, postalCode, province, country} } = userData
   const provinces = ['AB', 'BC', 'MB', 'NB', 'NL', 'NS', 'ON', 'PE', 'QC', 'SK'];
@@ -58,43 +58,43 @@ const RegisterForm = () => {
     setUserData(updatedUserData)
   };
 
-  const submitHandler = async (e) => {
+  const submitHandler = (e) => {
     e.preventDefault();
-    const isFormValid = Object.values(userData).every(value => value !== '');
-    if (!isFormValid) {
-      return setAlert('All fields must be filled out!')
+     if (password !== passwordConfirm) {
+       setAlertRegister('Passwords do not match!')
+       setTimeout(() => {
+         setAlertRegister(false)
+       },5000)
+       return;
     }
-    if (password !== passwordConfirm) {
-      return setAlert('Passwords do not match!')
-    }
-    setAlert(false)
-   dispatch(register(userData))
-  }
+    dispatch(register(userData))
+    setAlertRegister(false)
+  };
 
   return (
     <div className='container form-wrapper'>
-      {(alert || errMessage) && <Alert message={alert ? alert : errMessage} />}
+      {(alertRegister || errMessage) && <Alert message={alertRegister ? alertRegister : errMessage} />}
       <h1>Sign Up</h1>
       <form onSubmit={submitHandler} className='login-register-form'>
         <div className="form-group">
           <label htmlFor="name">Name</label>
-          <input type="text" name="name" id="name" value={name} onChange={onChangeHandler} />
+          <input type="text" name="name" id="name" value={name} onChange={onChangeHandler} required/>
         </div>
         <div className="form-group">
           <label htmlFor="lastName">Last Name</label>
-          <input type="text" name="lastName" id="lastName" value={lastName}  onChange={onChangeHandler} />
+          <input type="text" name="lastName" id="lastName" value={lastName}  onChange={onChangeHandler} required/>
         </div>
         <div className="form-group">
           <label htmlFor="email">Email</label>
-          <input type="email" name="email" id="email" value={email} onChange={onChangeHandler} />
+          <input type="email" name="email" id="email" value={email} onChange={onChangeHandler} required/>
         </div>
         <div className="form-group">
           <label htmlFor="password">Password</label>
-          <input type="password" name="password" id="password" value={password} onChange={onChangeHandler} />
+          <input type="password" name="password" id="password" value={password} onChange={onChangeHandler} required />
         </div>
         <div className="form-group">
           <label htmlFor="confirmPassword">Confirm Password</label>
-          <input type="password" name="passwordConfirm" id="confirmPassword" value={passwordConfirm} onChange={onChangeHandler} />
+          <input type="password" name="passwordConfirm" id="confirmPassword" value={passwordConfirm} onChange={onChangeHandler} required />
         </div>
         <div className="form-group-address">
            
@@ -102,19 +102,19 @@ const RegisterForm = () => {
 
           <div className="form-group">
           <label htmlFor="streetNo">Street No</label>
-          <input type="text" name="address.streetNo" id="streetNo" value={streetNo} onChange={onChangeHandler} />
+          <input type="text" name="address.streetNo" id="streetNo" value={streetNo} onChange={onChangeHandler} required/>
         </div>
         <div className="form-group">
           <label htmlFor="streetName">Unit no & Street Name</label>
-          <input type="text" name="address.streetName" id="streetName" value={streetName} onChange={onChangeHandler} />
+          <input type="text" name="address.streetName" id="streetName" value={streetName} onChange={onChangeHandler} required />
         </div>
         <div className="form-group">
           <label htmlFor="postalCode">Postal Code</label>
-          <input type="text" name="address.postalCode" id="postalCode" value={postalCode} onChange={onChangeHandler} />
+          <input type="text" name="address.postalCode" id="postalCode" value={postalCode} onChange={onChangeHandler} required/>
         </div>
         <div className="form-group">
           <label htmlFor="province">Province</label>
-          <select name="address.province" id="province" value={province} onChange={onChangeHandler}>
+          <select name="address.province" id="province" value={province} onChange={onChangeHandler} required>
             {provinces.map((item, index) => (
               <option key={index} value={item}>{item}</option>
             ))}

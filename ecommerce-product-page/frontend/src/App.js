@@ -5,7 +5,7 @@ import ProductDetail from './components/ProductDetail';
 import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
 import AccountPage from './pages/AccountPage';
-import EditAddressPage from './pages/EditAddressPage';
+import EditProfilePage from './pages/EditProfilePage';
 
 const App = () => {
 
@@ -18,7 +18,7 @@ const App = () => {
         <Route path='/register' element={<RegisterForm />} />
         <Route path='/login' element={<LoginForm />} /> 
         <Route path='/user/account/:id' element={<AccountPage />} />
-        <Route path='/user/account/editaddress/' element={<EditAddressPage />} />
+        <Route path='/user/account/editaddress/' element={<EditProfilePage />} />
       </Routes>
       </BrowserRouter>
   )

@@ -68,10 +68,8 @@ input, textarea, select{
 /*Buttons*/
 .btn{
   border:none;
-  background: none;
   cursor: pointer;
   font-family: inherit;
-  background: var(--clrDarkBlue);
   border-radius: 10px;
   color:#fff;
   font-weight: 400;
@@ -81,12 +79,14 @@ input, textarea, select{
   padding: 18px 76px;
   font-size: 16px;
   line-height: 16px;
+  background: var(--clrDarkBlue);
 }
 
 .btn-submit{
 padding: 14px 68px;
 font-size: 14px;
 line-height: 14px;
+background: var(--clrDarkBlue);
 }
 
 .btn-primary:disabled{

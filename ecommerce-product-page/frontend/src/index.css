@@ -124,9 +124,9 @@ body{
 /*Navbar*/
 .navbar-wrapper{
   width: var(--widthMain);
-  height: 50px;
+  height: 40px;
   margin-top: 28px;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   justify-content: space-between;
   position: relative;
 }
