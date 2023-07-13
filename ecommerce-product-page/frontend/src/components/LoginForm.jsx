@@ -11,7 +11,7 @@ const LoginForm = () => {
     password:'',
     passwordConfirm:''
   });
-  const [alert, setAlert] = useState(false);
+  const [loginAlert, setLoginAlert] = useState(false);
 
   const { email, password, passwordConfirm } = formData;
 
@@ -37,19 +37,19 @@ const LoginForm = () => {
     e.preventDefault();
     const isFormValid = Object.values(formData).every(value => value !== '')
     if (!isFormValid) {
-      setAlert('All fields are required!')
+      setLoginAlert('All fields are required!')
     } else {
       if (password !== passwordConfirm) {
-        return setAlert('Passwords do not match!')
+        return setLoginAlert('Passwords do not match!')
       }
       dispatch(login({email, password}));
-      setAlert(false)
+      setLoginAlert(false)
     }
   };
 
   return (
     <div className='container form-wrapper'>
-      {(alert || errMessage) && <Alert message={alert ? alert : errMessage} />}
+      {(loginAlert || errMessage) && <Alert message={loginAlert ? loginAlert : errMessage} />}
       <h1>Sign In</h1>
       <form onSubmit={submitHandler} className='login-register-form'>
         <div className="form-group">
@@ -64,7 +64,7 @@ const LoginForm = () => {
           <label htmlFor="passwordConfirm">Confirm Password</label>
           <input type="password" name="passwordConfirm" id="passwordConfirm" value={passwordConfirm} onChange={onChangeHandler} />
         </div>
-        <button className="btn btn-primary">Submit</button>
+        <button className="btn btn-submit">Submit</button>
       </form>
       <div className="form-redirect-wrapper">
         <p>Not registered? Register <Link to='/register'>here</Link></p>

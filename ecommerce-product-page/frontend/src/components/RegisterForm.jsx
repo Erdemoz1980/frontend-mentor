@@ -6,24 +6,23 @@ import { register, logout } from '../slices/userSlice';
 import Alert from './Alert';
 
 const RegisterForm = () => {
-  const [formData, setFormData] = useState({
+  const [userData, setUserData] = useState({
     name: '',
-    lastName:'',
+    lastName: '',
     email: '',
     password: '',
     passwordConfirm: '',
-  });
-  const [address, setAddress] = useState({
-    streetNo: '',
-    streetName: '',
-    postalCode: '',
-    province: '',
-    country: 'Canada'
+    address: {
+      streetNo: '',
+      streetName: '',
+      postalCode: '',
+      province: '',
+      country: 'Canada'
+    }
   });
   const [alert, setAlert] = useState(false);
 
-  const { name, lastName, email, password, passwordConfirm } = formData
-  const { streetNo, streetName, postalCode, province, country } = address
+  const { name, lastName, email, password, passwordConfirm, address:{streetNo, streetName, postalCode, province, country} } = userData
   const provinces = ['AB', 'BC', 'MB', 'NB', 'NL', 'NS', 'ON', 'PE', 'QC', 'SK'];
 
   const navigate = useNavigate()
@@ -38,32 +37,38 @@ const RegisterForm = () => {
   },[userInfo, navigate])
 
   const onChangeHandler = (e) => {
-    setFormData(prevState => ({
-      ...prevState,
-      [e.target.name]: e.target.value
-    }))
+    const { name, value } = e.target
+    let updatedUserData = { ...userData };
+    
+    if (name.startsWith('address')) {
+      const addressField = name.split('.')[1]
+      updatedUserData = {
+        ...userData,
+        address: {
+          ...userData.address,
+          [addressField]: value
+        }
+      }
+    } else {
+      updatedUserData = {
+        ...userData,
+        [name]: value
+      }
+    }
+    setUserData(updatedUserData)
   };
 
-  const addressHandler = (e) => {
-    setAddress(prevState => ({
-      ...prevState,
-      [e.target.name]: e.target.value
-    }))
-  };
-  
   const submitHandler = async (e) => {
     e.preventDefault();
-    const isFormValid = Object.values(formData).every(value => value !== '');
-    const isAddressValid = Object.values(address).every(value=>value!=='')
-    if (!isFormValid && !isAddressValid) {
+    const isFormValid = Object.values(userData).every(value => value !== '');
+    if (!isFormValid) {
       return setAlert('All fields must be filled out!')
     }
     if (password !== passwordConfirm) {
       return setAlert('Passwords do not match!')
     }
     setAlert(false)
-    console.log({name, lastName, email, password, passwordConfirm, address})
-   dispatch(register({name, lastName, email, password, passwordConfirm, address}))
+   dispatch(register(userData))
   }
 
   return (
@@ -92,23 +97,24 @@ const RegisterForm = () => {
           <input type="password" name="passwordConfirm" id="confirmPassword" value={passwordConfirm} onChange={onChangeHandler} />
         </div>
         <div className="form-group-address">
-           <h4>Address</h4>
-          
+           
+          <h4>Address</h4>
+
           <div className="form-group">
           <label htmlFor="streetNo">Street No</label>
-          <input type="text" name="streetNo" id="streetNo" value={streetNo} onChange={addressHandler} />
+          <input type="text" name="address.streetNo" id="streetNo" value={streetNo} onChange={onChangeHandler} />
         </div>
         <div className="form-group">
           <label htmlFor="streetName">Unit no & Street Name</label>
-          <input type="text" name="streetName" id="streetName" value={streetName} onChange={addressHandler} />
+          <input type="text" name="address.streetName" id="streetName" value={streetName} onChange={onChangeHandler} />
         </div>
         <div className="form-group">
           <label htmlFor="postalCode">Postal Code</label>
-          <input type="text" name="postalCode" id="postalCode" value={postalCode} onChange={addressHandler} />
+          <input type="text" name="address.postalCode" id="postalCode" value={postalCode} onChange={onChangeHandler} />
         </div>
         <div className="form-group">
           <label htmlFor="province">Province</label>
-          <select name="province" id="province" value={province} onChange={addressHandler}>
+          <select name="address.province" id="province" value={province} onChange={onChangeHandler}>
             {provinces.map((item, index) => (
               <option key={index} value={item}>{item}</option>
             ))}
@@ -121,7 +127,7 @@ const RegisterForm = () => {
           
         </div>
 
-        <button className="btn btn-primary">Submit</button>
+        <button className="btn btn-submit">Submit</button>
       </form>
       <div className="form-redirect-wrapper">
       <p>Already registered? Sign in <Link to='/login' className='redirect-link'>here</Link></p>

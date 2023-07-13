@@ -126,7 +126,7 @@ body{
   width: var(--widthMain);
   height: 50px;
   margin-top: 28px;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
   justify-content: space-between;
   position: relative;
 }
@@ -605,37 +605,38 @@ margin-bottom: 20px;
 /*Register Form*/
 .form-wrapper{
   width: 400px;
-  position: relative;
 }
  
 .alert-wrapper{
-  position: absolute;
-  top:-50px;
-  left:0;
   background: var(--clrLightOrange);
   border:1px solid var(--clrOrange);
   padding:10px;
+  margin-bottom: 15px;
 }
 
 .alert-wrapper p{
   color:var(--clrDarkBlue);
+  font-size: 15px;
+  font-weight: 500;
 }
 
 .form-wrapper h1{
-  margin-bottom: 15px;
-  font-size: 26px;
+  font-size: 24px;
   text-align: center;
 }
 
 .form-wrapper label{
   color:var(--clrBlueGrey);
+  font-size: 14px;
+  margin-bottom: 2px;
 }
 
 .form-wrapper input,
-.form-wrapper select
-{
-  height: 40px;
+.form-wrapper select{
+  height: 30px;
   border:1px solid var(--clrLightGrey);
+  padding: 5px 10px;
+  font-size: 14px;
 }
 
 .form-group{
@@ -648,8 +649,18 @@ margin-bottom: 20px;
   margin-bottom: 15px;
 }
 
+.form-redirect-wrapper{
+  margin-top: -5px;
+}
+
+.form-redirect-wrapper p{
+  font-size: 14px;
+}
+
 .form-group-address{
   border:1px solid var(--clrLightGrey);
+  padding: 5px 0 ;
+  margin-bottom: 15px;
 }
 
 .form-group-address h4{
@@ -664,7 +675,6 @@ margin-bottom: 20px;
 }
 
 .form-group-address label {
-  font-size: 14px;
   margin-left:10%;
 }
 

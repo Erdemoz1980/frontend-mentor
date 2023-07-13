@@ -63,8 +63,6 @@ a:visited{
 /*Input elements*/
 input, textarea, select{
   font-family: var(--ffMain);
-  padding: 5px 10px;
-  font-size: 15px;
 } 
 
 /*Buttons*/
@@ -73,16 +71,22 @@ input, textarea, select{
   background: none;
   cursor: pointer;
   font-family: inherit;
-}
-
-.btn-primary{
   background: var(--clrDarkBlue);
   border-radius: 10px;
   color:#fff;
+  font-weight: 400;
+}
+
+.btn-primary{
   padding: 18px 76px;
   font-size: 16px;
   line-height: 16px;
-  font-weight: 400;
+}
+
+.btn-submit{
+padding: 14px 68px;
+font-size: 14px;
+line-height: 14px;
 }
 
 .btn-primary:disabled{
