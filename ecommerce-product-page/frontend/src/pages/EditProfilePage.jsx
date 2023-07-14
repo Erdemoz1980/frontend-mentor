@@ -5,19 +5,21 @@ import Alert from '../components/Alert';
 import { updateUser } from '../slices/userSlice';
 
 const EditPropfilePage = () => {
-  const { userInfo, errMessage } = useSelector(state => state.user);
+  const { userInfo, errMessage, success } = useSelector(state => state.user);
 
   const [userData, setUserData] = useState({
-    name: userInfo?.name,
-    lastName: userInfo.lastName,
+    _id:userInfo?._id ?? '',
+    name: userInfo?.name ?? '',
+    lastName: userInfo?.lastName ?? '',
     address: {
-      streetNo: userInfo?.address?.streetNo,
-      streetName: userInfo?.address?.streetName,
-      postalCode: userInfo?.address?.postalCode,
-      province: userInfo?.address?.province,
-      country: userInfo?.address?.country
+      streetNo: userInfo?.address?.streetName ?? '',
+      streetName: userInfo?.address?.streetName ?? '',
+      postalCode: userInfo?.address?.postalCode ?? '',
+      province: userInfo?.address?.province ?? '',
+      country: userInfo?.address?.country ?? ''
     }
   });
+  const [profileAlert, setProfileAlert] = useState(false)
 
   const { name, lastName, address: { streetNo, streetName, postalCode, province, country } } = userData;
 
@@ -30,40 +32,46 @@ const EditPropfilePage = () => {
     if (!userInfo) {
       navigate('/')
     }
-  },[navigate, userInfo])
+    if (success) {
+      setProfileAlert(success)
+    }else if(errMessage){
+      setProfileAlert(errMessage)
+    } else {
+      setProfileAlert(false)
+    }
+  },[navigate, userInfo, errMessage, success])
 
   const onChangeHandler = (e) => {
-    const { name, value } = e.target
-    let updatedUserData = { ...userData }
+    const { name, value } = e.target;
     
     if (name.startsWith('address')) {
-      const addressField = name.split('.')[1];
-      updatedUserData = {
-        ...userData,
+      const addressField = name.split('.')[1]
+      setUserData(prevState => ({
+        ...prevState,
         address: {
           ...userData.address,
           [addressField]: value
         }
-      }
+      }))
     } else {
-      updatedUserData = {
-        ...userData,
+      setUserData(prevState => ({
+        ...prevState,
         [name]:value
-      }
+      }))
     }
-    setUserData(updatedUserData)
-  };
+ }
 
   const submitHandler = (e) => {
     e.preventDefault()
-    dispatch(updateUser({ _id: userInfo._id, userData }))
-    console.log(userData)
-  
+    dispatch(updateUser(userData))  
+    setTimeout(() => {
+      setProfileAlert(false)
+    },3000)
   }
   
   return (
     <div className='container form-wrapper'>
-      { errMessage && <Alert message={errMessage} />}
+      {profileAlert && <Alert message={profileAlert} type={success ? 'success' :'error'} />}
       <h1>Edit Profile</h1>
       <form onSubmit={submitHandler} className='login-register-form'>
       <div className="form-group">

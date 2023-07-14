@@ -608,10 +608,22 @@ margin-bottom: 20px;
 }
  
 .alert-wrapper{
-  background: var(--clrLightOrange);
-  border:1px solid var(--clrOrange);
   padding:10px;
   margin-bottom: 15px;
+}
+
+.alert-wrapper.error{
+   background: var(--clrLightOrange);
+  border:1px solid var(--clrOrange);
+}
+
+.alert-wrapper.success {
+  background: var(--clrGreen);
+  border:1px solid var(--clrLightOrange);
+}
+
+.alert-wrapper.success p{
+  color:var(--clrVeryLightGrey);
 }
 
 .alert-wrapper p{

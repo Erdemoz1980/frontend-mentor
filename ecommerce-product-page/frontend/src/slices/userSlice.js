@@ -6,8 +6,9 @@ const userInfo = JSON.parse(localStorage.getItem('user'))
 
 const initialState = {
   userInfo: userInfo ? userInfo : null,
-  isLoading:false,
-  errMessage:false
+  isLoading: false,
+  success:false,
+  errMessage:null,
 }
 
 //Register user
@@ -32,12 +33,11 @@ export const login = createAsyncThunk('user/login', async (userData, thunkApi) =
 //Update User info
 export const updateUser = createAsyncThunk('user/update', async (userData, thunkApi) => {
   try {
-    return await userService.update(userData)
+    return await userService.update(userData);
   } catch (error) {
-    return thunkApi.rejectWithValue(error.message)
-    
+    return thunkApi.rejectWithValue(error.message);
   }
-})
+});
 
 
 export const userSlice = createSlice({
@@ -55,11 +55,11 @@ export const userSlice = createSlice({
     builder
       .addCase(register.pending, (state) => {
         state.isLoading = true
+        state.errMessage = null
       })
       .addCase(register.fulfilled, (state, action) => {
         state.isLoading = false
         state.userInfo = action.payload
-        state.errMessage = null
         localStorage.setItem('user', JSON.stringify(action.payload))
       })
       .addCase(register.rejected, (state, action) => {
@@ -69,11 +69,11 @@ export const userSlice = createSlice({
       })
       .addCase(login.pending, (state) => {
         state.isLoading = true
+        state.errMessage = false
       })
       .addCase(login.fulfilled, (state, action) => {
         state.isLoading = false
         state.userInfo = action.payload
-        state.errMessage = null
         localStorage.setItem('user', JSON.stringify(action.payload))
       })
       .addCase(login.rejected, (state, action) => {
@@ -81,20 +81,23 @@ export const userSlice = createSlice({
         state.user = null
       })
       .addCase(updateUser.pending, (state) => {
-      state.isLoading = true
+        state.isLoading = true
+        state.errMessage = false
+        state.isSuccess = false
       })
       .addCase(updateUser.fulfilled, (state, action) => {
         state.isLoading = false
+        state.success = 'User successfully updated!'
         state.userInfo = action.payload
-        state.errMessage = null
         localStorage.setItem('user', JSON.stringify(action.payload))
       })
       .addCase(updateUser.rejected, (state, action) => {
         state.isLoading = false
         state.errMessage = action.payload
+        state.success = false
        })
   }
 })
 
-export const { logout } = userSlice.actions;
+export const { logout, reset } = userSlice.actions;
 export default userSlice.reducer;

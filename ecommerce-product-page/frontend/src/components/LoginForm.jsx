@@ -18,7 +18,7 @@ const LoginForm = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const { userInfo, errMessage } = useSelector(state => state.user);
+  const { userInfo, errMessage} = useSelector(state => state.user);
 
   useEffect(() => {
     if (userInfo) {
@@ -35,34 +35,30 @@ const LoginForm = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    const isFormValid = Object.values(formData).every(value => value !== '')
-    if (!isFormValid) {
-      setLoginAlert('All fields are required!')
+    if (password !== passwordConfirm) {
+      setLoginAlert('Passwords do not match!')
     } else {
-      if (password !== passwordConfirm) {
-        return setLoginAlert('Passwords do not match!')
-      }
-      dispatch(login({email, password}));
       setLoginAlert(false)
-    }
+      dispatch(login({ email, password }));
+    } 
   };
 
   return (
     <div className='container form-wrapper'>
-      {(loginAlert || errMessage) && <Alert message={loginAlert ? loginAlert : errMessage} />}
+      {(loginAlert || errMessage)  && <Alert message={loginAlert ? loginAlert : errMessage} type='error' />}
       <h1>Sign In</h1>
       <form onSubmit={submitHandler} className='login-register-form'>
         <div className="form-group">
           <label htmlFor="email">Email</label>
-          <input type="email" name="email" id="email" value={email} onChange={onChangeHandler} />
+          <input type="email" name="email" id="email" value={email} onChange={onChangeHandler} required/>
         </div>
         <div className="form-group">
           <label htmlFor="password">Password</label>
-          <input type="password" name="password" id="password" value={password} onChange={onChangeHandler} />
+          <input type="password" name="password" id="password" value={password} onChange={onChangeHandler} required />
         </div>
         <div className="form-group">
           <label htmlFor="passwordConfirm">Confirm Password</label>
-          <input type="password" name="passwordConfirm" id="passwordConfirm" value={passwordConfirm} onChange={onChangeHandler} />
+          <input type="password" name="passwordConfirm" id="passwordConfirm" value={passwordConfirm} onChange={onChangeHandler} required/>
         </div>
         <button className="btn btn-submit">Submit</button>
       </form>

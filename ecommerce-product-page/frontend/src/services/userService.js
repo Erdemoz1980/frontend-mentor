@@ -51,6 +51,7 @@ const update = async (userData) => {
   }
   return await response.json()
 }
+
 const userService = {
   register,
   login,
