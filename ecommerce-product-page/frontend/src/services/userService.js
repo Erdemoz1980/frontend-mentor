@@ -52,10 +52,28 @@ const update = async (userData) => {
   return await response.json()
 }
 
+//Update Password
+const updatePassword = async (userData) => {
+  const response = await fetch(`/api/users/password/update/${userData._id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type':'application/json'
+    },
+    body:JSON.stringify(userData)
+  })
+  if (!response.ok) {
+    const errorData = await response.json()
+    throw new Error(errorData.message)
+  }
+  return await response.json()
+}
+
+
 const userService = {
   register,
   login,
-  update
+  update,
+  updatePassword
 }
 
 export default userService

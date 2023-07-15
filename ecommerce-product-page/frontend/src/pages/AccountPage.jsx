@@ -11,7 +11,8 @@ const AccountPage = () => {
     {
       id: 10002,
       title: 'Login & Security',
-      desc:'Manage password and email'
+      desc: 'Manage password',
+      to:'/user/account/changepassword'
     },
     {
       id: 10003,

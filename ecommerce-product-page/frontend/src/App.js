@@ -6,6 +6,7 @@ import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
 import AccountPage from './pages/AccountPage';
 import EditProfilePage from './pages/EditProfilePage';
+import ChangePassword from './components/ChangePassword';
 
 const App = () => {
 
@@ -19,6 +20,7 @@ const App = () => {
         <Route path='/login' element={<LoginForm />} /> 
         <Route path='/user/account/:id' element={<AccountPage />} />
         <Route path='/user/account/editaddress/' element={<EditProfilePage />} />
+        <Route path='/user/account/changepassword/' element={<ChangePassword />} />
       </Routes>
       </BrowserRouter>
   )

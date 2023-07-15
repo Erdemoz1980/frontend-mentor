@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Alert from '../components/Alert';
-import { updateUser } from '../slices/userSlice';
+import { updateUser, reset } from '../slices/userSlice';
 
 const EditPropfilePage = () => {
   const { userInfo, errMessage, success } = useSelector(state => state.user);
@@ -33,13 +33,18 @@ const EditPropfilePage = () => {
       navigate('/')
     }
     if (success) {
-      setProfileAlert(success)
-    }else if(errMessage){
-      setProfileAlert(errMessage)
+      setProfileAlert('User Profile successfully updated!');
+    } else if (errMessage) {
+      setProfileAlert(errMessage);
     } else {
-      setProfileAlert(false)
+      setProfileAlert(false);
     }
-  },[navigate, userInfo, errMessage, success])
+    setTimeout(() => {
+      setProfileAlert(false)
+      dispatch(reset())
+    }, 5000)
+  }, [navigate, userInfo, dispatch, errMessage, success])
+
 
   const onChangeHandler = (e) => {
     const { name, value } = e.target;

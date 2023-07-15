@@ -47,7 +47,7 @@ const loginUser = asyncHandler(async (req, res) => {
 });
 
 //@desc  Updates user profile
-//@route PUT api/users/update/:id
+//@route PUT api/users/profile/update/:id
 //@access Public
 const updateUser = asyncHandler(async (req, res, next) => {
   const userId = req.params.id;
@@ -62,8 +62,36 @@ const updateUser = asyncHandler(async (req, res, next) => {
     }
 });
 
+//@desc  Updates user password
+//@route PUT api/users/update/:id
+//@access Private
+const updatePassword = asyncHandler(async (req, res) => {
+  const userId = req.params.id
+  const { oldPassword, newPassword } = req.body;
+
+  const user = await User.findById(userId);
+  if (!user || user.password !== oldPassword) {
+    res.status(401)
+    throw new Error('Incorrect password! Plase try again')
+  } else {
+    if (user.password === newPassword) {
+      res.status(400)
+      throw new Error('Your new password should not match the old one')
+    }
+    const updatedUser = await User.findByIdAndUpdate(userId, {password:newPassword}, { new: true });
+    if (updatedUser) {
+      return res.status(200).json(updatedUser)
+    } else {
+      res.status(401)
+      throw new Error('Unable to change password, please try again')
+    }
+  }
+});
+
+
 module.exports = {
   registerUser,
   loginUser,
-  updateUser
+  updateUser,
+  updatePassword
 }

@@ -39,11 +39,26 @@ export const updateUser = createAsyncThunk('user/update', async (userData, thunk
   }
 });
 
+//Update User password
+export const updatePassword = createAsyncThunk('user/passwordChange', async (userData, thunkApi) => {
+  try {
+    return await userService.updatePassword(userData)
+  } catch (error) {
+    return thunkApi.rejectWithValue(error.message)
+    
+  }
+});
+
 
 export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
+    reset: (state) => {
+      state.isLoading = false
+      state.success = false
+      state.errMessage = false
+    },
     logout: (state) => {
       state.isLoading =false
       state.userInfo = null
@@ -83,11 +98,11 @@ export const userSlice = createSlice({
       .addCase(updateUser.pending, (state) => {
         state.isLoading = true
         state.errMessage = false
-        state.isSuccess = false
+        state.success = false
       })
       .addCase(updateUser.fulfilled, (state, action) => {
         state.isLoading = false
-        state.success = 'User successfully updated!'
+        state.success = true
         state.userInfo = action.payload
         localStorage.setItem('user', JSON.stringify(action.payload))
       })
@@ -95,7 +110,20 @@ export const userSlice = createSlice({
         state.isLoading = false
         state.errMessage = action.payload
         state.success = false
-       })
+      })
+      .addCase(updatePassword.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(updatePassword.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.userInfo = action.payload
+        state.success = true
+        localStorage.setItem('user', JSON.stringify(action.payload))
+      })
+      .addCase(updatePassword.rejected, (state, action) => {
+        state.isLoading = false
+        state.errMessage = action.payload
+    })
   }
 })
 
