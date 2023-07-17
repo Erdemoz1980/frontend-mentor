@@ -25,6 +25,9 @@ export const login = createAsyncThunk('user/login', async (userData, thunkApi) =
   try {
     return await userService.login(userData)
   } catch (error) {
+    if (error.message === 'Failed to fetch') {
+      return thunkApi.rejectWithValue('Server error: please check your connection.')
+    }
     return thunkApi.rejectWithValue(error.message)
 
   }
@@ -33,9 +36,12 @@ export const login = createAsyncThunk('user/login', async (userData, thunkApi) =
 //Update User info
 export const updateUser = createAsyncThunk('user/update', async (userData, thunkApi) => {
   try {
-    return await userService.update(userData);
+    return await userService.updateProfile(userData);
   } catch (error) {
-    return thunkApi.rejectWithValue(error.message);
+    if (error.message === 'Failed to fetch') {
+      return thunkApi.rejectWithValue('Server error: please check your connection.')
+    }
+    return thunkApi.rejectWithValue(error.message)
   }
 });
 
@@ -44,8 +50,10 @@ export const updatePassword = createAsyncThunk('user/passwordChange', async (use
   try {
     return await userService.updatePassword(userData)
   } catch (error) {
+    if (error.message === 'Failed to fetch') {
+      return thunkApi.rejectWithValue('Server error: please check your connection.')
+    } 
     return thunkApi.rejectWithValue(error.message)
-    
   }
 });
 

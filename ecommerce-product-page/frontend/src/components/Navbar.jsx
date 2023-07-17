@@ -8,7 +8,7 @@ import ShoppingCart from './ShoppingCart';
 import UserDropdownMenu from './UserDropdownMenu';
 
 const Navbar = () => {
-  const [showUserMenu, setShowUserMenu] = useState(true)
+  const [showUserMenu, setShowUserMenu] = useState(false)
   
   const { cartItems, isCartOpen } = useSelector(state => state.cart)
   const { userInfo } = useSelector(state => state.user)
@@ -53,7 +53,7 @@ const Navbar = () => {
         </div>
         <div className="login-info-wrapper">
           {userInfo ? (
-            <div className='user-profile-wrapper'>
+            <div className='user-profile-wrapper' onClick={()=>setShowUserMenu(!showUserMenu)}>
               <h4>{userInfo?.name} {userInfo?.lastName}</h4>
               {showUserMenu && <UserDropdownMenu userInfo={userInfo} />}
             </div>) : (

@@ -19,7 +19,7 @@
   --widhtMedium:960px;
 
   /*Transitions*/
-  --trsMain:0.25s ease-in-out;
+  --trsMain:0.15s ease-out;
 }
 
 /*Make images easier to work with*/
@@ -88,6 +88,19 @@ padding: 14px 68px;
 font-size: 14px;
 line-height: 14px;
 background: var(--clrDarkBlue);
+}
+
+.btn-navigate{
+  padding: 10px 15px;
+  font-size: 12px;
+  line-height: 12px;
+  border-radius: 5px;
+  background: var(--clrBlueGrey);
+  transition: all var(--trsMain);
+}
+
+.btn-navigate:hover{
+  background: #8b8f97;
 }
 
 .btn-primary:disabled{

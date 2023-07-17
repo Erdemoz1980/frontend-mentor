@@ -37,8 +37,8 @@ const login = async (userData) => {
 
 
 //Update User
-const update = async (userData) => {
-  const response = await fetch(`${API_URL}/update/${userData._id}`, {
+const updateProfile = async (userData) => {
+  const response = await fetch(`${API_URL}/profile/update/${userData._id}`, {
     method: 'PUT',
     headers: {
       'Content-Type':'application/json'
@@ -54,7 +54,7 @@ const update = async (userData) => {
 
 //Update Password
 const updatePassword = async (userData) => {
-  const response = await fetch(`/api/users/password/update/${userData._id}`, {
+  const response = await fetch(`${API_URL}/password/update/${userData._id}`, {
     method: 'PUT',
     headers: {
       'Content-Type':'application/json'
@@ -72,7 +72,7 @@ const updatePassword = async (userData) => {
 const userService = {
   register,
   login,
-  update,
+  updateProfile,
   updatePassword
 }
 

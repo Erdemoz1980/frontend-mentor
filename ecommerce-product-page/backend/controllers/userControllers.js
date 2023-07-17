@@ -5,7 +5,10 @@ const asyncHandler = require('express-async-handler');
 //@route POST api/users/register
 //@access Public
 const registerUser = asyncHandler(async (req, res) => {
-  const { name, lastName, email, password, address } = req.body;
+  let { name, lastName, email, password, address } = req.body
+  name = name[0].toUpperCase() + name.subString(1, name.length)
+  lastName = lastName[0].toUpperCase() + lastName.subString(1, lastName.length)
+  email = email.toLowerCase()
 
   const userExists = await User.findOne({ email });
   if (userExists) {
@@ -35,7 +38,8 @@ const registerUser = asyncHandler(async (req, res) => {
 //@route POST api/users/login
 //@access Public
 const loginUser = asyncHandler(async (req, res) => {
-  const { email, password } = req.body;
+  let { email, password } = req.body;
+  email = req.body.email.toLowerCase()
 
   const user = await User.findOne({ email });
   if (!user || (user.password !== password)) {
@@ -51,9 +55,15 @@ const loginUser = asyncHandler(async (req, res) => {
 //@access Public
 const updateUser = asyncHandler(async (req, res, next) => {
   const userId = req.params.id;
-  const update = req.body;
+  const userData = req.body;
+  const formattedUserData = {
+    ...userData,
+    name: userData.name[0].toUpperCase() + userData.name.substring(1, userData.name.length).toLowerCase(),
+    lastName:userData.lastName[0].toUpperCase() + userData.lastName.substring(1, userData.lastName.length).toLowerCase()
+  }
+ 
 
-    const updatedUser = await User.findByIdAndUpdate(userId, update, { new: true });
+    const updatedUser = await User.findByIdAndUpdate(userId, formattedUserData, { new: true });
     if (updatedUser) {
       res.status(200).json(updatedUser);
     } else {

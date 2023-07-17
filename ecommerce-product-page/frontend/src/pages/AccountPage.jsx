@@ -1,6 +1,18 @@
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux'
 import AccountCard from '../components/AccountCard';
 
 const AccountPage = () => {
+  const { userInfo } = useSelector(state => state.user);
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (!userInfo) {
+      navigate('/')
+    }
+  }, [userInfo, navigate]);
+
 
   const accountCardsData = [
     {

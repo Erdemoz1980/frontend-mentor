@@ -199,6 +199,7 @@ body{
 /*Navbar User Dropdown*/
 .user-profile-wrapper{
   position: relative;
+  cursor: pointer;
 }
 
 .user-dropdown-menu-wrapper{
@@ -605,6 +606,13 @@ margin-bottom: 20px;
 /*Register Form*/
 .form-wrapper{
   width: 400px;
+  position: relative;
+  margin-top: 150px;
+}
+
+.btn-navigate-profile{
+  position: absolute;
+  top:-50px;
 }
  
 .alert-wrapper{
@@ -635,6 +643,7 @@ margin-bottom: 20px;
 .form-wrapper h1{
   font-size: 24px;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .form-wrapper label{
@@ -655,6 +664,13 @@ margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   margin-bottom: 8px;
+  position: relative;
+}
+
+.form-group i{
+  position: absolute;
+  right:10px;
+  top:53%;
 }
 
 .form-group:last-of-type{
@@ -688,10 +704,6 @@ margin-bottom: 20px;
 
 .form-group-address label {
   margin-left:10%;
-}
-
-.login-register-form{
-  margin-bottom: 15px;
 }
 
 .form-redirect-wrapper a {

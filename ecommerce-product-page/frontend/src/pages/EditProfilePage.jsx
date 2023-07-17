@@ -3,20 +3,21 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Alert from '../components/Alert';
 import { updateUser, reset } from '../slices/userSlice';
+import { Link } from 'react-router-dom';
 
 const EditPropfilePage = () => {
   const { userInfo, errMessage, success } = useSelector(state => state.user);
 
   const [userData, setUserData] = useState({
-    _id:userInfo?._id ?? '',
-    name: userInfo?.name ?? '',
-    lastName: userInfo?.lastName ?? '',
+    _id:'',
+    name:'',
+    lastName:'',
     address: {
-      streetNo: userInfo?.address?.streetName ?? '',
-      streetName: userInfo?.address?.streetName ?? '',
-      postalCode: userInfo?.address?.postalCode ?? '',
-      province: userInfo?.address?.province ?? '',
-      country: userInfo?.address?.country ?? ''
+      streetNo: '',
+      streetName:  '',
+      postalCode: '',
+      province: '',
+      country: ''
     }
   });
   const [profileAlert, setProfileAlert] = useState(false)
@@ -32,17 +33,30 @@ const EditPropfilePage = () => {
     if (!userInfo) {
       navigate('/')
     }
-    if (success) {
-      setProfileAlert('User Profile successfully updated!');
-    } else if (errMessage) {
-      setProfileAlert(errMessage);
-    } else {
-      setProfileAlert(false);
+    if (success || errMessage) {
+      setProfileAlert(success ? 'You have successfully updated your password!' : errMessage)
     }
-    setTimeout(() => {
-      setProfileAlert(false)
-      dispatch(reset())
-    }, 5000)
+  
+    if (userInfo) {
+      setUserData({
+        _id: userInfo._id,
+        name: userInfo.name,
+        lastName: userInfo.lastName,
+        email: userInfo.email,
+        password: userInfo.password,
+        address: {
+          streetNo: userInfo?.address?.streetNo,
+          streetName: userInfo?.address?.streetName,
+          postalCode: userInfo?.address?.postalCode,
+          province: userInfo?.address?.province,
+          country:userInfo.address?.country
+        }
+      })
+    };
+
+    return () => {
+      dispatch(reset());
+    };
   }, [navigate, userInfo, dispatch, errMessage, success])
 
 
@@ -69,13 +83,12 @@ const EditPropfilePage = () => {
   const submitHandler = (e) => {
     e.preventDefault()
     dispatch(updateUser(userData))  
-    setTimeout(() => {
-      setProfileAlert(false)
-    },3000)
+
   }
   
   return (
     <div className='container form-wrapper'>
+      <Link to={`/user/account/${userInfo._id}`}><button className='btn btn-navigate btn-navigate-profile'>Go Back</button></Link>
       {profileAlert && <Alert message={profileAlert} type={success ? 'success' :'error'} />}
       <h1>Edit Profile</h1>
       <form onSubmit={submitHandler} className='login-register-form'>
