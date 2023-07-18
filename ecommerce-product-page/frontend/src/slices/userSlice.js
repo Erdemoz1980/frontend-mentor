@@ -126,6 +126,7 @@ export const userSlice = createSlice({
         state.isLoading = false
         state.userInfo = action.payload
         state.success = true
+        state.errMessage = false
         localStorage.setItem('user', JSON.stringify(action.payload))
       })
       .addCase(updatePassword.rejected, (state, action) => {

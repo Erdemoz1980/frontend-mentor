@@ -20,6 +20,15 @@ const EditPropfilePage = () => {
     }
   });
   const [profileAlert, setProfileAlert] = useState(false)
+  const [formValidated, setFormValidated] = useState({
+    name: true,
+    lastName: true,
+    address: {
+      streetNo: true,
+      streetName: true,
+      postalCode: true
+    }
+  });
 
   const { name, lastName, address: { streetNo, streetName, postalCode, province, country } } = userData;
 
@@ -48,7 +57,7 @@ const EditPropfilePage = () => {
           streetName: userInfo?.address?.streetName,
           postalCode: userInfo?.address?.postalCode,
           province: userInfo?.address?.province,
-          country:userInfo.address?.country
+          country: userInfo.address?.country
         }
       })
     };
@@ -57,8 +66,9 @@ const EditPropfilePage = () => {
       if (!formSubmittedRef.current) {
         dispatch(reset());
       }
-    };
-  }, [navigate, userInfo, dispatch, errMessage, success])
+    }
+
+    }, [navigate, userInfo, dispatch, errMessage, success])
 
 
   const onChangeHandler = (e) => {
@@ -81,12 +91,46 @@ const EditPropfilePage = () => {
     }
  }
 
-  const submitHandler = (e) => {
-    e.preventDefault()
-    dispatch(updateUser(userData))  
-    formSubmittedRef.current = true;
+ const submitHandler = (e) => {
+  e.preventDefault();
 
+  const newFormValidated = {
+    name: userData.name !== '',
+    lastName: userData.lastName !== '',
+    address: {
+      streetNo: userData.address.streetNo !== '',
+      streetName: userData.address.streetName !== '',
+      postalCode: userData.address.postalCode !== '',
+    }
+  };
+  setFormValidated(newFormValidated);
+
+
+  // Check if form validation is passed after state update
+  const isFormValid = Object.values(newFormValidated).every((value) => {
+    if (typeof value === 'boolean') {
+      return value === true;
+    } else if (typeof value === 'object') {
+      return Object.values(value).every((nestedValue) => nestedValue === true);
+    }
+    return false;
+  });
+   
+  if (isFormValid) {
+    dispatch(updateUser(userData))
+    formSubmittedRef.current = true;
+    setFormValidated({
+      name: true,
+      lastName: true,
+      address: { streetNo: true, streetName: true, postalCode: true }
+    });
+    setTimeout(() => {
+      setProfileAlert(false)
+    },3000)
   }
+};
+
+
   
   return (
     <div className='container form-wrapper'>
@@ -96,27 +140,27 @@ const EditPropfilePage = () => {
       <form onSubmit={submitHandler} className='login-register-form'>
       <div className="form-group">
           <label htmlFor="name">Name</label>
-          <input type="text" name="name" id="name" value={name} onChange={onChangeHandler} required />
+          <input className={!formValidated.name ? 'alert' : ''} type="text" name="name" id="name" value={name} onChange={onChangeHandler}/>
         </div>
         <div className="form-group">
           <label htmlFor="lastName">Last Name</label>
-          <input type="text" name="lastName" id="lastName" value={lastName} onChange={onChangeHandler} required />
+          <input className={!formValidated.lastName ? 'alert' : ''} type="text" name="lastName" id="lastName" value={lastName} onChange={onChangeHandler}/>
         </div>
         <div className="form-group">
           <label htmlFor="streetNo">Street No</label>
-          <input type="text" name="address.streetNo" id="streetNo" value={streetNo} onChange={onChangeHandler} required />
+          <input className={!formValidated.address.streetNo ? 'alert' : ''} type="text" name="address.streetNo" id="streetNo" value={streetNo} onChange={onChangeHandler}/>
         </div>
         <div className="form-group">
           <label htmlFor="streetName">Unit no & Street Name</label>
-          <input type="text" name="address.streetName" id="streetName" value={streetName} onChange={onChangeHandler} required />
+          <input className={!formValidated.address.streetName ? 'alert' : ''} type="text" name="address.streetName" id="streetName" value={streetName} onChange={onChangeHandler}/>
         </div>
         <div className="form-group">
           <label htmlFor="postalCode">Postal Code</label>
-          <input type="text" name="address.postalCode" id="postalCode" value={postalCode} onChange={onChangeHandler} required/>
+          <input className={!formValidated.address.postalCode ? 'alert' : ''} type="text" name="address.postalCode" id="postalCode" value={postalCode} onChange={onChangeHandler}/>
         </div>
         <div className="form-group">
           <label htmlFor="province">Province</label>
-          <select name="address.province" id="province" value={province} onChange={onChangeHandler} required>
+          <select name="address.province" id="province" value={province} onChange={onChangeHandler} >
             {provinces.map((item, index) => (
               <option key={index} value={item}>{item}</option>
             ))}

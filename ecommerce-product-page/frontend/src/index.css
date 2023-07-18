@@ -660,6 +660,18 @@ margin-bottom: 20px;
   font-size: 14px;
 }
 
+.form-wrapper input:focus,
+.form-wrapper select:focus {
+  border:none;
+  outline: 2px solid var(--clrDarkBlue);
+}
+
+.form-wrapper input.alert,
+.form-wrapper select.alert{
+  border:none;
+  outline: 2px solid red;
+}
+
 .form-group{
   display: flex;
   flex-direction: column;
