@@ -41,7 +41,7 @@ const ProductPage = () => {
   return (
     <div className='product-page-wrapper'>
       {
-        alert ? <div className="temp">No product data retrieved...</div>: products.map(product => (
+        alert ? <div className="temp">Please check your connection...</div>: products.map(product => (
           <ProductCard key={product._id} {...product} />
         ))
       }

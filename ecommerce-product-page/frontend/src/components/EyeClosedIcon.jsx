@@ -1,7 +1,7 @@
 
 const EyeClosedIcon = () => {
   return (
-    <i class="fa-solid fa-eye-slash"></i>
+    <i className="fa-solid fa-eye-slash"></i>
   )
 }
 

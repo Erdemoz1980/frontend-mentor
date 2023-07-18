@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Alert from '../components/Alert';
@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 
 const EditPropfilePage = () => {
   const { userInfo, errMessage, success } = useSelector(state => state.user);
-
   const [userData, setUserData] = useState({
     _id:'',
     name:'',
@@ -29,14 +28,14 @@ const EditPropfilePage = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
+  const formSubmittedRef = useRef(false);
+
   useEffect(() => {
     if (!userInfo) {
       navigate('/')
     }
-    if (success || errMessage) {
-      setProfileAlert(success ? 'You have successfully updated your password!' : errMessage)
-    }
-  
+    setProfileAlert(success ? 'You have successfully updated your profile!' : errMessage)
+    
     if (userInfo) {
       setUserData({
         _id: userInfo._id,
@@ -55,7 +54,9 @@ const EditPropfilePage = () => {
     };
 
     return () => {
-      dispatch(reset());
+      if (!formSubmittedRef.current) {
+        dispatch(reset());
+      }
     };
   }, [navigate, userInfo, dispatch, errMessage, success])
 
@@ -83,6 +84,7 @@ const EditPropfilePage = () => {
   const submitHandler = (e) => {
     e.preventDefault()
     dispatch(updateUser(userData))  
+    formSubmittedRef.current = true;
 
   }
   
