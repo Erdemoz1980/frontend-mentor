@@ -12,56 +12,52 @@ const CheckoutPage = () => {
   const handleQtychange = useQtyChange(cartItems);
 
   return (
-    <div className='container checkout-page-wrapper'>
+    <div className="container checkout-page-wrapper">
       <h1>Place Order</h1>
       <h2>My Cart</h2>
-      <section className="checkout-items-wrapper">
-        <header className="checkout-header">
-          <div className="checkout-header-title">
-            <h3>Item</h3>
-          </div>
-          <div className="checkout-header-title">
-            <h3>Price</h3>
-          </div>
-          <div className="checkout-header-title">
-            <h3>Qty</h3>
-          </div>
-          <div className="checkout-header-title">
-            <h3>Amount</h3>
-          </div>
-        </header>
-        {
-          cartItems.map(item => (
-            <div className='checkout-item-wrapper' key={item._id}>
-              <div className="checkout-item">
-                <Link to={`/product/${item._id}`}>
-                <img src={item.img} alt='checkout item'/>
-                </Link>
-                <p>{item.name}</p>
-              </div>
-              <div className="checkout-item">
-                <p>${item.price.toFixed(2)}</p>
-              </div>
-              <div className="checkout-item">
-                <select value={item.qty} onChange={(e) => handleQtychange(item.id, Number(e.target.value))}>
-                  {Array.from({ length: item.countInStock }).map((_, index) => (
-                    <option key={index} value={index + 1}>{index + 1}</option>
-                  ))}
-                </select>
-              </div>
-              <div className="checkout-item"><p>${((item.qty) * (item.price)).toFixed(2)}</p></div>
-              <div className="cart-trash-container">
-                <button className="btn" onClick={() => dispatch(deleteCartItem(item.id))}>
-                  <div className="cart-delete-img-container">
-                    <img src={trashIcon} alt='trash' />
-                  </div>
-                </button>
-              </div>
-            </div>
-          ))
-        }
-      </section>
-    </div>
+
+      <table>
+        <thead>
+          <tr className='checkout-header'>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Qty</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          {cartItems.length < 1 ? (
+            <tr>
+              <th>Your cart is empty</th>
+            </tr>) : (
+              cartItems.map(item => (
+                <tr className='checkout-item-row'>
+                  <td>
+                    <Link to={`/product/${item._id}`}><img src={item.img} alt='cart item' /></Link>
+                    <Link to={`/product/${item._id}`}><p>{item.name}</p></Link>
+                  </td>
+                  <td>${item.price.toFixed(2)}</td>
+                  <td>
+                    <select value={item.qty} onChange={(e) => handleQtychange(item._id, Number(e.target.value))}>
+                      {Array.from({ length: item.countInStock }).map((_, index) => (
+                        <option key={index} value={index + 1}>{index+1}</option>
+                      ))}
+                    </select>
+                  </td>
+                  <td>${((item.qty)*(item.price)).toFixed(2) }</td>
+                  <td>
+                    <button className='btn' onClick={()=>dispatch(deleteCartItem(item._id))}>
+                      <img className='cart-item-delete' src={trashIcon} alt="trash icon" />
+                    </button>
+                  </td>
+                </tr>
+              ))
+            )}
+        </tbody>
+      </table>
+   
+ </div>
+           
   )
 };
 

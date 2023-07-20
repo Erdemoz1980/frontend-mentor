@@ -19,11 +19,11 @@ const cartSlice = createSlice({
     },
     setCartItems: (state, action) => {
       const newItem = action.payload;
-      const itemExists = state.cartItems.find(item => item.id === newItem.id);
+      const itemExists = state.cartItems.find(item => item._id === newItem._id);
 
       if (itemExists) {
         state.cartItems = state.cartItems.map(item => {
-          if (item.id === newItem.id) {
+          if (item._id === newItem._id) {
             return { ...item, qty: newItem.qty }     
           } 
           return item
@@ -34,7 +34,7 @@ const cartSlice = createSlice({
       localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
     },
     deleteCartItem: (state, action) => {
-      state.cartItems = state.cartItems.filter(item => item.id !== action.payload)
+      state.cartItems = state.cartItems.filter(item => item._id !== action.payload)
       localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
     },
     setActiveImage: (state, action) => {

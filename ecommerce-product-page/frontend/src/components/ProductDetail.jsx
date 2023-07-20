@@ -25,7 +25,6 @@ const ProductDetail = () => {
         const response = await fetch(`http://localhost:8000/api/products/${id}`)
         const data = await response.json()
         setProduct(data)
-        console.log(data)
       } catch (error) {
         setAlert(error)
       }

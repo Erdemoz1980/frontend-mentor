@@ -6,14 +6,14 @@ const useQtyChange = (cartItems) => {
 
   const handleQtyChange = ( itemId, newQty) => {
     const updatedCartItems = cartItems.map(item => {
-      if (item.id === itemId) {
+      if (item._id === itemId) {
         return { ...item, qty: newQty }
       } else {
         return item
       }
     });
 
-    dispatch(setCartItems(updatedCartItems.find(item=>item.id===itemId)))
+    dispatch(setCartItems(updatedCartItems.find(item=>item._id===itemId)))
   };
 
   return handleQtyChange

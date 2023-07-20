@@ -127,11 +127,14 @@ const EditPropfilePage = () => {
     setTimeout(() => {
       setProfileAlert(false)
     },5000)
+  } else {
+    setProfileAlert('Please fill in all fields')
+     setTimeout(() => {
+      setProfileAlert(false)
+    },5000)
   }
 };
 
-
-  
   return (
     <div className='container form-wrapper'>
       <Link to={`/user/account/${userInfo._id}`}><button className='btn btn-navigate btn-navigate-profile'>Go Back</button></Link>

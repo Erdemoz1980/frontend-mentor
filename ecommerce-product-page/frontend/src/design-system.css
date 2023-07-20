@@ -16,7 +16,7 @@
   /*Typography*/
   --ffMain:'Kumbh Sans', sans-serif;  
   --widthMain:1110px;
-  --widhtMedium:960px;
+  --widthMedium:960px;
 
   /*Transitions*/
   --trsMain:0.15s ease-out;
@@ -74,6 +74,7 @@ input, textarea, select{
   border-radius: 10px;
   color:#fff;
   font-weight: 400;
+  background: none;
 }
 
 .btn-primary{
