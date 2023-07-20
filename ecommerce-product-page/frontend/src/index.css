@@ -200,24 +200,38 @@ body{
 .user-profile-wrapper{
   position: relative;
   cursor: pointer;
+  padding: 10px;
 }
 
 .user-dropdown-menu-wrapper{
   position: absolute;
   width: 250px;
   height: auto;
-  left:-174px;
-  top:34px;
+  left:-150px;
+  top:54px;
   padding: 10px;
   background: var(--clrVeryLightGrey);
   border:1px solid var(--clrLightGrey);
   z-index: 2;
 }
 
+.arrow-up{
+  position: absolute;
+  top:-12px;
+  right:50px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 12px solid var(--clrLightGrey)
+}
+
 .user-dropdown-menu li {
   padding: 5px 0;
+  width: auto;
   font-size: 15px;
   cursor: pointer;
+
 }
 
 .user-dropdown-menu li:hover{
@@ -727,17 +741,6 @@ margin-bottom: 20px;
   width: var(--widhtMedium)
 }
 
-.account-page-wrapper h1{
-  font-weight: 500;
-  font-size: 30px;
-}
-
-.account-page-wrapper h1,
-.account-card-wrapper h3
-{
-  color:var(--clrVeryDarkBlue)
-}
-
 .account-page{
   display: grid;
   grid-template-columns: repeat(3,1fr);
@@ -764,3 +767,60 @@ margin-bottom: 20px;
 .account-card-wrapper:hover{
   background: var(--clrVeryLightGrey);
 }
+
+/*Checkout Page*/
+.checkout-page-wrapper{
+  width: var(--widhtMedium);
+}
+
+.checkout-page-wrapper h1{
+  display: block;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--clrVeryDarkBlue);
+}
+
+.checkout-page-wrapper h2{
+  text-align: center;
+  margin: 20px;
+}
+
+.checkout-header, .checkout-item-wrapper{
+  display: grid;
+  grid-template-columns: 4fr 1fr 1fr 1fr 1fr;
+  padding: 10px 30px;
+}
+
+.checkout-header {
+  background: linear-gradient(var(--clrVeryLightGrey), #dae6fc);
+  margin-bottom: 20px
+  ;
+}
+
+.checkout-header-title h3{
+  color:var(--clrBlueGrey)
+}
+
+.checkout-item{
+  display: flex;
+  align-items: center;
+  gap:30px;
+}
+
+.checkout-item img{
+  height: 100px;
+  width: 100px;
+  border:1px solid rgba(182, 188, 200, 0.5);
+ 
+}
+
+.checkout-item-name p{
+  display: flex;
+  align-items: center;
+}
+
+.checkout-item-wrapper select{
+  width: 50px;
+  border:1px solid var(--clrLightGrey)
+}
+
+

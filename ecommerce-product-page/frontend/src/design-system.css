@@ -9,7 +9,7 @@
   --clrVeryDarkBlue:#1D2026;
   --clrDarkBlue:#2e4064;
   --clrBlueGrey:#69707D;
-  --clrLightGrey:#B6BCC8;
+  --clrLightGrey:rgb(182, 188, 200);
   --clrVeryLightGrey:#F6F8FD;
   --clrSeperator:#E4E9F2;
 
@@ -116,6 +116,15 @@ background: var(--clrDarkBlue);
 }
 
 /*Typography*/
+h1{
+  font-size: 30px;
+}
+
+h1, h2, h3, h4, h5{
+  font-weight: 500;
+  color:var(--clrVeryDarkBlue)
+}
+
 .text-dark{
   color:var(--clrVeryDarkBlue);
   font-weight: 700;
@@ -141,3 +150,9 @@ background: var(--clrDarkBlue);
   line-height: 14px;
   font-weight: 500;
 }
+
+.border{
+ box-shadow: 0 0 0 1px var(--clrLightGrey);
+}
+
+/*Shapes*/

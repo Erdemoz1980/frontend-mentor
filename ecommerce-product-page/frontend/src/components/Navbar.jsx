@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import { setCartIsOpen } from '../slices/cartSlice';
@@ -9,15 +9,25 @@ import UserDropdownMenu from './UserDropdownMenu';
 
 const Navbar = () => {
   const [showUserMenu, setShowUserMenu] = useState(false)
+  const [border, setBorder] = useState(false);
   
   const { cartItems, isCartOpen } = useSelector(state => state.cart)
   const { userInfo } = useSelector(state => state.user)
   const cartItemsQty = cartItems.reduce((acc, item) => acc + item.qty, 0)
   
-  const location = useLocation();
-  const keyword = location.search.split('=')[1];
-  const dispatch = useDispatch();
+  const location = useLocation()
+  const keyword = location.search.split('=')[1]
+  const dispatch = useDispatch()
 
+  const handleShowUserMenu = () => {
+    setTimeout(() => {
+      setShowUserMenu(true)
+    },250)
+    setTimeout(() => {
+      setBorder(true)
+    },150)
+  }
+ 
   const navItems = [
     { to: '/collections', label: 'Collections' },
     { to: '/?=men', label: 'Men' },
@@ -53,9 +63,9 @@ const Navbar = () => {
         </div>
         <div className="login-info-wrapper">
           {userInfo ? (
-            <div className='user-profile-wrapper' onClick={()=>setShowUserMenu(!showUserMenu)}>
+            <div  className={`user-profile-wrapper ${border && 'border'}`} onMouseEnter={handleShowUserMenu} >
               <h4>{userInfo?.name} {userInfo?.lastName}</h4>
-              {showUserMenu && <UserDropdownMenu userInfo={userInfo} />}
+              {showUserMenu && <UserDropdownMenu userInfo={userInfo} setShowUserMenu={setShowUserMenu} setBorder={setBorder} />}
             </div>) : (
               <Link to='/login'>Login</Link>
             )

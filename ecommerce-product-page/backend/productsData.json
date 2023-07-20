@@ -8,7 +8,7 @@
     "price": 250,
     "countInStock":7,
     "discount": 35, 
-    "colors":[],
+    "colors":["BrightOrange"],
     "imageThumbnails": [
       {
         "images":["/product-images/10001/image-product-1-thumbnail.jpg", "/product-images/10001/image-product-2-thumbnail.jpg", "/product-images/10001/image-product-3-thumbnail.jpg", "/product-images/10001/image-product-4-thumbnail.jpg"]
@@ -29,7 +29,7 @@
     "price": 129,
     "countInStock":16,
     "discount":0,
-    "colors":[],
+    "colors":["Obsidian"],
     "imageThumbnails": [
       {
         "images":["/product-images/10002/image-product-1.jpg", "/product-images/10002/image-product-2.jpg", "/product-images/10002/image-product-3.jpg", "/product-images/10002/image-product-4.jpg"]
@@ -50,7 +50,7 @@
     "price": 88,
     "countInStock":11,
     "discount": 0,
-    "colors":[],
+    "colors":["Navy"],
     "imageThumbnails": [
       {
       "images":["/product-images/10003/image-product-1.jpg", "/product-images/10003/image-product-2.jpg", "/product-images/10003/image-product-3.jpg", "/product-images/10003/image-product-4.webp"]
@@ -71,7 +71,7 @@
     "price": 210,
     "countInStock":18,
     "discount": 0,
-    "colors":[],
+    "colors":["OceanBlue"],
     "imageThumbnails": [
       {
         "images":["/product-images/10004/image-product-1.webp", "/product-images/10004/image-product-2.jpg", "/product-images/10004/image-product-3.webp", "/product-images/10004/image-product-4.webp"]
@@ -87,12 +87,12 @@
     "company": "Nike",
     "name": "Nike Tempo",
     "category":"running",
-    "gender":"men",
+    "gender":"women",
     "description": "While these speedsters could easily pass the test on race day, they double as your go-to shoe for your training routine.",
     "price": 260,
     "countInStock":22,
     "discount":10,
-    "colors":[],
+    "colors":["SunsetPink"],
     "imageThumbnails": [
       {
         "images": ["/product-images/10005/image-product-1.webp", "/product-images/10005/image-product-2.webp", "/product-images/10005/image-product-3.webp", "/product-images/10005/image-product-4.webp"]
@@ -164,7 +164,7 @@
     "price": 210,
     "countInStock":7,
     "discount":0,
-    "colors":[],
+    "colors":["Azure"],
     "imageThumbnails": [
       {
       "images":["/product-images/10007/image-product-1.webp", "/product-images/10007/image-product-2.webp", "/product-images/10007/image-product-3.webp", "/product-images/10007/image-product-4.jpg"]
@@ -185,7 +185,7 @@
     "price": 235,
     "countInStock":14,
     "discount":15,
-    "colors":[],
+    "colors":["SkyGrey"],
     "imageThumbnails":[
       {
         "images":[ "/product-images/10008/image-product-1.webp", 
@@ -212,7 +212,7 @@
     "price": 160,
     "countInStock":6,
     "discount":0,
-    "colors":["Pink_Bloom","Teal_Nebula"],
+    "colors":["PinkBloom","TealNebula"],
     "imageThumbnails":[
       {  
         "color":"Pink Bloom",

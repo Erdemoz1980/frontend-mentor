@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { closeCart, deleteCartItem} from '../slices/cartSlice';
 import useQtyChange from '../hooks/useQtyChange';
 import trashIcon from '../images/icon-delete.svg';
@@ -31,7 +32,7 @@ const ShoppingCart = () => {
                     ((item.price - (item.price * (item.discount / 100))) * item.qty).toFixed(2) : (item.price * item.qty).toFixed(2)}</span></p>
                   <div className="stock-info-wrapper">
                     <p>Change</p>
-                    <select name="" id="" value={item.qty} onChange={(e) => handleQtyChange(item.id, Number(e.target.value))} >
+                    <select name="" id="" value={item.qty} onChange={(e) => handleQtyChange(item._id, Number(e.target.value))} >
                       {Array.from({ length: item.countInStock }).map((_, index) => (
                         <option key={index} value={index + 1}>{index + 1}</option>
                       ))}
@@ -47,7 +48,7 @@ const ShoppingCart = () => {
                 </div>
               </div>
           ))}
-          <button className="btn btn-primary btn-block">Checkout</button>
+          <Link to='/user/checkout'><button onClick={() => dispatch(closeCart())} className="btn btn-primary btn-block">Checkout</button></Link>
         </>
       )}
     </div>

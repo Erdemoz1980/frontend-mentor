@@ -3,15 +3,21 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import { login } from '../slices/userSlice';
-import Alert from './Alert';
+import Alert from '../components/Alert';
+import EyeClosedIcon from '../components/EyeClosedIcon';
+import EyeOpenIcon from '../components/EyeOpenIcon';
 
-const LoginForm = () => {
+const LoginPage = () => {
   const [formData, setFormData] = useState({
     email:'',
     password:'',
     passwordConfirm:''
   });
-  const [loginAlert, setLoginAlert] = useState(false);
+  const [loginAlert, setLoginAlert] = useState(false)
+  const [showPassword, setShowPassword] = useState({
+    password: false,
+    passwordConfirm:false
+  })
 
   const { email, password, passwordConfirm } = formData;
 
@@ -50,15 +56,18 @@ const LoginForm = () => {
       <form onSubmit={submitHandler} className='login-register-form'>
         <div className="form-group">
           <label htmlFor="email">Email</label>
-          <input type="email" name="email" id="email" value={email} onChange={onChangeHandler} required/>
+          <input type="email" name="email" id="email" value={email} onChange={onChangeHandler} required />
+          
         </div>
         <div className="form-group">
           <label htmlFor="password">Password</label>
-          <input type="password" name="password" id="password" value={password} onChange={onChangeHandler} required />
+          <input type={showPassword.password ? 'text' : 'password'} name="password" id="password" value={password} onChange={onChangeHandler} required />
+          {showPassword.password ? <div onClick={()=>setShowPassword(prevState=>({...prevState, password:false}))} ><EyeOpenIcon /></div> : <div onClick={()=>setShowPassword(prevState=>({...prevState,password:true}))}><EyeClosedIcon /></div>}
         </div>
         <div className="form-group">
           <label htmlFor="passwordConfirm">Confirm Password</label>
-          <input type="password" name="passwordConfirm" id="passwordConfirm" value={passwordConfirm} onChange={onChangeHandler} required/>
+          <input type={showPassword.passwordConfirm ? 'text' : 'password'} name="passwordConfirm" id="passwordConfirm" value={passwordConfirm} onChange={onChangeHandler} required />
+          {showPassword.passwordConfirm ? <div onClick={()=>setShowPassword(prevState=>({...prevState, passwordConfirm:false}))} ><EyeOpenIcon /></div> : <div onClick={()=>setShowPassword(prevState=>({...prevState, passwordConfirm:true}))}><EyeClosedIcon /></div>}
         </div>
         <button className="btn btn-submit">Submit</button>
       </form>
@@ -69,4 +78,4 @@ const LoginForm = () => {
   )
 }
 
-export default LoginForm
+export default LoginPage

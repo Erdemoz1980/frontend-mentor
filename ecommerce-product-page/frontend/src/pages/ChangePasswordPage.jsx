@@ -2,12 +2,12 @@ import { useState, useEffect, useRef} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { updatePassword, reset } from '../slices/userSlice';
-import Alert from './Alert';
-import EyeClosedIcon from './EyeClosedIcon';
-import EyeOpenIcon from './EyeOpenIcon';
+import Alert from '../components/Alert';
+import EyeClosedIcon from '../components/EyeClosedIcon';
+import EyeOpenIcon from '../components/EyeOpenIcon';
 import { Link } from 'react-router-dom';
 
-const ChangePassword = () => {
+const ChangePasswordPage = () => {
   const [passwordData, setPasswordData] = useState({
     oldPassword: '',
     newPassword:'',
@@ -59,7 +59,7 @@ const ChangePassword = () => {
       setPasswordAlert('Passwords do not match!')
       setTimeout(() => {
         setPasswordAlert(false)
-      }, 3000)
+      }, 5000)
       return setFormValidated(false)
     }
   
@@ -100,4 +100,4 @@ const ChangePassword = () => {
   )
 }
 
-export default ChangePassword
+export default ChangePasswordPage

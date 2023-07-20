@@ -40,11 +40,5 @@ const productSchema = mongoose.Schema({
   timestamps:true
   })
 
-  productSchema.pre('save', function (next) {
-    if (!this.id && this._id) {
-      this.id = this._id.toString();
-    }
-    next();
-  });
 
 module.exports = mongoose.model('Product', productSchema);

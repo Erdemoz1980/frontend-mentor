@@ -126,7 +126,7 @@ const EditPropfilePage = () => {
     });
     setTimeout(() => {
       setProfileAlert(false)
-    },3000)
+    },5000)
   }
 };
 

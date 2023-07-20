@@ -7,7 +7,6 @@ const cartSlice = createSlice({
   initialState: {
     isCartOpen: false,
     cartItems,
-    itemQty:0,
     activeImage: 0, 
     lightbox:{isOpen:false, id:undefined}
   },
@@ -18,9 +17,6 @@ const cartSlice = createSlice({
     closeCart: (state) => {
       state.isCartOpen = false
     },
-    setItemQty: (state, action) => {
-      state.itemQty = action.payload
-    },
     setCartItems: (state, action) => {
       const newItem = action.payload;
       const itemExists = state.cartItems.find(item => item.id === newItem.id);
@@ -28,8 +24,7 @@ const cartSlice = createSlice({
       if (itemExists) {
         state.cartItems = state.cartItems.map(item => {
           if (item.id === newItem.id) {
-            return { ...item, qty: newItem.qty }
-           
+            return { ...item, qty: newItem.qty }     
           } 
           return item
         })

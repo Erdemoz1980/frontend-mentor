@@ -1,14 +1,14 @@
 import { useState} from 'react';
 import { Link } from 'react-router-dom';
 
-const ProductCard = ({ id, company, name, category, gender, price, colors, imagesMain, discount }) => {
+const ProductCard = ({ _id, company, name, category, gender, price, colors, imagesMain, discount }) => {
   const [colorVersion, setColorVersion] = useState(0);
 
   return (
     <div className="product-card-wrapper">
       <div className="product-card-img-wrapper">
-        <Link to={`/product/${id}/${colorVersion}`}>
-          <img src={colors.length > 1 ? (imagesMain && imagesMain[colorVersion].images[0]) : (imagesMain && imagesMain[0].images[0])} alt="card hero" />
+        <Link to={`/product/${_id}/${colorVersion}`}>
+          <img src={colors.length > 1 ? (imagesMain?.[colorVersion]?.images[0]) : (imagesMain?.[0].images[0])} alt="card hero" />
         </Link>
       </div>
       <div className="product-card-body">
@@ -24,7 +24,7 @@ const ProductCard = ({ id, company, name, category, gender, price, colors, image
           </Link>
         </div>
         <div className="color-thumbnails-wrapper">
-          {colors.length > 0 && colors.map((_, index) => (
+          {colors.length > 1 && colors.map((_, index) => (
             <div key={index} className='color-thumbnail-wrapper' onClick={() => setColorVersion(index)} >
               <img src={imagesMain[index].images[0]} alt='color version' />
             </div>

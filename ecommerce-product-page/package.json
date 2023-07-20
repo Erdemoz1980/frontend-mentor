@@ -14,7 +14,7 @@
   "scripts": {
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
-    "seeder": "node backend/seeder.js"
+    "productSeeder": "node backend/seederProducts.js"
   },
   "author": "Erdem Oz",
   "license": "ISC",

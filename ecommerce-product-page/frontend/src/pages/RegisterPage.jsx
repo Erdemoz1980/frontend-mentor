@@ -3,9 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { register } from '../slices/userSlice';
-import Alert from './Alert';
+import Alert from '../components/Alert';
 
-const RegisterForm = () => {
+const RegisterPage = () => {
   const [userData, setUserData] = useState({
     name: '',
     lastName: '',
@@ -136,4 +136,4 @@ const RegisterForm = () => {
   )
 }
 
-export default RegisterForm
+export default RegisterPage

@@ -25,6 +25,7 @@ const ProductDetail = () => {
         const response = await fetch(`http://localhost:8000/api/products/${id}`)
         const data = await response.json()
         setProduct(data)
+        console.log(data)
       } catch (error) {
         setAlert(error)
       }
@@ -41,7 +42,7 @@ const ProductDetail = () => {
   // const priceFixed = price.toFixed(2)
 
   function addToCartHandler() {
-    const newItem = { id, img: (colors && colors.length > 0) ? imageThumbnails[colorVersion[0]]?.images[0] : imageThumbnails[0].images[0], name, qty, price, countInStock};
+    const newItem = { _id:id, img: colors?.length > 0 ? imageThumbnails[colorVersion[0]]?.images[0] : imageThumbnails[0].images[0], name, qty, price, countInStock};
 
     dispatch(setCartItems(newItem));
     setQty(0)
