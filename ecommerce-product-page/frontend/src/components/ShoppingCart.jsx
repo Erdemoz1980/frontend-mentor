@@ -21,7 +21,7 @@ const ShoppingCart = () => {
       ) : (
         <>
           {cartItems.map(item => (
-              <div key={item._id} className="cart-item-details-wrapper">
+              <div key={`${item._id}${item.colorVersion}`} className="cart-item-details-wrapper">
                 <div className="cart-item-image-wrapper">
                   <img src={item.img} alt='cart item' />
                 </div>
@@ -40,7 +40,7 @@ const ShoppingCart = () => {
                   </div>
                 </div>
               <div className="cart-trash-container">
-                <button className="btn" onClick={() => dispatch(deleteCartItem(item._id))}>
+                <button className="btn" onClick={() => dispatch(deleteCartItem({ _id:item._id, colorVersion:item.colorVersion }))}>
                 <div className="cart-delete-img-container">
                 <img src={trashIcon} alt='trash' />
                 </div>  

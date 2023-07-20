@@ -31,10 +31,10 @@ const CheckoutPage = () => {
               <th>Your cart is empty</th>
             </tr>) : (
               cartItems.map(item => (
-                <tr className='checkout-item-row'>
+                <tr className='checkout-item-row' key={item._id}>
                   <td>
-                    <Link to={`/product/${item._id}`}><img src={item.img} alt='cart item' /></Link>
-                    <Link to={`/product/${item._id}`}><p>{item.name}</p></Link>
+                    <Link to={`/product/${item._id}/${item.colorVersion}`}><img src={item.img} alt='cart item' /></Link>
+                    <Link to={`/product/${item._id}/${item.colorVersion}`}><p>{item.name}</p></Link>
                   </td>
                   <td>${item.price.toFixed(2)}</td>
                   <td>

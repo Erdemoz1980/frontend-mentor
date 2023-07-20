@@ -41,33 +41,12 @@ const ProductDetail = () => {
   // const priceFixed = price.toFixed(2)
 
   function addToCartHandler() {
-    const newItem = { _id:id, img: colors?.length > 0 ? imageThumbnails[colorVersion[0]]?.images[0] : imageThumbnails[0].images[0], name, qty, price, countInStock};
+    const newItem = { _id:id, img: colors?.length > 0 ? imageThumbnails[colorVersion[0]]?.images[0] : imageThumbnails[0].images[0], name, price, qty, countInStock, discount, colorVersion:Number(colorVersion)};
 
     dispatch(setCartItems(newItem));
     setQty(0)
   };
 
- //On hover zoom-in on the image
- /* const handleZoom = {
-    handleMouseEnter: () => {
-      setIsZoomed(true)
-    },
-    handleMouseLeave: () => {
-      setIsZoomed(false)
-    },
-    handleMouseMove: (e) => {
-      if (isZoomed) {
-        //Calculate the position of the mouse within the image
-        const rect = e.target.getBoundingClientRect();
-        const x = ((e.clientX - rect.left) / e.target.offsetWidth) * 100;
-        const y = ((e.clientY - rect.top) / e.target.offsetHeight) * 100
-        
-        //Use the position of the mouse to move the background position of the image
-        e.target.style.transformOrigin = `${x}% ${y}%`
-      }
-    }
-  }*/
-  
   const scaleRate = (zoomValue - 1) * (5 - 1) / (100 - 1) + 1;
 
   const imageStyle = {

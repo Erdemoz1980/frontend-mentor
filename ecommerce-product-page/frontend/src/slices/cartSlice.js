@@ -19,11 +19,11 @@ const cartSlice = createSlice({
     },
     setCartItems: (state, action) => {
       const newItem = action.payload;
-      const itemExists = state.cartItems.find(item => item._id === newItem._id);
+      const itemExists = state.cartItems.find(item => item._id === newItem._id && item.colorVersion ===newItem.colorVersion);
 
       if (itemExists) {
         state.cartItems = state.cartItems.map(item => {
-          if (item._id === newItem._id) {
+          if ((item._id === newItem._id) && (item.colorVersion===newItem.colorVersion)) {
             return { ...item, qty: newItem.qty }     
           } 
           return item
@@ -34,7 +34,9 @@ const cartSlice = createSlice({
       localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
     },
     deleteCartItem: (state, action) => {
-      state.cartItems = state.cartItems.filter(item => item._id !== action.payload)
+      const { _id, colorVersion } = action.payload
+      const filteredItems = state.cartItems.filter(item => (item._id !== _id || item.colorVersion !== colorVersion))
+      state.cartItems = filteredItems
       localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
     },
     setActiveImage: (state, action) => {
