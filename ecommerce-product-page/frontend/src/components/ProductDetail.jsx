@@ -75,7 +75,6 @@ const ProductDetail = () => {
             <div className={`product-detail-image-wrapper ${isZoomed ? 'zoomed' : ''}`}
               //onClick={() => setLightboxIsOpen(true)}
             >
-            
             <img src={selectedImages?.[activeImage]} alt="main product" style={imageStyle} />
               <div className='zoom-slider-container'>
                 <input type="range" name="" id="" min='1' max='100' value={zoomValue} onChange={(e)=>setZoomValue(e.target.value)} className='zoom-slider'/>

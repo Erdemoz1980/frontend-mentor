@@ -845,6 +845,30 @@ tbody select {
   height: 20px;
 }
 
+.total-info-wrapper{
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+  align-items: flex-end;
+  padding:0 30px;
+  margin-top: 30px;
+  color:var(--clrDarkBlue);
+  font-weight: 500;
+}
+
+.total-info-wrapper p:nth-child(2) span.success{
+  color:var(--clrDarkGreen);
+}
+
+.total-info-wrapper p:last-of-type {
+  font-size: 22px;
+  padding: 10px 0;
+}
+
+.total-info-wrapper p:last-of-type span{
+  font-weight: 700;
+}
+
 
 
 
