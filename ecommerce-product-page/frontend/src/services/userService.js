@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:8000/api/users'
+const API_URL = 'https://www.erdemoz.io/api/users'
 //Register
 const register = async (userData) => {
   const response = await fetch(`${API_URL}/register`, {

@@ -22,7 +22,7 @@ const ProductDetail = () => {
   useEffect(() => {
     const fetchData =async()=> {
       try {
-        const response = await fetch(`http://localhost:8000/api/products/${id}`)
+        const response = await fetch(`https://www.erdemoz.io/api/products/${id}`)
         const data = await response.json()
         setProduct(data)
       } catch (error) {
