@@ -1,38 +1,31 @@
 import { useState, useEffect } from 'react';
-import { useDispatch} from 'react-redux';
-import {  useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { getProductDetail } from '../slices/productSlice';
 import { setCartItems } from '../slices/cartSlice';
 import IconCart from './IconCart';
 import IconMinus from './IconMinus';
 import IconPlus from './IconPlus';
 import Lightbox from './Lightbox';
+import Loader from './Loader';
+import Alert from './Alert';
 
 const ProductDetail = () => {
-  const [product, setProduct] = useState({})
   const [qty, setQty] = useState(0)
   const [lightboxIsOpen, setLightboxIsOpen] = useState(false)
   const [activeImage, setActiveImage] = useState(0)
-  const [alert, setAlert] = useState('')
   const [isZoomed, setIsZoomed] = useState(false)
   const [zoomValue, setZoomValue] = useState(1)
     
   const dispatch = useDispatch()
+  const { productDetail, isLoading, errMessage } = useSelector(state => state.product);
   const { id, colorVersion } = useParams()
 
   useEffect(() => {
-    const fetchData =async()=> {
-      try {
-        const response = await fetch(`https://www.erdemoz.io/api/products/${id}`)
-        const data = await response.json()
-        setProduct(data)
-      } catch (error) {
-        setAlert(error)
-      }
-    }
-    fetchData()
-  }, [id])
+    dispatch(getProductDetail(id));
+  }, [id, dispatch]);
 
-  const { company, name, description, price, countInStock, discount, colors, imageThumbnails, imagesMain } = product;
+  const { company, name, description, price, countInStock, discount, colors, imageThumbnails, imagesMain } = productDetail
   
   const selectedImages = colors?.length > 0 ? imagesMain?.[colorVersion]?.images : imagesMain?.[0]?.images;
   const selectedThumbnailImages = colors?.length > 0 ? imageThumbnails?.[colorVersion]?.images : imageThumbnails?.[0]?.images;
@@ -68,9 +61,9 @@ const ProductDetail = () => {
           setActiveImage={setActiveImage}
         />
       )}
-      {alert ? (
-        <div>Alert!</div>
-      ) : (
+      {isLoading ? 
+        <Loader /> : errMessage ? <Alert message={errMessage} type='error'/>
+       : (
         <div className="product-display-wrapper">
             <div className={`product-detail-image-wrapper ${isZoomed ? 'zoomed' : ''}`}
               //onClick={() => setLightboxIsOpen(true)}

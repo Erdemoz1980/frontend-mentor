@@ -3,7 +3,8 @@
 :root{
   /*Colors*/
   --clrFuchsia:#552655;
-  --clrOrange:#FF7E1B;
+  --clrOrange:#ff7e1b;
+  --clrWarning:#ff797936;
   --clrGreen:#18977cda;
   --clrDarkGreen:#339c79;
   --clrLightOrange:#FFEEE2;
@@ -39,6 +40,7 @@ ul{
 
 a{
   text-decoration: none;
+  color:var(--clrDarkBlue);
 }
 
 a:visited{
@@ -166,3 +168,13 @@ h1, h2, h3, h4, h5{
 }
 
 /*Shapes*/
+.loader{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background:conic-gradient(#0000 10%,#766DF4);
+    mask:radial-gradient(farthest-side,#0000 calc(100% - 8px),#000 0);
+    animation:s3 1s infinite linear;
+
+  @keyframes s3 {to{transform: rotate(1turn)}}
+}

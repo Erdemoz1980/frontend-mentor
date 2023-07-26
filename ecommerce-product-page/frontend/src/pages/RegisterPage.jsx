@@ -73,7 +73,7 @@ const RegisterPage = () => {
 
   return (
     <div className='container form-wrapper'>
-      {(alertRegister || errMessage) && <Alert message={alertRegister ? alertRegister : errMessage} />}
+      {(alertRegister || errMessage) && <Alert message={alertRegister ? alertRegister : errMessage} type='error' />}
       <h1>Sign Up</h1>
       <form onSubmit={submitHandler} className='login-register-form'>
         <div className="form-group">

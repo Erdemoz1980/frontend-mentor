@@ -6,13 +6,13 @@ const asyncHandler = require('express-async-handler');
 //@access Public
 const registerUser = asyncHandler(async (req, res) => {
   let { name, lastName, email, password, address } = req.body
-  name = name[0].toUpperCase() + name.subString(1, name.length)
-  lastName = lastName[0].toUpperCase() + lastName.subString(1, lastName.length)
+  name = name[0].toUpperCase() + name.substring(1, name.length)
+  lastName = lastName[0].toUpperCase() + lastName.substring(1, lastName.length)
   email = email.toLowerCase()
 
   const userExists = await User.findOne({ email });
   if (userExists) {
-    return res.status(400).json({ message: 'An account is already registered with your email' })
+    return res.status(400).json({ message: 'Another account is already registered with your email!' })
   }
 
   const user = await User.create({

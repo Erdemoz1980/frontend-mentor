@@ -1,4 +1,6 @@
-const API_URL = 'https://www.erdemoz.io/api/users'
+const API_URL_HEROKU = 'https://erdemoz-io-659240e6c6f7.herokuapp.com/api/users';
+const API_URL = 'http://localhost:8000/api/users/'
+
 //Register
 const register = async (userData) => {
   const response = await fetch(`${API_URL}/register`, {
@@ -10,10 +12,13 @@ const register = async (userData) => {
   })
    
   if (!response.ok) {
-    const errorData = await response.json();
-    throw new Error(errorData.message)
+    let errorMessage = 'An unexpected error occurred. Please try again later.'
+    if (response.headers.get('content-type')?.includes('application/json')) {
+      const errorData = await response.json()
+      errorMessage = errorData.message
+    }
+    throw new Error(errorMessage)
   }
-
   return await response.json()
 };
 
@@ -22,18 +27,22 @@ const login = async (userData) => {
   const response = await fetch(`${API_URL}/login`, {
     method: 'POST',
     headers: {
-      'Content-Type':'application/json'
+      'Content-Type': 'application/json'
     },
-    body:JSON.stringify(userData)
+    body: JSON.stringify(userData)
   })
 
   if (!response.ok) {
-    const errorData = await response.json() 
-    throw new Error(errorData.message)
+    let errorMessage = 'An unexpected error occurred. Please try again later.'
+    if (response.headers.get('content-type')?.includes('application/json')) {
+      const errorData = await response.json()
+      errorMessage = errorData.message
+    }
+    throw new Error(errorMessage)
   }
 
-  return await response.json()
-}
+  return await response.json();
+};
 
 
 //Update User
@@ -45,10 +54,18 @@ const updateProfile = async (userData) => {
     },
     body:JSON.stringify(userData)
   })
+
   if (!response.ok) {
-    const errorData = await response.json()
-    throw new Error(errorData.message)
+    let errorMessage = 'An unexpected error occurred. Please try again later.'
+    if (response.headers.get('content-type')?.includes('applicaton/json')) {
+      const errorData = await response.json()
+      errorMessage = errorData.message
+    }
+
+    throw new Error(errorMessage)
   }
+
+
   return await response.json()
 }
 
@@ -61,10 +78,17 @@ const updatePassword = async (userData) => {
     },
     body:JSON.stringify(userData)
   })
+   
   if (!response.ok) {
-    const errorData = await response.json()
-    throw new Error(errorData.message)
+    let errorMessage = 'An unexpected error occurred. Please try again later.'
+    if (response.headers.get('content-type')?.includes('application/json')) {
+      const errorData = await response.json()
+      errorMessage = errorData.message
+    }
+    throw new Error(errorMessage)
   }
+
+
   return await response.json()
 }
 

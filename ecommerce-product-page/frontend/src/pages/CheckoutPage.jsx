@@ -59,7 +59,7 @@ const CheckoutPage = () => {
                   <p>Shipping: <span className={`${shippingAmount===0 ? 'success' : ''}`}>{shippingAmount>0 ? `$${shippingAmount.toFixed(2)}` : 'Free Shipping' }</span></p>
                 <p>Taxes: ${totalTax.toFixed(2)}</p>
                   <p>Total: <span>${sumTotal.toFixed(2)}</span> </p>
-                  <Link to='/order/payment'><button className='btn btn-medium' >Checkout</button></Link>
+                  <Link to='/order/payment'><button className='btn btn-medium' >Continue to payment</button></Link>
               </div>
             </>
           )}
