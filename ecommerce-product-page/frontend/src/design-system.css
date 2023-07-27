@@ -64,6 +64,10 @@ a:visited{
   border-radius: 10px;
 }
 
+.visible{
+  visibility: visible;
+}
+
 /*Input elements*/
 input, textarea, select{
   font-family: var(--ffMain);
@@ -132,13 +136,12 @@ h1{
   font-size: 30px;
 }
 
-h1, h2, h3, h4, h5{
+h1, h2, h3, h4, h5, p{
   font-weight: 500;
   color:var(--clrVeryDarkBlue)
 }
 
 .text-dark{
-  color:var(--clrVeryDarkBlue);
   font-weight: 700;
 }
 
