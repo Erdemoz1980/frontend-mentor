@@ -3,7 +3,7 @@ const API_URL = 'http://localhost:8000/api/products'
 
 //Get Product List
 const getProducts = async () => {
-  const response = await fetch(API_URL);
+  const response = await fetch(API_URL_HEROKU);
  
   if (!response.ok) {
     const errorData = await response.json();
@@ -15,7 +15,7 @@ const getProducts = async () => {
 
 //Get a product detail
 const getProductDetail = async (productId) => {
-  const response = await fetch(`${API_URL}/${productId}`)
+  const response = await fetch(`${API_URL_HEROKU}/${productId}`)
 
   if (!response.ok) {
     const errorData = await response.json()

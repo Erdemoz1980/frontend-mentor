@@ -3,7 +3,7 @@ const API_URL = 'http://localhost:8000/api/users/'
 
 //Register
 const register = async (userData) => {
-  const response = await fetch(`${API_URL}/register`, {
+  const response = await fetch(`${API_URL_HEROKU}/register`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -24,7 +24,7 @@ const register = async (userData) => {
 
 //Login
 const login = async (userData) => {
-  const response = await fetch(`${API_URL}/login`, {
+  const response = await fetch(`${API_URL_HEROKU}/login`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -40,14 +40,13 @@ const login = async (userData) => {
     }
     throw new Error(errorMessage)
   }
-
   return await response.json();
 };
 
 
 //Update User
 const updateProfile = async (userData) => {
-  const response = await fetch(`${API_URL}/profile/update/${userData._id}`, {
+  const response = await fetch(`${API_URL_HEROKU}/profile/update/${userData._id}`, {
     method: 'PUT',
     headers: {
       'Content-Type':'application/json'
@@ -65,13 +64,12 @@ const updateProfile = async (userData) => {
     throw new Error(errorMessage)
   }
 
-
   return await response.json()
 }
 
 //Update Password
 const updatePassword = async (userData) => {
-  const response = await fetch(`${API_URL}/password/update/${userData._id}`, {
+  const response = await fetch(`${API_URL_HEROKU}/password/update/${userData._id}`, {
     method: 'PUT',
     headers: {
       'Content-Type':'application/json'

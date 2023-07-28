@@ -7,20 +7,23 @@ import { Link } from 'react-router-dom';
 import Alert from '../components/Alert';
 import IconQuestionMark from '../components/IconQuestionMark';
 import IconEdit from '../components/IconEdit';
+import IconLock from '../components/IconLock';
 
 const PaymentPage = () => {
+  const { userInfo, provinces, isLoading } = useSelector(state => state.user)
   const [billingData, setBillingData] = useState({
     name: '',
     lastName: '',
     streetNo: '',
     streetName: '',
     postalCode: '',
-    province: '',
+    province: userInfo?.address?.province ?? '',
     country: 'Canada'
   });
   const [selectedMethod, setSelectedMethod] = useState('credit-card')
   const [billingAddress, setBillingAddress] = useState('same')
-  const [tip, setTip] = useState(false)
+  const [securityCodeTip, setSecurityCodeTip] = useState(false)
+  const [encryptionTip, setEncryptionTip] = useState(false)
 
   const { name, lastName, streetNo, streetName, postalCode, province, country } = billingData
 
@@ -28,7 +31,7 @@ const PaymentPage = () => {
   const location = useLocation();
   const dispatch = useDispatch();
 
-  const { userInfo, provinces, isLoading } = useSelector(state => state.user)
+
   const { email, address: { streetNo: streetNoUser, streetName: streetNameUser, postalCode: postalCodeUser, province: provinceUser, country: countryUser } = {} } = userInfo || {}
 
   const message = 'Your billing address must match your payment card`s registered address.'
@@ -39,14 +42,20 @@ const PaymentPage = () => {
     }
 
     console.log(location.pathname)
-  }, [userInfo, navigate, isLoading])
+  }, [userInfo, navigate, isLoading, location.pathname])
 
   const handleHover = {
-    handleMouseEnter: () => {
-      setTip(true)
+    handleMouseEnterSecurityCode: () => {
+      setSecurityCodeTip(true)
     },
-    handleMouseLeave: () => {
-      setTip(false)
+    handleMouseLeaveSecurityCode: () => {
+      setSecurityCodeTip(false)
+    },
+    handleEncryptionEnter: () => {
+      setEncryptionTip(true)
+    },
+    handleEncryptionLeave: () => {
+      setEncryptionTip(false)
     }
   };
 
@@ -80,13 +89,13 @@ const PaymentPage = () => {
         </div>
         </div>
   
-      <header>
-        <h3>Payment</h3>
-        <p>All transactions are secure and encrypted</p>
-      </header>
+    
 
       <form className="payment-form-wrapper" onSubmit={submitHandler}>
-
+      <div className='form-section-title'>
+        <h3>Payment</h3>
+        <p>All transactions are secure and encrypted</p>
+      </div>
         <div className="payment-method-wrapper">
           <div className="payment-method-form-group">
             <input type="radio" name="credit-card" id="credit-card" value='credit-card'
@@ -97,14 +106,18 @@ const PaymentPage = () => {
           </div>
  
           <section className={`credit-card-form-wrapper ${selectedMethod === 'credit-card' && 'visible'}`}>
-            <input type="text" placeholder='Card Number' />
+            <div className="card-number-wrapper">
+              <input type="text" placeholder='Card Number' />
+              <div className="lock-icon-wrapper" onMouseEnter={handleHover.handleEncryptionEnter} onMouseLeave={handleHover.handleEncryptionLeave}><IconLock /></div>
+              {encryptionTip && <small className='encryption-tip-wrapper'>All transactions are secure and encrypted.</small> }
+            </div> 
             <input type="text" placeholder='Name on card' />
             <div className="expiration-security-wrapper">
               <input type="text" name="" id="" placeholder='Expiration date (MM / YY)' />
               <div className="security-code-wrapper">
                 <input type="text" placeholder='Security code' />
-                <div className="tip-icon-holder" onMouseEnter={handleHover.handleMouseEnter} onMouseLeave={handleHover.handleMouseLeave} ><IconQuestionMark /></div>
-                {tip && <div className='tip-wrapper'>3-digit security code usually found on the back of your card. American Express cards have a 4-digit code located on the front.</div>}
+                <div className="tip-icon-holder" onMouseEnter={handleHover.handleMouseEnterSecurityCode} onMouseLeave={handleHover.handleMouseLeaveSecurityCode} ><IconQuestionMark /></div>
+                {securityCodeTip && <small className='security-code-tip-wrapper'>3-digit security code usually found on the back of your card. American Express cards have a 4-digit code located on the front.</small>}
               </div>
             </div>
           </section>
@@ -115,12 +128,13 @@ const PaymentPage = () => {
           </div>
         </div>
 
-        <div className="billing-address-wrapper">
+        <div className='form-section-title'>
           <h3>Billing address</h3>
           <p>Select the address that matches your card or payment method</p>
           <Alert message={message} type='warning' />
         </div>
-        <div className="billing-address-form-group">
+        <div className="billing-address-form-group-wrapper">
+           <div className="billing-address-form-group">
           <input type="radio" name="same-as-shipping" id="same-as-shipping"
             checked={billingAddress === 'same'}
             onChange={() => setBillingAddress('same')}
@@ -134,27 +148,22 @@ const PaymentPage = () => {
           />
           <label htmlFor="different-billing-address">Use a different billing address</label>
         </div>
+        </div>
+       
 
         <section className={`billing-address-form-wrapper ${billingAddress === 'different' && 'visible'}`}>
-          <div className="form-group">
-            <label htmlFor="name">Name</label>
-            <input type="text" name="name" id="name" value={name} onChange={onChangeHandler} required />
+          <div className="form-group first-last-name">
+          <input type="text" name="name" id="name" placeholder='Name' value={name} onChange={onChangeHandler} required />
+            <input type="text" name="lastName" id="lastName" placeholder='Last Name' value={lastName} onChange={onChangeHandler} required />
           </div>
           <div className="form-group">
-            <label htmlFor="lastName">Last Name</label>
-            <input type="text" name="lastName" id="lastName" value={lastName} onChange={onChangeHandler} required />
+            <input type="text" name="streetNo" id="streetNo" placeholder='Street No' value={streetNo} onChange={onChangeHandler} required />
           </div>
           <div className="form-group">
-            <label htmlFor="streetNo">Street No</label>
-            <input type="text" name="streetNo" id="streetNo" value={streetNo} onChange={onChangeHandler} required />
+            <input type="text" name="streetName" id="streetName" placeholder='Street Name' value={streetName} onChange={onChangeHandler} required />
           </div>
           <div className="form-group">
-            <label htmlFor="streetName">Unit no & Street Name</label>
-            <input type="text" name="streetName" id="streetName" value={streetName} onChange={onChangeHandler} required />
-          </div>
-          <div className="form-group">
-            <label htmlFor="postalCode">Postal Code</label>
-            <input type="text" name="postalCode" id="postalCode" value={postalCode} onChange={onChangeHandler} required />
+            <input type="text" name="postalCode" id="postalCode" placeholder='Postal Code' value={postalCode} onChange={onChangeHandler} required />
           </div>
           <div className="form-group">
             <label htmlFor="province">Province</label>

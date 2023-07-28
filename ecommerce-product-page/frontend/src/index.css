@@ -886,80 +886,16 @@ tbody select {
   width: var(--widthMedium);
 }
 
-.payment-form-wrapper{
-  max-width: 500px;
-  border:1px solid var(--clrLightGrey);
-  padding: 20px;
-}
-
-.payment-method-form-group {
- display: flex;
- align-items: center;
- margin-bottom: 10px;
-}
-
-.payment-method-form-group input[type='radio']{
-  margin-right: 10px;
-}
-
-.payment-method-form-group label{
-  font-size: 15px;
-  letter-spacing: -0.25px;
-}
-
-.credit-card-form-wrapper {
-  display: none;
-  flex-direction: column;
-  gap:5px;
-}
-
-.credit-card-form-wrapper.visible {
-  display: flex;
-}
-
-.credit-card-form-wrapper input[type='text'] {
-  display: block;
-  width: 100%;
-  margin: auto;
-  padding: 5px;
-  border:1px solid var(--clrLightGrey)
-}
-
-.security-code-wrapper{
-  position: relative;
-}
-
-.tip-wrapper{
-  position: absolute;
-  top:-130px;
-  right:-55px;
-  width: 150px;
-  height: 120px;
-  text-align: center;
-  line-height: 16px;
-  padding: 10px;
-  background-color: rgba(44, 44, 44, 0.95);
-  border-radius: 3px;
-  color:#fff;
-  font-size: 12px;
-  letter-spacing:-0.3px
-}
-
-.tip-icon-holder{
-  position: absolute;
-  right: 5px;
-  top:50%;
-  transform: translateY(-50%);
-}
-
 /*Shipping Summary*/
 .shipping-summary-wrapper{
   display: flex;
   flex-direction: column;
   gap:10px;
   border: 1px solid var(--clrLightGrey);
+  border-radius: 5px;
   padding: 20px;
   max-width: 500px;
+  margin-bottom: 25px;
 }
 .summary-row {
   display: grid;
@@ -986,16 +922,169 @@ tbody select {
   justify-self:end;
 }
 
+/*Payment Form*/
+.payment-form-wrapper{
+  max-width: 500px;
+}
+
+.form-section-title{
+  margin-bottom: 10px;
+}
+
+.form-section-title h3{
+  font-size:18px;
+  letter-spacing: -0.25px;
+}
+
+.form-section-title p{
+  font-size: 15px;
+}
+
+.form-section-title .alert-wrapper {
+  margin-top: 10px;
+  padding: 15px 10px;
+}
+
+.form-section-title .alert-wrapper p {
+  font-size: 14px;
+}
+
+.payment-method-wrapper{
+  border:1px solid var(--clrLightGrey);
+  border-radius: 5px;
+  margin-bottom: 25px;
+}
+
+.payment-method-form-group {
+ display: flex;
+ align-items: center;
+ padding: 15px; 
+}
+
+.payment-method-form-group:first-child {
+  border-bottom: 1px solid var(--clrLightGrey);
+}
+
+.payment-form-wrapper input[type='radio']{
+  margin-right: 10px;
+}
+
+.payment-method-form-group label{
+  font-size: 15px;
+  letter-spacing: -0.25px;
+}
+
+.credit-card-form-wrapper {
+  display: none;
+ 
+}
+
+.credit-card-form-wrapper input[type='text'] {
+  display: block;
+  width: 100%; 
+  border-radius: 5px;
+  margin: auto;
+  padding: 10px;
+  font-size: 14px;
+  border:1px solid var(--clrLightGrey)
+}
+
+.card-number-wrapper{
+  position: relative;
+}
+
+.lock-icon-wrapper{
+  position: absolute;
+  right:10px;
+  top:50%;
+  transform: translateY(-50%);
+}
+
+.expiration-security-wrapper{
+  display: grid;
+  grid-template-columns: 10fr 9fr;
+  gap:10px;
+}
+
+.security-code-wrapper{
+  position: relative;
+}
+
+.security-code-tip-wrapper, .encryption-tip-wrapper {
+  position: absolute;
+  top:-115px;
+  right:-55px;
+  width: 150px;
+  height: auto;
+  text-align: center;
+  line-height: 16px;
+  padding: 10px;
+  background-color: rgba(44, 44, 44, 0.95);
+  border-radius: 3px;
+  color:#fff;
+  font-size: 12px;
+  letter-spacing:-0.3px
+}
+
+.encryption-tip-wrapper{
+  top:-50px;
+}
+
+.tip-icon-holder{
+  position: absolute;
+  right: 10px;
+  top:50%;
+  transform: translateY(-50%);
+}
+
 /*Billing Form*/
 .billing-address-form-wrapper{
   display: none;
 }
 
+.credit-card-form-wrapper.visible, 
 .billing-address-form-wrapper.visible{
   display: flex;
   flex-direction: column;
+  gap:10px;
+  background: var(--clrVeryLightGrey);
+  padding:20px 15px;
+  border-bottom: 1px solid var(--clrLightGrey);
 }
 
-/*Shipping Summary*/
+.billing-address-form-wrapper input {
+  display: block;
+  width: 100%; 
+  border-radius: 5px;
+  margin: auto;
+  padding: 10px;
+  font-size: 14px;
+  border:1px solid var(--clrLightGrey)
+}
+
+.billing-address-form-wrapper select{
+  border:1px solid var(--clrLightGrey);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.first-last-name{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap:10px;
+}
+.billing-address-form-group-wrapper{
+border:1px solid var(--clrLightGrey);
+border-radius: 5px;
+}
+
+.billing-address-form-group{
+  padding: 15px;
+}
+
+.billing-address-form-group:first-child{
+  border-bottom: 1px solid var(--clrLightGrey);
+}
+
 
 
