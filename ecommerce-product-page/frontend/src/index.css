@@ -979,7 +979,7 @@ tbody select {
  
 }
 
-.credit-card-form-wrapper input[type='text'] {
+.payment-form-wrapper input[type='text'] {
   display: block;
   width: 100%; 
   border-radius: 5px;
@@ -1050,16 +1050,6 @@ tbody select {
   background: var(--clrVeryLightGrey);
   padding:20px 15px;
   border-bottom: 1px solid var(--clrLightGrey);
-}
-
-.billing-address-form-wrapper input {
-  display: block;
-  width: 100%; 
-  border-radius: 5px;
-  margin: auto;
-  padding: 10px;
-  font-size: 14px;
-  border:1px solid var(--clrLightGrey)
 }
 
 .billing-address-form-wrapper select{

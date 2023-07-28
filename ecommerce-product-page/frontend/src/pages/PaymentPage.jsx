@@ -152,20 +152,20 @@ const PaymentPage = () => {
        
 
         <section className={`billing-address-form-wrapper ${billingAddress === 'different' && 'visible'}`}>
-          <div className="form-group first-last-name">
+          <div className="form-group-billing first-last-name">
           <input type="text" name="name" id="name" placeholder='Name' value={name} onChange={onChangeHandler} required />
             <input type="text" name="lastName" id="lastName" placeholder='Last Name' value={lastName} onChange={onChangeHandler} required />
           </div>
-          <div className="form-group">
+          <div className="form-group-billing">
             <input type="text" name="streetNo" id="streetNo" placeholder='Street No' value={streetNo} onChange={onChangeHandler} required />
           </div>
-          <div className="form-group">
+          <div className="form-group-billing">
             <input type="text" name="streetName" id="streetName" placeholder='Street Name' value={streetName} onChange={onChangeHandler} required />
           </div>
-          <div className="form-group">
+          <div className="form-group-billing">
             <input type="text" name="postalCode" id="postalCode" placeholder='Postal Code' value={postalCode} onChange={onChangeHandler} required />
           </div>
-          <div className="form-group">
+          <div className="form-group-billing">
             <label htmlFor="province">Province</label>
             <select name="province" id="province" value={province} onChange={onChangeHandler} required>
               {provinces.map((item, index) => (
