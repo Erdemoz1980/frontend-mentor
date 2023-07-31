@@ -24,7 +24,6 @@ const ContactForm = ({ formData, setFormData }) => {
     }
   };
 
-  
   return (
     <div className="container">
       <div className="contact-form-wrapper">

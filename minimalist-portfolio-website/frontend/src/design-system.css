@@ -49,6 +49,9 @@ ul{
   list-style: none;
 }
 
+/*Make images easier to work with*/
+
+
   /*Typography*/
 
   /*Headings*/
@@ -110,6 +113,9 @@ a{
 
 /*Buttons*/
 .btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border:none;
   width: 202px;
   height: 48px;

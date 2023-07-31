@@ -11,14 +11,16 @@ const PortfolioDetails = () => {
   const currentItem = portfolioData.find(item => item.id.toString() === id);
   const { title, description } = currentItem;
 
-  const { imgDeskHero, projectBackground, keywords, techStack, staticPreviews } = currentItem.details;
+  const { url, details: { imgDeskHero, projectBackground, keywords, techStack, staticPreviews } } = currentItem;
+
+
   
   const prevItem = portfolioData.indexOf(currentItem) === 0 ? portfolioData[portfolioData.length - 1] : portfolioData[portfolioData.indexOf(currentItem) - 1];
   const nextItem = portfolioData.indexOf(currentItem) === portfolioData.length - 1 ? portfolioData[0] : portfolioData[portfolioData.indexOf(currentItem) + 1];
 
   return (
     <div className="container">
-      <div className="details-hero">
+      <div className="details-hero-wrapper">
         <img src={imgDeskHero} alt="hero display" />
       </div>
       <div className='portfolio-details-wrapper'>
@@ -41,7 +43,7 @@ const PortfolioDetails = () => {
               </span>
             ))}
           </p>
-          <button className="btn btn-secondary btn-md">Visit Website</button>
+          <a href={url} target='_blank' rel="noreferrer" className="btn btn-secondary btn-md">Visit Website</a>
         </div>
         <div className="project-background">
           <h3>Project Background</h3>

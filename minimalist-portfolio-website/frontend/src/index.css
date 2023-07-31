@@ -148,7 +148,7 @@
 }
 
 .card-text{
- padding:100px 0;
+ padding:50px 0;
  border-top:var(--borderLine);
  border-bottom:var(--borderLine);
 }
@@ -166,13 +166,17 @@
 }
 
 /*Porfolio Details*/
-.details-hero{
+.details-hero-wrapper{
   margin-bottom: var(--marginDetailHero);
+  width: 1110px;
+  height: 500px;
 }
 
-.details-hero img{
+.details-hero-wrapper img{
+  height: 100%;
   width: 100%;
-  height: auto;
+  object-fit:contain;
+ 
 }
 
 .portfolio-details-wrapper{

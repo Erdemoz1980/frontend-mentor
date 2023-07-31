@@ -1,34 +1,37 @@
 [
   {
     "id":10001,
-    "title":"Manage",
-    "description":"This project required me to build a fully responsive landing page to the designs provided. I used HTML5,along with CSS Grid and JavaScript for the areas that required interactivity, such as the testimonial slider.",
-    "image":"/images/portfolio/desktop/image-portfolio-manage.jpg",
+    "title":"Ecommerce Site",
+    "description":"This project required me to build a fully functional full stack E-commerce site to the designs provided. The site features register, login and edit profile functionality, as well as functionality to filter products based on clickable tags. The site also includes functionality to place order using payment options. I used CSS, React, Redux Toolkit, and ExpressJS for development",
+    "descriptionGPT":"In this ambitious project, I developed a comprehensive full stack E-commerce site from scratch. With focus on user experience, I integrated essential features such as user registration, login, and profile editing. To enhance product discoverability, I implemented dynamic filtering using clickable tags, enabling users to find what they love effortlessly.To ensure smooth transactions, I integrated secure payment options, enabling users to confidently place orders with ease. Utilizing my expertise in CSS, React, Redux Toolkit, and ExpressJS, I developed a robust and responsive platform that embodies the essence of modern E-commerce. This project epitomizes my ability to deliver sophisticated full stack solutions, blending my front-end skills with back-end functionality.",
+    "image":"/images/portfolio/desktop/image-portfolio-ecommerce.jpg",
+    "url":"https://ecommerce.erdemoz.io",
     "details":{
-      "imgDeskHero":"/images/detail/desktop/image-manage-hero.jpg",
+      "imgDeskHero":"/images/detail/desktop/image-ecommere-hero.jpg",
       "imgTabletHero":"/images/detail/tablet/image-manage-hero.jpg",
       "imgMobileHero":"/images/detail/mobile/image-manage-hero.jpg",
       "projectBackground":"This project was a front-end challenge from Frontend Mentor.It's a platform that enables you to practice building websites to a design and project brief. Each challenge includes mobile and desktop designs to show how the website should look at different screen sizes. Creating these projects has helped me refine my workflow and solve real-world coding problems. I've learned something new with each project, helping me to improve and adopt my style.",
       "keywords":[{"id":101,"name":"Interaction Design"},{"id":102,"name":"Frontend Development"}],
-      "techStack":[{"id":101,"name":"HTML"}, {"id":102,"name":"CSS"}, {"id":103,"name":"JS"},{"id":104,"name":"ReactJS"}],
+      "techStack":[{"id":101,"name":"CSS"}, {"id":102,"name":"ReactJS"}, {"id":103,"name":"Redux Toolkit"},{"id":104,"name":"ExpressJS"}],
       "staticPreviews":[
-        {"id":101,"image":"/images/detail/desktop/image-manage-preview-1.jpg"},
-        {"id":102,"image":"/images/detail/desktop/image-manage-preview-2.jpg"}
+        {"id":101,"image":"/images/detail/desktop/image-ecommerce-preview-1.jpg"},
+        {"id":102,"image":"/images/detail/desktop/image-ecommerce-preview-2.jpg"}
       ]
     }
   },
   {
     "id":10002,
-    "title":"Bookmark",
+    "title":"Galleria Slideshow",
     "description":"This project required me to build a fully responsive landing page to the designs provided. I used HTML5,along with CSS Grid and JavaScript for the areas that required interactivity, such as the features section",
     "image":"/images/portfolio/desktop/image-portfolio-bookmark.jpg",
+    "url":"https://galleria.erdemoz.io",
     "details":{
       "imgDeskHero":"/images/detail/desktop/image-bookmark-hero.jpg",
       "imgTabletHero":"/images/detail/tablet/image-bookmark-hero.jpg",
       "imgMobileHero":"/images/detail/mobile/image-bookmark-hero.jpg",
       "projectBackground":"This project was a front-end challenge from Frontend Mentor.It's a platform that enables you to practice building websites to a design and project brief. Each challenge includes mobile and desktop designs to show how the website should look at different screen sizes. Creating these projects has helped me refine my workflow and solve real-world coding problems. I've learned something new with each project, helping me to improve and adopt my style.",
-      "keywords":[{"id":101,"name":"Interaction Design"},{"id":102,"name":"Frontend Development"}],
-      "techStack":[{"id":101,"name":"HTML"}, {"id":102,"name":"CSS"}, {"id":103,"name":"JS"}],
+      "keywords":[{"id":101,"name":"Frontend Development"},{"id":102,"name":"Design Development"}],
+      "techStack":[{"id":101,"name":"CSS"}, {"id":102,"name":"ReactJS"}, {"id":103,"name":"JS"}],
       "staticPreviews":[
         {"id":101,"image":"/images/detail/desktop/image-bookmark-preview-1.jpg"},
         {"id":102,"image":"/images/detail/desktop/image-bookmark-preview-2.jpg"}
@@ -37,16 +40,17 @@
   },
   {
     "id":10003,
-    "title":"Insure",
+    "title":"Password Generator",
     "description":"This was a small project which mostly consisted of HTML and CSS. I built a fully-responsive landing page. The only JavaScript this project required was to enable the toggling of the mobile navigation",
     "image":"/images/portfolio/desktop/image-portfolio-insure.jpg",
+    "url":"https://generator.erdemoz.io",
     "details":{
       "imgDeskHero":"/images/detail/desktop/image-insure-hero.jpg",
       "imgTabletHero":"/images/detail/tablet/image-insure-hero.jpg",
       "imgMobileHero":"/images/detail/mobile/image-insure-hero.jpg",
       "projectBackground":"This project was a front-end challenge from Frontend Mentor.It's a platform that enables you to practice building websites to a design and project brief. Each challenge includes mobile and desktop designs to show how the website should look at different screen sizes. Creating these projects has helped me refine my workflow and solve real-world coding problems. I've learned something new with each project, helping me to improve and adopt my style.",
       "keywords":[{"id":101,"name":"Interaction Design"},{"id":102,"name":"Frontend Development"}],
-      "techStack":[{"id":101,"name":"HTML"}, {"id":102,"name":"CSS"}, {"id":103,"name":"JS"}],
+      "techStack":[{"id":101,"name":"CSS"}, {"id":102,"name":"JS"}, {"id":103,"name":"ReactJS"}],
       "staticPreviews":[
         {"id":101,"image":"/images/detail/desktop/image-insure-preview-1.jpg"},
         {"id":102,"image":"/images/detail/desktop/image-insure-preview-2.jpg"}
@@ -55,16 +59,17 @@
   },
   {
       "id":10004,
-      "title":"Fylo",
+      "title":"Tip Calculator",
       "description":"This project was built in pure HTML and CSS. I had mobile and desktop designs to work to and built it so that it was fully-responsive. I took a mobile-first approach and used modern CSS like Flexbox and Grid for layout purposes.",
       "image":"/images/portfolio/desktop/image-portfolio-fylo.jpg",
+      "url":"https://tipcalculator.erdemoz.io/",
       "details":{
         "imgDeskHero":"/images/detail/desktop/image-fylo-hero.jpg",
         "imgTabletHero":"/images/detail/tablet/image-fylo-hero.jpg",
         "imgMobileHero":"/images/detail/mobile/image-fylo-hero.jpg",
         "projectBackground":"This project was a front-end challenge from Frontend Mentor.It's a platform that enables you to practice building websites to a design and project brief. Each challenge includes mobile and desktop designs to show how the website should look at different screen sizes. Creating these projects has helped me refine my workflow and solve real-world coding problems. I've learned something new with each project, helping me to improve and adopt my style.",
-        "keywords":[{"id":101,"name":"Interaction Design"},{"id":102,"name":"Frontend Development"}],
-      "techStack":[{"id":101,"name":"HTML"}, {"id":102,"name":"CSS"}],
+        "keywords":[{"id":101,"name":"Frontend Development"},{"id":102,"name":"Design Development"}],
+      "techStack":[{"id":101,"name":"CSS"}, {"id":102,"name":"JS"}, {"id":103,"name":"ReactJS"}],
         "staticPreviews":[
           {"id":101,"image":"/images/detail/desktop/image-fylo-preview-1.jpg"},
           {"id":102,"image":"/images/detail/desktop/image-fylo-preview-2.jpg"}
