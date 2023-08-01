@@ -25,6 +25,7 @@ const PortfolioDetails = () => {
       </div>
       <div className='portfolio-details-wrapper'>
         <div className="details-description-wrapper">
+          <div className="inner-details-description-wrapper">
           <h2>{title}</h2>
           <p className='description'>{description}</p>
           <p className='keywords-wrapper'>
@@ -43,7 +44,8 @@ const PortfolioDetails = () => {
               </span>
             ))}
           </p>
-          <a href={url} target='_blank' rel="noreferrer" className="btn btn-secondary btn-md">Visit Website</a>
+            <a href={url} target='_blank' rel="noreferrer" className="btn btn-secondary btn-md">Visit Website</a>
+            </div>
         </div>
         <div className="project-background">
           <h3>Project Background</h3>

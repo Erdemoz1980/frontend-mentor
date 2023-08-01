@@ -8,7 +8,10 @@ const PortfolioCard = ({ portfolioItem }) => {
     <div className="card-wrapper">
       {id % 2 !== 0 ? (
         <>
-            <img className='card-image' src={image} alt="portfolio screenshot" />
+          <div className="card-image-wrapper">
+            <img src={image} alt="portfolio screenshot" />
+        </div>
+            
           <div className="card-text">
             <h2>{title}</h2>
             <p>{descriptionGPT ? descriptionGPT : description}</p>
@@ -22,7 +25,9 @@ const PortfolioCard = ({ portfolioItem }) => {
             <p>{description}</p>
             <Link to={`/portfolio/${id}`}><button className="btn btn-secondary btn-large">View Project</button></Link>
           </div>
-          <img className='card-image' src={image} alt="portfolio screenshot" />
+          <div className="card-image-wrapper">
+            <img src={image} alt="portfolio screenshot" />
+        </div>
         </>
       )}
     </div>
