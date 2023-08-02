@@ -234,7 +234,6 @@
   margin-bottom: 115px;
 }
 
-
 .prev-details,
 .next-details{
   display: flex;
@@ -362,3 +361,17 @@ small{
   resize: none;
 }
 
+/*Modals*/
+.success-modal-wrapper{
+  display: none;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background: var(--clrGrayishDarkBlue);
+  opacity: 0.85;
+  z-index: 10;
+}
+
+.success-modal-wrapper.open{
+  display: block;
+}

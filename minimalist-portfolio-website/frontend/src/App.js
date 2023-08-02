@@ -6,12 +6,16 @@ import PortfolioIndex from './pages/PortfolioIndex';
 import PortfolioDetails from './components/PortfolioDetails';
 import ContactPage from './pages/ContactPage';
 import ScrollToTop from './helpers/ScrollToTop';
+import SuccessModal from './components/SuccessModal';
+import { GlobalProvider } from './context/GlobalState';
 
 const App = () => {
   const [activePage, setActivePage] = useState('');
  
   
   return (
+    <GlobalProvider>
+      <SuccessModal />
     <Router>
       <ScrollToTop />
       <Navbar version='nav-header' activePage={activePage.pathname}/>
@@ -22,7 +26,8 @@ const App = () => {
         <Route path='/contact' element={<ContactPage setActivePage={setActivePage}  />} />
       </Routes>
       <Navbar version='navbar-footer' activePage={activePage.pathname} />
-    </Router>
+      </Router>
+      </GlobalProvider>
   )
 };
 

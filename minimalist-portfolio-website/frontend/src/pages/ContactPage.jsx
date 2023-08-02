@@ -9,7 +9,8 @@ const ContactPage = ({ setActivePage }) => {
     email: '',
     message: ''
   })
-  const location = useLocation();
+  const location = useLocation()
+
 
   useEffect(() => {
     setActivePage(location)
@@ -20,7 +21,7 @@ const ContactPage = ({ setActivePage }) => {
     <div className='container'>
       <GetinTouch />
       <ContactForm formData={formData} setFormData={setFormData} />
-    </div>
+      </div>
   )
 };
 

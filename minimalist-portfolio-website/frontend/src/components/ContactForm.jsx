@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { GlobalContext } from '../context/GlobalState';
 
 const ContactForm = ({ formData, setFormData }) => {
   const [alert, setAlert] = useState({
@@ -6,9 +7,12 @@ const ContactForm = ({ formData, setFormData }) => {
     email: false,
     message:false
   });
-  const { name, email, message } = formData
+  const { name, email, message } = formData;
+  const { setIsModalOpen, setName } = useContext(GlobalContext)
+
+  const API_EMAIL = 'https://erdemoz-io-659240e6c6f7.herokuapp.com/api/send-email'
    
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
 
     const updatedAlert = {
@@ -20,7 +24,23 @@ const ContactForm = ({ formData, setFormData }) => {
     setAlert({ ...alert, ...updatedAlert });
     if (Object.values(updatedAlert).every(field => field === false)) {
      
-      //Async Api call?
+      try {
+        const response = await fetch(API_EMAIL, {
+          method: 'POST',
+          headers: {
+            'Content-Type':'application/json'
+          },
+          body:JSON.stringify(formData)
+        })
+        const data = await response.json();
+        if (data.success) {
+       setIsModalOpen(true)
+          setName(name)
+          setFormData({ name: '', email: '', message: '' })
+        }
+      } catch (err) {
+     
+      }
     }
   };
 
