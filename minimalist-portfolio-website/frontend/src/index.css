@@ -364,14 +364,64 @@ small{
 /*Modals*/
 .success-modal-wrapper{
   display: none;
-  position: absolute;
-  height: 100vh;
-  width: 100vw;
-  background: var(--clrGrayishDarkBlue);
-  opacity: 0.85;
-  z-index: 10;
+  position: fixed;
+  height: 0;
+  width: 0;
+  background: rgba(51,50,61,0);
+  z-index: 1;
+  transform-origin:center;
+  transition: transform 0.5s ease-in-out;
 }
 
 .success-modal-wrapper.open{
-  display: block;
+  display: flex;
+  color:#fff;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(51,50,61,0.85);
+  animation: scaleXAnimation 0.3s ease, 
+  scaleYAnimation 0.4s;
+  ;
+}
+
+@keyframes scaleXAnimation{
+  0% {width:0}
+  100% {width:100vw;}
+}
+
+@keyframes scaleYAnimation{
+  0% {height:0;}
+  100% {height:100vh;}
+}
+
+.success-modal-inner-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 450px;
+  height: 600px;
+  border-radius: 5px;
+  background: #202020;
+  opacity: 1;
+  z-index:10;
+  padding: 30px;
+  border:1px solid #81bee9;
+}
+
+.modal-text{
+line-height: 1.5;
+margin: 10px 0;
+color:#d3d0d0;
+}
+
+.modal-signature p{
+  padding:0;
+  color:#fff;
+}
+
+.success-modal-inner-wrapper .btn{
+  margin-top: 25px;
 }
