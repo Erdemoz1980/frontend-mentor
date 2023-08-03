@@ -3,7 +3,7 @@ import { createContext, useState } from 'react';
 const GlobalContext = createContext();
 
 const GlobalProvider = ({ children }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const [name, setName] = useState('')
 
   return (

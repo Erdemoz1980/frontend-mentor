@@ -365,36 +365,42 @@ small{
 .success-modal-wrapper{
   display: none;
   position: fixed;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 0;
   width: 0;
+  color:#fff;
   background: rgba(51,50,61,0);
   z-index: 1;
   transform-origin:center;
   transition: transform 0.5s ease-in-out;
 }
 
-.success-modal-wrapper.open{
+.success-modal-wrapper.open {
   display: flex;
-  color:#fff;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
   width: 100vw;
   background: rgba(51,50,61,0.85);
-  animation: scaleXAnimation 0.3s ease, 
-  scaleYAnimation 0.4s;
-  ;
+  animation: scaleUpAnimation 0.3s ease-in-out
 }
 
-@keyframes scaleXAnimation{
-  0% {width:0}
-  100% {width:100vw;}
+.success-modal-wrapper.closing{
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(51,50,61,0.85);
+  animation: scaleDownAnimation 0.3s ease-in-out;
 }
 
-@keyframes scaleYAnimation{
-  0% {height:0;}
-  100% {height:100vh;}
+@keyframes scaleUpAnimation {
+  0% {transform:scale(0);}
+  100% {transform: scale(1);}
+}
+
+@keyframes scaleDownAnimation {
+  0% {transform: scale(1);}
+  100% {transform: scale(0);}
 }
 
 .success-modal-inner-wrapper{
@@ -408,18 +414,19 @@ small{
   opacity: 1;
   z-index:10;
   padding: 30px;
-  border:1px solid #81bee9;
 }
 
 .modal-text{
-line-height: 1.5;
+line-height:22px;
 margin: 10px 0;
-color:#d3d0d0;
+}
+
+.modal-signature{
+  margin-top: 10px;
 }
 
 .modal-signature p{
-  padding:0;
-  color:#fff;
+ line-height: 23px;
 }
 
 .success-modal-inner-wrapper .btn{
