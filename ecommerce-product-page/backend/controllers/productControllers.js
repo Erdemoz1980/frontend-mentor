@@ -1,12 +1,12 @@
 const asyncHandler = require('express-async-handler');
-const Product = require('../models/productModel')
+const { ProductModel } = require('../models/models.js')
 
 //@desc Fetches all products
 //@route GET api/products
 //@access Public
 const getProducts = asyncHandler(async (req, res, next) => {
   try {
-    const products = await Product.find({});
+    const products = await ProductModel.find({});
 
     if (products) {
       res.status(200).json(products)
@@ -23,7 +23,7 @@ const getProducts = asyncHandler(async (req, res, next) => {
 //@access Public
 const getProduct = asyncHandler(async (req, res, next) => {
   try {
-    const product = await Product.findById(req.params.id)
+    const product = await ProductModel.findById(req.params.id)
     if (product) {
       res.status(200).json(product)
     } else {

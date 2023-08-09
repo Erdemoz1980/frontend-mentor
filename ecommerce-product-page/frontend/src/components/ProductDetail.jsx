@@ -34,7 +34,7 @@ const ProductDetail = () => {
   // const priceFixed = price.toFixed(2)
 
   function addToCartHandler() {
-    const newItem = { _id:id, img: colors?.length > 0 ? imageThumbnails[colorVersion[0]]?.images[0] : imageThumbnails[0].images[0], name, price, qty, countInStock, discount, colorVersion:Number(colorVersion)};
+    const newItem = { _id:id, img: colors?.length > 0 ? imageThumbnails[colorVersion[0]]?.images[0] : imageThumbnails[0].images[0], name, price, qty, countInStock, discount, colorVersion:colors[Number(colorVersion)]};
 
     dispatch(setCartItems(newItem));
     setQty(0)

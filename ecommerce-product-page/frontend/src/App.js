@@ -9,11 +9,13 @@ import EditProfilePage from './pages/EditProfilePage';
 import ChangePasswordPage from './pages/ChangePasswordPage';
 import CheckoutPage from './pages/CheckoutPage';
 import PaymentPage from './pages/PaymentPage';
+import { PayPalScriptProvider} from '@paypal/react-paypal-js';
 
 const App = () => {
 
   return (
     <BrowserRouter>
+      <PayPalScriptProvider options={{ clientId: "test" }}>
       <Navbar />
       <Routes>
         <Route path='/' element={<ProductListPage />} />
@@ -25,7 +27,8 @@ const App = () => {
         <Route path='/user/account/changepassword/' element={<ChangePasswordPage />} />
         <Route path='/user/checkout' element={<CheckoutPage />} />
         <Route path='/order/payment' element={<PaymentPage />} />
-      </Routes>
+        </Routes>
+        </PayPalScriptProvider>
       </BrowserRouter>
   )
 }

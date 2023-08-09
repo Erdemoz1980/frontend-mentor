@@ -1,7 +1,7 @@
 
 const IconAmex = () => {
   return (
-    <i className="fa-brands fa-cc-amex"></i>
+    <i className="fa-brands fa-cc-amex fa-2xl"></i>
   )
 }
 

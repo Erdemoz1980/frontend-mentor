@@ -71,7 +71,7 @@
     "price": 210,
     "countInStock":18,
     "discount": 0,
-    "colors":["OceanBlue"],
+    "colors":["Ocean Blue"],
     "imageThumbnails": [
       {
         "images":["/product-images/10004/image-product-1.webp", "/product-images/10004/image-product-2.jpg", "/product-images/10004/image-product-3.webp", "/product-images/10004/image-product-4.webp"]
@@ -92,7 +92,7 @@
     "price": 260,
     "countInStock":22,
     "discount":10,
-    "colors":["SunsetPink"],
+    "colors":["Sunset Pink"],
     "imageThumbnails": [
       {
         "images": ["/product-images/10005/image-product-1.webp", "/product-images/10005/image-product-2.webp", "/product-images/10005/image-product-3.webp", "/product-images/10005/image-product-4.webp"]
@@ -113,10 +113,10 @@
     "price": 190,
     "countInStock":13,
     "discount":0,
-    "colors":["GreenAbyss","SandDrift"],
+    "colors":["Green Abyss","Sand Drift"],
     "imageThumbnails": [
       {
-        "color": "Green_Abyss",
+        "color": "Green Abyss",
         "images": [
           "/product-images/10006/green_abyss/image-product-1.jpg",
           "/product-images/10006/green_abyss/image-product-2.webp",
@@ -125,7 +125,7 @@
         ]
       },
       {
-        "color": "Sand_Drift",
+        "color": "Sand Drift",
         "images": [
           "/product-images/10006/sand_drift/image-product-1.webp",
           "/product-images/10006/sand_drift/image-product-2.webp",
@@ -136,7 +136,7 @@
     ],
     "imagesMain": [
       {
-        "color": "Green_Abyss",
+        "color": "Green Abyss",
         "images": [
           "/product-images/10006/green_abyss/image-product-1.jpg",
           "/product-images/10006/green_abyss/image-product-2.webp",
@@ -145,7 +145,7 @@
         ]
       },
       {
-        "color": "Sand_Drift",
+        "color": "Sand Drift",
         "images": [
           "/product-images/10006/sand_drift/image-product-1.webp",
           "/product-images/10006/sand_drift/image-product-2.webp",
@@ -185,7 +185,7 @@
     "price": 235,
     "countInStock":14,
     "discount":15,
-    "colors":["SkyGrey"],
+    "colors":["Sky Grey"],
     "imageThumbnails":[
       {
         "images":[ "/product-images/10008/image-product-1.webp", 
@@ -212,7 +212,7 @@
     "price": 160,
     "countInStock":6,
     "discount":0,
-    "colors":["PinkBloom","TealNebula"],
+    "colors":["Pink Bloom","Teal Nebula"],
     "imageThumbnails":[
       {  
         "color":"Pink Bloom",
