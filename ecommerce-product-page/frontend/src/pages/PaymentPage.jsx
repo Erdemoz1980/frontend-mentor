@@ -36,6 +36,7 @@ const PaymentPage = () => {
     cardExpiry: '',
     securityCode:''
   })
+  const [maxLength, setMaxLength] = useState(16)
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('credit-card')
   const [billingAddress, setBillingAddress] = useState('same')
   const [securityCodeTip, setSecurityCodeTip] = useState(false)
@@ -84,28 +85,43 @@ const PaymentPage = () => {
     }
   };
 
-  const onChangeHandler = (e) => {
+
+  const handleCardNumberChange = (e) => {
     const { name, value } = e.target
-  
-    if (name.startsWith('creditCardData')) {
-      const cardField = name.split('.')[1];
-      setCreditCardData(prevState => ({
-        ...prevState,
-        [cardField]: value
-      }))
+    if (value.startsWith('34') || value.startsWith('37')) {
+      //Amex length
+      setMaxLength(15)
     } else {
-      setBillingData(prevState => ({
-        ...prevState,
-        [name]: value
-      }))
+      //Visa and Mastercard length
+      setMaxLength(16)
     }
+
+    setCreditCardData({
+      ...creditCardData,
+      [name]: value
+    })
+  };
+
+  const handleExpiryChange = (e) => {
+    let value = e.target.value
+    value = value.replace(/\D/g, '')
+    if (value.length > 2) {
+      value = value.slice(0,2)+' / ' +  value.slice(2)
+    }
+    setCreditCardData(prevState => ({
+      ...prevState,
+      cardExpiry:value
+    }))
+  }
+  
+
+  const onChangeHandler = (e) => {
+
   };
 
   const submitHandler = (e) => {
     e.preventDefault()
     console.log(creditCardData)
-    console.log(billingData)
- 
   }
 
  
@@ -152,15 +168,15 @@ const PaymentPage = () => {
  
           <section className={`credit-card-form-wrapper ${selectedPaymentMethod === 'credit-card' && 'visible'}`}>
             <div className="card-number-wrapper">
-              <input type="text" placeholder='Card Number' name="creditCardData.cardNumber" value={creditCardData.cardNumber} onChange={onChangeHandler} required={selectedPaymentMethod==='credit-card'} />
+              <input type="text" placeholder='Card Number' name="cardNumber" value={creditCardData.cardNumber} onChange={handleCardNumberChange} required={selectedPaymentMethod==='credit-card'} maxLength={maxLength} />
               <div className="lock-icon-wrapper" onMouseEnter={handleHover.handleEncryptionEnter} onMouseLeave={handleHover.handleEncryptionLeave}><IconLock /></div>
               {encryptionTip && <small className='encryption-tip-wrapper'>All transactions are secure and encrypted.</small>}
             </div>
-            <input type="text" placeholder='Name on card' name="creditCardData.nameOnCard" value={creditCardData.nameOnCard} onChange={onChangeHandler} required={selectedPaymentMethod==='credit-card'}/>
+            <input type="text" placeholder='Name on card' name="nameOnCard" value={creditCardData.nameOnCard} onChange={handleCardNumberChange} required={selectedPaymentMethod==='credit-card'}/>
             <div className="expiration-security-wrapper">
-              <input type="text" name="creditCardData.cardExpiry" id="" placeholder='Expiration date (MM / YY)' value={creditCardData.cardExpiry} onChange={onChangeHandler} required={selectedPaymentMethod==='credit-card'}/>
+              <input type="text" name="cardExpiry" id="" placeholder='Expiration date (MM / YY)' value={creditCardData.cardExpiry} onChange={handleExpiryChange} required={selectedPaymentMethod==='credit-card'} maxLength={7}/>
               <div className="security-code-wrapper">
-                <input type="text" placeholder='Security code' name="creditCardData.securityCode" value={creditCardData.securityCode} onChange={onChangeHandler} required={selectedPaymentMethod==='credit-card'}/>
+                <input type="text" placeholder='Security code' name="securityCode" value={creditCardData.securityCode} onChange={handleCardNumberChange} required={selectedPaymentMethod==='credit-card'} maxLength={3}/>
                 <div className="tip-icon-holder" onMouseEnter={handleHover.handleMouseEnterSecurityCode} onMouseLeave={handleHover.handleMouseLeaveSecurityCode} ><IconQuestionMark /></div>
                 {securityCodeTip && <small className='security-code-tip-wrapper'>3-digit security code usually found on the back of your card. American Express cards have a 4-digit code located on the front.</small>}
               </div>
