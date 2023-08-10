@@ -8,7 +8,6 @@ import IconPayPal from '../components/IconPayPal';
 import IconQuestionMark from '../components/IconQuestionMark';
 import IconEdit from '../components/IconEdit';
 import IconLock from '../components/IconLock';
-import IconAmex from '../components/IconAmex';
 import IconVisa from '../components/IconVisa';
 import IconMasterCard from '../components/IconMasterCard';
 import { PayPalButtons } from '@paypal/react-paypal-js'
@@ -36,11 +35,14 @@ const PaymentPage = () => {
     cardExpiry: '',
     securityCode:''
   })
-  const [maxLength, setMaxLength] = useState(16)
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('credit-card')
   const [billingAddress, setBillingAddress] = useState('same')
   const [securityCodeTip, setSecurityCodeTip] = useState(false)
   const [encryptionTip, setEncryptionTip] = useState(false)
+  const [cardAlert, setCardAlert] = useState({
+    cardNumberAlert: false,
+    expiryAlert: false
+  })
 
   const { name, lastName, streetNo, streetName, postalCode, province, country } = billingData
 
@@ -85,39 +87,81 @@ const PaymentPage = () => {
     }
   };
 
-
   const handleCardNumberChange = (e) => {
-    const { name, value } = e.target
-    if (value.startsWith('34') || value.startsWith('37')) {
-      //Amex length
-      setMaxLength(15)
-    } else {
-      //Visa and Mastercard length
-      setMaxLength(16)
-    }
+    let value = e.target.value;
+    value = value.replace(/\D/g, '')
+    
+    const formattedValue = value.replace(/(\d{4})(?=\d{4})/g, '$1 ');
+    setCreditCardData(prevState => ({
+      ...prevState,
+      cardNumber: formattedValue
+    }))
 
-    setCreditCardData({
-      ...creditCardData,
-      [name]: value
-    })
+    if (Number(value[0]) !== 4) {
+      setCardAlert(prevState => ({
+        ...prevState,
+        cardNumberAlert: true
+      }))
+    } else {
+      setCardAlert(prevState => ({
+        ...prevState,
+        cardNumberAlert: false
+      }))
+    }
   };
 
   const handleExpiryChange = (e) => {
     let value = e.target.value
     value = value.replace(/\D/g, '')
     if (value.length > 2) {
-      value = value.slice(0,2)+' / ' +  value.slice(2)
+      value = value.slice(0, 2) + ' / ' + value.slice(2)
     }
+
     setCreditCardData(prevState => ({
       ...prevState,
-      cardExpiry:value
+      cardExpiry: value
+    }))
+
+    let [inputMonth, inputYear] = value.split(' / ')
+    const currentMonth = new Date().getMonth() + 1
+    const currentYear = Number(new Date().getFullYear().toString().slice(2))
+  
+    if (inputMonth?.length === 2 && inputYear?.length === 2) {
+      inputMonth = Number(inputMonth)
+      inputYear = Number(inputYear)
+      if (inputYear > currentYear ||
+        (inputYear === currentYear && parseInt(inputMonth, 10) >= currentMonth)) {
+        setCardAlert(prevState => ({
+          ...prevState,
+          expiryAlert: false
+        }))
+      } else {
+        setCardAlert(prevState => ({
+          ...prevState,
+          expiryAlert: true
+        }))
+      }
+    }
+  };
+
+  
+  const handleCardNameChange = (e) => {
+    setCreditCardData(prevState => ({
+      ...prevState,
+      nameOnCard:e.target.value
+    }))
+  };
+
+  const handleSecurityCodeChange = (e) => {
+    setCreditCardData(prevState => ({
+      ...prevState,
+      securityCode: e.target.value
     }))
   }
-  
 
   const onChangeHandler = (e) => {
-
-  };
+    
+  }
 
   const submitHandler = (e) => {
     e.preventDefault()
@@ -159,7 +203,6 @@ const PaymentPage = () => {
               <label htmlFor="credit-card">Credit Card</label>
               </div>
               <div className="card-icons-wrapper">
-              {(creditCardData.cardNumber.startsWith('34') || creditCardData.cardNumber.startsWith('37') ) && <IconAmex />}
               {['51', '52', '53', '54', '55'].includes(creditCardData.cardNumber.substring(0,2)) &&<IconMasterCard />}
               { creditCardData.cardNumber.startsWith('4') && <IconVisa />}
               </div>
@@ -167,18 +210,20 @@ const PaymentPage = () => {
           </div>
  
           <section className={`credit-card-form-wrapper ${selectedPaymentMethod === 'credit-card' && 'visible'}`}>
-            <div className="card-number-wrapper">
-              <input type="text" placeholder='Card Number' name="cardNumber" value={creditCardData.cardNumber} onChange={handleCardNumberChange} required={selectedPaymentMethod==='credit-card'} maxLength={maxLength} />
+              <div className="card-number-wrapper">
+                 {cardAlert.cardNumberAlert && <small className='card-alert'>Please enter a valid card number.</small>}
+              <input type="text" placeholder='Card Number' name="cardNumber" value={creditCardData.cardNumber} onChange={handleCardNumberChange} required={selectedPaymentMethod==='credit-card'} maxLength={19} />
               <div className="lock-icon-wrapper" onMouseEnter={handleHover.handleEncryptionEnter} onMouseLeave={handleHover.handleEncryptionLeave}><IconLock /></div>
               {encryptionTip && <small className='encryption-tip-wrapper'>All transactions are secure and encrypted.</small>}
             </div>
-            <input type="text" placeholder='Name on card' name="nameOnCard" value={creditCardData.nameOnCard} onChange={handleCardNumberChange} required={selectedPaymentMethod==='credit-card'}/>
-            <div className="expiration-security-wrapper">
+            <input type="text" placeholder='Name on card' name="nameOnCard" value={creditCardData.nameOnCard} onChange={handleCardNameChange} required={selectedPaymentMethod==='credit-card'}/>
+              <div className="expiration-security-wrapper">
+                {cardAlert.expiryAlert && <small className='card-alert'>Please enter a valid expiry date</small>}
               <input type="text" name="cardExpiry" id="" placeholder='Expiration date (MM / YY)' value={creditCardData.cardExpiry} onChange={handleExpiryChange} required={selectedPaymentMethod==='credit-card'} maxLength={7}/>
               <div className="security-code-wrapper">
-                <input type="text" placeholder='Security code' name="securityCode" value={creditCardData.securityCode} onChange={handleCardNumberChange} required={selectedPaymentMethod==='credit-card'} maxLength={3}/>
+                <input type="text" placeholder='Security code' name="securityCode" value={creditCardData.securityCode} onChange={handleSecurityCodeChange} required={selectedPaymentMethod==='credit-card'} maxLength={3}/>
                 <div className="tip-icon-holder" onMouseEnter={handleHover.handleMouseEnterSecurityCode} onMouseLeave={handleHover.handleMouseLeaveSecurityCode} ><IconQuestionMark /></div>
-                {securityCodeTip && <small className='security-code-tip-wrapper'>3-digit security code usually found on the back of your card. American Express cards have a 4-digit code located on the front.</small>}
+                {securityCodeTip && <small className='security-code-tip-wrapper'>3-digit security code usually found on the back of your card.</small>}
               </div>
             </div>
           </section>

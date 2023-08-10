@@ -1032,6 +1032,7 @@ tbody select {
   display: grid;
   grid-template-columns: 10fr 9fr;
   gap:10px;
+  position: relative;
 }
 
 .security-code-wrapper{
@@ -1081,10 +1082,18 @@ tbody select {
 {
   display: flex;
   flex-direction: column;
-  gap:10px;
+  gap:18px;
   background-color: var(--clrVeryLightGrey);
   border-radius: 5px;
   padding:20px 15px;
+}
+
+.card-alert{
+  color: red;
+  position: absolute;
+  font-size: 11px;
+  top:-15px;
+  left:2px;
 }
 
 .paypal-button-wrapper.visible{
