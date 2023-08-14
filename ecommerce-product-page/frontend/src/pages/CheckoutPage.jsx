@@ -38,11 +38,16 @@ const CheckoutPage = () => {
                 <tr className='checkout-item-row' key={`${item._id}${item.colorVersion}`}>
                   <td>
                     <Link to={`/product/${item._id}/${item.colorVersion}`}><img src={item.img} alt='cart item' /></Link>
-                    <Link to={`/product/${item._id}/${item.colorVersion}`}>
+                    <div className="checkout-item-description">
+                       <Link to={`/product/${item._id}/${item.colorVersion}`}>
                       <p>{item.name}</p>
-                      <small>{item.colorVersion}</small>
-                    
-                    </Link>
+                      </Link>
+                      <div className="checkout-item-color-size-wrapper">
+                        <small>{item.colorVersion}</small>
+                      <small>Size US:{item.size}</small>
+                      </div>
+                    </div>
+                   
                   </td>
                   <td>${item.price.toFixed(2)}</td>
                   <td>

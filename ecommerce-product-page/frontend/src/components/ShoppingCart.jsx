@@ -8,8 +8,6 @@ const ShoppingCart = () => {
   const { cartItems } = useSelector(state => state.cart);
   const dispatch = useDispatch();
 
-  const handleQtyChange = useQtyChange(cartItems) 
-
   return (
     <div className='cart-wrapper'>
       <div className="card-header">
@@ -26,7 +24,11 @@ const ShoppingCart = () => {
                   <img src={item.img} alt='cart item' />
                 </div>
                 <div className="cart-item-info">
-                  <p className="cart-item-name">{item.name}</p>
+                <p className="cart-item-name">{item.name}</p>
+                <div className="cart-color-size-wrapper">
+                  <p className='cart-item-color'>{item.colorVersion}</p>
+                <p className='cart-item-size'>Size US: {item.size}</p>
+                </div>
                   <p className="cart-item-price">${item.discount ?
                     ((item.price - (item.price * (item.discount / 100))).toFixed(2)) : item.price} x {item.qty} = <span>${item.discount ?
                     ((item.price - (item.price * (item.discount / 100))) * item.qty).toFixed(2) : (item.price * item.qty).toFixed(2)}</span></p>
@@ -40,7 +42,7 @@ const ShoppingCart = () => {
                   </div>
                 </div>
               <div className="cart-trash-container">
-                <button className="btn" onClick={() => dispatch(deleteCartItem({ _id:item._id, colorVersion:item.colorVersion }))}>
+                <button className="btn" onClick={() => dispatch(deleteCartItem({ _id:item._id, colorVersion:item.colorVersion, size:item.size }))}>
                 <div className="cart-delete-img-container">
                 <img src={trashIcon} alt='trash' />
                 </div>  

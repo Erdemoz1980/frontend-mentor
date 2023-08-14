@@ -22,6 +22,7 @@
 
   /*Transitions*/
   --trsMain:0.15s ease-out;
+  --trsHover:0.085s ease;
 }
 
 /*Make images easier to work with*/
@@ -45,6 +46,10 @@ a{
 
 a:visited{
   color:#000
+}
+
+small{
+  display: block;
 }
 
 .container{
@@ -121,7 +126,7 @@ border-radius: 5px;
   background: #8b8f97;
 }
 
-.btn-primary:disabled{
+.btn:disabled{
   background: var(--clrLightGrey);
 }
 

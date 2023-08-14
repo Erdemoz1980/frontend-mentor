@@ -40,10 +40,13 @@ const PaymentPage = () => {
   const [securityCodeTip, setSecurityCodeTip] = useState(false)
   const [encryptionTip, setEncryptionTip] = useState(false)
   const [cardAlert, setCardAlert] = useState({
-    cardNumberAlert: false,
-    expiryAlert: false
+    numberAlert: false,
+    expiryAlert: false,
+    securityCodeAlert:false
   })
 
+  const cardValidated = !cardAlert.numberAlert && !cardAlert.expiryAlert && !cardAlert.securityCodeAlert
+  
   const { name, lastName, streetNo, streetName, postalCode, province, country } = billingData
 
   const navigate = useNavigate();
@@ -97,16 +100,21 @@ const PaymentPage = () => {
       cardNumber: formattedValue
     }))
 
-    if (Number(value[0]) !== 4) {
-      setCardAlert(prevState => ({
-        ...prevState,
-        cardNumberAlert: true
-      }))
-    } else {
+    if (value[0] === '4') {
       setCardAlert(prevState => ({
         ...prevState,
         cardNumberAlert: false
-      }))
+      }));
+    } else if (value.length >= 2 && ['51', '52', '53', '54', '55'].includes(value.substring(0, 2))) {
+      setCardAlert(prevState => ({
+        ...prevState,
+        cardNumberAlert: false
+      }));
+    } else {
+      setCardAlert(prevState => ({
+        ...prevState,
+        cardNumberAlert: true
+      }));
     }
   };
 
@@ -116,7 +124,8 @@ const PaymentPage = () => {
     if (value.length > 2) {
       value = value.slice(0, 2) + ' / ' + value.slice(2)
     }
-
+    
+    //Update state before validation to avoid unpredictable behaviour
     setCreditCardData(prevState => ({
       ...prevState,
       cardExpiry: value
@@ -144,11 +153,12 @@ const PaymentPage = () => {
     }
   };
 
-  
   const handleCardNameChange = (e) => {
+    let value = e.target.value
+    value = value.replace(/[^a-zA-Z\s]/g, '')
     setCreditCardData(prevState => ({
       ...prevState,
-      nameOnCard:e.target.value
+      nameOnCard:value
     }))
   };
 
@@ -159,13 +169,31 @@ const PaymentPage = () => {
     }))
   }
 
-  const onChangeHandler = (e) => {
-    
-  }
-
-  const submitHandler = (e) => {
+  const placeOrderHandler = (e) => {
     e.preventDefault()
-    console.log(creditCardData)
+    if (selectedPaymentMethod === 'credit-card') {
+      if (creditCardData.cardNumber.length < 19) {
+        setCardAlert(prevState => ({
+          ...prevState,
+          numberAlert: true
+        }))
+          
+      } else if (creditCardData.cardExpiry.length < 7) {
+        setCardAlert(prevState => ({
+          ...prevState,
+          expiryAlert: true
+        })) 
+      } else if (creditCardData.securityCode.length < 3) {
+        setCardAlert(prevState => ({
+          ...prevState,
+          securityCodeAlert: true
+        })) 
+      } else {
+        if (cardValidated) {
+          console.log(cartItems)
+        }
+      }
+    }   
   }
 
  
@@ -174,10 +202,7 @@ const PaymentPage = () => {
       <Link to='/user/checkout'><button className="btn btn-navigate">Go Back</button></Link> 
     
       <div className="shipping-billing-wrapper">
-        
-  
-      <form className="payment-form-wrapper" onSubmit={submitHandler}>
-     
+      <form className="payment-form-wrapper" onSubmit={placeOrderHandler}>
       <div className="shipping-summary-wrapper">
         <div className="summary-row">
           <h4 className="header">Contact:</h4>
@@ -211,7 +236,7 @@ const PaymentPage = () => {
  
           <section className={`credit-card-form-wrapper ${selectedPaymentMethod === 'credit-card' && 'visible'}`}>
               <div className="card-number-wrapper">
-                 {cardAlert.cardNumberAlert && <small className='card-alert'>Please enter a valid card number.</small>}
+                 {cardAlert.numberAlert && <small className='card-alert'>Please enter a valid card number.</small>}
               <input type="text" placeholder='Card Number' name="cardNumber" value={creditCardData.cardNumber} onChange={handleCardNumberChange} required={selectedPaymentMethod==='credit-card'} maxLength={19} />
               <div className="lock-icon-wrapper" onMouseEnter={handleHover.handleEncryptionEnter} onMouseLeave={handleHover.handleEncryptionLeave}><IconLock /></div>
               {encryptionTip && <small className='encryption-tip-wrapper'>All transactions are secure and encrypted.</small>}
@@ -261,24 +286,24 @@ const PaymentPage = () => {
           </div>
           <section className={`billing-address-form-wrapper ${billingAddress === 'different' && 'visible'}`}>
           <div className="form-group-billing first-last-name">
-            <input type="text" name="name" id="name" placeholder='Name' value={name} onChange={onChangeHandler} required={billingAddress==='different'} />
-            <input type="text" name="lastName" id="lastName" placeholder='Last Name' value={lastName} onChange={onChangeHandler} required={billingAddress==='different'} />
+            <input type="text" name="name" id="name" placeholder='Name' value={name}  required={billingAddress==='different'} />
+            <input type="text" name="lastName" id="lastName" placeholder='Last Name' value={lastName} required={billingAddress==='different'} />
           </div>
           <div className="form-group-billing">
-            <input type="text" name="streetNo" id="streetNo" placeholder='Street No' value={streetNo} onChange={onChangeHandler} required={billingAddress==='different'} />
+            <input type="text" name="streetNo" id="streetNo" placeholder='Street No' value={streetNo} required={billingAddress==='different'} />
           </div>
           <div className="form-group-billing">
-                <input type="text" name="streetName" id="streetName" placeholder='Street Name' value={streetName} onChange={onChangeHandler} required={billingAddress === 'different'} />
+                <input type="text" name="streetName" id="streetName" placeholder='Street Name' value={streetName} required={billingAddress === 'different'} />
           </div>
           <div className="form-group-billing">
          
           </div>
           <div className="form-group-billing">
             <div>
-                  <input type="text" name="postalCode" id="postalCode" placeholder='Postal Code' value={postalCode} onChange={onChangeHandler} required={billingAddress === 'different'} />
+                  <input type="text" name="postalCode" id="postalCode" placeholder='Postal Code' value={postalCode}  required={billingAddress === 'different'} />
             </div>
             <div className='billing-address-select-wrapper'>
-                <select name="province" id="province" value={province} onChange={onChangeHandler} required={billingAddress === 'different'}>
+                <select name="province" id="province" value={province} required={billingAddress === 'different'}>
                 {provinces.map((item, index) => (
                   <option key={index} value={item}>{item}</option>
                 ))}
@@ -308,7 +333,10 @@ const PaymentPage = () => {
               </div>
               <div className="order-item-name">
                 <p>{item.name}</p>
-                <small>{item.colorVersion}</small>
+                <div className="checkout-item-color-size-wrapper">
+                 <small>{item.colorVersion}</small>
+                <small>Size US:{item.size}</small> 
+                </div>
               </div>
               <div className="order-item-total">${((item.price) * (item.qty)).toFixed(2)}
               </div>

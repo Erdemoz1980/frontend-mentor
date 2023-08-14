@@ -37,6 +37,10 @@ const productSchema = mongoose.Schema({
     enum: ['casual', 'running', 'tennis', 'formal'],
     required: true
   },
+  sizes: {
+    type: [Number],
+    required:true
+  },
   gender: {
     type: String,
     enum: ['unisex', 'men', 'women'],

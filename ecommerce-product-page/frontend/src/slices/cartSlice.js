@@ -19,11 +19,11 @@ const cartSlice = createSlice({
     },
     setCartItems: (state, action) => {
       const newItem = action.payload;
-      const itemExists = state.cartItems.find(item => item._id === newItem._id && item.colorVersion ===newItem.colorVersion);
+      const itemExists = state.cartItems.find(item => (item._id === newItem._id) && (item.colorVersion ===newItem.colorVersion) && (item.size===newItem.size));
 
       if (itemExists) {
         state.cartItems = state.cartItems.map(item => {
-          if ((item._id === newItem._id) && (item.colorVersion===newItem.colorVersion)) {
+          if ((item._id === newItem._id) && (item.colorVersion===newItem.colorVersion) && (item.size ===newItem.size)) {
             return { ...item, qty: newItem.qty }     
           } 
           return item
@@ -34,8 +34,8 @@ const cartSlice = createSlice({
       localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
     },
     deleteCartItem: (state, action) => {
-      const { _id, colorVersion } = action.payload
-      const filteredItems = state.cartItems.filter(item => (item._id !== _id || item.colorVersion !== colorVersion))
+      const { _id, colorVersion, size } = action.payload
+      const filteredItems = state.cartItems.filter(item => (item._id !== _id || item.colorVersion !== colorVersion || item.size !==size))
       state.cartItems = filteredItems
       localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
     },

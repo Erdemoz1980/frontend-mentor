@@ -12,6 +12,8 @@ import Alert from './Alert';
 
 const ProductDetail = () => {
   const [qty, setQty] = useState(0)
+  const [selectedSize, setSelectedSize] = useState(false)
+  const [sizeAlert, setSizeAlert] = useState('');
   const [lightboxIsOpen, setLightboxIsOpen] = useState(false)
   const [activeImage, setActiveImage] = useState(0)
   const [isZoomed, setIsZoomed] = useState(false)
@@ -25,16 +27,23 @@ const ProductDetail = () => {
     dispatch(getProductDetail(id));
   }, [id, dispatch]);
 
-  const { company, name, description, price, countInStock, discount, colors, imageThumbnails, imagesMain } = productDetail
+  const { company, name, sizes, description, price, countInStock, discount, colors, imageThumbnails, imagesMain } = productDetail
   
   const selectedImages = colors?.length > 0 ? imagesMain?.[colorVersion]?.images : imagesMain?.[0]?.images;
   const selectedThumbnailImages = colors?.length > 0 ? imageThumbnails?.[colorVersion]?.images : imageThumbnails?.[0]?.images;
 
-
   // const priceFixed = price.toFixed(2)
 
+  const selectSizeHandler = (size) => {
+    setSizeAlert('')
+    setSelectedSize(size)
+  }
+
   function addToCartHandler() {
-    const newItem = { _id:id, img: colors?.length > 0 ? imageThumbnails[colorVersion[0]]?.images[0] : imageThumbnails[0].images[0], name, price, qty, countInStock, discount, colorVersion:colors[Number(colorVersion)]};
+    if (!selectedSize) {
+      return setSizeAlert('Please select a size')
+    }
+    const newItem = { _id:id, img: colors?.length > 0 ? imageThumbnails[colorVersion[0]]?.images[0] : imageThumbnails[0].images[0], name, price,size:selectedSize, qty, countInStock, discount, colorVersion:colors[Number(colorVersion)]};
 
     dispatch(setCartItems(newItem));
     setQty(0)
@@ -97,6 +106,15 @@ const ProductDetail = () => {
           </h2>
           {discount && <small className="original-price text-light">${price}</small>}
         </div>
+        <div className="sizes-wrapper">
+          <h4 className='size-title'>Select Size</h4>
+          <div className={`sizes-inner-wrapper ${sizeAlert ? 'no-size' : ''}`}>
+            {sizes?.map(size => (
+              <div key={size} className={`size-card ${selectedSize===size ? 'selected' : ''}`} value={size} onClick={()=>selectSizeHandler(size)}>{size}</div>
+           ))}
+          </div>
+          <p className={`size-alert ${sizeAlert ? 'visible' : ''}`}>{sizeAlert}</p>
+          </div>
         <div className="cart-control-wrapper">
           <div className="qty-wrapper">
             <button
