@@ -1159,7 +1159,7 @@ tbody select {
   padding:20px 15px;
 }
 
-.card-alert{
+.alert-validation{
   color: red;
   position: absolute;
   font-size: 11px;

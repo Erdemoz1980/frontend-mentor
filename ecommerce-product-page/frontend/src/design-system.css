@@ -127,11 +127,11 @@ border-radius: 5px;
 }
 
 .btn:disabled{
-  background: var(--clrLightGrey);
+  cursor:default;
 }
 
-.btn:disabled{
-  cursor:default;
+.btn-primary:disabled {
+  background:var(--clrLightGrey)
 }
 
 .btn-block{

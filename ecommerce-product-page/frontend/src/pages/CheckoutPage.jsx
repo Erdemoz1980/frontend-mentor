@@ -35,7 +35,7 @@ const CheckoutPage = () => {
             </tr>) : (
             <>
               {cartItems.map(item => (
-                <tr className='checkout-item-row' key={`${item._id}${item.colorVersion}`}>
+                <tr className='checkout-item-row' key={`${item._id}${item.colorVersion}${item.size}`}>
                   <td>
                     <Link to={`/product/${item._id}/${item.colorVersion}`}><img src={item.img} alt='cart item' /></Link>
                     <div className="checkout-item-description">

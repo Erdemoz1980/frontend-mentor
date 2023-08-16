@@ -11,6 +11,7 @@ import IconLock from '../components/IconLock';
 import IconVisa from '../components/IconVisa';
 import IconMasterCard from '../components/IconMasterCard';
 import { PayPalButtons } from '@paypal/react-paypal-js'
+import AlertValidation from '../components/AlertValidation';
 
 const PaymentPage = () => {
   const { userInfo, provinces, isLoading} = useSelector(state => state.user)
@@ -44,15 +45,14 @@ const PaymentPage = () => {
     expiryAlert: false,
     securityCodeAlert:false
   })
-
-  const cardValidated = !cardAlert.numberAlert && !cardAlert.expiryAlert && !cardAlert.securityCodeAlert
   
+  const { cardNumber, nameOnCard, cardExpiry, securityCode } = creditCardData;
   const { name, lastName, streetNo, streetName, postalCode, province, country } = billingData
+  const { numberAlert, expiryAlert, securityCodeAlert } = cardAlert;
 
   const navigate = useNavigate();
   const location = useLocation();
   const dispatch = useDispatch();
-
 
   const { email, address: { streetNo: streetNoUser, streetName: streetNameUser, postalCode: postalCodeUser, province: provinceUser, country: countryUser } = {} } = userInfo || {}
 
@@ -103,17 +103,17 @@ const PaymentPage = () => {
     if (value[0] === '4') {
       setCardAlert(prevState => ({
         ...prevState,
-        cardNumberAlert: false
+        numberAlert: false
       }));
     } else if (value.length >= 2 && ['51', '52', '53', '54', '55'].includes(value.substring(0, 2))) {
       setCardAlert(prevState => ({
         ...prevState,
-        cardNumberAlert: false
+        numberAlert: false
       }));
     } else {
       setCardAlert(prevState => ({
         ...prevState,
-        cardNumberAlert: true
+        numberAlert: true
       }));
     }
   };
@@ -155,45 +155,57 @@ const PaymentPage = () => {
 
   const handleCardNameChange = (e) => {
     let value = e.target.value
-    value = value.replace(/[^a-zA-Z\s]/g, '')
-    setCreditCardData(prevState => ({
-      ...prevState,
-      nameOnCard:value
-    }))
+    value = value.replace(/[^a-zA-Z\s]/g,'')
+      setCreditCardData(prevState => ({
+        ...prevState,
+        nameOnCard: value
+      }))
   };
 
   const handleSecurityCodeChange = (e) => {
+    let value = e.target.value 
+    value = value.replace(/\D/g,'')
     setCreditCardData(prevState => ({
       ...prevState,
-      securityCode: e.target.value
+      securityCode: value
     }))
+    if (value.length === 3) {
+      setCardAlert(prevState => ({
+        ...prevState,
+        securityCodeAlert:false
+      }))
+    }
   }
 
   const placeOrderHandler = (e) => {
     e.preventDefault()
+   
     if (selectedPaymentMethod === 'credit-card') {
       if (creditCardData.cardNumber.length < 19) {
         setCardAlert(prevState => ({
           ...prevState,
           numberAlert: true
         }))
-          
       } else if (creditCardData.cardExpiry.length < 7) {
         setCardAlert(prevState => ({
           ...prevState,
           expiryAlert: true
-        })) 
+        }))
       } else if (creditCardData.securityCode.length < 3) {
         setCardAlert(prevState => ({
           ...prevState,
           securityCodeAlert: true
-        })) 
+        }))
       } else {
-        if (cardValidated) {
-          console.log(cartItems)
-        }
+        setCardAlert({
+          numberAlert: false,
+          nameAlert:false,
+          expiryAlert: false,
+          securityCodeAlert:false
+        })
+        console.log(cartItems)
       }
-    }   
+    }
   }
 
  
@@ -228,25 +240,25 @@ const PaymentPage = () => {
               <label htmlFor="credit-card">Credit Card</label>
               </div>
               <div className="card-icons-wrapper">
-              {['51', '52', '53', '54', '55'].includes(creditCardData.cardNumber.substring(0,2)) &&<IconMasterCard />}
+              {['51', '52', '53', '54', '55'].includes(cardNumber.substring(0,2)) &&<IconMasterCard />}
               { creditCardData.cardNumber.startsWith('4') && <IconVisa />}
               </div>
-             
           </div>
  
           <section className={`credit-card-form-wrapper ${selectedPaymentMethod === 'credit-card' && 'visible'}`}>
               <div className="card-number-wrapper">
-                 {cardAlert.numberAlert && <small className='card-alert'>Please enter a valid card number.</small>}
-              <input type="text" placeholder='Card Number' name="cardNumber" value={creditCardData.cardNumber} onChange={handleCardNumberChange} required={selectedPaymentMethod==='credit-card'} maxLength={19} />
+                 {numberAlert && <AlertValidation message={'Please enter a valid card number'} />}
+              <input type="text" placeholder='Card Number' name="cardNumber" value={cardNumber} onChange={handleCardNumberChange} required={selectedPaymentMethod==='credit-card'} maxLength={19} />
               <div className="lock-icon-wrapper" onMouseEnter={handleHover.handleEncryptionEnter} onMouseLeave={handleHover.handleEncryptionLeave}><IconLock /></div>
               {encryptionTip && <small className='encryption-tip-wrapper'>All transactions are secure and encrypted.</small>}
             </div>
-            <input type="text" placeholder='Name on card' name="nameOnCard" value={creditCardData.nameOnCard} onChange={handleCardNameChange} required={selectedPaymentMethod==='credit-card'}/>
+            <input type="text" placeholder='Name on card' name="nameOnCard" value={nameOnCard} onChange={handleCardNameChange} required={selectedPaymentMethod==='credit-card'}/>
               <div className="expiration-security-wrapper">
-                {cardAlert.expiryAlert && <small className='card-alert'>Please enter a valid expiry date</small>}
-              <input type="text" name="cardExpiry" id="" placeholder='Expiration date (MM / YY)' value={creditCardData.cardExpiry} onChange={handleExpiryChange} required={selectedPaymentMethod==='credit-card'} maxLength={7}/>
-              <div className="security-code-wrapper">
-                <input type="text" placeholder='Security code' name="securityCode" value={creditCardData.securityCode} onChange={handleSecurityCodeChange} required={selectedPaymentMethod==='credit-card'} maxLength={3}/>
+                {expiryAlert && <AlertValidation message={'Please enter a valid expiry date'} />}
+              <input type="text" name="cardExpiry" id="" placeholder='Expiration date (MM / YY)' value={cardExpiry} onChange={handleExpiryChange} required={selectedPaymentMethod==='credit-card'} maxLength={7}/>
+                <div className="security-code-wrapper">
+                {securityCodeAlert && <AlertValidation message={'Please enter a valid security code'} />}
+                <input type="text" placeholder='Security code' name="securityCode" value={securityCode} onChange={handleSecurityCodeChange} required={selectedPaymentMethod==='credit-card'} maxLength={3}/>
                 <div className="tip-icon-holder" onMouseEnter={handleHover.handleMouseEnterSecurityCode} onMouseLeave={handleHover.handleMouseLeaveSecurityCode} ><IconQuestionMark /></div>
                 {securityCodeTip && <small className='security-code-tip-wrapper'>3-digit security code usually found on the back of your card.</small>}
               </div>
@@ -326,7 +338,7 @@ const PaymentPage = () => {
         <div className="order-items-wrapper">
         {
           cartItems.map(item => (
-            <div key={item._id} className="order-item-wrapper">
+            <div key={`${item._id}${item.colorVersion}${item.size}`} className="order-item-wrapper">
               <div className="order-item-img-wrapper">
                 <img src={item.img} alt='order item' />
                 <small className='order-item-qty'>{item.qty}</small>
