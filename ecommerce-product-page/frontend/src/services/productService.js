@@ -1,5 +1,5 @@
 const API_URL_HEROKU = 'https://erdemoz-io-659240e6c6f7.herokuapp.com/api/products'
-const API_URL = 'http://localhost:8000/api/products'
+const API_URL_LOCAL = 'http://localhost:8000/api/products'
 
 //Get Product List
 const getProducts = async () => {

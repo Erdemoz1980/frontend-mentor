@@ -83,22 +83,26 @@ const orderSchema = mongoose.Schema({
     ref: 'User'
   },
   orderItems: [
-    {
-      name: { type: String, required: true },
-      qty: { type: Number, required: true },
-      price: { type: Number, required: true },
-      product: {
+    { 
+      _id: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
-        ref: 'Product'
-      }
+        ref:'Product'
+      },
+      name: { type: String, required: true },
+      colorVersion: { type: String, required: true },
+      size:{type:Number, required:true},
+      qty: { type: Number, required: true },
+      price: { type: Number, required: true },
     }
   ],
   shippingAddress: addressSchema,
-  shippingPrice: { type: Number, required: true },
+  billingAddress:addressSchema,
   taxPrice: { type: Number, required: true },
+  shippingPrice:{type:Number, required:true},
   totalPrice: { type: Number, required: true },
-  paymentType: { type: String, required: true }
+  paymentType: { type: String, required: true },
+  isPaid:{type:Boolean, required:true, default:false}
 }, {
   timestamps: true
 }) 

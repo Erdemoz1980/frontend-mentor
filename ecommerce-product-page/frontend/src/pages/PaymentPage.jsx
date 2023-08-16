@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { createOrder } from '../slices/orderSlice';
 import { setPathName } from '../slices/userSlice';
 import { Link } from 'react-router-dom';
 import Alert from '../components/Alert';
@@ -17,9 +18,9 @@ const PaymentPage = () => {
   const { userInfo, provinces, isLoading} = useSelector(state => state.user)
   const { cartItems } = useSelector(state => state.cart)
   const subTotal = cartItems.reduce((acc, item) => acc + (item.qty) * (item.price), 0)
-  const shippingAmount = subTotal > 100 ? 0 : 20 
-  const totalTax = (13 / 100) * subTotal
-  const total = subTotal + shippingAmount + totalTax
+  const shippingPrice = subTotal > 100 ? 0 : 20 
+  const taxPrice = ((13 / 100) * subTotal).toFixed(2)
+  const totalPrice = Number(subTotal) + Number(shippingPrice) + Number(taxPrice)
 
   const [billingData, setBillingData] = useState({
     name: '',
@@ -203,7 +204,21 @@ const PaymentPage = () => {
           expiryAlert: false,
           securityCodeAlert:false
         })
-        console.log(cartItems)
+     //Create new order item
+        const newOrder = {
+          user: userInfo._id,
+          orderItems: cartItems,
+          shippingAddress: userInfo.address,
+          billingAddress,
+          shippingPrice,
+          taxPrice:Number(taxPrice),
+          totalPrice:Number(totalPrice),
+          paymentType: selectedPaymentMethod,
+          isPaid: true
+        }
+     
+        dispatch(createOrder(newOrder));
+        
       }
     }
   }
@@ -363,16 +378,16 @@ const PaymentPage = () => {
           </div>
           <div className="order-total-row">
             <h4>Shipping</h4>
-            <h4>{shippingAmount>0 ? `$${shippingAmount.toFixed(2)}` : 'Free Shipping' }</h4>
+            <h4>{shippingPrice>0 ? `$${shippingPrice.toFixed(2)}` : 'Free Shipping' }</h4>
           </div>
           <div className="order-total-row">
             <h4>Estimated Taxes</h4>
-            <h4>${totalTax.toFixed(2)}</h4>
+            <h4>${taxPrice}</h4>
           </div>
         </div>
         <div className="order-summary-total-wrapper">
           <h4>Total</h4>
-          <h3 className='total-bill'><span>CAD</span>${total.toFixed(2)}</h3>
+          <h3 className='total-bill'><span>CAD</span>${totalPrice.toFixed(2)}</h3>
         </div>
         </section>
         </div>

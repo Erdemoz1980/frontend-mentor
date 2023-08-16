@@ -1,5 +1,4 @@
 const { OrderModel } = require('../models/models');
-const { sanitizeString } = require('../utilities/utilities');
 const asyncHandler = require('express-async-handler');
 
 // Create a new order
@@ -8,19 +7,11 @@ const asyncHandler = require('express-async-handler');
 const createOrder = asyncHandler(async (req, res) => {
   const { user, orderItems, shippingAddress, shippingPrice, taxPrice, totalPrice, paymentType  } = req.body;
   
-  const sanitizedOrderItems = orderItems.map(item => {
-    return {
-      name: sanitizeString(item.name),
-      qty: item.qty,
-      price: item.price,
-      product: item.product
-    }
-  })
+  const createdOrder = await OrderModel.create({user, orderItems, shippingAddress, shippingPrice, taxPrice, totalPrice, paymentType})
 
-  const newOrder = await OrderModel.create({user, orderItems:sanitizedOrderItems, shippingAddress, shippingPrice, taxPrice, totalPrice, paymentType})
-
-  if (newOrder) {
-    res.status(201).json(newOrder)
+  if (createdOrder) {
+    res.status(201).json(createdOrder)
+    console.log(createdOrder, 'Order created!')
   } else {
     res.status(400)
     throw new Error('Order error, please try again')

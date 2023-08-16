@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { closeCart, deleteCartItem, setCartItems} from '../slices/cartSlice';
-import useQtyChange from '../hooks/useQtyChange';
 import trashIcon from '../images/icon-delete.svg';
 
 const ShoppingCart = () => {

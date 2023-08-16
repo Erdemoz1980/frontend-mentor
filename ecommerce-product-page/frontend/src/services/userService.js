@@ -1,5 +1,5 @@
 const API_URL_HEROKU = 'https://erdemoz-io-659240e6c6f7.herokuapp.com/api/users';
-const API_URL = 'http://localhost:8000/api/users/'
+const API_URL_LOCAL = 'http://localhost:8000/api/users/'
 
 //Register
 const register = async (userData) => {
@@ -79,7 +79,7 @@ const updatePassword = async (userData) => {
    
   if (!response.ok) {
     let errorMessage = 'An unexpected error occurred. Please try again later.'
-    if (response.headers.get('content-type')?.includes('application/json')) {
+    if (response.headers.get('Content-type')?.includes('application/json')) {
       const errorData = await response.json()
       errorMessage = errorData.message
     }
