@@ -22,15 +22,6 @@ const PaymentPage = () => {
   const taxPrice = ((13 / 100) * subTotal).toFixed(2)
   const totalPrice = Number(subTotal) + Number(shippingPrice) + Number(taxPrice)
 
-  const [billingData, setBillingData] = useState({
-    name: '',
-    lastName: '',
-    streetNo: '',
-    streetName: '',
-    postalCode: '',
-    province: userInfo?.address?.province ?? '',
-    country: 'Canada'
-  });
   const [creditCardData, setCreditCardData] = useState({
     cardNumber: '',
     nameOnCard:'',
@@ -39,6 +30,15 @@ const PaymentPage = () => {
   })
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState('credit-card')
   const [billingAddress, setBillingAddress] = useState('same')
+  const [differentBillingAddress, setDifferentBillingAddress] = useState({
+    name: '',
+    lastName: '',
+    streetNo: '',
+    streetName: '',
+    postalCode: '',
+    province: '',
+    country:'Canada'
+  })
   const [securityCodeTip, setSecurityCodeTip] = useState(false)
   const [encryptionTip, setEncryptionTip] = useState(false)
   const [cardAlert, setCardAlert] = useState({
@@ -48,7 +48,7 @@ const PaymentPage = () => {
   })
   
   const { cardNumber, nameOnCard, cardExpiry, securityCode } = creditCardData;
-  const { name, lastName, streetNo, streetName, postalCode, province, country } = billingData
+  const { name, lastName, streetNo, streetName, postalCode, province, country } = differentBillingAddress
   const { numberAlert, expiryAlert, securityCodeAlert } = cardAlert;
 
   const navigate = useNavigate();
@@ -56,7 +56,7 @@ const PaymentPage = () => {
   const dispatch = useDispatch();
 
   const { email, address: { streetNo: streetNoUser, streetName: streetNameUser, postalCode: postalCodeUser, province: provinceUser, country: countryUser } = {} } = userInfo || {}
-
+  const creditCardValidated = !numberAlert && !expiryAlert && !securityCodeAlert
   const message = 'Your billing address must match your payment card`s registered address.'
 
   useEffect(() => {
@@ -122,10 +122,16 @@ const PaymentPage = () => {
   const handleExpiryChange = (e) => {
     let value = e.target.value
     value = value.replace(/\D/g, '')
+    if (value.length >= 2) {
+      const firstTwoDigits = parseInt(value.slice(0, 2), 10)
+      if (firstTwoDigits > 12) {
+        value = '12'+value.slice(2)
+      } 
+    }
     if (value.length > 2) {
       value = value.slice(0, 2) + ' / ' + value.slice(2)
     }
-    
+
     //Update state before validation to avoid unpredictable behaviour
     setCreditCardData(prevState => ({
       ...prevState,
@@ -181,7 +187,7 @@ const PaymentPage = () => {
   const placeOrderHandler = (e) => {
     e.preventDefault()
    
-    if (selectedPaymentMethod === 'credit-card') {
+    if (selectedPaymentMethod === 'credit-card' && creditCardValidated) {
       if (creditCardData.cardNumber.length < 19) {
         setCardAlert(prevState => ({
           ...prevState,
@@ -198,18 +204,22 @@ const PaymentPage = () => {
           securityCodeAlert: true
         }))
       } else {
-        setCardAlert({
-          numberAlert: false,
-          nameAlert:false,
-          expiryAlert: false,
-          securityCodeAlert:false
-        })
+    
      //Create new order item
         const newOrder = {
           user: userInfo._id,
           orderItems: cartItems,
           shippingAddress: userInfo.address,
-          billingAddress,
+          billingAddress: billingAddress === 'same' ? {
+            name: userInfo.name,
+            lastName: userInfo.lastName,
+            streetNo:userInfo.address.streetNo,
+            streetName:userInfo.address.streetName,
+            postalCode:userInfo.address.postalCode,
+            province:userInfo.address.province,
+            country:userInfo.address.country,
+            
+          } : differentBillingAddress,
           shippingPrice,
           taxPrice:Number(taxPrice),
           totalPrice:Number(totalPrice),
@@ -218,6 +228,14 @@ const PaymentPage = () => {
         }
      
         dispatch(createOrder(newOrder));
+
+        //Reset Credit Card fields
+        setCardAlert({
+          numberAlert: false,
+          nameAlert:false,
+          expiryAlert: false,
+          securityCodeAlert:false
+        })
         
       }
     }
@@ -313,24 +331,53 @@ const PaymentPage = () => {
           </div>
           <section className={`billing-address-form-wrapper ${billingAddress === 'different' && 'visible'}`}>
           <div className="form-group-billing first-last-name">
-            <input type="text" name="name" id="name" placeholder='Name' value={name}  required={billingAddress==='different'} />
-            <input type="text" name="lastName" id="lastName" placeholder='Last Name' value={lastName} required={billingAddress==='different'} />
+                <input type="text" name="name" id="name" placeholder='Name' value={name} required={billingAddress === 'different'}
+                  onChange={(e) => setDifferentBillingAddress(prevState => ({
+                  ...prevState,
+                  name:e.target.value
+            }))} />
+                <input type="text" name="lastName" id="lastName" placeholder='Last Name' value={lastName} required={billingAddress === 'different'}
+                  onChange={(e) => setDifferentBillingAddress(prevState => ({
+                  ...prevState,
+                  lastName:e.target.value
+            }))}
+                />
           </div>
           <div className="form-group-billing">
-            <input type="text" name="streetNo" id="streetNo" placeholder='Street No' value={streetNo} required={billingAddress==='different'} />
+                <input type="text" name="streetNo" id="streetNo" placeholder='Street No' value={streetNo} required={billingAddress === 'different'}
+                onChange={(e) => setDifferentBillingAddress(prevState => ({
+                  ...prevState,
+                  streetNo:e.target.value
+            }))}
+                />
           </div>
           <div className="form-group-billing">
-                <input type="text" name="streetName" id="streetName" placeholder='Street Name' value={streetName} required={billingAddress === 'different'} />
+                <input type="text" name="streetName" id="streetName" placeholder='Street Name' value={streetName} required={billingAddress === 'different'}
+                onChange={(e) => setDifferentBillingAddress(prevState => ({
+                  ...prevState,
+                  streetName:e.target.value
+            }))}
+                />
           </div>
           <div className="form-group-billing">
          
           </div>
           <div className="form-group-billing">
             <div>
-                  <input type="text" name="postalCode" id="postalCode" placeholder='Postal Code' value={postalCode}  required={billingAddress === 'different'} />
+                  <input type="text" name="postalCode" id="postalCode" placeholder='Postal Code' value={postalCode} required={billingAddress === 'different'}
+                  onChange={(e) => setDifferentBillingAddress(prevState => ({
+                    ...prevState,
+                    postalCode:e.target.value
+              }))}
+                  />
             </div>
             <div className='billing-address-select-wrapper'>
-                <select name="province" id="province" value={province} required={billingAddress === 'different'}>
+                  <select name="province" id="province" value={province} required={billingAddress === 'different'}
+                  onChange={(e) => setDifferentBillingAddress(prevState => ({
+                    ...prevState,
+                    province:e.target.value
+              }))}
+                  >
                 {provinces.map((item, index) => (
                   <option key={index} value={item}>{item}</option>
                 ))}

@@ -25,6 +25,19 @@ const addressSchema = mongoose.Schema({
   }
 });
 
+const billingAddressSchema = mongoose.Schema({
+  name: { type: String, required: true },
+  lastName: { type: String, required: true },
+  streetNo: { type: String, required: true },
+  streetName: { type: String, reqired: true },
+  postalCode: { type: String, required: true },
+  province: {
+    type: String,
+    enum: ['AB', 'BC', 'MB', 'NB', 'NL', 'NS', 'ON', 'PE', 'QC', 'SK'],
+    required: true
+  }
+})
+
 const productSchema = mongoose.Schema({
   _id: {
     type: mongoose.Schema.Types.ObjectId,
@@ -97,7 +110,7 @@ const orderSchema = mongoose.Schema({
     }
   ],
   shippingAddress: addressSchema,
-  billingAddress:addressSchema,
+  billingAddress:billingAddressSchema,
   taxPrice: { type: Number, required: true },
   shippingPrice:{type:Number, required:true},
   totalPrice: { type: Number, required: true },

@@ -59,7 +59,7 @@ const CheckoutPage = () => {
                   </td>
                   <td>${((item.qty) * (item.price)).toFixed(2)}</td>
                   <td>
-                    <button className='btn' onClick={() => dispatch(deleteCartItem({ _id: item._id, colorVersion: item.colorVersion }))}>
+                    <button className='btn' onClick={() => dispatch(deleteCartItem({ _id: item._id, colorVersion: item.colorVersion, size:item.size }))}>
                       <img className='cart-item-delete' src={trashIcon} alt="trash icon" />
                     </button>
                   </td>

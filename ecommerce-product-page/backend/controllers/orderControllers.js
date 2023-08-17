@@ -5,13 +5,12 @@ const asyncHandler = require('express-async-handler');
 // POST api/orders
 // Public
 const createOrder = asyncHandler(async (req, res) => {
-  const { user, orderItems, shippingAddress, shippingPrice, taxPrice, totalPrice, paymentType  } = req.body;
+  const { user, orderItems, shippingAddress, billingAddress, shippingPrice, taxPrice, totalPrice, paymentType  } = req.body;
   
-  const createdOrder = await OrderModel.create({user, orderItems, shippingAddress, shippingPrice, taxPrice, totalPrice, paymentType})
+  const createdOrder = await OrderModel.create({user, orderItems, shippingAddress, billingAddress, shippingPrice, taxPrice, totalPrice, paymentType})
 
   if (createdOrder) {
     res.status(201).json(createdOrder)
-    console.log(createdOrder, 'Order created!')
   } else {
     res.status(400)
     throw new Error('Order error, please try again')
