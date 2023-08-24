@@ -6,9 +6,9 @@ const createOrder = async (orderData) => {
   const response = await fetch(API_URL_LOCAL_ORDERS, {
     method: 'POST',
     headers: {
-      'Content-Type':'application/json'
+      'Content-Type': 'application/json'
     },
-    body:JSON.stringify(orderData)
+    body: JSON.stringify(orderData)
   })
 
   if (!response.ok) {
@@ -21,10 +21,29 @@ const createOrder = async (orderData) => {
   }
   
   return await response.json();
+};
+
+//Get orderlist
+
+const getOrderList = async (userId) => {
+  const response = await fetch(`${API_URL_LOCAL_ORDERS}/${userId}`)
+
+  if (!response.ok) {
+    let errorMessage = 'An unexpected error occurred. Please try again.'
+    if (response.headers.get('Content-Type')?.includes('application/json')) {
+      const errorData = await response.json()
+      errorMessage = errorData
+    }
+
+    throw new Error(errorMessage)
+  }
+
+  return await response.json();
 }
 
 const orderService = {
-  createOrder
+  createOrder,
+  getOrderList
 }
 
 export default orderService

@@ -1308,6 +1308,10 @@ align-self: flex-end;
   display: grid;
   grid-template-columns: repeat(2,1fr);
   gap:50px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--clrSeperator);
+
 }
 
 .order-confirmation-wrapper h3{
@@ -1333,16 +1337,21 @@ align-self: flex-end;
 }
 
 .delivery-info-wrapper{
-  max-width: 70%;
-  margin: auto;
- margin-top: 20px;
- display: flex;
- gap:20px
+text-align: center;
+}
+
+.delivery-info-wrapper h4{
+  color:var(--clrBlueGrey);
+  margin-bottom: 10px;
 }
 
 .delivery-info-wrapper p{
   font-weight: 400;
   font-size: 15px;
+}
+
+.delivery-info-wrapper p:first-child{
+  font-weight: 500;
 }
 
 .order-item-confirmation-details-wrapper{
@@ -1361,4 +1370,42 @@ align-self: flex-end;
   font-size: 15px;
 }
 
+.order-item-confirmation-name-wrapper li:first-child{
+  font-weight: 500;
+  margin-bottom: 5px;
+}
 
+.order-item-confirmation-name-wrapper li:not(:first-child){
+ font-size: 14px;
+}
+
+/*Order Hsitory Page*/
+.order-history-page-wrapper{
+  max-width: var(--widthMain);
+  display: flex;
+  flex-direction: column;
+  gap:20px;
+}
+
+.order-history-details h3,
+.order-history-items h3{
+  margin-bottom: 10px;
+}
+
+
+.order-history-card{
+  border:1px solid var(--clrLightGrey);
+  padding:20px;
+  display: grid;
+  grid-template-columns: 2fr 4fr;
+}
+
+.order-history-image-wrapper{
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.order-history-row{
+  display: flex;
+  gap:10px;
+}

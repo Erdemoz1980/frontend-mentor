@@ -22,12 +22,9 @@ const OrderConfirmationPage = () => {
     if (!order || !userInfo) {
       navigate('/')
     }
-    
-    return () => {
-      dispatch(orderReset())
-    }
 
-  }, [navigate, order, dispatch, userInfo])
+
+  }, [navigate, order, userInfo])
     
   return (
     <div className='container order-confirmation-page-wrapper'>
@@ -63,11 +60,12 @@ const OrderConfirmationPage = () => {
           <div className="confirmation-row">
             <h4>HST:</h4>
             <h4>${taxPrice && taxPrice.toFixed(2)}</h4>
-          </div>
+            </div>
           <div className="confirmation-row">
             <h4>Total</h4>
             <h4>${totalPrice && totalPrice.toFixed(2)}</h4>
           </div>
+          
           </div>
         </section>
         <div className="order-confirmation-items-summary-wrapper">
@@ -95,7 +93,7 @@ const OrderConfirmationPage = () => {
       <div className="delivery-info-wrapper">
           <h4>Delivery Address:</h4>
           <div>
-            <h4>{name && name} {lastName && lastName}</h4>
+            <p>{name && name} {lastName && lastName}</p>
             <p>{streetNo && streetNo} {streetName && streetName} {postalCode && postalCode}, {province && province}, {country && country}</p>
           </div>
         </div>

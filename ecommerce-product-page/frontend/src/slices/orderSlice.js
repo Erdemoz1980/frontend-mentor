@@ -4,7 +4,8 @@ import orderService from '../services/orderService';
 const initialState = {
   isLoading: false,
   isSuccess: false,
-  order:null,
+  order: null,
+  orderList:null,
   errMessage: false,
   reset:false
 }
@@ -16,7 +17,16 @@ export const createOrder = createAsyncThunk('order/createOrder', async (orderDat
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message)
   }
-})
+});
+
+//Get Orderlist
+export const getOrderList = createAsyncThunk('order/getOrderList', async (userId, thunkAPI) => {
+  try {
+    return await orderService.getOrderList(userId)
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message)
+  }
+});
 
 export const orderSlice = createSlice({
   name: 'order',
@@ -49,6 +59,21 @@ export const orderSlice = createSlice({
         state.order = null
         state.errMessage = action.payload
       })
+      .addCase(getOrderList.pending, (state) => {
+        state.isLoading = true
+        state.isSuccess = false
+      })
+      .addCase(getOrderList.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+        state.orderList = action.payload
+      })
+      .addCase(getOrderList.rejected, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = false
+        state.orderList = null
+        state.errMessage = action.payload
+    })
   }
 });
 

@@ -26,7 +26,7 @@ const getOrderList = asyncHandler(async (req, res) => {
   const orders = await OrderModel.find({ user: req.params.id });
 
   if (orders) {
-    res.status(200).json({orders});
+    res.status(200).json(orders);
   } else {
     res.status(404).json({message:'No previous orders found!'})
   }

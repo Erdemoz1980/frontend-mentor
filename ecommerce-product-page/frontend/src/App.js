@@ -11,6 +11,7 @@ import CheckoutPage from './pages/CheckoutPage';
 import PaymentPage from './pages/PaymentPage';
 import OrderConfirmationPage from './pages/OrderConfirmationPage';
 import { PayPalScriptProvider} from '@paypal/react-paypal-js';
+import OrderHistoryPage from './pages/OrderHistoryPage';
 
 const App = () => {
 
@@ -26,6 +27,7 @@ const App = () => {
         <Route path='/user/account/:id' element={<AccountPage />} />
         <Route path='/user/account/editaddress/' element={<EditProfilePage />} />
         <Route path='/user/account/changepassword/' element={<ChangePasswordPage />} />
+        <Route path='/user/account/orderhistory' element={<OrderHistoryPage />} />
         <Route path='/user/checkout' element={<CheckoutPage />} />
         <Route path='/order/payment' element={<PaymentPage />} />
         <Route path='/order/orderConfirmation' element={<OrderConfirmationPage />} />
