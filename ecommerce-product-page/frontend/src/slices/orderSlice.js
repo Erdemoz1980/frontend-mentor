@@ -4,8 +4,9 @@ import orderService from '../services/orderService';
 const initialState = {
   isLoading: false,
   isSuccess: false,
-  order:{},
-  errMessage:''
+  order:null,
+  errMessage: false,
+  reset:false
 }
 
 //Create Order
@@ -21,9 +22,12 @@ export const orderSlice = createSlice({
   name: 'order',
   initialState,
   reducers: {
-    reset: (state) => {
+    orderReset: (state) => {
       state.isLoading = false
       state.isSuccess = false
+      state.errMessage = false
+      state.order = null
+      state.reset  = true
     }
   },
   extraReducers: (builder) => {
@@ -42,13 +46,13 @@ export const orderSlice = createSlice({
       .addCase(createOrder.rejected, (state, action) => {
         state.isLoading = false
         state.isSuccess = false
-        state.order = {}
+        state.order = null
         state.errMessage = action.payload
       })
   }
 });
 
-export const { reset } = orderSlice.actions;
+export const { orderReset } = orderSlice.actions;
 export default orderSlice.reducer;
 
 

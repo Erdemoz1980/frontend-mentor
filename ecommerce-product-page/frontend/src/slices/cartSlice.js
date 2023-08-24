@@ -11,6 +11,13 @@ const cartSlice = createSlice({
     lightbox:{isOpen:false, id:undefined}
   },
   reducers: {
+    cartReset: (state, action) => {
+      state.isCartOpen = false
+      state.cartItems = []
+      state.activeImage = 0
+      state.lightbox = { isOpen: false, id: undefined }
+      localStorage.removeItem('cartItems')
+    },
     setCartIsOpen: (state, action) => {
       state.isCartOpen = action.payload;
     },
@@ -49,5 +56,5 @@ const cartSlice = createSlice({
   }
 });
 
-export const { setCartIsOpen, closeCart, setCartItems, deleteCartItem, setActiveImage, setLightBox } = cartSlice.actions;
+export const { setCartIsOpen, closeCart, setCartItems, deleteCartItem, setActiveImage, setLightBox, cartReset } = cartSlice.actions;
 export default cartSlice.reducer;

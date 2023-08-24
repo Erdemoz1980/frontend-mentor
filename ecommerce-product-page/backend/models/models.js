@@ -102,6 +102,7 @@ const orderSchema = mongoose.Schema({
         required: true,
         ref:'Product'
       },
+      img:{type:String, required:true},
       name: { type: String, required: true },
       colorVersion: { type: String, required: true },
       size:{type:Number, required:true},
@@ -110,7 +111,8 @@ const orderSchema = mongoose.Schema({
     }
   ],
   shippingAddress: addressSchema,
-  billingAddress:billingAddressSchema,
+  billingAddress: billingAddressSchema,
+  subTotal:{type:Number, required:true},
   taxPrice: { type: Number, required: true },
   shippingPrice:{type:Number, required:true},
   totalPrice: { type: Number, required: true },

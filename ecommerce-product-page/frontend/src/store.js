@@ -9,7 +9,7 @@ const store = configureStore({
     cart: cartReducer,
     product: productReducer,
     user: userReducer,
-    order:orderReducer
+    orderInfo:orderReducer
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
   devTools: true

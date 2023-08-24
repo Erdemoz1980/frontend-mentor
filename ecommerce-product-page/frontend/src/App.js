@@ -9,6 +9,7 @@ import EditProfilePage from './pages/EditProfilePage';
 import ChangePasswordPage from './pages/ChangePasswordPage';
 import CheckoutPage from './pages/CheckoutPage';
 import PaymentPage from './pages/PaymentPage';
+import OrderConfirmationPage from './pages/OrderConfirmationPage';
 import { PayPalScriptProvider} from '@paypal/react-paypal-js';
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
         <Route path='/user/account/changepassword/' element={<ChangePasswordPage />} />
         <Route path='/user/checkout' element={<CheckoutPage />} />
         <Route path='/order/payment' element={<PaymentPage />} />
+        <Route path='/order/orderConfirmation' element={<OrderConfirmationPage />} />
         </Routes>
         </PayPalScriptProvider>
       </BrowserRouter>
