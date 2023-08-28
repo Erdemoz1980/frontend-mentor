@@ -13,10 +13,10 @@ const OrderHistoryCard = ({_id, createdAt, paymentType, totalPrice, orderItems }
           </ul>
         </section>
         <section className="order-history-items">
-          <h3>Items in order:</h3>
+          <h3>{`Item${orderItems.length>1 ? 's' : ''}`} in order:</h3>
           <>
             {orderItems.map(item => (
-              <div key={item._id} className="order-history-row">
+              <div key={`${item._id}${item.colorVersion}${item.size}}`} className="order-history-row">
                 <div className="order-history-image-wrapper">
                   <img src={item.img} alt="order item" />
                 </div>

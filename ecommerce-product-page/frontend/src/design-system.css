@@ -48,6 +48,11 @@ a:visited{
   color:#000
 }
 
+a.disabled{
+  color:var(--clrLightGrey);
+  cursor: default;
+}
+
 small{
   display: block;
 }

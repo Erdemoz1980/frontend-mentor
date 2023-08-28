@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { deleteCartItem, setCartItems } from '../slices/cartSlice';
 import { setPathName } from '../slices/userSlice';
 import trashIcon from '../images/icon-delete.svg';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 const CheckoutPage = () => {
   const dispatch = useDispatch()
@@ -16,7 +17,9 @@ const CheckoutPage = () => {
  
 
   return (
-    <div className="container checkout-page-wrapper">
+    <main className="container">
+      <Breadcrumbs productDetails={true} checkout={true} />
+      <div className="checkout-page-wrapper">
       <h1>Place Order</h1>
       <h2>My Cart</h2>
       <table>
@@ -77,10 +80,8 @@ const CheckoutPage = () => {
          
         </tbody>
       </table>
-
-      
-   
-    </div>
+      </div>
+    </main>
            
   )
 };

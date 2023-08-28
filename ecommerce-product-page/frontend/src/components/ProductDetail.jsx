@@ -9,6 +9,7 @@ import IconPlus from './IconPlus';
 import Lightbox from './Lightbox';
 import Loader from './Loader';
 import Alert from './Alert';
+import Breadcrumbs from './Breadcrumbs';
 
 const ProductDetail = () => {
   const [qty, setQty] = useState(0)
@@ -16,8 +17,6 @@ const ProductDetail = () => {
   const [sizeAlert, setSizeAlert] = useState('');
   const [lightboxIsOpen, setLightboxIsOpen] = useState(false)
   const [activeImage, setActiveImage] = useState(0)
-  const [isZoomed, setIsZoomed] = useState(false)
-  const [zoomValue, setZoomValue] = useState(1)
     
   const dispatch = useDispatch()
   const { productDetail, isLoading, errMessage } = useSelector(state => state.product);
@@ -49,15 +48,12 @@ const ProductDetail = () => {
     setQty(0)
   };
 
-  const scaleRate = (zoomValue - 1) * (5 - 1) / (100 - 1) + 1;
-
-  const imageStyle = {
-    transform: `scale(${scaleRate})`
-  }
-
 
   return (
-    <div className="product-page-wrapper container">
+    <main className='container'>
+      <Breadcrumbs productDetails={{ id, colorVersion }} />
+    <div className="product-details-wrapper">
+   
       {lightboxIsOpen && (
         <Lightbox
           imagesMain={imagesMain}
@@ -74,13 +70,10 @@ const ProductDetail = () => {
         <Loader /> : errMessage ? <Alert message={errMessage} type='error'/>
        : (
         <div className="product-display-wrapper">
-            <div className={`product-detail-image-wrapper ${isZoomed ? 'zoomed' : ''}`}
-              //onClick={() => setLightboxIsOpen(true)}
+            <div className='product-detail-image-wrapper'
+              onClick={() => setLightboxIsOpen(true)}
             >
-            <img src={selectedImages?.[activeImage]} alt="main product" style={imageStyle} />
-              <div className='zoom-slider-container'>
-                <input type="range" name="" id="" min='1' max='100' value={zoomValue} onChange={(e)=>setZoomValue(e.target.value)} className='zoom-slider'/>
-              </div>
+            <img src={selectedImages?.[activeImage]} alt="main product" />
           </div>
           <div className="product-thumbnails">
               {selectedThumbnailImages?.map((thumbnail, index) => (
@@ -139,7 +132,8 @@ const ProductDetail = () => {
           </button>
         </div>
       </div>
-    </div>
+      </div>
+      </main>
   );
 };
 

@@ -2,6 +2,7 @@ import { useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { orderReset } from '../slices/orderSlice';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 
 
@@ -23,11 +24,16 @@ const OrderConfirmationPage = () => {
       navigate('/')
     }
 
-
-  }, [navigate, order, userInfo])
+    return () => {
+     dispatch(orderReset())
+   }
+  
+  }, [navigate, order, dispatch, userInfo])
     
   return (
-    <div className='container order-confirmation-page-wrapper'>
+    <main className='container'>
+      <Breadcrumbs  orderConfirmation={true} /> 
+      <section className='order-confirmation-page-wrapper'>
       <header className='order-confirmation-header'>Thank you for your order!</header>
       <main className="order-confirmation-wrapper">
         <section className="order-confirmation-details-wrapper">
@@ -97,8 +103,8 @@ const OrderConfirmationPage = () => {
             <p>{streetNo && streetNo} {streetName && streetName} {postalCode && postalCode}, {province && province}, {country && country}</p>
           </div>
         </div>
-
-    </div>
+        </section>
+    </main>
   )
 }
 

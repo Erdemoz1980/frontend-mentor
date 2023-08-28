@@ -14,6 +14,7 @@ import IconVisa from '../components/IconVisa';
 import IconMasterCard from '../components/IconMasterCard';
 import { PayPalButtons } from '@paypal/react-paypal-js'
 import AlertValidation from '../components/AlertValidation';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 const PaymentPage = () => {
   const { userInfo, provinces, isLoading } = useSelector(state => state.user)
@@ -250,7 +251,10 @@ const PaymentPage = () => {
 
  
     return (
-      <div className='container payment-page-wrapper'>
+      <main className='container'>
+        <Breadcrumbs productDetails={true} checkout={true} payment={true} /> 
+        <section className='payment-page-wrapper'>
+        
         <Link to='/user/checkout'><button className="btn btn-navigate">Go Back</button></Link>
     
         <div className="shipping-billing-wrapper">
@@ -445,8 +449,9 @@ const PaymentPage = () => {
               <h3 className='total-bill'><span>CAD</span>${totalPrice.toFixed(2)}</h3>
             </div>
           </section>
-        </div>
-      </div>
+          </div>
+          </section>
+      </main>
     )
 };
 
