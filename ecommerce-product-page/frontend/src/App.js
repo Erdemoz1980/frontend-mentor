@@ -18,7 +18,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <PayPalScriptProvider options={{ clientId: "test" }}>
-      <Navbar />
+        <Navbar />
       <Routes>
         <Route path='/' element={<ProductListPage />} />
         <Route path='/product/:id/:colorVersion' element={<ProductDetail />} />

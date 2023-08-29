@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@200;300;400;500;700&display=swap');
 
 :root{
   /*Colors*/
@@ -46,11 +46,6 @@ a{
 
 a:visited{
   color:#000
-}
-
-a.disabled{
-  color:var(--clrLightGrey);
-  cursor: default;
 }
 
 small{

@@ -14,7 +14,7 @@ const Breadcrumbs = ({productDetails, checkout, payment, orderConfirmation}) => 
         )
       }
       {
-        checkout ? (<Link to='/user/checkout'>Check Out</Link>) : (<Link className='disabled'>Check Out</Link>)
+        checkout ? (<Link to='/user/checkout'>Cart</Link>) : (<Link className='disabled'>Cart</Link>)
       }
       {
         payment ? (<Link to='/order/payment'>Payment</Link>) : (<Link className='disabled'>Payment</Link>)

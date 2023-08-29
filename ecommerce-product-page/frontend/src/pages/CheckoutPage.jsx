@@ -9,6 +9,7 @@ const CheckoutPage = () => {
   const dispatch = useDispatch()
   const location = useLocation()
   const { cartItems } = useSelector(state => state.cart)
+  const { colorVersion } = useSelector(state => state.product)
 
   const cartTotalAmount = cartItems.reduce((acc, item) => acc + (item.price) * (item.qty), 0)
   const shippingAmount = cartTotalAmount > 100 ? 0 : 20;
@@ -40,9 +41,9 @@ const CheckoutPage = () => {
               {cartItems.map(item => (
                 <tr className='checkout-item-row' key={`${item._id}${item.colorVersion}${item.size}`}>
                   <td>
-                    <Link to={`/product/${item._id}/${item.colorVersion}`}><img src={item.img} alt='cart item' /></Link>
+                    <Link to={`/product/${item._id}/${colorVersion}`}><img src={item.img} alt='cart item' /></Link>
                     <div className="checkout-item-description">
-                       <Link to={`/product/${item._id}/${item.colorVersion}`}>
+                       <Link to={`/product/${item._id}/${colorVersion}`}>
                       <p>{item.name}</p>
                       </Link>
                       <div className="checkout-item-color-size-wrapper">
