@@ -19,7 +19,7 @@ const getProducts = asyncHandler(async (req, res, next) => {
           { name: {$in: searchTermRegexArray}},
           { category:{$in: searchTermRegexArray} },
           { gender: {$in: searchTermRegexArray} },
-          { description:{$in: searchTermRegexArray} },
+          { description: { $in: searchTermRegexArray } },
         ]
       }
     }
