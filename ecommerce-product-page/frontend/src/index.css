@@ -1449,7 +1449,22 @@ text-align: center;
 
 /*Search Bar*/
 .search-bar-wrapper{
-  width: var(--widthMain);
+ width: var(--widthMain);
+ margin: auto;
+}
+
+.search-bar-wrapper .form-group {
+  width: 270px;
+}
+
+.search-bar-wrapper .form-group input[type='text']{
+  padding: 10px 5px;
+  border: 1px solid var(--clrBlueGrey);
+}
+
+.search-bar-wrapper .form-group i {
+ top:50%;
+ transform: translateY(-50%);
 }
 
 

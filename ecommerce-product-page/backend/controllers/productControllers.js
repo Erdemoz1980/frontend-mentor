@@ -5,8 +5,25 @@ const { ProductModel } = require('../models/models.js')
 //@route GET api/products
 //@access Public
 const getProducts = asyncHandler(async (req, res, next) => {
+  const searchTerm = req.query.searchterm;
   try {
-    const products = await ProductModel.find({});
+    let query = {}
+
+    if (searchTerm) {
+      const searchTermsArray = searchTerm.split(' ').filter(term => term.length > 0);
+      const searchTermRegexArray = searchTermsArray.map(term => new RegExp(term, 'i'))
+        ;
+      query = {
+        $or: [
+          { company:{$in: searchTermRegexArray} },
+          { name: {$in: searchTermRegexArray}},
+          { category:{$in: searchTermRegexArray} },
+          { gender: {$in: searchTermRegexArray} },
+          { description:{$in: searchTermRegexArray} },
+        ]
+      }
+    }
+    const products = await ProductModel.find(query);
 
     if (products) {
       res.status(200).json(products)

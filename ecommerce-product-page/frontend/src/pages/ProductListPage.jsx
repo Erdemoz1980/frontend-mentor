@@ -1,9 +1,10 @@
 import {useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from '../slices/productSlice';
 import ProductCard from "../components/ProductCard";
 import Loader from '../components/Loader';
+import Alert from '../components/Alert';
 
 const ProductListPage = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -12,12 +13,14 @@ const ProductListPage = () => {
   const dispatch = useDispatch()
   const location = useLocation()
   const keyword = location.search.split('=')[1]
+  const { searchTerm } = useParams()
   const {products, isLoading, errMessage} = useSelector(state=>state.product)
 
-  
+
   useEffect(() => {
-    dispatch(getProducts())
-  }, [dispatch]);
+    dispatch(searchTerm ? getProducts(searchTerm) : getProducts())
+  
+  }, [dispatch, searchTerm]);
 
   useEffect(() => {
         //Filter products based on category keyword if it exists
@@ -39,7 +42,7 @@ const ProductListPage = () => {
   return (
     <div className='product-page-wrapper'>
       {
-        isLoading ? <Loader /> : errMessage ? <div className="temp">{errMessage}</div>: filteredProducts.map(product => (
+        isLoading ? <Loader /> : errMessage ? <div className="temp">{errMessage}</div> : searchTerm && filteredProducts.length < 1 ? <Alert message='Your search returned no results!' type='error'/> : filteredProducts.map(product => (
           <ProductCard key={product._id} {...product} />
         ))
       }

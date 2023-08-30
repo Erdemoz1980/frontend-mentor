@@ -2,8 +2,9 @@ const API_URL_HEROKU = 'https://erdemoz-io-659240e6c6f7.herokuapp.com/api/produc
 const API_URL_LOCAL = 'http://localhost:8000/api/products'
 
 //Get Product List
-const getProducts = async () => {
-  const response = await fetch(API_URL_HEROKU);
+const getProducts = async (searchTerm='') => {
+
+  const response = await fetch(`${API_URL_LOCAL}/?searchterm=${searchTerm}`);
  
   if (!response.ok) {
     const errorData = await response.json();
