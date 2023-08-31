@@ -23,7 +23,7 @@ const SearchBar = () => {
       } else {
         navigate('/')
       }
-    },450)
+    },500)
      
   };
 

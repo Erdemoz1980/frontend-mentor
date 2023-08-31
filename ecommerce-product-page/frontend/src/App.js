@@ -12,7 +12,7 @@ import PaymentPage from './pages/PaymentPage';
 import OrderConfirmationPage from './pages/OrderConfirmationPage';
 import { PayPalScriptProvider} from '@paypal/react-paypal-js';
 import OrderHistoryPage from './pages/OrderHistoryPage';
-import SearchBar from './components/SearchBar';
+import ConditionalSearchBar from './pages/ConditionalSearchBar';
 
 const App = () => {
 
@@ -20,8 +20,8 @@ const App = () => {
     <BrowserRouter>
       <PayPalScriptProvider options={{ clientId: "test" }}>
         <Navbar />
-          <SearchBar />
-      <Routes>
+       <ConditionalSearchBar />
+        <Routes>
         <Route path='/' element={<ProductListPage />} />
         <Route path='/search/:searchTerm' element={<ProductListPage />} /> 
         <Route path='/product/:id/:colorVersion' element={<ProductDetail />} />

@@ -10,12 +10,12 @@ const getProducts = asyncHandler(async (req, res, next) => {
     let query = {}
 
     if (searchTerm) {
-      const searchTermsArray = searchTerm.split(' ').filter(term => term.length > 0);
+      const searchTermsArray = searchTerm.split(' ').filter(term => term.length > 0);// Remove multiple spaces if they exist.
       const searchTermRegexArray = searchTermsArray.map(term => new RegExp(term, 'i'))
         ;
       query = {
         $or: [
-          { company:{$in: searchTermRegexArray} },
+          { company:{$in: searchTermRegexArray} }, //$in operator to match any terms in the provided field.
           { name: {$in: searchTermRegexArray}},
           { category:{$in: searchTermRegexArray} },
           { gender: {$in: searchTermRegexArray} },
