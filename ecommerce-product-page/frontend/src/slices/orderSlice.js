@@ -38,6 +38,9 @@ export const orderSlice = createSlice({
       state.errMessage = false
       state.order = null
       state.reset  = true
+    },
+    setOrderList: (state, action) => {
+      state.orderList = action.payload
     }
   },
   extraReducers: (builder) => {
@@ -77,7 +80,7 @@ export const orderSlice = createSlice({
   }
 });
 
-export const { orderReset } = orderSlice.actions;
+export const { orderReset, setOrderList } = orderSlice.actions;
 export default orderSlice.reducer;
 
 

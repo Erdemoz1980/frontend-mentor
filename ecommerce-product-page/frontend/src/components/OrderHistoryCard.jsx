@@ -4,7 +4,7 @@ const OrderHistoryCard = ({_id, createdAt, paymentType, totalPrice, orderItems }
   return (
     <main className="order-history-card-wrapper">
       <div className="order-history-card">
-        <section className="order-history-details">
+        <section className="order-history-details-wrapper">
           <h4>Order #{_id}</h4>
           <ul>
             <li>Date: {createdAt.slice(0, 10)}</li>
