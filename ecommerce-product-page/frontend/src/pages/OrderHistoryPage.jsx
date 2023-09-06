@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getOrderList, setOrderList } from '../slices/orderSlice';
@@ -6,6 +6,8 @@ import OrderHistoryCard from '../components/OrderHistoryCard';
 import Loader from '../components/Loader';
 
 const OrderHistoryPage = () => {
+  const [sortingOption, setSortingOption] = useState('Date');
+  const [sortingDirection, setSortingDirection] = useState('asc');
   const { userInfo } = useSelector(state => state.user);
   const { isLoading, orderList } = useSelector(state => state.orderInfo);
 
@@ -20,55 +22,48 @@ const OrderHistoryPage = () => {
     }
   }, [userInfo, navigate, dispatch]);
 
-
   const handleSort = (e) => {
     const { name, value } = e.target;
-  
-    console.log(value)
+    // Create a copy of the order list to avoid mutating the original state.
     let sortedList = [...orderList];
-    const ascending = value === 'asc';
-  
-    switch (name) {
-      case 'sorting-option':
+    const ascending = sortingDirection === 'asc'
+     
+    if (name === 'sorting-option') {
+      setSortingOption(value)
+      sortedList.sort((a, b) => {
         switch (value) {
           case 'Date':
-            sortedList.sort((a, b) =>
-              ascending
-                ? a.createdAt.localeCompare(b.createdAt)
-                : b.createdAt.localeCompare(a.createdAt)
-            );
-            break;
+            return ascending ? a.createdAt.localeCompare(b.createdAt) : b.createdAt.localeCompare(a.createdAt)
           case 'Total':
-            sortedList.sort((a, b) =>
-              ascending ? a.totalPrice - b.totalPrice : b.totalPrice - a.totalPrice
-            );
-            break;
-          case 'Number of items':
-            sortedList.sort((a, b) =>
-              ascending
-                ? a.orderItems.length - b.orderItems.length
-                : b.orderItems.length - a.orderItems.length
-            );
-            break;
+            return ascending ? a.totalPrice - b.totalPrice : b.totalPrice - a.totalPrice
+          case 'Number-of-items':
+            return ascending ? a.orderItems.length - b.orderItems.length : b.orderItems.length - a.orderItems.length
           default:
-            return;
+            return sortedList
         }
-        break;
-      case 'sorting-direction':
-        // Reverse the list if 'Descending' is selected
-        if (value === 'desc') {
-          sortedList.reverse();
+      })
+    } else {
+      setSortingDirection(value);
+      sortedList.sort((a, b) => {
+        switch (value) {
+          case 'asc':
+            return sortingOption === 'Date' ? a.createdAt.localeCompare(b.createdAt) :
+              sortingOption === 'Total' ? a.totalPrice - b.totalPrice
+                : a.orderItems.length - b.orderItems.length
+          case 'desc':
+            return sortingOption === 'Date' ? b.createdAt.localeCompare(a.createdAt) :
+              sortingOption === 'Total' ? b.totalPrice - a.totalPrice
+                : b.orderItems.length - b.orderItems.length
+          default:
+            return sortedList
         }
-        break;
-      default:
-        return;
+      })
     }
-  
-    // Update the order list in your Redux store or component state
-    dispatch(setOrderList(sortedList));
-  };
-  
-  const radioButtons = [{ value: 'Date' }, { value: 'Total' }, { value: 'Number of items' }]
+     dispatch(setOrderList(sortedList))
+  }
+   
+      
+  const radioButtons = [{ id:1000 ,value: 'Date' }, {id:1001, value: 'Total' }, { id:1002, value: 'Number-of-items' }]
 
   return (
     <div className="container order-history-page-wrapper">
@@ -77,16 +72,16 @@ const OrderHistoryPage = () => {
         <p>Sort Orders</p>
         <div className="filter-options-wrapper">
           {
-            radioButtons.map((item, index) => (
-              <div key={index} className="filter-options-form-group">
+            radioButtons.map(item => (
+              <div key={item.id} className="filter-options-form-group">
                 <label htmlFor={item.value}>{item.value}</label>
-                <input type="radio" name='sorting-option' id={item.value} value={item.value} onChange={handleSort} />
+                <input checked={item.value===sortingOption} type="radio" name='sorting-option' id={item.value} value={item.value} onChange={handleSort} />
               </div>
             ))
           }
         </div>
         <div className="sort-wrapper">
-          <select name="sorting-direction" id="" onChange={handleSort}>
+          <select defaultValue={sortingDirection} name="sorting-direction" id="" onChange={handleSort}>
           <option value="desc">Descending</option>
             <option value="asc">Ascending</option>
            
