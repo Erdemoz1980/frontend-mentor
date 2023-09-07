@@ -22,6 +22,46 @@ const OrderHistoryPage = () => {
     }
   }, [userInfo, navigate, dispatch]);
 
+
+
+  const handleSortOptimized = (e) => {
+    const { name, value } = e.target;
+    let sortedList = [...orderList];
+
+    const ascending = sortingDirection === 'asc';
+    
+    // Encapsulating sorting logic in an object for code reusability, maintainability, and scalability.
+    const sortOptions = {
+      Date: (a, b) => ascending ? a.createdAt.localeCompare(b.createdAt) : b.createdAt.localeCompare(a.createdAt),
+      Total: (a, b) => ascending ? a.totalPrice - b.totalPrice : b.totalPrice - a.totalPrice,
+      NumberOfItems: (a, b) => ascending ? a.orderItems.length - b.orderItems.length : b.orderItems.length - a.orderItems.length
+    }
+ 
+    /*
+    const sortDirections = {
+      asc: (a, b) => sortingOption === 'Date' ? a.createdAt.localeCompare(b.createdAt)
+        : sortingOption === 'Total' ? a.totalPrice - b.totalPrice : a.orderItems.length - b.orderItems.length,
+      desc: (a, b) => sortingOption === 'Date' ? b.createdAt.localeCompare(a.createdAt)
+        : sortingOption === 'Total' ? b.totalPrice - a.totalPrice : b.orderItems.length - a.orderItems.length
+    }*/
+
+    const sortDirections = {
+      asc: (a, b) => sortOptions[sortingOption](a, b), // Use the sorting function from sortOptions
+      desc: (a, b) => sortOptions[sortingOption](b, a) // Reverse the order for descending
+    }
+    
+    if (name === 'sorting-option') {
+      setSortingOption(value)
+      dispatch(setOrderList(sortedList.sort(sortOptions[value])))
+    } else {
+      setSortingDirection(value)
+      dispatch(setOrderList(sortedList.sort(sortDirections[value])))
+    }
+    dispatch(setOrderList(sortedList));
+  }
+  
+  //Reactive sorting using switch statemens
+  /*
   const handleSort = (e) => {
     const { name, value } = e.target;
     // Create a copy of the order list to avoid mutating the original state.
@@ -36,10 +76,10 @@ const OrderHistoryPage = () => {
             return ascending ? a.createdAt.localeCompare(b.createdAt) : b.createdAt.localeCompare(a.createdAt)
           case 'Total':
             return ascending ? a.totalPrice - b.totalPrice : b.totalPrice - a.totalPrice
-          case 'Number-of-items':
+          case 'NumberOfItems':
             return ascending ? a.orderItems.length - b.orderItems.length : b.orderItems.length - a.orderItems.length
           default:
-            return sortedList
+            return 
         }
       })
     } else {
@@ -53,17 +93,18 @@ const OrderHistoryPage = () => {
           case 'desc':
             return sortingOption === 'Date' ? b.createdAt.localeCompare(a.createdAt) :
               sortingOption === 'Total' ? b.totalPrice - a.totalPrice
-                : b.orderItems.length - b.orderItems.length
+                : b.orderItems.length - a.orderItems.length
           default:
-            return sortedList
+            return 
         }
       })
     }
      dispatch(setOrderList(sortedList))
   }
-   
-      
-  const radioButtons = [{ id:1000 ,value: 'Date' }, {id:1001, value: 'Total' }, { id:1002, value: 'Number-of-items' }]
+   */
+  
+  //Separating rendering logic from data.
+  const radioButtons = [{ id:1000 ,value: 'Date' }, {id:1001, value: 'Total' }, { id:1002, value: 'NumberOfItems' }]
 
   return (
     <div className="container order-history-page-wrapper">
@@ -73,15 +114,15 @@ const OrderHistoryPage = () => {
         <div className="filter-options-wrapper">
           {
             radioButtons.map(item => (
-              <div key={item.id} className="filter-options-form-group">
+              <div key={item.id}  className="filter-options-form-group">
                 <label htmlFor={item.value}>{item.value}</label>
-                <input checked={item.value===sortingOption} type="radio" name='sorting-option' id={item.value} value={item.value} onChange={handleSort} />
+                <input checked={item.value===sortingOption} type="radio" name='sorting-option' id={item.value} value={item.value} onChange={handleSortOptimized} />
               </div>
             ))
           }
         </div>
         <div className="sort-wrapper">
-          <select defaultValue={sortingDirection} name="sorting-direction" id="" onChange={handleSort}>
+          <select defaultValue={sortingDirection} name="sorting-direction" id={sortingDirection} onChange={handleSortOptimized}>
           <option value="desc">Descending</option>
             <option value="asc">Ascending</option>
            
