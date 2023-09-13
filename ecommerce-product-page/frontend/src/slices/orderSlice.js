@@ -5,7 +5,7 @@ const initialState = {
   isLoading: false,
   isSuccess: false,
   order: null,
-  orderList:null,
+  orderList:[],
   errMessage: false,
   reset:false
 }
@@ -74,7 +74,7 @@ export const orderSlice = createSlice({
       .addCase(getOrderList.rejected, (state, action) => {
         state.isLoading = false
         state.isSuccess = false
-        state.orderList = null
+        state.orderList = []
         state.errMessage = action.payload
     })
   }
