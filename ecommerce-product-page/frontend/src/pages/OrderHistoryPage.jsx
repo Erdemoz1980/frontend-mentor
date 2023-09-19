@@ -13,7 +13,7 @@ const OrderHistoryPage = () => {
   const { option, direction} = sortingData;
   const { userInfo } = useSelector(state => state.user);
   const { isLoading, isSuccess, orderList } = useSelector(state => state.orderInfo);
-  const [sortedOrderList, setSortedOrderList] = useState([]);
+  const [sortedOrderList, setSortedOrderList] = useState(orderList);
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -24,6 +24,7 @@ const OrderHistoryPage = () => {
     } else {
       dispatch(getOrderList(userInfo._id))
     }
+    //Ensure that we are always fetching latest up-to-date version of order history from database
     return () => {
       dispatch(orderListReset())
     }
