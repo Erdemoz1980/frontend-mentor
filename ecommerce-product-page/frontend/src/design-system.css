@@ -19,6 +19,7 @@
   --ffMain:'Kumbh Sans', sans-serif;  
   --widthMain:1110px;
   --widthMedium:960px;
+  --widthMobile:640px;
 
   /*Transitions*/
   --trsMain:0.15s ease-out;

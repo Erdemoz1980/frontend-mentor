@@ -42,6 +42,7 @@ const OrderHistoryPage = () => {
     };
         
     if (orderList?.length > 0) {
+       //Spread orderList directly, rather than 'prevList' to eliminate complexity and ensure orderList is always populated when we spread
       setSortedOrderList(() => {
         return [...orderList].sort(sortOptions.sortDirections[direction]);
       });
