@@ -1,7 +1,7 @@
 import { useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { orderReset } from '../slices/orderSlice';
+import { orderListReset } from '../slices/orderSlice';
 import Breadcrumbs from '../components/Breadcrumbs';
 
 
@@ -25,7 +25,7 @@ const OrderConfirmationPage = () => {
     }
 
     return () => {
-     dispatch(orderReset())
+     dispatch(orderListReset())
    }
   
   }, [navigate, order, dispatch, userInfo])

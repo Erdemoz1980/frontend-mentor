@@ -1,20 +1,19 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { getOrderList } from '../slices/orderSlice';
+import { getOrderList, orderListReset } from '../slices/orderSlice';
 import OrderHistoryCard from '../components/OrderHistoryCard';
 import Loader from '../components/Loader';
 
 const OrderHistoryPage = () => {
   const [sortingData, setSortingData] = useState({
     option: 'Date',
-    direction: 'asc',
-    source: 'radio'
+    direction: 'desc',
   });
-  const { option, direction, source } = sortingData;
+  const { option, direction} = sortingData;
   const { userInfo } = useSelector(state => state.user);
-  const { isLoading, orderList } = useSelector(state => state.orderInfo);
-  const [sortedOrderList, setSortedOrderList] = useState(orderList);
+  const { isLoading, isSuccess, orderList } = useSelector(state => state.orderInfo);
+  const [sortedOrderList, setSortedOrderList] = useState([]);
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -25,31 +24,34 @@ const OrderHistoryPage = () => {
     } else {
       dispatch(getOrderList(userInfo._id))
     }
+    return () => {
+      dispatch(orderListReset())
+    }
   }, [userInfo, navigate, dispatch]);
 
   useEffect(() => {
     const sortOptions = {
       Date: (a, b) => a.createdAt.localeCompare(b.createdAt),
       Total: (a, b) => a.totalPrice - b.totalPrice,
-      NumberOfItems: (a, b) => a.orderItems.length - b.orderItems.length
-    };
-  
-    const sortDirections = {
-      asc: (a, b) => sortOptions[option](a, b),
-      desc: (a, b) => sortOptions[option](b, a)
+      NumberOfItems: (a, b) => a.orderItems.length - b.orderItems.length,
+      sortDirections: {
+        asc: (a, b) => sortOptions[option](a, b),
+        desc: (a, b) => sortOptions[option](b, a)
+      },
     };
         
-    setSortedOrderList(prevList => {
-      return [...prevList].sort(sortDirections[direction])
-    })
-  }, [direction, option, source]);
+    if (orderList?.length > 0) {
+      setSortedOrderList(() => {
+        return [...orderList].sort(sortOptions.sortDirections[direction]);
+      });
+    }
+  },[direction, option, orderList]);
   
-
+  
   const onChangeHandler = (e) => {
     const { name, value } = e.target;
     setSortingData(prevState => ({
       ...prevState,
-      source: name.split('.')[0],
       [name.split('.')[1]]: value
     }))
   };
@@ -81,8 +83,10 @@ const OrderHistoryPage = () => {
         </div>
       </section>
       {
-        isLoading ? <Loader /> : orderList.length < 1 ? <h3>No orders found </h3> : (
-          sortedOrderList.map(order => (
+        isLoading ? <Loader /> : (isSuccess && orderList.length === 0)
+          ? <h3>No orders found </h3>
+          : (
+          sortedOrderList?.map(order => (
             <OrderHistoryCard key={order._id} {...order} />
           ))
         )

@@ -31,8 +31,6 @@ const ProductDetail = () => {
   const selectedImages = colors?.length > 0 ? imagesMain?.[colorVersion]?.images : imagesMain?.[0]?.images;
   const selectedThumbnailImages = colors?.length > 0 ? imageThumbnails?.[colorVersion]?.images : imageThumbnails?.[0]?.images;
 
-  // const priceFixed = price.toFixed(2)
-
   const selectSizeHandler = (size) => {
     setSizeAlert('')
     setSelectedSize(size)
@@ -42,7 +40,12 @@ const ProductDetail = () => {
     if (!selectedSize) {
       return setSizeAlert('Please select a size')
     }
-    const newItem = { _id:id, img: colors?.length > 0 ? imageThumbnails[colorVersion[0]]?.images[0] : imageThumbnails[0].images[0], name, price,size:selectedSize, qty, countInStock, discount, colorVersion:colors[Number(colorVersion)]};
+    const newItem = {
+      _id: id, img: colors?.length > 0 ? imageThumbnails[colorVersion[0]]?.images[0] : imageThumbnails[0].images[0],
+      name,
+      price:discount > 0 ? (price - (price * (discount / 100))) : price, 
+      size: selectedSize, qty, countInStock, discount, colorVersion: colors[Number(colorVersion)]
+    };
 
     dispatch(setCartItems(newItem));
     setQty(0)
@@ -94,10 +97,10 @@ const ProductDetail = () => {
         <p className="product-description">{description}</p>
         <div className="price-wrapper">
           <h2 className="product-price text-dark">
-            ${`${discount ? (price - (price * (discount / 100))).toFixed(2) : price}`}
-            {discount && <span className="discount-tab">{discount}%</span>}
+           ${`${discount > 0 ? (price - (price * (discount / 100))).toFixed(2) : price}`}
+            {discount > 0 && <span className="discount-tab">{discount}%</span>}
           </h2>
-          {discount && <small className="original-price text-light">${price}</small>}
+          {discount > 0 && <small className="original-price text-light">${price}</small>}
         </div>
         <div className="sizes-wrapper">
           <h4 className='size-title'>Select Size</h4>

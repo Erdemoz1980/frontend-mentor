@@ -32,11 +32,12 @@ export const orderSlice = createSlice({
   name: 'order',
   initialState,
   reducers: {
-    orderReset: (state) => {
+    orderListReset: (state) => {
       state.isLoading = false
       state.isSuccess = false
       state.errMessage = false
       state.order = null
+      state.orderList = []
       state.reset  = true
     },
     setOrderList: (state, action) => {
@@ -67,9 +68,9 @@ export const orderSlice = createSlice({
         state.isSuccess = false
       })
       .addCase(getOrderList.fulfilled, (state, action) => {
-        state.isLoading = false
-        state.isSuccess = true
         state.orderList = action.payload
+        state.isSuccess = true
+        state.isLoading = false
       })
       .addCase(getOrderList.rejected, (state, action) => {
         state.isLoading = false
@@ -80,7 +81,7 @@ export const orderSlice = createSlice({
   }
 });
 
-export const { orderReset, setOrderList } = orderSlice.actions;
+export const { orderListReset, setOrderList } = orderSlice.actions;
 export default orderSlice.reducer;
 
 

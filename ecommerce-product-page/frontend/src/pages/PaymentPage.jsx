@@ -66,7 +66,7 @@ const PaymentPage = () => {
     if (!userInfo && !isLoading) {
       navigate('/login')
     }
-    if (cartItems.length < 1) {
+    if (cartItems.length === 0) {
       navigate('/')
     }
     if (selectedPaymentMethod === 'pay-pal') {

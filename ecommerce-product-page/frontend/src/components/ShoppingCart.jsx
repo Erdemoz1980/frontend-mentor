@@ -28,9 +28,8 @@ const ShoppingCart = () => {
                   <p className='cart-item-color'>{item.colorVersion}</p>
                 <p className='cart-item-size'>Size US: {item.size}</p>
                 </div>
-                  <p className="cart-item-price">${item.discount ?
-                    ((item.price - (item.price * (item.discount / 100))).toFixed(2)) : item.price} x {item.qty} = <span>${item.discount ?
-                    ((item.price - (item.price * (item.discount / 100))) * item.qty).toFixed(2) : (item.price * item.qty).toFixed(2)}</span></p>
+                  <p className="cart-item-price">
+                    ${(item.price.toFixed(2))} x {item.qty} = <span>${(item.price * item.qty).toFixed(2)}</span></p>
                   <div className="stock-info-wrapper">
                     <p>Change</p>
                     <select name="" id="" value={item.qty} onChange={(e) => dispatch(setCartItems({...item, qty:Number(e.target.value)}))} >

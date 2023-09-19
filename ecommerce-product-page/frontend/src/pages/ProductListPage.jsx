@@ -42,7 +42,9 @@ const ProductListPage = () => {
   return (
     <div className='product-page-wrapper'>
       {
-        isLoading ? <Loader /> : errMessage ? <div className="temp">{errMessage}</div> : searchTerm && filteredProducts.length < 1 ? <Alert message='Your search returned no results!' type='error'/> : filteredProducts.map(product => (
+        isLoading ? <Loader /> : errMessage ? <div className="temp">{errMessage}</div> : searchTerm && filteredProducts.length < 1
+          ? <Alert message='Your search returned no results!' type='error' />
+          : filteredProducts.map(product => (
           <ProductCard key={product._id} {...product} />
         ))
       }
