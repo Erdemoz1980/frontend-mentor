@@ -4,7 +4,7 @@ const API_URL_LOCAL = 'http://localhost:8000/api/products'
 //Get Product List
 const getProducts = async (searchTerm='') => {
 
-  const response = await fetch(`${API_URL_LOCAL}/?searchterm=${searchTerm}`);
+  const response = await fetch(`${API_URL_HEROKU}/?searchterm=${searchTerm}`);
  
   if (!response.ok) {
     const errorData = await response.json();

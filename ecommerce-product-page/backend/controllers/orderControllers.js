@@ -15,13 +15,11 @@ const createOrder = asyncHandler(async (req, res) => {
     res.status(400)
     throw new Error('Order error, please try again')
   }
-
 });
 
 //@descGET fetches a user's all orders
 //@route /api/orders/:id
 //@access Private
-
 const getOrderList = asyncHandler(async (req, res) => {
   const orders = await OrderModel.find({ user: req.params.id });
 
@@ -31,6 +29,5 @@ const getOrderList = asyncHandler(async (req, res) => {
     res.status(404).json({message:'No previous orders found!'})
   }
 })
-
 
 module.exports = {createOrder, getOrderList}
