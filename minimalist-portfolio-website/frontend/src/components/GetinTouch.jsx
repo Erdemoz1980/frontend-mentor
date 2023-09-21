@@ -1,6 +1,8 @@
 import IconGithub from './IconGithub';
 import IconTwitter from './IconTwitter';
 import IconLinkedIn from './IconLinkedIn';
+import IconPhone from './IconPhone';
+import IconEmail from './IconEmail'
 
 const GetinTouch = () => {
   return (
@@ -13,6 +15,10 @@ const GetinTouch = () => {
             <li><a href="https://github.com/Erdemoz1980" target='_blank' rel='noopener noreferrer'><IconGithub version='dark' /></a></li>
             <li><a href="https://twitter.com/ErdemOz1980" target='_blank' rel='noopener noreferrer' ><IconTwitter version='dark' /></a></li>
             <li><a href="https://www.linkedin.com/in/erdem-ozdemir-95148553/" target='_blank' rel='noopener noreferrer'><IconLinkedIn version='dark' /></a></li>
+          </ul>
+          <ul className='phone-email-info'>
+            <li><IconPhone /><p>+1 647 687 1807</p> </li>
+            <li><IconEmail/><p>erdem@erdemoz.io</p></li>
           </ul>
         </div>
       </div>   

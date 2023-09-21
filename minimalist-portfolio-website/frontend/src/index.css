@@ -55,16 +55,35 @@
   gap:16px;
 }
 
+.phone-email-info {
+  display: flex;
+  flex-direction: column;
+  gap:5px;
+  margin-top: 20px;
+}
+
+.phone-email-info p{
+  display: inline;
+  margin-left: 10px;
+}
+
 /*Hero Section*/
 .hero-section{
   position: relative;
   margin-bottom: var(--marginSectionBottom);
 }
 
-.hero-image img{
-  height: inherit;
+.hero-image-wrapper{
+  position: relative;
+}
+
+.hero-image-overlay{
+  position: absolute;
+  top:0;
+  left:0;
   width: 100%;
-  object-fit: cover;
+  height: 100%;
+  background-color: rgba(51,50,61,0.1);
 }
 
  .text-box{
@@ -88,8 +107,41 @@
   display: grid;
   height: 600px;
   grid-template-columns: repeat(2,1fr);
-  gap:var(--gapGrid);
+  gap:var(--gapGridDesktop);
   margin-bottom: var(--marginSectionBottom);
+}
+
+.profile-image-wrapper{
+  position: relative;
+  height: 270px;
+}
+
+.profile-image-wrapper img{
+  object-fit: cover;
+  max-width: 100%;
+}
+
+.profile-image-overlay{
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(51,50,61,0.25);
+}
+
+.profile-image-overlay::after {
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  background: 
+  radial-gradient(
+  circle at center,  
+  rgba(0, 0, 0, 0.0) 45%, 
+  rgba(51,50,61,.80) 85%);
 }
 
 .profile-image{
@@ -142,8 +194,7 @@
 .card-wrapper{
   display: grid;
   grid-template-columns: repeat(2,1fr);
-  gap:var(--gapGrid);
-  height:500px;
+  gap:var(--gapGridDesktop);
   margin-bottom: var(--marginPortfolioItemBottom);
 }
 
@@ -182,7 +233,7 @@
 .portfolio-details-wrapper{
   display: grid;
   grid-template-columns: 400px 715px;
-  gap:var(--gapGrid);
+  gap:var(--gapGridDesktop);
 }
 
 .inner-details-description-wrapper{
@@ -278,7 +329,7 @@
 .getintouch-wrapper{
   display: grid;
   grid-template-columns: repeat(2,1fr);
-  gap:var(--gapGrid);
+  gap:var(--gapGridDesktop);
   border-top: var(--borderLine);
   border-bottom: var(--borderLine);
   padding:var(--paddingSectionElement) 0;
@@ -296,7 +347,7 @@
 .contact-form-wrapper{
   display: grid;
   grid-template-columns: repeat(2,1fr);
-  gap:var(--gapGrid);
+  gap:var(--gapGridDesktop);
   padding: var(--paddingSectionElement) 0;
 }
 
@@ -432,3 +483,63 @@ margin: 10px 0;
 .success-modal-inner-wrapper .btn{
   margin-top: 25px;
 }
+
+/*Responsive Design*/
+/*Tablet*/
+@media screen and (max-width:1260px){
+  .container{
+    max-width: 768px;
+  }
+
+  .text-box{
+    width: 514px;
+    height: 278px;
+  }
+
+  .text-box h1{
+    font-size: 40px;
+    line-height:42px;
+  }
+ 
+  .btn-primary{
+    width:140px;
+  }
+
+  .about-section{
+    gap:var(--gapGridTablet)
+  }
+
+  .profile-image-wrapper {
+    height:173px;
+    width: auto;
+    object-fit:contain;
+  }
+  .connecting-line {
+    width: 113px;
+  }
+
+  /*Portfolio Index*/
+  .card-wrapper{
+    gap:var(--gapGridTablet)
+  }
+
+  .card-image-wrapper{
+    width: 360px;
+    height: 340px;
+  }
+
+  .card-text{
+    padding: 20px 0;
+  }
+
+  .card-text h2{
+    font-size:36px;
+    margin-bottom: 20px;
+  }
+
+  .card-text p{
+    line-height: 28px;
+  }
+
+
+} 

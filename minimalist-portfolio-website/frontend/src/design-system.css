@@ -5,7 +5,7 @@
   --clrDesatCyan: #5FB4A2;
   --clrDarkCyan:#56a292;
   --clrVeryDarkBlue:#1d3445;
-  --clrDarkBlue:#203A4C;
+  --clrDarkBlue:#203a4c;
   --clrGrayishDarkBlue:#33323d;
 
   /*Secondary Colors*/
@@ -23,7 +23,9 @@
   --marginDetailHero:110px;
   --marginDetailSections:29px;
   --paddingSectionElement:48px;
-  --gapGrid:125px;
+  --gapGridDesktop:125px;
+  --gapGridTablet:55px;
+
   
   /*Border*/
   --borderLine: 1px solid var(--clrLineColor);
@@ -58,7 +60,6 @@ img{
 }
 
   /*Typography*/
-
   /*Headings*/
 h1, h2, h3, h4 {
   font-family: 'Ibarra Real Nova', serif;
@@ -192,8 +193,6 @@ a{
   color:#fff;
 }
 
-
-
 .btn-action{
   width: 162px;
 }
@@ -204,7 +203,7 @@ a{
 }
 
 .container{
-  width: 1240px;
+  max-width: 1240px;
   margin: auto;
 }
 

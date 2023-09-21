@@ -14,7 +14,7 @@ const PortfolioCard = ({ portfolioItem }) => {
             
           <div className="card-text">
             <h2>{title}</h2>
-            <p>{descriptionGPT ? descriptionGPT : description}</p>
+            <p>{description}</p>
             <Link to={`/portfolio/${id}`}><button className="btn btn-secondary btn-large">View Project</button></Link> 
           </div>
         </>

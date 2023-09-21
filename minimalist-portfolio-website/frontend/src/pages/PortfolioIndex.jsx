@@ -7,6 +7,7 @@ import CTAContactMe from '../components/CTAContactMe';
 
 const PortfolioIndex = ({setActivePage}) => {
   const location = useLocation();
+  
   useEffect(() => {
     setActivePage(location)
   },[location, setActivePage])

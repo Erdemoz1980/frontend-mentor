@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import homepageHero from '../images/homepage/desktop/image-homepage-hero.jpg';
+import ecommerceHero from '../images/homepage/desktop/image-portfolio-ecommerce.jpg';
 import IconDownArrow from './IconDownArrow';
 
 const Hero = ({ handleScroll }) => {
@@ -7,8 +8,10 @@ const Hero = ({ handleScroll }) => {
   
   return (
     <section className='hero-section'>
-      <div className="hero-image">
-        <img src={homepageHero} alt="hero" />
+      <div className="hero-image-wrapper">
+        <img src={ecommerceHero} alt="hero" />
+        <div className="hero-image-overlay"></div>
+        </div>
         <div className="text-box">
           <h1 className="main-title">Hey, I'm Erdem Oz and I love building beatiful websites.</h1>
           <button
@@ -23,7 +26,7 @@ const Hero = ({ handleScroll }) => {
             About Me
           </button>
         </div>
-      </div>
+     
     </section>
   )
 }
