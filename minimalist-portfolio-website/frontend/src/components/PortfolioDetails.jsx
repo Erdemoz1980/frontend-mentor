@@ -13,8 +13,6 @@ const PortfolioDetails = () => {
 
   const { url, details: { imgDeskHero, projectBackground, keywords, techStack, staticPreviews } } = currentItem;
 
-
-  
   const prevItem = portfolioData.indexOf(currentItem) === 0 ? portfolioData[portfolioData.length - 1] : portfolioData[portfolioData.indexOf(currentItem) - 1];
   const nextItem = portfolioData.indexOf(currentItem) === portfolioData.length - 1 ? portfolioData[0] : portfolioData[portfolioData.indexOf(currentItem) + 1];
 
@@ -25,9 +23,15 @@ const PortfolioDetails = () => {
       </div>
       <div className='portfolio-details-wrapper'>
         <div className="details-description-wrapper">
+
+
           <div className="inner-details-description-wrapper">
-          <h2>{title}</h2>
-          <p className='description'>{description}</p>
+            <div className="description-title-wrapper">
+              <h2>{title}</h2>
+            <p className='description'>{description}</p>
+            </div>
+          
+            <div className="stack-wrapper">
           <p className='keywords-wrapper'>
             {keywords.map((keyword, index) => (
               <span key={keyword.id} className='keywords'>
@@ -43,9 +47,14 @@ const PortfolioDetails = () => {
                 {index !== techStack.length - 1 && ' / '}
               </span>
             ))}
-          </p>
-            <a href={url} target='_blank' rel="noreferrer" className="btn btn-secondary btn-md">Visit Website</a>
-            </div>
+              </p>
+              <a href={url} target='_blank' rel="noreferrer" className="btn btn-secondary btn-md">Visit Website</a>
+              </div>
+          </div>
+          
+
+
+
         </div>
         <div className="project-background">
           <h3>Project Background</h3>

@@ -11,7 +11,7 @@
       "imgMobileHero":"/images/detail/mobile/image-manage-hero.jpg",
       "projectBackground":"This project was a front-end challenge from Frontend Mentor.It's a platform that enables you to practice building websites to a design and project brief. Each challenge includes mobile and desktop designs to show how the website should look at different screen sizes. Creating these projects has helped me refine my workflow and solve real-world coding problems. I've learned something new with each project, helping me to improve and adopt my style.",
       "keywords":[{"id":101,"name":"Frontend Development"}, {"id":102,"name":"Backend Development"}, {"id":103,"name":"Data Structuring"},{"id":104,"name":"Design Enhancements"},{"id":105,"name":"UX Optimization"}],
-      "techStack":[{"id":101,"name":"CSS"}, {"id":102,"name":"ReactJS"}, {"id":103,"name":"Redux Toolkit"},{"id":104,"name":"ExpressJS"},{"id":105,"name":"MongoDb"}],
+      "techStack":[{"id":101,"name":"CSS"}, {"id":102,"name":"ReactJS"}, {"id":103,"name":"Redux Toolkit"},{"id":104,"name":"ExpressJS"},{"id":105,"name":"NodeJS"},{"id":106,"name":"MongoDb"}],
       "staticPreviews":[
         {"id":101,"image":"/images/detail/desktop/image-ecommerce-preview-1.jpg"},
         {"id":102,"image":"/images/detail/desktop/image-ecommerce-preview-2.jpg"}

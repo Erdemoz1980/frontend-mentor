@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
 
-
 const PortfolioCard = ({ portfolioItem }) => {
-  const { id, image, title, description, descriptionGPT } = portfolioItem
+  const { id, image, title, description } = portfolioItem;
 
   return (
     <div className="card-wrapper">

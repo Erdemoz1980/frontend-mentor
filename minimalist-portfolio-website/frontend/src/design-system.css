@@ -16,17 +16,22 @@
   --clrLineColor:rgba(51, 50, 61, 0.15);
 
   /*Margin & Padding & Gaps*/
-  --marginSectionBottom:150px;
-  --marginSectionTitleBottom:28px;
-  --marginSectionElementBottom:32px;
-  --marginPortfolioItemBottom:85px;
-  --marginDetailHero:110px;
+  --marginSectionBottomDesktop:150px;
+  --marginSectionBottomTablet:100px;
+  --marginSectionTitleBottomDesktop:28px;
+  --marginSectionTitleBottomTablet:22px;
+  --marginSectionElementBottomDesktop:32px;
+  --marginPortfolioItemBottomDesktop:85px;
+  --marginPortfolioItemBottomTablet:60px;
+  --marginDetailHeroDesktop:110px;
+  --marginDetailHeroTablet:40px;
   --marginDetailSections:29px;
-  --paddingSectionElement:48px;
+  --paddingSectionElementDesktop:48px;
+  --paddingSectionElementTablet:22px;
   --gapGridDesktop:125px;
-  --gapGridTablet:55px;
+  --gapGridTablet:50px;
+  --gapGridDetailTablet:32px;
 
-  
   /*Border*/
   --borderLine: 1px solid var(--clrLineColor);
 
@@ -203,7 +208,7 @@ a{
 }
 
 .container{
-  max-width: 1240px;
+  width: 1240px;
   margin: auto;
 }
 
