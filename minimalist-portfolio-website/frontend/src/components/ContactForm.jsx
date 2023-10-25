@@ -28,18 +28,18 @@ const ContactForm = ({ formData, setFormData }) => {
         const response = await fetch(API_EMAIL, {
           method: 'POST',
           headers: {
-            'Content-Type':'application/json'
+            'Content-Type': 'application/json'
           },
-          body:JSON.stringify(formData)
+          body: JSON.stringify(formData)
         })
         const data = await response.json();
         if (data.success) {
-       setIsModalOpen(true)
+          setIsModalOpen(true)
           setName(name)
           setFormData({ name: '', email: '', message: '' })
         }
       } catch (err) {
-     
+       
       }
     }
   };

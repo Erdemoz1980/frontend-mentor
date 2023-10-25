@@ -13,5 +13,5 @@ const GlobalProvider = ({ children }) => {
   )
 };
 
-export {GlobalContext, GlobalProvider}
+export { GlobalContext, GlobalProvider }
   

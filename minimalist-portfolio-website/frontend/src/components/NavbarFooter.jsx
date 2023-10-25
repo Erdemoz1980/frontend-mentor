@@ -7,8 +7,7 @@ import IconLogo from "./IconLogo"
 const NavbarFooter = ({ version, activePage }) => {
   return (
   
-    <nav className="navbar" >
-        <div className="container">
+    <nav className="navbar navbar-footer" >
         <div className="navbar nav-footer-wrapper">
           <div className="logo-menu-wrapper">
             <Link to='/'><IconLogo version={version} /></Link>
@@ -24,7 +23,6 @@ const NavbarFooter = ({ version, activePage }) => {
             <li><a href="https://www.linkedin.com/in/erdem-ozdemir-95148553/" target='_blank' rel='noopener noreferrer'><IconLinkedIn version={version} /></a></li>
           </ul>
         </div>
-      </div>
       </nav>
   )
 };

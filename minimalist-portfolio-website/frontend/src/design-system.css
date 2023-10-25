@@ -18,18 +18,23 @@
   /*Margin & Padding & Gaps*/
   --marginSectionBottomDesktop:150px;
   --marginSectionBottomTablet:100px;
+  --marginSectionBottomMobile:140px;
   --marginSectionTitleBottomDesktop:28px;
   --marginSectionTitleBottomTablet:22px;
+  --marginSectionTitleBottomMobile:18px;
   --marginSectionElementBottomDesktop:32px;
   --marginPortfolioItemBottomDesktop:85px;
   --marginPortfolioItemBottomTablet:60px;
   --marginDetailHeroDesktop:110px;
   --marginDetailHeroTablet:40px;
+  --marginDetailHeroMobile:20px;
   --marginDetailSections:29px;
   --paddingSectionElementDesktop:48px;
   --paddingSectionElementTablet:22px;
+  --paddingSectionElementMobile:16px;
   --gapGridDesktop:125px;
   --gapGridTablet:50px;
+  --gapGridMobile:40px;
   --gapGridDetailTablet:32px;
 
   /*Border*/
@@ -97,7 +102,7 @@ h4{
   font-weight: 400;
 }
 
-p, a, span, small {
+li, p, a, span, small {
   font-family: 'Public Sans', sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -123,6 +128,11 @@ a{
 }
 
 /*Buttons*/
+
+button:disabled{
+  cursor:default;
+}
+
 .btn{
   display: flex;
   align-items: center;
@@ -208,7 +218,7 @@ a{
 }
 
 .container{
-  width: 1240px;
+  max-width: 1240px;
   margin: auto;
 }
 

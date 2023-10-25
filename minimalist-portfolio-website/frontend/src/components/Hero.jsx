@@ -13,7 +13,7 @@ const Hero = ({ handleScroll }) => {
         <div className="hero-image-overlay"></div>
         </div>
         <div className="text-box">
-          <h1 className="main-title">Hey, I'm Erdem Oz and I love building beatiful websites.</h1>
+          <h1 className="main-title">Hey, I'm Erdem Oz and I love building beautiful websites.</h1>
           <button
             className="btn btn-primary"
             onClick={handleScroll}

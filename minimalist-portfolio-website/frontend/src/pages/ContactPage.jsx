@@ -18,10 +18,10 @@ const ContactPage = ({ setActivePage }) => {
 
 
   return (
-    <div className='container'>
+    <>
       <GetinTouch />
       <ContactForm formData={formData} setFormData={setFormData} />
-      </div>
+      </>
   )
 };
 
