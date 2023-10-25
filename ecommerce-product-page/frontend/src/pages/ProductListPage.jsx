@@ -8,8 +8,7 @@ import Alert from '../components/Alert';
 
 const ProductListPage = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [alert, setAlert] = useState('')
-  
+
   const dispatch = useDispatch()
   const location = useLocation()
   const keyword = location.search.split('=')[1]
@@ -40,7 +39,7 @@ const ProductListPage = () => {
   }, [keyword,products, dispatch]);
   
   return (
-    <div className='product-page-wrapper'>
+    <div className='container product-page-wrapper'>
       {
         isLoading ? <Loader /> : errMessage ? <div className="temp">{errMessage}</div> : searchTerm && filteredProducts.length < 1
           ? <Alert message='Your search returned no results!' type='error' />

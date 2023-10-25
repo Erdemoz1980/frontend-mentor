@@ -37,7 +37,7 @@ const Navbar = () => {
   ]
 
   return (
-    <nav className="navbar-wrapper container">
+    <nav className="container navbar-wrapper container">
       <div className="navbar-brand">
         <div className="logo-wrapper">
           <Link to='/'>

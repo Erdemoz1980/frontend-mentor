@@ -122,7 +122,6 @@ body{
 
 /*Navbar*/
 .navbar-wrapper{
-  max-width: var(--widthMain);
   height: 40px;
   margin-top: 28px;
   margin-bottom: 40px;
@@ -206,7 +205,7 @@ body{
   position: absolute;
   width: 250px;
   height: auto;
-  left:-150px;
+  left:-155px;
   top:54px;
   padding: 10px;
   background: var(--clrVeryLightGrey);
@@ -264,7 +263,6 @@ body{
   gap:10px;
   margin: auto;
   padding-bottom: 20px;
-  max-width: var(--widthMain);
   position: relative;
 }
 
@@ -281,7 +279,6 @@ body{
 .product-details-wrapper{
   display: grid;
   grid-template-columns: repeat(2,1fr);
-  max-width: var(--widthMain);
   margin: auto;
 }
 
@@ -779,12 +776,12 @@ margin-bottom: 20px;
 
 /*Account Page*/
 .account-page-wrapper{
-  width: var(--widthMedium)
+  width: var(--widthDesktop);
 }
 
 .account-page{
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
+  display: flex;
+  gap:20px;
   margin-top: 20px;
 }
 
@@ -1289,7 +1286,6 @@ align-self: flex-end;
   padding-bottom: 20px;
   margin-bottom: 20px;
   border-bottom: 1px solid var(--clrSeperator);
-
 }
 
 .order-confirmation-wrapper h3{
@@ -1359,7 +1355,6 @@ text-align: center;
 
 /*Order History Page*/
 .order-history-page-wrapper{
-  max-width: var(--widthMain);
   display: flex;
   flex-direction: column;
   gap:20px;
@@ -1455,11 +1450,6 @@ text-align: center;
 }
 
 /*Search Bar*/
-.search-bar-wrapper{
- max-width: var(--widthMain);
- margin: auto;
-}
-
 .search-bar-wrapper .form-group {
   width: 270px;
 }
@@ -1489,31 +1479,31 @@ text-align: center;
 }
 
 /*Responsive Design*/
-/*Tablet*/
-@media screen and (max-width:1145px){
-  .navbar-wrapper, 
-  .search-bar-wrapper,
-  .product-page-wrapper{
-    max-width: var(--widthMedium);
+/*Desktop Medium*/
+@media screen and (max-width:1470px){
+  .container{
+  max-width: var( --widthDesktopMedium);
   }
 
   .product-page-wrapper {
     grid-template-columns: repeat(3, 1fr)
   }
+
+  .account-page{
+    justify-content: space-between;
+  }
 }
 
-/*Mobile*/
-
+/*Tablet*/
 @media screen and (max-width:980px){
   .navbar-wrapper, 
   .search-bar-wrapper,
   .product-page-wrapper{
-    max-width: var(--widthMobile);
     padding: 0 20px;
   }
 
   .product-page-wrapper {
-  grid-template-columns:repeat(1,1fr);
+  grid-template-columns:repeat(2,1fr);
 }
 }
 
