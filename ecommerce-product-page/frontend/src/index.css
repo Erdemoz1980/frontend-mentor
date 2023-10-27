@@ -1417,7 +1417,6 @@ text-align: center;
 
 /*Breadcrumbs*/
 .breadcrumbs-wrapper{
-  max-width: var(--widthMain);
   display: flex;
   margin-bottom: 30px;
 }
@@ -1537,10 +1536,10 @@ text-align: center;
 }
 }
 
-/*Mobile*/
+/*MOBILE*/
 @media screen and (max-width:767px){
   .container {
-    max-width: 355px;
+    width: 355px;
   }
 
   .search-bar-wrapper .form-group input {
@@ -1549,6 +1548,66 @@ text-align: center;
 
   .form-group i {
     right: -75px;
+  }
+  
+ /*Mobile Menu*/
+ .navbar-wrapper {
+  margin-top: 18px;
+ }
+ .navbar-menu {
+  display: none;
+ }
+
+ .cart-icon-wrapper {
+  height:20px;
+  width: 20px;
+ }
+
+ .cart-qty-display {
+  width: 20px;
+  height: 16px;
+  font-size: 10px;
+  top:-6px;
+ }
+
+ .navbar-user {
+  gap:12px;
+ }
+
+ .user-profile-wrapper h4{
+  font-size: 14px;
+ }
+
+/*Mobile Product Page*/
+  .breadcrumbs-wrapper{
+    display: none;
+    margin-bottom: 15px;
+  }
+
+  .breadcrumbs-wrapper a{
+    font-size: 14px;
+  }
+  .product-page-wrapper {
+    grid-template-columns:1fr;
+  }
+
+  .product-card-wrapper {
+    border: none;
+    padding: 0;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    position: relative;
+  }
+
+  .product-card-wrapper::before {
+    content: '';
+    position: absolute;
+    width: 90%;
+    transform: translateX(-50%);
+    left: 50%;
+    bottom: 0;
+    height: 1px;
+    background: var(--clrLightGrey);
   }
 
   .product-details-wrapper {
@@ -1563,10 +1622,6 @@ text-align: center;
     margin-bottom: 15px;
   }
   
-  .product-thumbnails {
-    max-width: 100%;
-  }
-
   .thumbnail-wrapper {
     height: 80px;
     width: 80px;
@@ -1574,10 +1629,63 @@ text-align: center;
 
   .product-info-wrapper {
     width: 100%;
+    margin-bottom: 40px;
+  
   }
 
   .company-name, .product-name,.product-description {
     margin-bottom: 10px;
+  }
+
+  .company-name {
+    font-size: 12px;
+  }
+
+  .text-large{
+    line-height: 32px;
+  }
+
+  .product-description {
+    font-size: 15px;
+    line-height: 25px;
+  }
+
+  .price-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   }
+
+   .original-price {
+    align-self: flex-end;
+   }
+
+  .product-price {
+    margin-bottom: 0px;
+  }
+
+  .product-name{
+    font-size: 28px;
+  }
+
+  .size-title {
+    font-size: 15px;
+  }
+
+  .cart-control-wrapper {
+    flex-direction: column;
+  }
+  
+  .qty-wrapper{
+    width: 100%;
+    justify-content: space-between;
+    padding: 0 24px;
+  }
+  .btn-primary {
+    height: 56px;
+    font-weight: 400;
+    font-size: 13px;
+    padding: 0 72px;
   }
 
   /*Mobile Shipping-Billing*/

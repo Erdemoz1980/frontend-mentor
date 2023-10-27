@@ -53,9 +53,9 @@ const ProductDetail = () => {
 
 
   return (
-    <main className='container'>
+    <main>
       <Breadcrumbs productDetails={{ id, colorVersion }} />
-      <div className="product-details-wrapper">
+      <div className="container product-details-wrapper">
    
         {lightboxIsOpen && (
           <Lightbox
@@ -79,7 +79,7 @@ const ProductDetail = () => {
                   >
                     <img src={selectedImages?.[activeImage]} alt="main product" />
                   </div>
-                  <div className="product-thumbnails">
+                  <div className="container product-thumbnails">
                     {selectedThumbnailImages?.map((thumbnail, index) => (
                       <div
                         key={index}
@@ -91,7 +91,7 @@ const ProductDetail = () => {
                     ))}
                   </div>
                 </div>
-                <div className="product-info-wrapper">
+                <div className="container product-info-wrapper">
                   <h4 className="company-name">{company}</h4>
                   <h1 className="product-name text-large text-dark">{name}</h1>
                   <p className="product-description">{description}</p>

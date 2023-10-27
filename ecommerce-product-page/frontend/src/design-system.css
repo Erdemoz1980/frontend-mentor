@@ -68,7 +68,7 @@ small{
   height: 100%;
   width: 100%;
   background: rgba(255,255,255, 0.6);
-  border: 2px solid var(--clrOrange);
+  border: 2px solid var(--clrLightGrey);
   border-radius: 10px;
 }
 
