@@ -24,15 +24,15 @@ const CheckoutPage = () => {
       <h1>Place Order</h1>
       <h2>My Cart</h2>
       <table>
-        <thead>
-          <tr className='checkout-header'>
+        <thead className='checkout-header'>
+          <tr>
             <th>Item</th>
             <th>Price</th>
             <th>Qty</th>
             <th>Amount</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className='checkout-body'>
           {cartItems.length < 1 ? (
             <tr>
               <th>Your cart is empty</th>

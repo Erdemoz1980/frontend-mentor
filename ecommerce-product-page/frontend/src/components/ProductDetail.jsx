@@ -91,7 +91,7 @@ const ProductDetail = () => {
                     ))}
                   </div>
                 </div>
-                <div className="container product-info-wrapper">
+                <div className="product-info-wrapper">
                   <h4 className="company-name">{company}</h4>
                   <h1 className="product-name text-large text-dark">{name}</h1>
                   <p className="product-description">{description}</p>
