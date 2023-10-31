@@ -34,7 +34,6 @@ const OrderHistoryPage = () => {
     const sortOptions = {
       Date: (a, b) => a.createdAt.localeCompare(b.createdAt),
       Total: (a, b) => a.totalPrice - b.totalPrice,
-      NumberOfItems: (a, b) => a.orderItems.length - b.orderItems.length,
       sortDirections: {
         asc: (a, b) => sortOptions[option](a, b),
         desc: (a, b) => sortOptions[option](b, a)
@@ -59,7 +58,7 @@ const OrderHistoryPage = () => {
   };
 
   //Separating rendering logic from data.
-  const radioButtons = [{ id:1000 , name:'radio.option', value: 'Date' }, {id:1001, name:'radio.option',  value: 'Total' }, { id:1002, name:'radio.option',  value: 'NumberOfItems' }]
+  const radioButtons = [{ id:1000 , name:'radio.option', value: 'Date' }, {id:1001, name:'radio.option',  value: 'Total' }]
 
   return (
     <div className="container order-history-page-wrapper">
