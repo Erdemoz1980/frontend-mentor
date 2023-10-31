@@ -24,8 +24,8 @@ const CheckoutPage = () => {
       <h1>Place Order</h1>
       <h2>My Cart</h2>
       <table>
-        <thead className='checkout-header'>
-          <tr>
+        <thead >
+          <tr className='checkout-header'>
             <th>Item</th>
             <th>Price</th>
             <th>Qty</th>
