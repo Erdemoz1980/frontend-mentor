@@ -941,7 +941,10 @@ tbody select {
 
 .payment-page-wrapper .btn-navigate{
   margin-bottom: 20px;
+}
 
+.place-order-btn{
+  margin: 20px 0;
 }
 
 .shipping-billing-wrapper{
@@ -1890,6 +1893,10 @@ text-align: center;
 
   .payment-form-wrapper, .order-summary-wrapper {
     max-width: 100%;
+  }
+
+  .order-summary-wrapper {
+    margin-top: 10px;
   }
 
   /*Mobile Order Confirmation*/
