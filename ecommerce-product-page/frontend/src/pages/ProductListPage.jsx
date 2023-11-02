@@ -2,6 +2,7 @@ import {useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from '../slices/productSlice';
+import { setPathName } from '../slices/userSlice';
 import ProductCard from "../components/ProductCard";
 import Loader from '../components/Loader';
 import Alert from '../components/Alert';
@@ -18,8 +19,9 @@ const ProductListPage = () => {
 
   useEffect(() => {
     dispatch(searchTerm ? getProducts(searchTerm) : getProducts())
+    dispatch(setPathName(location.pathname))
   
-  }, [dispatch, searchTerm]);
+  }, [dispatch, searchTerm, location.pathname]);
 
   useEffect(() => {
         //Filter products based on category keyword if it exists
