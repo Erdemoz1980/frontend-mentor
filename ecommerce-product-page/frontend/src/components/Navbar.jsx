@@ -4,8 +4,10 @@ import { Link, useLocation } from 'react-router-dom';
 import { setCartIsOpen } from '../slices/cartSlice';
 import logo from '../images/logo.svg';
 import cartIcon from '../images/icon-cart.svg';
+import IconMenu from '../components/IconMenu';
 import ShoppingCart from './ShoppingCart';
 import UserDropdownMenu from './UserDropdownMenu';
+import MobileMenu from './MobileMenu';
 
 const Navbar = () => {
   const [showUserMenu, setShowUserMenu] = useState(false)
@@ -29,16 +31,21 @@ const Navbar = () => {
   }
  
   const navItems = [
-    { to: '/collections', label: 'Collections' },
-    { to: '/?=men', label: 'Men' },
-    { to: '/?=women', label: 'Women' },
-    { to: '/about', label: 'About' },
-    { to: '/contact', label: 'Contact' }
+    { id:101, to: '/?=men', label: 'Men' },
+    { id:102, to: '/?=women', label: 'Women' },
+    { id:103, to: '/about', label: 'About' },
+    { id:104, to: '/contact', label: 'Contact' }
   ]
 
   return (
     <nav className="container navbar-wrapper">
+      <div className="mobile-menu-wrapper">
+        <MobileMenu navItems={navItems} keyword={keyword} location={location} />
+      </div>
       <div className="navbar-brand">
+        <div className="mobile-menu-icon-wrapper">
+          <IconMenu />
+        </div>
         <div className="logo-wrapper">
           <Link to='/'>
             <img src={logo} alt="logo" />
@@ -47,7 +54,7 @@ const Navbar = () => {
         <ul className="navbar-menu">
           {
             navItems.map(item => (
-              <li key={item.to}><Link className={`${keyword && keyword === item.label.toLowerCase() ? 'current-nav' : (location.pathname === item.to ? 'current-nav' : '')}`}
+              <li key={item.id}><Link className={`${keyword && keyword === item.label.toLowerCase() ? 'current-nav' : (location.pathname === item.to ? 'current-nav' : '')}`}
               to={`${item.to}`}>{item.label}</Link></li>
             ))
           }
