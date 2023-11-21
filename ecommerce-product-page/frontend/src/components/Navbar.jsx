@@ -12,6 +12,7 @@ import MobileMenu from './MobileMenu';
 const Navbar = () => {
   const [showUserMenu, setShowUserMenu] = useState(false)
   const [border, setBorder] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
   const { cartItems, isCartOpen } = useSelector(state => state.cart)
   const { userInfo } = useSelector(state => state.user)
@@ -39,11 +40,9 @@ const Navbar = () => {
 
   return (
     <nav className="container navbar-wrapper">
-      <div className="mobile-menu-wrapper">
-        <MobileMenu navItems={navItems} keyword={keyword} location={location} />
-      </div>
+          <MobileMenu navItems={navItems} keyword={keyword} location={location} mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
       <div className="navbar-brand">
-        <div className="mobile-menu-icon-wrapper">
+        <div className="mobile-menu-icon-wrapper" onClick={()=>setMobileMenuOpen(!mobileMenuOpen)} >
           <IconMenu />
         </div>
         <div className="logo-wrapper">
