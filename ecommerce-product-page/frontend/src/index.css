@@ -16,6 +16,11 @@ body{
   width: 100vw;
 }
 
+/*Disable Scrolling on Mobile Menu*/
+body.mobile-menu-open{
+  position: fixed;
+}
+
 /*LightBox*/
 .lightbox-overlay{
  display: none;
@@ -1619,7 +1624,6 @@ text-align: center;
 .order-confirmation-header {
   margin-bottom: 30px;
 }
-
 }
 
 /*Tablet*/
@@ -1763,44 +1767,43 @@ text-align: center;
   }
   
  /*Mobile Navbar & Menu*/
- .mobile-menu-wrapper-outer{
-  display: block;
-  position: absolute;
-  height: 100vh;
+ .mobile-menu-overlay{
+  position: fixed;
+  height:1260px;
   width: 100vw;
   background: rgba(0,0,0,0.0);
   z-index: 2;
   transform: translateX(-110%);
-  transition: background 1s ease-in-out;
-
-}
-
-/*Menu Open*/
-.mobile-menu-wrapper-outer.open {
- transform: translateX(0%);
- background: rgba(0,0,0,0.7);
-}
-
- .mobile-menu-wrapper-inner{
-  display: block;
-  position: absolute;
-  height:550px;
-  width: 250px;
-  background:#fff;
-  top:400px;
-  transform: translateX(-100%);
-  transition: transform 0.8s ease-in-out;
+  transition: background 0.8s 0.35s ease-in-out, transform 0.35s ease-in-out;
  }
 
-.mobile-menu-wrapper-inner.open{
-  transform: translateX(0%);
+/*Menu Open*/
+.mobile-menu-overlay.open {
+ background: rgba(0,0,0,0.7);
+ transform: translateX(0%);
+ overflow: hidden;
+ position: fixed;
 }
 
+ .mobile-menu-wrapper{
+  position: absolute;
+  height:100%;
+  width: 250px;
+  background:#fff;
+  transform: translateX(-100%);
+ }
+
+ .mobile-menu-wrapper.open {
+  transform: translateX(0%);
+ }
+
  .mobile-menu {
+  position: absolute;
+  top:580px;
   display: flex;
   flex-direction: column;
   gap:20px;
-  padding: 68px 0 0 5px;
+  padding: 40px 0 0 5px;
 }
 
  .navbar-wrapper {
@@ -1814,10 +1817,8 @@ text-align: center;
   align-items: baseline;
  }
 
-
-
 .close-icon-wrapper{
-  height: 16px;
+  height: 18px;
   width: 2px;
   transform: rotate(45deg);
   position: relative;
@@ -1845,6 +1846,7 @@ text-align: center;
  .mobile-menu-icon-wrapper{
   display: block;
   cursor: pointer;
+  margin-right: 5px;
  }
 
  .navbar-menu {
@@ -1852,7 +1854,8 @@ text-align: center;
  }
 
 .logo-wrapper{
-  margin: 0;
+  margin: 0px;
+  width: 125px;
 }
 
  .cart-icon-wrapper {
