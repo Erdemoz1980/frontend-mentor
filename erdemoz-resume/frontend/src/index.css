@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Montserrat:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&family=Roboto:wght@300;400;500;700;900&display=swap');
+
+/* */
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+/*Typography*/
+--ffRoboto:'Roboto', sans-serif;
+--ffMontserrat:'Montserrat', sans-serif;
+--ffLato:'Lato', sans-serif;
+--ffRaleway:'Raleway', sans-serif;
+
+/*Colors*/
+--clrDark:#28282e;
+--clrLightBg:#f4eae8;
+
+/*Spacing (Guild)*/
+--paddingMain:40px 30px;
+--gapMain:60px;
+
+/*Typogaphy*/
+
+}
+
+/*Utilities*/
+.info-section-title {
+  font-weight: 800;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  margin-bottom: 20px;
+}
+
+
+body{
+  color:var(--clrDark);
+  font-family:var(--ffLato);
+}
+
+li{
+  list-style: none;
+}
+
+a, a:visited{
+color:black;
+text-decoration: none;
+}
+
+.container{
+  padding:55px 15px 25px 15px;
+}
+
+.section-title{
+  font-family: var(--ffMontserrat);
+  font-weight:600;
+  text-transform: uppercase;
+  letter-spacing:1px; 
+}
+
+/*Header*/
+.resume-header .title, .title-skill{
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.resume-header h1 {
+  font-size:52px;
+  font-weight: 700;
+  letter-spacing: 6px;
+  margin-bottom: 10px;
+}
+
+.resume-header h2{
+  letter-spacing:4px;
+  font-size:26px;
+}
+
+/*Main Page*/
+.main-page-wrapper{
+  width: 1440px;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap:30px;
+  margin: auto;
+}
+
+
+/*Info Section*/
+.info-section-wrapper{
+  background: var(--clrLightBg);
+  padding: var(--paddingMain);
+  display: flex;
+  flex-direction: column;
+  gap:40px;
+}
+
+.info-section-wrapper .section-title{
+  letter-spacing: 0;
+ 
+}
+
+
+
+/*Contact Menu*/
+.contact-menu li{
+  display: grid;
+  grid-template-columns: 1fr 10fr;
+  margin-bottom:6px;
+}
+
+.contact-section{
+  display: flex;
+  flex-direction: column;
+}
+
+/*Education Section*/
+.education-menu li:not(:last-child){
+  margin-bottom: 18px;
+}
+
+.education-menu li{
+ display: flex;
+ flex-direction: column;
+ gap:2px;
+}
+
+/*Skills Section*/
+.skills-section-content{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
+
+.skills-section-content h4{
+  margin-bottom: 8px;
+}
+
+.skills-menu li{
+  margin: 4px 0;
+  letter-spacing: 0.75px;
+}
+
+.sub-menu{
+  margin-left: 10px;
+}
+
+
+
+/*Experience Page*/
+.experience-page{
+  text-align: justify;
+  padding: var(--paddingMain);
+}
