@@ -1,15 +1,15 @@
-import IconEmail from './IconEmail';
-import IconPhone from './IconPhone';
-import IconLocationDot from './IconLocationDot';
-import IconGithub from './IconGithub';
-import IconUser from './IconUser';
+import IconEmail from '../components/IconEmail';
+import IconPhone from '../components/IconPhone';
+import IconLocationDot from '../components/IconLocationDot';
+import IconGithub from '../components/IconGithub';
+import IconUser from '../components/IconUser';
 
 const InfoSection = () => {
   return (
     <main className='info-section-wrapper'>
 
       <section className='contact-section'>
-        <h3 className='info-section-title'>Contact</h3>
+        <h3 className='section-title'>Contact</h3>
         <ul className="menu contact-menu">
           <li><span><IconPhone /></span>647-687-1807</li>
           <li><span><IconEmail /></span>erdemozproductions@gmail.com</li>
@@ -20,57 +20,56 @@ const InfoSection = () => {
       </section>
 
       <section className="education-section">
-        <h3 className='info-section-title'>Education</h3>
+        <h3 className='section-title'>Education</h3>
         <ul className='menu education-menu'>
           <li>
-            <h4 className='section-title'>Communication Studies</h4>
+            <h4 className='sub-section-title'>Communication Studies</h4>
             <p>University of Windsor</p>
             <h5>2001-2005</h5>
           </li>
           <li>
-            <h4 className="section-title">Film Production</h4>
+            <h4 className="sub-section-title">Film Production</h4>
             <p>Toronto Metropolitan University</p>
             <h5>2011-2012</h5>
           </li>
           <li>
-            <h4 className='section-title'>Responsive Web Design Certification</h4>
+            <h4 className='sub-section-title'>Responsive Web Design Certification</h4>
             <p>FreeCodeCamp</p>
             <h5>2022-2023</h5>
           </li>
           <li>
-            <h4 >Modern Javascript</h4>
+            <h4 className='sub-section-title'>JavaScript Algorithms and Data Structures</h4>
+            <p>FreeCodeCamp</p>
+            <h5>2022-2023</h5>
+          </li>
+          <li>
+            <h4 className='sub-section-title'>Front End Development Libraries</h4>
+            <p>FreeCodeCamp</p>
+            <h5>2022-2023</h5>
+          </li>
+          <li>
+            <h4 className='sub-section-title'>Modern Javascript</h4>
             <p>Udemy</p>
             <h5>2020</h5>
           </li>
           <li>
-            <h4 className='section-title'>React Front to Back Full Stack Course</h4>
+            <h4 className='sub-section-title'>React Front to Back Full Stack Course</h4>
             <p>Udemy</p>
             <h5>2020</h5>
           </li>
           <li>
-            <h4 className='section-title'>MERN E-commerce Platform Full Stack</h4>
+            <h4 className='sub-section-title'>MERN E-commerce Platform Full Stack Course</h4>
             <p>Udemy</p>
             <h5>2020-2021</h5>
-          </li>
-         
-          <li>
-            <h4 className='section-title'>JavaScript Algorithms and Data Structures</h4>
-            <p>FreeCodeCamp</p>
-            <h5>2022-2023</h5>
-          </li>
-          <li>
-            <h4 className='section-title'>Front End Development Libraries</h4>
-            <p>FreeCodeCamp</p>
-            <h5>2022-2023</h5>
           </li>
         </ul>
       </section>
 
       <section className="skills-section">
-        <h3 className='info-section-title'>Skills</h3>
+        <h3 className='section-title'>Skills</h3>
         <div className="skills-section-content">
           <div className="front-end">
-    <h4>Front End</h4>
+    <h4 className='sub-section-title small'>Front End</h4>
     <ul className="menu skills-menu">
       <li>HTML5</li>
       <li>CSS3
@@ -89,7 +88,7 @@ const InfoSection = () => {
   </div>
 
   <div className="back-end">
-    <h4>Back End</h4>
+    <h4 className='sub-section-title small'>Back End</h4>
     <ul className="menu skills-menu">
       <li>Express</li>
       <li>MongoDB</li>

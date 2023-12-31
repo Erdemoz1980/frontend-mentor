@@ -1,4 +1,4 @@
-import InfoSection from "../components/InfoSection"
+import InfoSection from "./InfoSection"
 import ExperiencePage from "./ExperiencePage"
 
 const MainPage = () => {

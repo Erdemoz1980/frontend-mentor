@@ -51,17 +51,17 @@ const ExperiencePage = () => {
   ]
 
   return (
-    <main className='experience-page'>
+    <main className='experience-page-wrapper'>
       <header className="experience-header summary">
  
-        <h2 className="title">Summary</h2>
-        <p>I am a React Front End developer actively seeking a challenging role in a vibrant company. With a strong foundation in writing accessible HTML, implementing modern CSS practices, and crafting clean JavaScript, I bring energy, creativity, and a passion for delivering exceptional user experiences. Currently based in Toronto, Canada, I am open to both local and remote opportunities, drawing from my experience in thriving remote team environments. Beyond coding, you'll find me outdoors, whether I'm playing tennis, cycling, or running. My goal is to establish myself as a proficient Front End Developer, with an envisioned trajectory towards becoming a full-stack developer, where my growing appreciation for backend development can complement my expertise.</p>
+        <h2 className="section-title">Summary</h2>
+        <p>I am a React Front End developer actively seeking a challenging role in a vibrant company. With a strong foundation in writing accessible HTML, implementing modern CSS practices, and writing clean JavaScript, I bring energy, creativity, and a passion for delivering exceptional user experiences. Currently based in Toronto, Canada, I am open to both local and remote opportunities, drawing from my experience in thriving remote team environments. Beyond coding, you'll find me outdoors, whether I'm playing tennis, cycling, or running. My goal is to establish myself as a proficient Front End Developer, with an envisioned trajectory towards becoming a full-stack developer, where my growing appreciation for backend development can complement my expertise.</p>
       </header>
 
       
 
       <section className="experience-section">
-      <h2 className="title">Experience</h2>
+      <h2 className="section-title">Experience</h2>
         {
           experiences.map(experience => (
             <ExperienceDetail {...experience} key={experience.id} />
@@ -70,7 +70,7 @@ const ExperiencePage = () => {
       </section>
 
       <section className="projects-section">
-        <h2 className="title">Projects</h2>
+        <h2 className="section-title">Projects</h2>
         {
           projects.map(project => (
             <ProjectDetail {...project} key={project.id} />

@@ -29,14 +29,26 @@
 }
 
 /*Utilities*/
-.info-section-title {
+.section-title {
   font-weight: 800;
-  font-size: 22px;
+  font-size: 24px;
   text-transform: uppercase;
   letter-spacing: 5px;
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 
+.sub-section-title{
+  font-family: var(--ffMontserrat);
+  font-weight:600;
+  text-transform: uppercase;
+  letter-spacing:1px; 
+}
+
+.small{
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
 
 body{
   color:var(--clrDark);
@@ -56,12 +68,6 @@ text-decoration: none;
   padding:55px 15px 25px 15px;
 }
 
-.section-title{
-  font-family: var(--ffMontserrat);
-  font-weight:600;
-  text-transform: uppercase;
-  letter-spacing:1px; 
-}
 
 /*Header*/
 .resume-header .title, .title-skill{
@@ -99,12 +105,6 @@ text-decoration: none;
   flex-direction: column;
   gap:40px;
 }
-
-.info-section-wrapper .section-title{
-  letter-spacing: 0;
- 
-}
-
 
 
 /*Contact Menu*/
@@ -149,10 +149,69 @@ text-decoration: none;
   margin-left: 10px;
 }
 
-
-
 /*Experience Page*/
-.experience-page{
-  text-align: justify;
+.experience-page-wrapper{
   padding: var(--paddingMain);
+  line-height: 24px;
+}
+
+.experience-section,
+.projects-section {
+  margin: 60px 0;
+}
+
+.job-title,
+.project-title{
+  margin-bottom: 8px;
+  letter-spacing: 0.75px;
+}
+
+.experience-details{
+  display: flex;
+  flex-direction: column;
+  gap:4px;
+}
+
+.company-name{
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: 0.75px;
+}
+
+.years-active{
+  font-weight: 600;
+}
+
+.experience-tasks-list li{
+  list-style:inside;
+}
+
+/*Projects Section*/
+.project-detail-wrapper{
+ margin-bottom: 24px;
+}
+
+.project-desc{
+  margin-bottom: 10px;
+}
+
+.technologies-list{
+  max-width: 400px;
+display: grid;
+grid-template-columns: repeat(2,1fr);
+}
+
+.technology-title{
+  letter-spacing: 0.75px;
+  font-weight: 600;
+}
+
+
+/*Responsive Design*/
+@media screen and (max-width:960px){
+  .main-page-wrapper{
+    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+  }
 }
