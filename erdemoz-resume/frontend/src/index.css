@@ -29,6 +29,11 @@
 }
 
 /*Utilities*/
+
+.highlight{
+font-weight: bold;
+}
+
 .section-title {
   font-weight: 800;
   font-size: 24px;
@@ -197,8 +202,8 @@ text-decoration: none;
 
 .technologies-list{
   max-width: 400px;
-display: grid;
-grid-template-columns: repeat(2,1fr);
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
 }
 
 .technology-title{

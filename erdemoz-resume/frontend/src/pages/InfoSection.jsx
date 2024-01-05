@@ -84,6 +84,7 @@ const InfoSection = () => {
             <li>Redux</li>
             <li>React Router</li>
       <li>NextJS</li>
+      <li>Agile Development</li>
     </ul>
   </div>
 

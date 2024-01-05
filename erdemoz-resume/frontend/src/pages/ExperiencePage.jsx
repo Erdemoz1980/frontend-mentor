@@ -13,7 +13,8 @@ const ExperiencePage = () => {
       tasks: [
         { id: 101, detail: 'Collaborated with the development team to build and maintain the frontend of financial applications.' },
         { id: 102, detail: 'Contributed to the implementation of responsive and user-friendly interfaces.' },
-        { id: 103, detail: 'Collaborated directly with leadership to grasp project requirements and transform them into practical technical solutions.' }
+        { id: 103, detail: 'Collaborated directly with leadership to grasp project requirements and transform them into practical technical solutions.' },
+        { id: 104, detail: 'Worked in  Agile development environment.'},
       ]
     }
   ];
@@ -22,31 +23,31 @@ const ExperiencePage = () => {
     {
       id: 10001,
       title: 'E-Commerce Platform',
-      description: 'Developed a dynamic full-stack E-commerce platform, showcasing my proficiency in CSS, Javascript, React, Redux Toolkit, ExpressJS, and MongoDB. Prioritized user experience with features such as secure user registration, login, and profile editing. Implemented efficient search and filtering functionalities, enhancing product discoverability and creating a seamless shopping experience.',
-      technologies:[{id:1001,name:'JSX'},{id:1002,name:'CSS'},{id:1003,name:'Javascript'},{id:1004,name:'React'}, {id:1005,name:'Redux'}, {id:1006,name:'ExpressJS'}, {id:1007,name:'MongoDB'}, {id:1008,name:'Mongoose'},{id:1009,name:'JWT'}]
+      description: 'Developed a dynamic full-stack E-commerce platform, showcasing my proficiency in CSS, Javascript, React, Redux, ExpressJS, and MongoDB. Prioritized user experience with features such as secure user registration, login, and profile editing. Implemented efficient search and filtering functionalities, enhancing product discoverability, I also implemented responsive design principles, ensuring a flawless shopping experience across devices creating a seamless shopping experience.',
+      technologies:[{id:1001,name:'Javascript'},{id:1002,name:'ExpressJS'},{id:1003,name:'React'},{id:1004,name:'MongoDB'}, {id:1005,name:'Redux'}, {id:1006,name:'Mongoose'}, {id:1007,name:'CSS'}, {id:1008,name:'Jason Web Token'},{id:1009,name:'JSX'}]
     },
     {
       id: 10002,
       title: 'Galleria Slideshow',
-      description: 'Art gallery slideshow project showcasing advanced layout and JavaScript skills. Implemented a masonry layout, slideshow logic, and lightbox view for an engaging and dynamic user experience.',
-      technologies:[{id:1001,name:'JSX'},{id:1002,name:'CSS'},{id:1003,name:'Javascript'},{id:1004,name:'React'}]
+      description: 'Art gallery slideshow project showcasing advanced CSS layout, Javascript and React skills. Implemented a masonry layout, slideshow logic, and lightbox view for an engaging and dynamic user experience.',
+      technologies:[{id:1001,name:'Javascript'},{id:1002,name:'JSX'},{id:1003,name:'React'},{id:1004,name:'CSS'}]
     },
     {
       id: 10003,
       title: 'Password Generator',
-      description: 'Developed a sophisticated password generator app utilizing HTML, CSS, and JavaScript. Implemented custom form controls and utilized JavaScript logic to generate random passwords. The app dynamically adjusts password strength based on user preferences, providing a secure and customizable solution.',
-      technologies:[{id:1001,name:'JSX'},{id:1002,name:'CSS'},{id:1003,name:'Javascript'},{id:1004,name:'React'}]
+      description: 'Developed a sophisticated password generator app utilizing JSX, CSS, and Javascript. Implemented custom form controls and utilized Javascript logic to generate random passwords. The app dynamically adjusts password strength based on user preferences, providing a secure and customizable solution.',
+      technologies:[{id:1001,name:'Javascript'},{id:1002,name:'JSX'},{id:1003,name:'React'},{id:1004,name:'CSS'}]
     },
     {
       id: 10004,
       title: 'Tip Calculator',
-      description: ' Developed a user-friendly Tip Calculator app using React, JavaScript, and CSS. The app allows users to split bills with ease by calculating tips based on various percentages. Implemented interactive features such as custom tip input and real-time validation to enhance user experience.',
-      technologies:[{id:1001,name:'JSX'},{id:1002,name:'CSS'},{id:1003,name:'Javascript'},{id:1004,name:'React'}]
+      description: ' Developed a user-friendly Tip Calculator app using React, Javascript, and CSS. The app allows users to split bills with ease by calculating tips based on various percentages. Implemented interactive features such as custom tip input and real-time validation to enhance user experience.',
+      technologies:[{id:1001,name:'Javascript'},{id:1002,name:'JSX'},{id:1003,name:'React'},{id:1004,name:'CSS'}]
     }, {
       id: 10005,
       title: 'Job Listings with Filtering',
-      description: 'Developed a dynamic job searching site using React, leveraging JavaScript to implement advanced filtering based on selected categories. Applied expertise in handling JSON data provide seamless job exploration.',
-      technologies:[{id:1001,name:'JSX'},{id:1002,name:'CSS'},{id:1003,name:'Javascript'},{id:1004,name:'React'}]
+      description: 'Developed a dynamic job searching site using React, leveraging Javascript to implement advanced filtering based on selected categories. Applied expertise in handling JSON data provide seamless job exploration.',
+      technologies:[{id:1001,name:'Javascript'},{id:1002,name:'JSX'},{id:1003,name:'React'},{id:1004,name:'CSS'}]
     }
   ]
 
