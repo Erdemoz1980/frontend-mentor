@@ -21,7 +21,7 @@
 --clrLightBg:#f4eae8;
 
 /*Spacing (Guild)*/
---paddingMain:40px 30px;
+--paddingMain:20px;
 --gapMain:60px;
 
 /*Typogaphy*/
@@ -53,6 +53,10 @@ font-weight: bold;
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.5px;
+}
+
+.medium{
+  font-size: 18px;
 }
 
 body{
@@ -94,10 +98,9 @@ text-decoration: none;
 
 /*Main Page*/
 .main-page-wrapper{
-  width: 1440px;
+  max-width: 1440px;
   display: grid;
   grid-template-columns: 2fr 3fr;
-  gap:30px;
   margin: auto;
 }
 
@@ -108,7 +111,9 @@ text-decoration: none;
   padding: var(--paddingMain);
   display: flex;
   flex-direction: column;
-  gap:40px;
+  height: fit-content;
+  width: 400px;
+  gap:10px;
 }
 
 
@@ -136,10 +141,18 @@ text-decoration: none;
 }
 
 /*Skills Section*/
+/*
 .skills-section-content{
   display: grid;
   grid-template-columns: repeat(2,1fr);
+}*/
+
+.competent-skills-container{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  margin-bottom: 20px;
 }
+
 
 .skills-section-content h4{
   margin-bottom: 8px;
@@ -148,7 +161,9 @@ text-decoration: none;
 .skills-menu li{
   margin: 4px 0;
   letter-spacing: 0.75px;
+  line-height: 20px;
 }
+
 
 .sub-menu{
   margin-left: 10px;
@@ -158,6 +173,13 @@ text-decoration: none;
 .experience-page-wrapper{
   padding: var(--paddingMain);
   line-height: 24px;
+  width: 960px;
+}
+
+.experience-page-wrapper p, 
+.experience-page-wrapper ul
+{
+  max-width: 640px;
 }
 
 .experience-section,
@@ -193,7 +215,7 @@ text-decoration: none;
 
 /*Projects Section*/
 .project-detail-wrapper{
- margin-bottom: 24px;
+ margin-bottom: 28px;
 }
 
 .project-desc{
@@ -204,10 +226,25 @@ text-decoration: none;
   max-width: 400px;
   display: grid;
   grid-template-columns: repeat(2,1fr);
+  margin-bottom: 12px;
 }
 
 .technology-title{
   letter-spacing: 0.75px;
+  font-weight: 600;
+}
+
+.links-title{
+  font-size: 16px;
+}
+
+.links-key{
+  font-size: 15px; 
+}
+
+.links-key a{
+  margin-left: 5px;
+  font-size: 16px;
   font-weight: 600;
 }
 

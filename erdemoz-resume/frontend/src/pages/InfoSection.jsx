@@ -43,17 +43,7 @@ const InfoSection = () => {
             <h5>2022-2023</h5>
           </li>
           <li>
-            <h4 className='sub-section-title'>Front End Development Libraries</h4>
-            <p>FreeCodeCamp</p>
-            <h5>2022-2023</h5>
-          </li>
-          <li>
             <h4 className='sub-section-title'>Modern Javascript</h4>
-            <p>Udemy</p>
-            <h5>2020</h5>
-          </li>
-          <li>
-            <h4 className='sub-section-title'>React Front to Back Full Stack Course</h4>
             <p>Udemy</p>
             <h5>2020</h5>
           </li>
@@ -68,7 +58,10 @@ const InfoSection = () => {
       <section className="skills-section">
         <h3 className='section-title'>Skills</h3>
         <div className="skills-section-content">
-          <div className="front-end">
+
+          <section className="competent">
+               <div className="competent-skills-container">
+                <div className="front-end">
     <h4 className='sub-section-title small'>Front End</h4>
     <ul className="menu skills-menu">
       <li>HTML5</li>
@@ -83,21 +76,33 @@ const InfoSection = () => {
             <li>React</li>
             <li>Redux</li>
             <li>React Router</li>
-      <li>NextJS</li>
-      <li>Agile Development</li>
     </ul>
-  </div>
-
-  <div className="back-end">
+            </div>
+            <div className="back-end">
     <h4 className='sub-section-title small'>Back End</h4>
     <ul className="menu skills-menu">
       <li>Express</li>
+      <li>NodeJS</li>
       <li>MongoDB</li>
       <li>Mongoose</li>
       <li>GraphQL</li>
       <li>Jason Web Token</li>
-    </ul>
-  </div>
+                </ul>
+              </div>
+              </div>
+  
+          </section>
+      
+
+ 
+          <div className="basic-level">
+            <h4 className="sub-section-title small">Basic Level</h4>
+            <ul className="menu skills-menu">
+              <li>TypeScript</li>
+              <li>OracleDB</li>
+              <li>NextJS</li>
+            </ul>
+          </div>
         </div>
   
 </section>

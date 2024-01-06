@@ -1,6 +1,6 @@
 
 
-const ProjectDetail = ({ title, description, technologies }) => {
+const ProjectDetail = ({ title, description, technologies, links }) => {
   
   const highlightedDescription = (text, keywords) => {
     
@@ -26,6 +26,11 @@ const ProjectDetail = ({ title, description, technologies }) => {
           ))
         }
       </ul>
+      <section className="links">
+        <h3 className="links-title">Links:</h3>
+        <p className='links-key'>Live Demo:<a target="_blank" rel='noreferrer' href={links.liveDemo}>{links.liveDemo}</a></p>
+        <p className='links-key'>Github Repository: <a target="_blank" rel='noreferrer' href={links.github}>{links.github}</a></p>
+      </section>
 
       
     </main>
