@@ -152,8 +152,8 @@ body.mobile-menu-open{
   align-items: center;
 }
 
-.mobile-menu-wrapper-outer {
-  display: none;
+.mobile-menu-overlay {
+ display: none;
 }
 
 .logo-wrapper{
@@ -1768,6 +1768,7 @@ text-align: center;
   
  /*Mobile Navbar & Menu*/
  .mobile-menu-overlay{
+  display: block;
   position: fixed;
   height:1260px;
   width: 100vw;
@@ -1783,6 +1784,7 @@ text-align: center;
  transform: translateX(0%);
  overflow: hidden;
  position: fixed;
+ 
 }
 
  .mobile-menu-wrapper{
