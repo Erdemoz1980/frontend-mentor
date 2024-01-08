@@ -7,8 +7,8 @@ const Hero = ({ handleScroll }) => {
   const [isHovered, setIsHovered] = useState(false);
   
   return (
-    <section className='hero-section'>
-      <div className="hero-image-wrapper">
+    <section className='container hero-section'>
+      <div className="container hero-image-wrapper">
         <img src={ecommerceHero} alt="hero" />
         <div className="hero-image-overlay"></div>
         </div>

@@ -704,8 +704,8 @@ font-family:"Public Sans", sans-serif;
 /*Mobile*/
 @media screen and (max-width:767px){
 .container {
-  max-width: 355px;
-  padding: 0 5px;
+  max-width: 350px;
+  padding: 0;
 }
   
 .nav-mobile-wrapper{
@@ -747,13 +747,18 @@ display: block;
 
   /*Mobile Hero Section*/
   .hero-section {
-    margin-bottom: 50px;
+    margin-bottom: 0px;
   }
 
   .text-box {
     position: static;
-    width: 400px;
+    width: 100%;
     height: auto;
+    padding: 24px 0 32px 0;
+  }
+
+  .hero-section .btn{
+    position: relative;
   }
 
   .text-box h1{
@@ -765,6 +770,10 @@ display: block;
     grid-template-columns: repeat(1, 1fr);
     margin-bottom: var(--marginSectionBottomMobile);
     gap:var(--gapGridMobile);
+  }
+
+  .profile-image-wrapper {
+    max-width:100%;
   }
 
   .about-text-wrapper {

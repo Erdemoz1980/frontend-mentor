@@ -8,7 +8,7 @@ const NavbarFooter = ({ version, activePage }) => {
   return (
   
     <nav className="navbar navbar-footer" >
-        <div className="navbar nav-footer-wrapper">
+        <div className="navbar container nav-footer-wrapper">
           <div className="logo-menu-wrapper">
             <Link to='/'><IconLogo version={version} /></Link>
             <ul className='menu'>

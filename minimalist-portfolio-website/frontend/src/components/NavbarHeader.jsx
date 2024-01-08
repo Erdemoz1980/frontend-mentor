@@ -8,8 +8,7 @@ const NavbarHeader = ({ version, activePage }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="container">
-      <nav className={`navbar ${version}`} >
+      <nav className={`container navbar ${version}`} >
         <div className="logo">
           <Link to='/'><IconLogo version={version} /></Link>
         </div>
@@ -33,7 +32,7 @@ const NavbarHeader = ({ version, activePage }) => {
         </ul>
      
       </nav>
-    </div>
+   
   )
 };
 
