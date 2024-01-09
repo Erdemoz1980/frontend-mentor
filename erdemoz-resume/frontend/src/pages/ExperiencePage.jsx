@@ -62,7 +62,7 @@ const ExperiencePage = () => {
       <header className="experience-header summary">
  
         <h2 className="section-title">Summary</h2>
-        <p>I am a React Front End developer actively seeking a challenging role in a vibrant company. With a strong foundation in writing accessible HTML, implementing modern CSS practices, and writing clean JavaScript, I bring energy, creativity, and a passion for delivering exceptional user experiences. Currently based in Toronto, Canada, I am open to both local and remote opportunities, drawing from my experience in thriving remote team environments. Beyond coding, you'll find me outdoors, whether I'm playing tennis, cycling, or running. My goal is to establish myself as a proficient Front End Developer, with an envisioned trajectory towards becoming a full-stack developer, where my growing appreciation for backend development can complement my expertise.</p>
+        <p>I am a React Front End developer actively seeking a challenging role in a vibrant company. With a strong foundation in writing accessible HTML, implementing modern CSS practices, and writing clean JavaScript, I bring energy, creativity, and a passion for delivering exceptional user interfaces. Currently based in Toronto, Canada, I am open to both local and remote opportunities, drawing from my experience in thriving remote team environments. Beyond coding, you'll find me outdoors, whether I'm playing tennis, cycling, or running. My goal is to establish myself as a proficient Front End Developer, with an envisioned trajectory towards becoming a full-stack developer, where my growing appreciation for backend development can complement my expertise.</p>
       </header>
 
       

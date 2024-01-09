@@ -77,6 +77,50 @@ text-decoration: none;
   padding:55px 15px 25px 15px;
 }
 
+/*Cover Letter*/
+.cover-letter-wrapper{
+ height: 100vh;
+ padding: 50px 40px 0 40px ; 
+}
+
+.cover-letter-header a
+{
+  color:blue;
+}
+
+.cover-letter-salutation {
+  margin-bottom: 16px;
+}
+.cover-letter-signature {
+  margin-top: 16px;
+}
+
+
+.cover-letter-header{
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap:20px;
+  line-height:23px;
+}
+
+.cover-letter-date {
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.cover-letter-text{
+  line-height:26px;
+  text-align: justify;
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+}
+
+
+
+
+/*Resume*/
 
 /*Header*/
 .resume-header .title, .title-skill{

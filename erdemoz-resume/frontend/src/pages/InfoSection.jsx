@@ -99,7 +99,7 @@ const InfoSection = () => {
             <h4 className="sub-section-title small">Basic Level</h4>
             <ul className="menu skills-menu">
               <li>TypeScript</li>
-              <li>OracleDB</li>
+              <li>MySQL</li>
               <li>NextJS</li>
             </ul>
           </div>

@@ -1,13 +1,14 @@
-import InfoSection from "./InfoSection"
-import ExperiencePage from "./ExperiencePage"
+import InfoSection from "./InfoSection";
+import ExperiencePage from "./ExperiencePage";
+import CoverLetter from '../components/CoverLetter';
 
 const MainPage = () => {
-  return (
-    <main className="container main-page-wrapper">
+
+  return (  
+    <section className="container main-page-wrapper">
       <InfoSection />
       <ExperiencePage />
-     
-    </main>
+      </section>
   )
 }
 
