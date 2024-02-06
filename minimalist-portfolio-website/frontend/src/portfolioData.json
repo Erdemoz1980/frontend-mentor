@@ -1,15 +1,15 @@
 [
   {
     "id":10001,
-    "title":"Ecommerce Site",
-    "description":"In this ambitious project, I developed a comprehensive full stack E-commerce site from scratch. With focus on user experience, I integrated essential features such as user registration, login, and profile editing. To enhance product discoverability, I implemented dynamic search, as well as filtering using clickable tags, enabling users to find what they love effortlessly. Utilizing my expertise in CSS, React, Redux Toolkit, ExpressJS and MongoDb I developed a robust and responsive platform that embodies the essence of modern E-commerce. This project epitomizes my ability to deliver sophisticated full stack solutions, blending my front-end skills with back-end functionality.",
+    "title":"Full Stack MERN E-Commerce Showcase",
+    "description":"In this ambitious project, I developed a comprehensive full stack E-commerce site from scratch. With focus on user experience, I integrated essential features such as user registration, login, and profile editing. To enhance product discoverability, I implemented dynamic search, as well as filtering using clickable tags, enabling users to find what they love effortlessly. Utilizing my expertise in CSS, REACT, REACT-ROUTER, REDUX, EXPRESS and MONGODB I developed a robust and responsive platform that embodies the essence of modern E-commerce. Throughout the development process, I adhered to the Model-View-Controller (MVC) pattern, ensuring a well-organized and scalable codebase. This project epitomizes my ability to deliver sophisticated full stack solutions, blending my front-end skills with back-end functionality.",
     "image":"/images/portfolio/desktop/image-portfolio-ecommerce.jpg",
     "url":"https://ecommerce.erdemoz.io",
     "details":{
       "imgDeskHero":"/images/detail/desktop/image-ecommerce-hero.jpg",
       "imgTabletHero":"/images/detail/tablet/image-manage-hero.jpg",
       "imgMobileHero":"/images/detail/mobile/image-manage-hero.jpg",
-      "projectBackground":"This project was a front-end challenge from Frontend Mentor.It's a platform that enables you to practice building websites to a design and project brief. Each challenge includes mobile and desktop designs to show how the website should look at different screen sizes. Creating these projects has helped me refine my workflow and solve real-world coding problems. I've learned something new with each project, helping me to improve and adopt my style.",
+      "projectBackground":"Originating from a purchased E-commerce design, the project organically evolved into a robust Full Stack MERN E-commerce platform. Expanding its scope, I incorporated a dynamic Home page with enhanced product displays and an innovative search bar. Overcoming challenges, I optimized the search functionality for UX, utilizing React's reactivity and implementing a 'debounce' function for seamless, real-time searches. Addressing product variations, I integrated color variations seamlessly within product cards, allowing users to interactively select colors without page refresh. Navigating MongoDB intricacies, I structured data to dynamically recognize color variations and improve UX. In the Shopping Cart, I confronted challenges to distinguish identical products with varying color and size, ensuring nuanced add and delete functionalities aligned with user expectations. The Payment Page showcases real-time credit card validation and an integrated PayPal debit/credit button. Utilizing sophisticated JS regex, I implemented dynamic format checks for credit card, name, expiry date, and security fields. As a significant undertaking I included an Order History page with dynamic sorting based on user selections. Overcoming the challenge of scalability, I leveraged Object-Oriented features of JS, adopting a function for flexible and scalable sorting. The use of modern React features, particularly the useEffect hook, streamlined state changes and ensured predictable, user-friendly re-sorting on the Order History page.",
       "keywords":[{"id":101,"name":"Frontend Development"}, {"id":102,"name":"Backend Development"}, {"id":103,"name":"Data Structuring"},{"id":104,"name":"Design Enhancements"},{"id":105,"name":"UX Optimization"}],
       "techStack":[{"id":101,"name":"CSS"}, {"id":102,"name":"ReactJS"}, {"id":103,"name":"Redux Toolkit"},{"id":104,"name":"ExpressJS"},{"id":105,"name":"NodeJS"},{"id":106,"name":"MongoDb"}],
       "staticPreviews":[
@@ -21,14 +21,14 @@
   {
     "id":10002,
     "title":"Galleria Slideshow",
-    "description":"This project required me to build a fully responsive landing page to the designs provided. I used HTML5,along with CSS Grid and JavaScript for the areas that required interactivity, such as the features section",
+    "description":"Within Galleria Slideshow, I tackled the intricate challenge of implementing a 'masonry layout' using CSS. Employing contemporary REACT methodologies, including Functional Components, Hooks, and REACT-ROUTER, the project adopts a pragmatic and efficient strategy in crafting a dynamic image gallery",
     "image":"/images/portfolio/desktop/image-portfolio-galleria.jpg",
     "url":"https://galleria.erdemoz.io",
     "details":{
       "imgDeskHero":"/images/detail/desktop/image-galleria-hero.jpg",
       "imgTabletHero":"/images/detail/tablet/image-bookmark-hero.jpg",
       "imgMobileHero":"/images/detail/mobile/image-bookmark-hero.jpg",
-      "projectBackground":"This project was a front-end challenge from Frontend Mentor.It's a platform that enables you to practice building websites to a design and project brief. Each challenge includes mobile and desktop designs to show how the website should look at different screen sizes. Creating these projects has helped me refine my workflow and solve real-world coding problems. I've learned something new with each project, helping me to improve and adopt my style.",
+      "projectBackground":"This project originates from a design that caught my attention,  particularly due to the intriguing masonry layout, which presented a compelling challenge to my CSS proficiency. The main logic of the App is the Start/Stop function. It toggles the slideshow state, manually triggering the first slide if the slideshow is not running. Within the useEffect hook, a dynamic interval is set based on the slideshow state. This interval orchestrates the seamless transition between paintings, ensuring the slideshow picks up from the current image index, providing a user-centric experience. Additionally, a cleanup function handles the interval clearance to maintain efficiency. ",
       "keywords":[{"id":101,"name":"Frontend Development"},{"id":102,"name":"Design Development"}],
       "techStack":[{"id":101,"name":"CSS"}, {"id":102,"name":"ReactJS"}, {"id":103,"name":"JS"}],
       "staticPreviews":[

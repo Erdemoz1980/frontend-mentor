@@ -127,8 +127,12 @@ a{
   text-transform: uppercase;
 }
 
-/*Buttons*/
+.italic{
+font-style: italic;
+font-weight: 300;
+}
 
+/*Buttons*/
 button:disabled{
   cursor:default;
 }
