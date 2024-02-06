@@ -28,7 +28,7 @@
       "imgDeskHero":"/images/detail/desktop/image-galleria-hero.jpg",
       "imgTabletHero":"/images/detail/tablet/image-bookmark-hero.jpg",
       "imgMobileHero":"/images/detail/mobile/image-bookmark-hero.jpg",
-      "projectBackground":"This project originates from a design that caught my attention,  particularly due to the intriguing masonry layout, which presented a compelling challenge to my CSS proficiency. The main logic of the App is the Start/Stop function. It toggles the slideshow state, manually triggering the first slide if the slideshow is not running. Within the useEffect hook, a dynamic interval is set based on the slideshow state. This interval orchestrates the seamless transition between paintings, ensuring the slideshow picks up from the current image index, providing a user-centric experience. Additionally, a cleanup function handles the interval clearance to maintain efficiency. ",
+      "projectBackground":"This project originates from a design that caught my attention,  particularly due to the intriguing masonry layout, which presented a compelling challenge to my CSS proficiency. The main logic of the app is the Start/Stop function. It toggles the slideshow state, manually triggering the first slide if the slideshow is not running. Within the useEffect hook, a dynamic interval is set based on the slideshow state. This interval orchestrates the seamless transition between paintings, ensuring the slideshow picks up from the current image index, providing a user-centric experience. Additionally, a cleanup function handles the interval clearance to maintain efficiency. ",
       "keywords":[{"id":101,"name":"Frontend Development"},{"id":102,"name":"Design Development"}],
       "techStack":[{"id":101,"name":"CSS"}, {"id":102,"name":"ReactJS"}, {"id":103,"name":"JS"}],
       "staticPreviews":[
@@ -40,16 +40,16 @@
   {
     "id":10003,
     "title":"Password Generator",
-    "description":"This was a small project which mostly consisted of HTML and CSS. I built a fully-responsive landing page. The only JavaScript this project required was to enable the toggling of the mobile navigation",
+    "description":"In this compact project, I engineered a Password Generator app that simplifies the creation of robust and secure passwords. Tailoring the user experience, I crafted custom form controls and utilizing JavaScript to dynamically generate random and complex passwords. This minimalist tool ensures a seamless process for users seeking strong and unique password solutions.",
     "image":"/images/portfolio/desktop/image-portfolio-password-gen.jpg",
     "url":"https://generator.erdemoz.io",
     "details":{
       "imgDeskHero":"/images/detail/desktop/image-password-gen-hero.jpg",
       "imgTabletHero":"/images/detail/tablet/image-insure-hero.jpg",
       "imgMobileHero":"/images/detail/mobile/image-insure-hero.jpg",
-      "projectBackground":"This project was a front-end challenge from Frontend Mentor.It's a platform that enables you to practice building websites to a design and project brief. Each challenge includes mobile and desktop designs to show how the website should look at different screen sizes. Creating these projects has helped me refine my workflow and solve real-world coding problems. I've learned something new with each project, helping me to improve and adopt my style.",
+      "projectBackground":"The Password Generator project emerged from a visually striking and minimalist design, incorporating custom sliders and checkboxes that posed intricate CSS challenges. One notable feat was dynamically changing the color of the slider path to visually represent the user's selection, enhancing UX through a dynamically calculated CSS variable. Addressing diverse character options, my JavaScript skills were tested to dynamically generate uppercase letters, lowercase letters, numbers, and symbols. In response to user experience considerations, a shuffling algorithm was implemented to randomize the order of the generated password, promoting unpredictability. The project also introduced a visually intuitive strength gauge, dynamically adjusting bars and colors to depict password strength based on selected parameters. An additional feature ensured the slider automatically adapted to a corresponding minimum character length when the user selected more features than initially set. The Password Generator project embraced the challenge of enabling a 'copy to clipboard' functionality, a crucial addition for user convenience. Once copied, the password dynamically highlights, providing clear feedback and enhancing the overall user experience. This feature seamlessly integrates into the project's commitment to simplicity, functionality, and user-centric design.",
       "keywords":[{"id":101,"name":"Interaction Design"},{"id":102,"name":"Frontend Development"}],
-      "techStack":[{"id":101,"name":"CSS"}, {"id":102,"name":"JS"}, {"id":103,"name":"ReactJS"}],
+      "techStack":[{"id":101,"name":"CSS"},{"id":102,"name":"Dynamic CSS Variables"}, {"id":103,"name":"JS"}, {"id":104,"name":"ReactJS"}, {"id":105,"name":"Regex"}],
       "staticPreviews":[
         {"id":101,"image":"/images/detail/desktop/image-password-gen-preview-1.jpg"},
         {"id":102,"image":"/images/detail/desktop/image-password-gen-preview-2.jpg"}
