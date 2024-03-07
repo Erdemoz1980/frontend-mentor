@@ -11,7 +11,7 @@
       "imgMobileHero":"/images/detail/mobile/image-manage-hero.jpg",
       "projectBackground":"Originating from a purchased E-commerce design, the project organically evolved into a robust Full Stack MERN E-commerce platform. Expanding its scope, I incorporated a dynamic Home page with enhanced product displays and an innovative search bar. Overcoming challenges, I optimized the search functionality for UX, utilizing React's reactivity and implementing a 'debounce' function for seamless, real-time searches. Addressing product variations, I integrated color variations seamlessly within product cards, allowing users to interactively select colors without page refresh. Navigating MongoDB intricacies, I structured data to dynamically recognize color variations and improve UX. In the Shopping Cart, I confronted challenges to distinguish identical products with varying color and size, ensuring nuanced add and delete functionalities aligned with user expectations. The Payment Page showcases real-time credit card validation and an integrated PayPal debit/credit button. Utilizing sophisticated JS regex, I implemented dynamic format checks for credit card, name, expiry date, and security fields. As a significant undertaking I included an Order History page with dynamic sorting based on user selections. Overcoming the challenge of scalability, I leveraged Object-Oriented features of JS, adopting a function for flexible and scalable sorting. The use of modern React features, particularly the useEffect hook, streamlined state changes and ensured predictable, user-friendly re-sorting on the Order History page.",
       "keywords":[{"id":101,"name":"Frontend Development"}, {"id":102,"name":"Backend Development"}, {"id":103,"name":"Data Structuring"},{"id":104,"name":"Design Enhancements"},{"id":105,"name":"UX Optimization"}],
-      "techStack":[{"id":101,"name":"CSS"}, {"id":102,"name":"ReactJS"}, {"id":103,"name":"Redux Toolkit"},{"id":104,"name":"ExpressJS"},{"id":105,"name":"NodeJS"},{"id":106,"name":"MongoDb"}],
+      "techStack":[{"id":102,"name":"ReactJS"},{"id":101,"name":"CSS"}, {"id":103,"name":"Redux Toolkit"},{"id":104,"name":"ExpressJS"},{"id":105,"name":"NodeJS"},{"id":106,"name":"MongoDB"},{"id":107,"name":"Mongoose"}],
       "staticPreviews":[
         {"id":101,"image":"/images/detail/desktop/image-ecommerce-preview-1.jpg"},
         {"id":102,"image":"/images/detail/desktop/image-ecommerce-preview-2.jpg"}
@@ -20,6 +20,25 @@
   },
   {
     "id":10002,
+    "title":"Full Stack React-TypeScript-Graphql Job Search App",
+    "description":"The Full Stack React TypeScript GraphQL Job Search App features a sleek and modern design, powered by Express-GraphQL, Mongoose and MongoDB in the backend and Apollo Client in the frontend. Offering a clean grid layout for job listings, advanced search functionality (keyword, location, full time), and a theme switcher for personalized aesthetics, this application provides a focused and user-friendly job search experience. Developed entirely in TypeScript, it showcases precision in design and functionality.",
+    "image":"/images/portfolio/desktop/image-portfolio-devjobs-web-app.jpg",
+    "url":"https://devjobs.erdemoz.io",
+    "details":{
+      "imgDeskHero":"/images/detail/desktop/image-devjobs-web-app-hero-dark.jpg",
+      "imgTabletHero":"/images/detail/tablet/image-bookmark-hero.jpg",
+      "imgMobileHero":"/images/detail/mobile/image-bookmark-hero.jpg",
+      "projectBackground":"The Job Search App is built upon a modern, minimalist design that I selected for its sleek aesthetics and intuitive functionality. The app's foundation rests on the robust pairing of Express-GraphQL, Mongoose and MongoDB in the backend and Apollo Client in the frontend. Leveraging the design with a simple grid layout for job items and an advanced search functionality, the project seamlessly integrates full-stack capabilities. The design's inclusion of a theme switcher further enhances the user experience. Noteworthy features include a detailed view of job listings accessible through React Router, showcasing a nuanced understanding of when to utilize GraphQL's single endpoint and React Router for optimal layout transitions. The entire frontend is meticulously crafted in TypeScript, delving into advanced concepts like 'Pick,' detailed interfaces, and generics for flexible type handling. The backend is fortified with advanced Mongoose methods, utilizing Object Oriented Programming to dynamically generate queries for multiple fields. Leveraging model.countDocuments, model.limit, and model.sort, the app ensures efficient and precise retrieval of nested fields in the job data, enhancing the overall search functionality.  Throughout development, the project provided invaluable insights into GraphQL intricacies, Apollo Client nuances (including working with refetch and fetchMore methods), TypeScript's finer points, and efficient backend deployment strategies. ",
+      "keywords":[{"id":101,"name":"Frontend Development"},{"id":102,"name":"Backend Development"},{"id":103,"name":"Database Development"}],
+      "techStack":[{"id":101,"name":"Typescript"}, {"id":102,"name":"React"},{"id":1002,"name":"React Router"}, {"id":103,"name":"CSS"},{"id":104,"name":"Mongoose"}, {"id":105,"name":"MongoDB"}, {"id":106,"name":"Express"},{"id":107,"name":"GraphQL"}, {"id":108,"name":"Apollo Client"}, {"id":109,"name":"Context API"} ],
+      "staticPreviews":[
+        {"id":101,"image":"/images/detail/desktop/image-devjobs-web-app-preview-1-light.jpg"},
+        {"id":102,"image":"/images/detail/mobile/image-devjobs-web-app-preview-2-light.jpg"}
+      ]
+    }
+  },
+  {
+    "id":10003,
     "title":"Galleria Slideshow",
     "description":"Within Galleria Slideshow, I tackled the intricate challenge of implementing a 'masonry layout' using CSS. Employing contemporary REACT methodologies, including Functional Components, Hooks, and REACT-ROUTER, the project adopts a pragmatic and efficient strategy in crafting a dynamic image gallery",
     "image":"/images/portfolio/desktop/image-portfolio-galleria.jpg",
@@ -38,7 +57,7 @@
     }
   },
   {
-    "id":10003,
+    "id":10004,
     "title":"Password Generator",
     "description":"In this compact project, I engineered a Password Generator app that simplifies the creation of robust and secure passwords. Tailoring the user experience, I crafted custom form controls and utilizing JavaScript to dynamically generate random and complex passwords. This minimalist tool ensures a seamless process for users seeking strong and unique password solutions.",
     "image":"/images/portfolio/desktop/image-portfolio-password-gen.jpg",
@@ -57,16 +76,16 @@
     }
   },
   {
-      "id":10004,
+      "id":10005,
       "title":"Tip Calculator",
-      "description":"This project was built in pure HTML and CSS. I had mobile and desktop designs to work to and built it so that it was fully-responsive. I took a mobile-first approach and used modern CSS like Flexbox and Grid for layout purposes.",
+      "description":"Designed with a clean, modern aesthetic, the Tip Calculator showcases my proficiency in Javascript while emphasizing user experience. Users effortlessly input bill amounts, choose from preset tip values or opt for a custom percentage. The intuitive layout includes a convenient field for splitting bills among a specified number of people. On the right side, tip amounts and totals are displayed prominently in a larger font, ensuring a seamless user experience. This project not only showcases my technical skills but reflects my commitment to delivering functional and user-friendly applications.",
       "image":"/images/portfolio/desktop/image-portfolio-tip-calculator.jpg",
       "url":"https://tipcalculator.erdemoz.io/",
       "details":{
         "imgDeskHero":"/images/detail/desktop/image-tip-calculator-hero.jpg",
         "imgTabletHero":"/images/detail/tablet/image-fylo-hero.jpg",
         "imgMobileHero":"/images/detail/mobile/image-fylo-hero.jpg",
-        "projectBackground":"This project was a front-end challenge from Frontend Mentor.It's a platform that enables you to practice building websites to a design and project brief. Each challenge includes mobile and desktop designs to show how the website should look at different screen sizes. Creating these projects has helped me refine my workflow and solve real-world coding problems. I've learned something new with each project, helping me to improve and adopt my style.",
+        "projectBackground":"In developing this app, I blended my skills in JavaScript and React to create a seamless user interface that dynamically calculates values. Utilizing React's useState hook at the component level ensures real-time updates and efficient state management, showcasing the versatility of React in crafting a polished user experience. The app dynamically handles user inputs for bill amounts, tip percentages, and the number of people, demonstrating my proficiency in client-side scripting. To enhance the user experience, I integrated a clean and modern design, prioritizing clarity in the presentation of results. The calculated tip amounts and total bills are prominently displayed, ensuring easy readability. This not only reflects my attention to UI/UX but also highlights my commitment to delivering visually appealing and user-friendly applications. Moreover, I incorporated error-handling mechanisms to provide a smooth experience even in unexpected scenarios.",
         "keywords":[{"id":101,"name":"Frontend Development"},{"id":102,"name":"Design Development"}],
       "techStack":[{"id":101,"name":"CSS"}, {"id":102,"name":"JS"}, {"id":103,"name":"ReactJS"}],
         "staticPreviews":[

@@ -234,7 +234,8 @@
   margin: auto;
   display: block;
   width:100%;
-  object-fit: cover;
+  object-fit:cover;
+  object-position: top;
 }
 
 .portfolio-details-wrapper{
@@ -269,7 +270,6 @@
 .techstack-wrapper{
   margin-bottom: var(--marginSectionElementBottomDesktop);
 }
-
 
 .project-background h3{
   margin-bottom: var(--marginSectionTitleBottomDesktop);
